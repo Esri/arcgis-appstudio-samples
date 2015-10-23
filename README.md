@@ -1,7 +1,7 @@
 
 # arcgis-appstudio-samples
 
-Collection of sample apps organized into its own folders for you to use and modify with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
+Collection of sample apps organized into its own folders to be used with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
 
 ## Instructions to run in AppStudio Desktop
 
