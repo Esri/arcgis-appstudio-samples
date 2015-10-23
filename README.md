@@ -6,7 +6,7 @@ Collection of sample apps organized into its own folders for you to use and modi
 ## Instructions to run this sample in AppStudio Desktop
 
 1. Download the `.zip` file
-2. Unzip into a folder and copy the appropriate sample folder you are interested into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
+2. Unzip and copy the appropriate sample folder you are interested into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
 3. The new app will now appear in the AppStudio Desktop. Run the application or open it in the bundled Qt-Creator IDE to look at the code and modify.
 
 ## Resources
