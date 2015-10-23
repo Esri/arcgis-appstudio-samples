@@ -1,6 +1,4 @@
 
-# arcgis-appstudio-samples-basemappicker
-
 ## Creating a simple basemap picker for your apps in AppStudio using QML and JavaScript
 
 A basemap is an essential mapping component for providing relativity and context to spatial data displayed on a web map.  Providing users the option to select from a variety of basemaps can offer a more refined finish and options to end users.  The short video below demonstrates a simple basemap picker written in QML and JavaScript with AppStudio for ArcGIS.
@@ -10,7 +8,7 @@ https://youtu.be/sRRTOBOEkyg
 ## Instructions to run this sample in AppStudio Desktop
 
 1. Download the `.zip` file
-2. Unzip into a folder and copy this folder into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
+2. Unzip and copy this folder into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
 3. The new app will now appear in the AppStudio Desktop. Run the application or open it in the bundled Qt-Creator IDE to look at the code and modify.
 
 ## Resources
