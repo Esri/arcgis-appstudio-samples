@@ -5,6 +5,8 @@ A basemap is an essential mapping component for providing relativity and context
 
 https://youtu.be/sRRTOBOEkyg
 
+![](https://cloud.githubusercontent.com/assets/214337/10735793/f68199ec-7bc6-11e5-9b43-34ff999ce789.JPG)
+
 ## Instructions to run this sample in AppStudio Desktop
 
 1. Download the `.zip` file
