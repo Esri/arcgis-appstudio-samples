@@ -3,9 +3,9 @@
 
 A basemap is an essential mapping component for providing relativity and context to spatial data displayed on a web map.  Providing users the option to select from a variety of basemaps can offer a more refined finish and options to end users.  The short video below demonstrates a simple basemap picker written in QML and JavaScript with AppStudio for ArcGIS.
 
-https://youtu.be/sRRTOBOEkyg
+![](https://j.gifs.com/v1B82o.gif)
 
-[![Alt Watch Demo on Youtube](https://cloud.githubusercontent.com/assets/214337/10735793/f68199ec-7bc6-11e5-9b43-34ff999ce789.JPG)](https://youtu.be/sRRTOBOEkyg)
+Watch: https://youtu.be/sRRTOBOEkyg
 
 ## Instructions to run this sample in AppStudio Desktop
 
