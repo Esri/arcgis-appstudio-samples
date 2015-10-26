@@ -16,7 +16,7 @@ Watch: https://youtu.be/sRRTOBOEkyg
 ## Resources
 
 * [AppStudio for ArcGIS Website](https://appstudio.arcgis.com/)
-* [AppStudio for ArcGIS Documentation](https://appstudio.arcgis.com/)
+* [AppStudio for ArcGIS Developer Documentation](http://doc.arcgis.com/en/appstudio/extend-apps/useqtcreatorcreateapp.htm)
 * [AppStudio for ArcGIS Geonet Forums](https://geonet.esri.com/groups/appstudio/)
 * [AppStudio for ArcGIS Video Collection](http://video.arcgis.com/series/232/appstudio-for-arcgis)
 * [Qt and QML](http://www.qt.io/)
