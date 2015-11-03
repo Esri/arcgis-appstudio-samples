@@ -1,0 +1,51 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1433823830000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Hello World based on the ArcGIS Runtime for QML API</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "listed": false,
+    "modified": 1433823993000,
+    "name": null,
+    "numComments": 0,
+    "numRatings": 0,
+    "numViews": 215,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": null,
+    "ownerFolder": null,
+    "properties": null,
+    "screenshots": [
+    ],
+    "size": 341842,
+    "snippet": "Hello World using the Runtime for QML API",
+    "spatialReference": null,
+    "tags": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "thumbnailUrl": "https://www.arcgis.com/sharing/rest/content/items/7d6074868e964686b75c1f3c902fbcfd/info/thumbnail/thumbnail.png",
+    "title": "FeatureFinder",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

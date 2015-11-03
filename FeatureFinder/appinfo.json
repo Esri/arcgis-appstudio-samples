@@ -1,0 +1,18 @@
+{
+    "deployment": {
+        "ios": {
+        }
+    },
+    "mainFile": "FeatureFinder_Sample.qml",
+    "projectFile": "FeatureFinder_Sample.qmlproject",
+    "properties": {
+        "basemapServiceUrl": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+        "titleBackgroundColor": "#00b2ff",
+        "titleTextColor": "#fefdfd"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 2
+    }
+}
