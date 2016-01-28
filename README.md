@@ -3,6 +3,8 @@
 
 Collection of sample apps organized into its own folders to be used with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
 
+_Please note that samples provided here is "as-is" and is not supported by Esri's official tech support channels. If you find any issues either submit a issue in the repo or even better fix it and submit a pull request_
+
 ## Instructions to run in AppStudio Desktop
 
 1. Download the `.zip` file
