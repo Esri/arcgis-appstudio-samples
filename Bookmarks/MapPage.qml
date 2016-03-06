@@ -12,6 +12,8 @@ import ArcGIS.AppFramework.Runtime.Controls 1.0
 import "components"
 
 Item {
+    width: parent.width
+    height:parent.height
 
     Rectangle {
         id: titleRect
@@ -20,6 +22,7 @@ Item {
             right: parent.right
             top: parent.top
         }
+        width: parent.width
         height: 60*app.scaleFactor
         color: app.themeColor
         MouseArea {
@@ -57,7 +60,7 @@ Item {
                 id: imgBookmark
                 width: 35*app.scaleFactor
                 height: 45*app.scaleFactor
-                source: "assets/images/Bookmark.png"
+                source: "assets/images/bookmark.png"
                 anchors.centerIn: parent
             }
 
@@ -76,6 +79,10 @@ Item {
 
     Envelope {
         id: envelope
+        xMin:  -15764806.769681487
+        yMin:  -2616479.6555558927
+        xMax:  -5746053.30452824
+        yMax:  11632414.161550947
     }
 
     Map {
@@ -89,6 +96,7 @@ Item {
         wrapAroundEnabled: true
         rotationByPinchingEnabled: true
         zoomByPinchingEnabled: true
+        extent: envelope
 
         positionDisplay {
             positionSource: PositionSource {
@@ -119,6 +127,8 @@ Item {
 
     BookmarksManager {
         id: bookmarksManager
+        width: parent.width
+        height: parent.height
         bookmarksDialogHeaderColor: app.themeColor
         fontName: app.fontSourceSansProReg.name
 

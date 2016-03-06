@@ -3,7 +3,7 @@
         "ios": {
         }
     },
-    "mainFile": "FeatureFinder_Sample.qml",
+    "mainFile": "Main.qml",
     "projectFile": "FeatureFinder_Sample.qmlproject",
     "properties": {
         "basemapServiceUrl": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",

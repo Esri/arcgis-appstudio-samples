@@ -10,8 +10,8 @@ import ArcGIS.AppFramework 1.0
 
 App {
     id: app
-    width: 640
-    height: 480
+    width: 400
+    height: 650
 
     // Scale factor
     property double scaleFactor : AppFramework.displayScaleFactor

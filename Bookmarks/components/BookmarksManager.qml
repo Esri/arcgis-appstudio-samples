@@ -16,7 +16,13 @@ Item {
     property string databaseName: "BookmarksComponent"
     property string tableName: "bookmarks"
     property color bookmarksDialogHeaderColor: "blue"
-    property color bookmarkNameColor: "black"
+    property color bookmarksDialogBackgroundColor: "white"
+    property color bookmarksDialogBorderColor: "gray"
+    property color bookmarksSeparatorColor: "lightgray"
+    property color bookmarksTextColor: "white"
+    property color bookmarksNameTextColor: "black"
+    property color bookMarksOptionsBackgroundColor: bookmarksDialogBackgroundColor
+    property color bookmarksOptionsBorderColor: bookmarksDialogBorderColor
     property string fontName: ""
     signal bookmarkClicked(var jsonBookmarkExtent)
     signal closeSelectBookmarkDialog()
@@ -46,7 +52,7 @@ Item {
 
         function initalizeDatabase(dataBaseName) {
             db = LocalStorage.openDatabaseSync(dataBaseName, "0.1", "SQLite database", 100000);
-            console.log("Database ", databaseName , " is Ready!");
+            //console.log("Database ", databaseName , " is Ready!");
         }
 
         function createTable(tableName) {
@@ -138,13 +144,12 @@ Item {
 
     Rectangle {
         id: rectGetBookmark
-        width: Math.min(350*scaleFactor, 0.9*parent.width)
-        height: Math.min(350*scaleFactor, 0.8*parent.height)
-        color: "white"
+        width: parent.width
+        height: parent.height
+        color: bookmarksDialogBackgroundColor
         anchors.centerIn: parent
         border.width: 1*scaleFactor
-        border.color: "gray"
-        clip: true
+        border.color: bookmarksDialogBorderColor
 
         MouseArea {
             anchors.fill: parent
@@ -156,13 +161,13 @@ Item {
         Rectangle {
             id: rectGetBookmarkHeader
             width: parent.width
-            height: 50*scaleFactor
+            height: 60*scaleFactor
             color: bookmarksDialogHeaderColor
             Text {
                 id: txtGetBookMarkHeader
-                color: "white"
+                color: bookmarksTextColor
                 text: qsTr("Bookmarks")
-                font.pointSize: 16*scaleFactor
+                font.pointSize: 22*scaleFactor
                 font.family: fontName
                 style: Text.Raised
                 anchors.centerIn: parent
@@ -182,9 +187,9 @@ Item {
 
                 Text {
                     id: txtSelect
-                    color: "white"
+                    color: bookmarksTextColor
                     text: select === false ? "Edit" : "Cancel"
-                    font.pointSize: 13*scaleFactor
+                    font.pointSize: 18*scaleFactor
                     font.family: fontName
                     anchors.centerIn: parent
                 }
@@ -212,9 +217,9 @@ Item {
                 }
                 Text {
                     id: txtAdd
-                    color: "white"
+                    color: bookmarksTextColor
                     text: qsTr("Add")
-                    font.pointSize: 13*scaleFactor
+                    font.pointSize: 18*scaleFactor
                     font.family: fontName
                     anchors.centerIn: parent
                 }
@@ -263,6 +268,9 @@ Item {
 
                         // Ensure Add Bookmark dialog is closed
                         rectAddBookmark.visible = false
+
+                        // Disable focus on add bookmark text field
+                        txtAddBookmark.focus = false
                     }
                 }
             }
@@ -289,14 +297,14 @@ Item {
             Rectangle {
                 id: rectBookmarkComponent
                 width: listBookmarks.width
-                height: Math.max(35*app.scaleFactor, (txtName.implicitHeight + (5*scaleFactor)))
+                height: Math.max(45*app.scaleFactor, (txtName.implicitHeight + (5*scaleFactor)))
 
                 Text {
                     id: txtName
                     width: select ? parent.width - (35*scaleFactor) : parent.width - (5*scaleFactor)
                     text: name
-                    color: "black"
-                    font.pointSize: 12*scaleFactor
+                    color: bookmarksNameTextColor
+                    font.pointSize: 16*scaleFactor
                     font.family: fontName
                     anchors.verticalCenter: parent.verticalCenter
                     wrapMode: text.indexOf(" ") > -1 ? Text.WordWrap : Text.WrapAnywhere
@@ -342,7 +350,7 @@ Item {
                 Rectangle {
                     width: rectGetBookmark.width
                     height: 1*scaleFactor
-                    color: "lightgray"
+                    color: bookmarksSeparatorColor
                 }
             }
         }
@@ -353,9 +361,9 @@ Item {
             id: rectBookmarkOptions
             width: parent.width
             height: 45*scaleFactor
-            color: "white"
+            color: bookMarksOptionsBackgroundColor
             border.width: 1*scaleFactor
-            border.color: "gray"
+            border.color: bookmarksOptionsBorderColor
             opacity: numSelected > 0 ? 1 : 0.5
             anchors {
                 top: listBookmarks.bottom
@@ -410,22 +418,33 @@ Item {
         Rectangle {
             id: rectAddBookmark
             width: 250*scaleFactor
-            height: 100*scaleFactor
+            height: 130*scaleFactor
             color: "white"
-            anchors.centerIn: parent
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top
+                topMargin: 120*scaleFactor
+            }
+
             border.width: 1*scaleFactor
             border.color: "gray"
             radius: 4*scaleFactor
             focus: true
             visible: false
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    mouse.accepted = false
+                }
+            }
 
             Text {
                 id: txtAddBookmarkHeader
                 width: parent.width
-                height: 30*scaleFactor
+                height: 35*scaleFactor
                 text: qsTr("Add Bookmark")
                 color: "black"
-                font.pointSize: 14*scaleFactor
+                font.pointSize: 18*scaleFactor
                 font.family: fontName
                 font.bold: true
                 anchors {
@@ -440,24 +459,23 @@ Item {
                 id: txtAddBookmark
                 anchors.centerIn: parent
                 width: parent.width
-                height: 30*scaleFactor
+                height: 45*scaleFactor
                 text: ""
                 style: TextFieldStyle {
                     placeholderTextColor: "#A3A199"
                     background: Rectangle {
-                        height: 30*scaleFactor
+                        height: 45*scaleFactor
                         smooth: true
                         color: "white"
                         border.color: "gray"
                         border.width: 1*scaleFactor
                     }
                 }
-                font.pointSize: 14*scaleFactor
+                font.pointSize: 16*scaleFactor
                 font.family: fontName
                 textColor: "black"
                 placeholderText: qsTr("Bookmark Name")
                 readOnly: false
-                focus: true
             }
 
             Rectangle {
@@ -473,7 +491,7 @@ Item {
                     id: txtCancel
                     text: qsTr("Cancel")
                     color: "blue"
-                    font.pointSize: 12*scaleFactor
+                    font.pointSize: 16*scaleFactor
                     font.family: fontName
                     anchors.centerIn: parent
                 }
@@ -483,6 +501,9 @@ Item {
                     onClicked: {
                         // Close Add Bookmark Dialog
                         rectAddBookmark.visible = false
+
+                        // Disable focus on add bookmark text field
+                        txtAddBookmark.focus = false
                     }
                 }
             }
@@ -500,7 +521,7 @@ Item {
                     id: txtOK
                     text: qsTr("OK")
                     color: "blue"
-                    font.pointSize: 12*scaleFactor
+                    font.pointSize: 16*scaleFactor
                     font.family: fontName
                     anchors.centerIn: parent
                 }
@@ -526,6 +547,9 @@ Item {
 
                             // Close Add Bookmark Dialog
                             rectAddBookmark.visible = false
+
+                            // Disable focus on add bookmark text field
+                            txtAddBookmark.focus = false
                         }
                     }
                 }

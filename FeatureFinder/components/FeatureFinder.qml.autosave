@@ -9,7 +9,6 @@ Item {
     id: _root
 
     // Configurable variables
-    property color featureSelectionColor: "cyan"
     property color searchBoxColor: "white"
     property color searchBoxBorderColor: "gray"
     property string fontFamilyName: ""
