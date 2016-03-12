@@ -11,6 +11,10 @@ _Please note that samples provided here is "as-is" and is not supported by Esri'
 2. Unzip and copy the appropriate sample folder you are interested into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
 3. The new app will now appear in the AppStudio Desktop. Run the application or open it in the bundled Qt-Creator IDE to look at the code and modify.
 
+## References
+* [AppStudio Wiki & Cookbook](https://github.com/Esri/arcgis-appstudio-samples/wiki)
+* [QML book](https://qmlbook.github.io)
+
 ## Resources
 
 * [AppStudio for ArcGIS Website](https://appstudio.arcgis.com/)
