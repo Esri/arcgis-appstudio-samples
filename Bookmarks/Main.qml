@@ -26,8 +26,8 @@ import ArcGIS.AppFramework.Runtime 1.0
 
 App {
     id: app
-    width: 800
-    height: 600
+    width: 450
+    height: 700
 
 
     // Scale factor
