@@ -7,7 +7,7 @@ The Layer List Sample developed for AppStudio uses a styled QML Switch object to
 
 In the code sample provided on GitHub, clicking on the layers icon in the upper-right corner opens a layer list window where layer visibility can be toggled on and off.
 
-
+![](https://media.giphy.com/media/60211oqOoDAJ2/giphy.gif)
 
 ## Instructions to run this sample in AppStudio Desktop
 
