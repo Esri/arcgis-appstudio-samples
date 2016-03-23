@@ -19,7 +19,7 @@
         }
     },
     "mainFile": "Main.qml",
-    "projectFile": "MapLegend.qmlproject",
+    "projectFile": "Sample.qmlproject",
     "properties": {
     },
     "resources": {

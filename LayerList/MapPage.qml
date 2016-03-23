@@ -61,14 +61,14 @@ Item {
                 id: imgLegend
                 width: 35*app.scaleFactor
                 height: 35*app.scaleFactor
-                source: "assets/images/legend.png"
+                source: "assets/images/layerList.png"
                 anchors.centerIn: parent
             }
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    legend.show()
+                    layerList.show()
                 }
             }
         }
@@ -109,7 +109,7 @@ Item {
                         listModelLegendLayers.append({"name": lyr.layerName, "isVisible": lyr.visible, "layerIndex": i})
                     }
                 }
-                legend.legendListModel = listModelLegendLayers
+                layerList.legendListModel = listModelLegendLayers
             }
         }
 
@@ -152,8 +152,8 @@ Item {
         }
     }
 
-    Legend {
-       id: legend
+    LayerList {
+       id: layerList
        width: parent.width
        height: parent.height
 
