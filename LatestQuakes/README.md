@@ -12,6 +12,7 @@ This application has the following features:
 - Using network request (xmlhttp) to get an external Json feed
 - Popup to show earthquakes info. Handles one or many features with nice swipeable UI.
 
+![](https://media.giphy.com/media/lxQYJQhVAsfSM/giphy.gif)
 
 ## Instructions to run this sample in AppStudio Desktop
 
