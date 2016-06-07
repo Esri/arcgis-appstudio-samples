@@ -1,0 +1,45 @@
+{
+    "capabilities": {
+        "audio": false,
+        "bluetooth": false,
+        "camera": false,
+        "location": false,
+        "microphone": false,
+        "network": false,
+        "storage": false
+    },
+    "deployment": {
+        "ios": {
+        }
+    },
+    "display": {
+        "desktop": {
+            "fullScreen": false,
+            "minimumHeight": 0,
+            "minimumWidth": 0
+        },
+        "phone": {
+            "landscape": true,
+            "portrait": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true
+        }
+    },
+    "mainFile": "MyApp.qml",
+    "projectFile": "MyApp.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "Capture.PNG",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 4
+    }
+}
