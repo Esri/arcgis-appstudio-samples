@@ -1,0 +1,54 @@
+{
+    "access": "private",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1430202684000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This app lets you explore the time zones of the world. Local Time will display the current time. Switch to International time mode and double-tap on a time zone to reset the clock to the selected time zone. The clock face will indicate if the selected time zone is currently day or night.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "332b195aa15b4576864e2aa491aede9d",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1456376289000,
+    "name": "acc6543def9c4a62bde25b1cd1a38278.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 11,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 374641,
+    "snippet": "Time Zones of the World",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Time zones of the world",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

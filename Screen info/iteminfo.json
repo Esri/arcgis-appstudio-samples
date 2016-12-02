@@ -1,0 +1,54 @@
+{
+    "access": "private",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1430202098000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Displays hardware information about the screen of the device used. </p>\n<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "301d619ba2d148959dfdda670c0d253b",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1456375959000,
+    "name": "84a0d1e8cb54425a93f595c14d527e5c.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 19,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 1396,
+    "snippet": "Screen Info",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Screen info",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

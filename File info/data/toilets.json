@@ -1,0 +1,1217 @@
+{"toilets": [{
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Princes Park Royal Parade (near Park Street)",
+        "featid" : "CPF000132",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.960466616037",
+            "latitude" : "-37.7789369877693"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Princes Park South Playground (Princes Park Drive)",
+        "featid" : "CPF000124",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.963035360754",
+            "latitude" : "-37.7855983873474"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Princes Park - Crawford Oval (Male)",
+        "featid" : "CPF000123",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.961882529557",
+            "latitude" : "-37.7887067441958"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "N",
+        "featurenam" : "Public Toilet - Princes Park - Crawford Oval (Female)",
+        "featid" : "CPF000122",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.961888903558",
+            "latitude" : "-37.7889036429431"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Royal Park, Wetland (off Oak Street)",
+        "featid" : "CPF000155",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.941856352988",
+            "latitude" : "-37.7830324844021"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Docklands Park South - 25 Harbour Esplanade",
+        "featid" : "CPF000288",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.94738341853",
+            "latitude" : "-37.8217586035307"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "N",
+        "featurenam" : "Public Toilet - Swanston Street (Opposite 475-511 Swanston Street)",
+        "featid" : "CPF000292",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.962648499878",
+            "latitude" : "-37.8068057674855"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Alexandra Gardens (Riverslide Skate Park)",
+        "featid" : "CPF000020",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.973312908294",
+            "latitude" : "-37.8203552732817"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Birrarung Marr Speakers Corner",
+        "featid" : "CPF000016",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.975933223872",
+            "latitude" : "-37.8210047801156"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Exhibition Street (Opposite 242 Exhibition Street)",
+        "featid" : "CPF000304",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.969407118569",
+            "latitude" : "-37.8095460463599"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Yarra's Edge (160-186 Lorimer Street, No 19 Berth)",
+        "featid" : "CPF000305",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.934526510357",
+            "latitude" : "-37.8212482757846"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Other Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Victoria Market (465 Queen Street)",
+        "featid" : "CPF000311",
+        "babychange" : "Y",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.957947750858",
+            "latitude" : "-37.8078639954478"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Argyle Place North (Opposite 4 Argyle Place North)",
+        "featid" : "CPF000317",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.966424039606",
+            "latitude" : "-37.80207629409"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Batman Park (2A Spencer Street)",
+        "featid" : "CPF000015",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.955578092723",
+            "latitude" : "-37.8217206813248"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Lincoln Square (138-142 Bouverie Street)",
+        "featid" : "CPF000099",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.962268126381",
+            "latitude" : "-37.8027118248824"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Newmarket Reserve (26 Smithfield Road)",
+        "featid" : "CPF000286",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.9235637224",
+            "latitude" : "-37.7884888211505"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Point Park (Point Park Crescent)",
+        "featid" : "CPF000289",
+        "babychange" : "Y",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.941827606216",
+            "latitude" : "-37.8233108348782"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Flinders Street (No 245 Flinders Street Station)",
+        "featid" : "CPF000324",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.966264255273",
+            "latitude" : "-37.8179031967184"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Street (opposite 113 Queen Street)",
+        "featid" : "CPF000328",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.961062072435",
+            "latitude" : "-37.8158381650078"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Sturt Street Reserve (280 Sturt Street)",
+        "featid" : "CPF000113",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.965012228355",
+            "latitude" : "-37.8301325374355"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Royal Park (Flemington Rd - Near North Park Tennis Club)",
+        "featid" : "CPF000149",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.943669050546",
+            "latitude" : "-37.7901744102923"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - JJ Holland Park (Opposite, 48 Altona Street)",
+        "featid" : "CPF000082",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.926424667559",
+            "latitude" : "-37.7981254616187"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Kings Domain Government House Drive",
+        "featid" : "CPF000095",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.974647783453",
+            "latitude" : "-37.8269157492272"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Birrarung Marr (Opposite Artplay)",
+        "featid" : "CPF000355",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.971059568268",
+            "latitude" : "-37.8185988722939"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Bourke Street (opposite 225 Bourke Street)",
+        "featid" : "CPF000329",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.966896589962",
+            "latitude" : "-37.8132454337195"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Carlton Gardens North (Opposite 199 Rathdowne Street)",
+        "featid" : "CPF000017",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.969821286777",
+            "latitude" : "-37.8026455554282"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Exhibition Street (Opposite 77 Exhibition Street)",
+        "featid" : "CPF000320",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.971374094153",
+            "latitude" : "-37.8138464166402"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Lonsdale Street (Opposite 581 Lonsdale Street)",
+        "featid" : "CPF000319",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.955117945858",
+            "latitude" : "-37.8143455228329"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Market Street (Opposite 74 Market Street)",
+        "featid" : "CPF000318",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.960254335276",
+            "latitude" : "-37.8174698925468"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Latrobe Street (Adjacent 120 La Trobe Street)",
+        "featid" : "CPF000316",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.965648844955",
+            "latitude" : "-37.8089420684636"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Flinders Street (27 Flinders Street)",
+        "featid" : "CPF000315",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.972798365189",
+            "latitude" : "-37.8159898264405"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Victoria Market - (Meat Hall / \"H\" Shed)",
+        "featid" : "CPF000312",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.958747004061",
+            "latitude" : "-37.806821292459"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Bellair Street (Opposite 180 Bellair Street)",
+        "featid" : "CPF000309",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.930351861214",
+            "latitude" : "-37.7937322910497"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Kings Domain South (Opposite 169 Domain Road)",
+        "featid" : "CPF000090",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.981784046341",
+            "latitude" : "-37.8339382666751"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Faraday Street (Opposite 208-212 Faraday Street)",
+        "featid" : "CPF000293",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.967593880085",
+            "latitude" : "-37.7987095974664"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Elizabeth Street (Adjacent 506-516 Elizabeth Street)",
+        "featid" : "CPF000294",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.959857341086",
+            "latitude" : "-37.8065700072821"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Nicholson Street (1A Nicholson Street)",
+        "featid" : "CPF000295",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.973076955199",
+            "latitude" : "-37.8094520293855"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Flinders Street (No. 399 Flinders St.)",
+        "featid" : "CPF000297",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.961276831218",
+            "latitude" : "-37.8194061141385"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queensberry Street (Opposite 286 Queensberry Street)",
+        "featid" : "CPF000291",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.959090667569",
+            "latitude" : "-37.8039946349673"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Kings Domain South (off Birdwood Avenue)",
+        "featid" : "CPF000089",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.975169412928",
+            "latitude" : "-37.8308574870999"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queensberry Street (Adjacent 179 Queensberry Street)",
+        "featid" : "CPF000278",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.962850161271",
+            "latitude" : "-37.8046418038556"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Canning Street Reserve (49 Princes Street)",
+        "featid" : "CPF000277",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.973994897199",
+            "latitude" : "-37.7930116784933"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Lonsdale Street (Opposite 424 Lonsdale Street)",
+        "featid" : "CPF000301",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.960012146372",
+            "latitude" : "-37.8129330996861"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Lonsdale Street (Opposite 88 Lonsdale Street)",
+        "featid" : "CPF000321",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.969902463305",
+            "latitude" : "-37.8100356799286"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queensberry Street (Opposite 530 Queensberry Street)",
+        "featid" : "CPF000290",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.949865179715",
+            "latitude" : "-37.8030778663021"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Franklin Street (Opposite 80 Franklin Street)",
+        "featid" : "CPF000300",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.96018982974",
+            "latitude" : "-37.8082354509674"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Elizabeth Street (Toilet Adjacent 200 Elizabeth Street)",
+        "featid" : "CPF000374",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.962922725889",
+            "latitude" : "-37.813439207709"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "N",
+        "featurenam" : "Public Toilet - Elizabeth Street (Toilet Adjacent 200 Elizabeth Street)",
+        "featid" : "CPF000299",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.96309720995",
+            "latitude" : "-37.8138377923966"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Kings Domain Myer Music Bowl Rear of",
+        "featid" : "CPF000092",
+        "babychange" : "Y",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.97528095734",
+            "latitude" : "-37.8228915983634"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Carlton Gardens South (Opposite 39 Rathdowne Street)",
+        "featid" : "CPF000018",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.969202702206",
+            "latitude" : "-37.8062589327935"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Fitzroy Gardens Toilets (150 Clarendon Street)",
+        "featid" : "CPF000039",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.983079680547",
+            "latitude" : "-37.8120320552532"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Town Hall Melbourne (200 Collins Street)",
+        "featid" : "CPF000298",
+        "babychange" : "Y",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.966943285381",
+            "latitude" : "-37.815215766427"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-BUILDING",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Victoria Market (Food Court - 65-81 Victoria Street)",
+        "featid" : "CPF000314",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.959057791602",
+            "latitude" : "-37.8063796185201"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-BUILDING",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Victoria Harbour, Shed 2 (North Wharf Road)",
+        "featid" : "CPF000306",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.934202178163",
+            "latitude" : "-37.8189339517812"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-PART",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Saint Mangos Lane, The Palladio (New Quay)",
+        "featid" : "CPF000322",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.941682166969",
+            "latitude" : "-37.814358311416"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-BUILDING",
+        "subtheme" : "Other Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Fawkner Park, Opposite 55 Commercial Road",
+        "featid" : "CPF000285",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.982614431582",
+            "latitude" : "-37.8452065631269"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Other Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Victoria Harbour, Shed 3 (North Wharf Road)",
+        "featid" : "CPF000307",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.93766540487",
+            "latitude" : "-37.8197959760707"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-PART",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Victoria Market (153 Victoria Street)",
+        "featid" : "CPF000313",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.956538442106",
+            "latitude" : "-37.8061214994057"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-BUILDING",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Fawkner Park, Opposite 150W Toorak Road",
+        "featid" : "CPF000287",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.984389220213",
+            "latitude" : "-37.838252841705"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Other Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Fawkner Park, North Pavilion (Male)",
+        "featid" : "CPF000030",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.981383087957",
+            "latitude" : "-37.8401476931975"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "N",
+        "featurenam" : "Public Toilet - Fawkner Park, North Pavilion (Female)",
+        "featid" : "CPF000220",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.981227014486",
+            "latitude" : "-37.8400177930356"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Fitzroy Gardens (2 Lansdowne Street)",
+        "featid" : "CPF000040",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.977593283611",
+            "latitude" : "-37.8152828123298"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Ievers Reserve - Flemington Road",
+        "featid" : "CPF000076",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.951966651265",
+            "latitude" : "-37.7967989980576"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "N",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Street (opposite No. 77)",
+        "featid" : "CPF000296",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.961470824532",
+            "latitude" : "-37.8166780000522"
+        },
+        "unisex" : "N",
+        "comptype" : "POINT-STREET",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Southbank Promenade (opposite Esso House)",
+        "featid" : "CPF000310",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.964219727982",
+            "latitude" : "-37.8203421290366"
+        },
+        "unisex" : "N",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Alexandra Park",
+        "featid" : "CPF000006",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.981811660756",
+            "latitude" : "-37.8276430462779"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Flagstaff Gardens (cnr William & Dudley)",
+        "featid" : "CPF000071",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.955043308784",
+            "latitude" : "-37.8089204751149"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - JJ Holland Park, Skate Park (113 Kensington Road)",
+        "featid" : "CPF000081",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.921105844054",
+            "latitude" : "-37.7980640242272"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Powlett Reserve (Opposite 128 Albert Street)",
+        "featid" : "CPF000104",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.986858739243",
+            "latitude" : "-37.8109423278687"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Cast Iron Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Royal Park Brens Pavilion",
+        "featid" : "CPF000153",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.955000875306",
+            "latitude" : "-37.7862212483872"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "N",
+        "featurenam" : "Public Toilet - Gordon Reserve (74-108 Spring Street)",
+        "featid" : "CPF000275",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.97392555857",
+            "latitude" : "-37.8122407760326"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Underground Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Royal Park - Native Garden (off Gatehouse Street)",
+        "featid" : "CPF000403",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.956851721122",
+            "latitude" : "-37.7925114646045"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Other Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Royal Park Golf Course Club House",
+        "featid" : "CPF000415",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.956142529383",
+            "latitude" : "-37.7818713175365"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "N"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Treasury Gardens (Store and Toilet)",
+        "featid" : "CPF000393",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.977467007735",
+            "latitude" : "-37.8134184349012"
+        },
+        "unisex" : "N",
+        "comptype" : "PART",
+        "subtheme" : "Part of Building Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Goschs Paddock (112 Olympic Boulevard)",
+        "featid" : "CPF000431",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.985662862984",
+            "latitude" : "-37.8243882893988"
+        },
+        "unisex" : "Y",
+        "comptype" : "PROPERTY",
+        "subtheme" : "Brick Public Toilet",
+        "disabled" : "Y"
+    }
+    , {
+        "female" : "Y",
+        "male" : "Y",
+        "featurenam" : "Public Toilet - Queen Victoria Gardens (Linlithgow Avenue)",
+        "featid" : "CPF000594",
+        "babychange" : "N",
+        "geom" : {
+            "needs_recoding" : false,
+            "longitude" : "144.97098568223",
+            "latitude" : "-37.8229482884598"
+        },
+        "unisex" : "Y",
+        "comptype" : "PART",
+        "subtheme" : "Exeloo",
+        "disabled" : "Y"
+    }
+]}

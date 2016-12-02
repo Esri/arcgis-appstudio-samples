@@ -1,0 +1,52 @@
+{
+    "access": "shared",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1435020917000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This layout provides two content areas and a toolbar. This is designed to be responsive across device size and orientation.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "7ede560c28ac41279c64df406191a923",
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1435021995000,
+    "name": "7ede560c28ac41279c64df406191a923.zip",
+    "numComments": 0,
+    "numRatings": 0,
+    "numViews": 93,
+    "owner": "appstudio_layouts",
+    "properties": null,
+    "screenshots": [
+    ],
+    "size": 72482,
+    "snippet": "Responsive layout for",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "layout",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.PNG",
+    "title": "Toolbar, content area and side draw menu",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

@@ -1,0 +1,51 @@
+{
+    "access": "org",
+    "accessInformation": "This app from City of Naperville is designed for public access as a part of the Citizen Engagement Initiative.",
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1430366880000,
+    "culture": "en-us",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Get STWWApp on you pocket and report Water Waste to the City. Download the App into your phone and launch it when you see water being wasted. Spot it, snap it and report it! We will surely act on it.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "e34512d221be4a7f8f413ccb92a3cc23",
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1430366881000,
+    "name": "45fee11df06542c1960c006a0cc96b3f.zip",
+    "numComments": 0,
+    "numRatings": 0,
+    "numViews": 66,
+    "owner": "appstudio_apps",
+    "properties": null,
+    "screenshots": [
+    ],
+    "size": 2839764,
+    "snippet": "Spot water leak?<br />Snap it, Report it!",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "STWWApp",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

@@ -1,0 +1,29 @@
+{
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "mainFile": "BarcodeTest.qml",
+    "projectFile": "BarcodeTest.qmlproject",
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 10
+    }
+}

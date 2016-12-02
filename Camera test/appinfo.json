@@ -1,0 +1,31 @@
+{
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "mainFile": "CameraTest.qml",
+    "projectFile": "CameraTest.qmlproject",
+    "properties": {
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 2
+    }
+}

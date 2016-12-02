@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// NetworkRequestSample
+// Created 2015-06-15 13:10:39
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "NetworkRequestSample.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt;*.csv"
+    }
+
+    importPaths: [
+    ]
+}
+

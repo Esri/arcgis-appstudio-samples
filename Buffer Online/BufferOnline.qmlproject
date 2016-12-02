@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// BufferOnline
+// Created 2014-12-23 12:09:07
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "BufferOnline.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+    importPaths: [
+    ]
+}
+

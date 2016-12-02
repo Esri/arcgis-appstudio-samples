@@ -1,0 +1,54 @@
+{
+    "access": "private",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1430202665000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Left click to start drawing a polyline. To finish the polyline, check the Compute Shortest Distance check box. By checking the box, the next left mouse click draws a point. The shortest distance to the polyline is caclulated from this point, and the actual distance is displayed. The clear button can be used to remove all the graphics.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "ecb078c4e9314f27b351d1399fac855e",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1430202666000,
+    "name": "8287a8757a4e44fc989f246bee7f49d4.zip",
+    "numComments": 0,
+    "numRatings": 0,
+    "numViews": 9,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 39730,
+    "snippet": "Compute the shortest distance between geometries.",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Shortest Distance Online",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

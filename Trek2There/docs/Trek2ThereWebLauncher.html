@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Launch Trek2There Sample</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.1/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/widgets/Search",
+      "esri/widgets/Locate",
+      "dojo/domReady!"
+    ], function(Map, MapView, Locate,Search) {
+
+      var map = new Map({
+        basemap: "streets"
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 4,
+        center: [-118, 43]
+      });
+      
+      
+      var searchWidget = new Search({
+        view: view
+      });
+      searchWidget.startup();
+
+      // Add the search widget to the top left corner of the view
+      view.ui.add(searchWidget, {
+        position: "top-left",
+        index: 0
+      });
+      
+      var locateBtn = new Locate({
+        view: view
+      });
+      locateBtn.startup();
+
+      // Add the locate widget to the top left corner of the view
+      view.ui.add(locateBtn, {
+        position: "top-left",
+        index: 0
+      });
+      
+      view.popup.open({
+        title:"Tap on your destination to launch Trek2There",
+        content: ""
+      });
+      
+      view.on("click", function(event) {
+      // Get the coordinates of the click on the view
+      // around the decimals to 3 decimals
+         var lat = Math.round(event.mapPoint.latitude * 100000) / 100000;
+         var lon = Math.round(event.mapPoint.longitude * 10000) / 10000;
+
+         view.popup.open({
+           // Set the popup's title to the coordinates of the clicked location
+          title: "<a href='arcgis-trek2there://?stop=" + lat + ", " + lon + "'>" + "Click <u>here</u> to open Trek2There</a>" ,
+          content:"<center>arcgis-trek2there://?stop=" + lat + ", " + lon + "</center>",
+          location: event.mapPoint // Set the location of the popup to the clicked location
+          });
+      }); 
+      
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>

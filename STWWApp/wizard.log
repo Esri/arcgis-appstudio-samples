@@ -1,0 +1,22 @@
+processTemplate: Processing template vg1b2
+processTemplate: appsFolder=C:/Users/gare7065/ArcGIS/AppStudio/Apps
+processTemplate: outputPath=C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b
+copyFiles: 7 file(s)
+copyFile: {"source":"app/app.qml","target":"@ProjectName@.qml"}
+Copy: app/app.qml -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/app.qml
+copyFile: {"source":"app/app.qmlproject","target":"@ProjectName@.qmlproject"}
+Copy: app/app.qmlproject -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/app.qmlproject
+replaceVariables: C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/app.qmlproject
+copyFile: {"source":"app/appinfo.json","target":"appinfo.json"}
+Copy: app/appinfo.json -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/appinfo.json
+replaceVariables: C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/appinfo.json
+copyFile: {"source":"app/iteminfo.json","target":"iteminfo.json"}
+Copy: app/iteminfo.json -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/iteminfo.json
+replaceVariables: C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/iteminfo.json
+copyFile: {"binary":true,"source":"app/thumbnail.png","target":"thumbnail.png"}
+Copy: app/thumbnail.png -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/thumbnail.png
+copyFile: {"source":"app/template","target":"template"}
+Copy: app/template -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/template
+copyFile: {"source":"app/assets","target":"assets"}
+Copy: app/assets -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/44e4d79a01d14a3aa40454856610375b/assets
+performOperations: 0 operations

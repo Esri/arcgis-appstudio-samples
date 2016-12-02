@@ -1,0 +1,52 @@
+{
+    "access": "shared",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1435020374000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This layout provides a content area and a toolbar overlaid. This is designed to be responsive across device size and orientation.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Resourse level: 🍌🍌</p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "75695c2ec80e435e911e2fe8ebec152e",
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1435020392000,
+    "name": "75695c2ec80e435e911e2fe8ebec152e.zip",
+    "numComments": 0,
+    "numRatings": 0,
+    "numViews": 131,
+    "owner": "appstudio_layouts",
+    "properties": null,
+    "screenshots": [
+    ],
+    "size": 44868,
+    "snippet": "Responsive layout for ",
+    "spatialReference": null,
+    "tags": [
+        "qml",
+        "layout",
+        "app"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Single content area with embedded toolbar",
+    "type": "Code Sample",
+    "typeKeywords": [
+        "App",
+        "Code",
+        "Other",
+        "Qml",
+        "Sample"
+    ],
+    "url": null
+}

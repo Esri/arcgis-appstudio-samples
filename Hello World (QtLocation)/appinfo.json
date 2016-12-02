@@ -1,0 +1,32 @@
+{
+    "capabilities": {
+        "audio": false,
+        "bluetooth": false,
+        "camera": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": false
+    },
+    "deployment": {
+        "ios": {
+        }
+    },
+    "mainFile": "HelloWorld.qml",
+    "projectFile": "HelloWorld.qmlproject",
+    "properties": {
+        "titleBackgroundColor": "#00b2ff",
+        "titleTextColor": "#fefdfd"
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 2
+    }
+}

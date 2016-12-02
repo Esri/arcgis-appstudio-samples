@@ -1,0 +1,21 @@
+processTemplate: Processing template dnr
+processTemplate: appsFolder=C:/Users/gare7065/ArcGIS/AppStudio/Apps
+processTemplate: outputPath=C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3
+copyFiles: 7 file(s)
+copyFile: {"source":"app/MapViewer.qml","target":"@ProjectName@.qml"}
+Copy: app/MapViewer.qml -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/app.qml
+copyFile: {"source":"app/MapViewer.qmlproject","target":"@ProjectName@.qmlproject"}
+Copy: app/MapViewer.qmlproject -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/app.qmlproject
+copyFile: {"source":"app/appinfo.json","target":"appinfo.json"}
+Copy: app/appinfo.json -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/appinfo.json
+replaceVariables: C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/appinfo.json
+copyFile: {"source":"app/iteminfo.json","target":"iteminfo.json"}
+Copy: app/iteminfo.json -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/iteminfo.json
+replaceVariables: C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/iteminfo.json
+copyFile: {"binary":true,"source":"app/thumbnail.png","target":"thumbnail.png"}
+Copy: app/thumbnail.png -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/thumbnail.png
+copyFile: {"source":"app/template","target":"template"}
+Copy: app/template -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/template
+copyFile: {"source":"app/assets","target":"assets"}
+Copy: app/assets -> C:/Users/gare7065/ArcGIS/AppStudio/Apps/62400942253c4bfeaf771fe6444895a3/assets
+performOperations: 0 operations

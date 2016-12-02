@@ -1,0 +1,26 @@
+{
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "mainFile": "OSMOnline.qml",
+    "projectFile": "OSMOnline.qmlproject",
+    "type": "app",
+    "urlScheme": ""
+}
