@@ -1,6 +1,0 @@
-import "template"
-
-MapViewerApp {
-
-}
-
