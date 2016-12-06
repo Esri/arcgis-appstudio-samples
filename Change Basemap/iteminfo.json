@@ -1,0 +1,55 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1463031939000,
+    "culture": "en-au",
+    "description": "<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample shows how to allow the user to change the basemap in an app. Scroll the sliding menu on the left hand side pf the app and tap a basemap image to change which basemap is displayed in the map component. When you view the code you will see that you cannot just change the URL of the ArcGISTiledMapServiceLayer component but instead, each layer \r\nneeds to be created individually.<br /></p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "8e03ebf39706433e92597789ea7d2d49",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "listed": false,
+    "modified": 1463628028000,
+    "name": "8e03ebf39706433e92597789ea7d2d49.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 29,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 608112,
+    "snippet": "This sample shows how to allow the user to change the basemap in an app.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Change Basemap",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

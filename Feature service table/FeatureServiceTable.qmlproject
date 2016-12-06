@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// FeatureServiceTable
+// Created 2015-03-13 13:32:37
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "FeatureServiceTable.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+    importPaths: [
+    ]
+}
+

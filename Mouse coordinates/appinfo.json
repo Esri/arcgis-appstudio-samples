@@ -1,0 +1,56 @@
+{
+    "capabilities": {
+        "audio": false,
+        "bluetooth": false,
+        "camera": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop"
+    ],
+    "display": {
+        "desktop": {
+            "fullScreen": false,
+            "minimumHeight": 0,
+            "minimumWidth": 0
+        },
+        "phone": {
+            "landscape": true,
+            "portrait": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true
+        }
+    },
+    "mainFile": "MouseCoordiantes.qml",
+    "projectFile": "MouseCoordiantes.qmlproject",
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 4
+    }
+}

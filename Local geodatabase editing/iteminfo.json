@@ -1,0 +1,58 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440727293000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The sample begins with an online Feature Service displayed on the map. Clicking the Generate button will download a local geodatabase from the service, and display it on the map. You can then select any feature by tapping or clicking the symbol, and you can then move it anywhere on the map by clicking in another location. For the changes to take effect on the feature service, you must click on the Sync button. After the sync is performed you can toggle between online and offline mode using the switch. However, in this sample, edits can only be made in offline mode.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "0a3e5c68a2474f71b342f816f080726e",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1456461649000,
+    "name": "0a3e5c68a2474f71b342f816f080726e.zip",
+    "numComments": 2,
+    "numRatings": 0,
+    "numViews": 312,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 3484,
+    "snippet": "Edit features within an offline geodatabase and sync back to the service.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "geodatabase",
+        "offline",
+        "editing"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Local geodatabase editing",
+    "type": "Native Application",
+    "typeKeywords": [
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

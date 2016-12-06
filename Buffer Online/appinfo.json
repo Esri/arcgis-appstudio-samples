@@ -1,0 +1,8 @@
+{
+    "mainFile": "BufferOnline.qml",
+    "projectFile": "BufferOnline.qmlproject",
+    "type": "app",
+    "version": {
+        "micro": 3
+    }
+}

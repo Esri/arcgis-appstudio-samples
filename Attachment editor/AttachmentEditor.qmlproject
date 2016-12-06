@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// AttachmentEditor
+// Created 2014-12-23 11:48:42
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "AttachmentEditor.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+    importPaths: [
+    ]
+}
+

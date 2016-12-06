@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// AddGraphics
+// Created 2015-03-13 14:35:44
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "AddGraphics.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+    importPaths: [
+    ]
+}
+

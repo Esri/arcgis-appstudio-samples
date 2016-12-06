@@ -1,0 +1,12 @@
+{
+    "type": "qml",
+    "mainPage": "Change Basemap.qml",
+    "settingsPage": null,
+    "aboutPage": null,
+    "helpPage": null,
+    "dependencies": [
+    ],
+    "signInRequired": false,
+    "onlineRequired": false
+}
+

@@ -1,0 +1,35 @@
+//------------------------------------------------------------------------------
+// DensifyOnline
+// Created 2015-03-13 13:40:42
+//------------------------------------------------------------------------------
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "DensifyOnline.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+    importPaths: [
+    ]
+}
+

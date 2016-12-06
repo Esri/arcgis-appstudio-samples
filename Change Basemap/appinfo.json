@@ -1,0 +1,23 @@
+{
+    "deployment": {
+        "android": {
+        },
+        "ios": {
+        }
+    },
+    "mainFile": "Change Basemap.qml",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "launchimage-background.png",
+        "launchImageBackground": "basemap_natgeo.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "App",
+    "urlScheme": null,
+    "version": {
+        "major": 1,
+        "micro": 1
+    }
+}

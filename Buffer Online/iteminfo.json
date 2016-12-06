@@ -1,0 +1,54 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440725400000,
+    "culture": "en-au",
+    "description": "Draw a point or line with a series of left-clicks on the map. Then click on the Buffer button to create a buffer around the geometry. The sample calls buffer() to create the buffer polygon. Click on the Clear button to restart.",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "05994a80ca60472aa1547efd5f2b7ab9",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1446430595000,
+    "name": "05994a80ca60472aa1547efd5f2b7ab9.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 56,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 2294,
+    "snippet": "This sample shows how to perform a buffer around a point or a polyline.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Buffer Online",
+    "type": "Native Application",
+    "typeKeywords": [
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

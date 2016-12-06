@@ -1,0 +1,34 @@
+{
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "mainFile": "HelloWorld.qml",
+    "projectFile": "HelloWorld.qmlproject",
+    "properties": {
+        "basemapServiceUrl": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+        "titleBackgroundColor": "#00b2ff",
+        "titleTextColor": "#fefdfd"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 4
+    }
+}

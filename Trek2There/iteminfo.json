@@ -1,0 +1,51 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1473996888000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Trek2There™ is a mobile app that gets your field workforce to any off-road location, where no trails or paths exist. <br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Position yourself, locate things, and confidently get in and get out. Save time by getting there faster, and then find your way home safely.<br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Trek2There™ provides two simple pieces of continuously updated information: the direction you need to travel, and a distance remaining to get there. </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "12cbc447e1d44f18811551c3138be896",
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Copyright © 2016 Esri Inc. All Rights Reserved</p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://www.esri.com/legal/software-license'><span style=' text-decoration: underline; color:#0000ff;'>View the license agreement</span></a></p>",
+    "listed": false,
+    "modified": 1476227341000,
+    "name": "12cbc447e1d44f18811551c3138be896.zip",
+    "numComments": 186,
+    "numRatings": 0,
+    "numViews": 465,
+    "owner": "appstudio_apps",
+    "properties": null,
+    "screenshots": [
+    ],
+    "size": 298245,
+    "snippet": "Trek2There™",
+    "spatialReference": null,
+    "tags": [
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Trek2There",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

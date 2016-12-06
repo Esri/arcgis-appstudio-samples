@@ -1,0 +1,39 @@
+{
+    "capabilities": {
+        "audio": true,
+        "bluetooth": true,
+        "camera": true,
+        "location": true,
+        "microphone": true,
+        "network": true,
+        "storage": true
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "clientId": "2A5iPKnxUzZjOQPN",
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": "iPhone Distribution: ESRI Enterprise"
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "mainFile": "OAuth2.qml",
+    "projectFile": "OAuth2.qmlproject",
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 9
+    }
+}

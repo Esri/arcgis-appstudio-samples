@@ -1,0 +1,69 @@
+{
+    "capabilities": {
+        "audio": false,
+        "bluetooth": false,
+        "camera": false,
+        "location": false,
+        "microphone": false,
+        "network": true,
+        "storage": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "fullScreen": false,
+            "minimumHeight": 0,
+            "minimumWidth": 0
+        },
+        "phone": {
+            "landscape": false,
+            "portrait": true
+        },
+        "tablet": {
+            "landscape": false,
+            "portrait": true
+        }
+    },
+    "mainFile": "AddEdit.qml",
+    "projectFile": "AddEdit.qmlproject",
+    "properties": {
+        "basemapServiceUrl": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+        "titleBackgroundColor": "#00b2ff",
+        "titleTextColor": "#fefdfd"
+    },
+    "resources": {
+        "appIcon": "",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#305fb9",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "micro": 2
+    }
+}

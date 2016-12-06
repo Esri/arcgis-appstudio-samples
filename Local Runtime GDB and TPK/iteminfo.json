@@ -1,0 +1,60 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1461041856000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">You can package basemaps and geodatabases with your app for distribution, but before being able to use them in your running app, they must be copied to a local disk location.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This sample shows how you can store a local runtime geodatabase and TPK within your application and when the app is launched, the GDB and TPK will be copied to a local folder area appropriate for your device. For example, on windows the data will be copied to C:\\Users\\YOURNAME\\ArcGIS\\AppStudio\\Data. </p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "ca82a20b504d475f9043d7b991daf64d",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1461218834000,
+    "name": "ca82a20b504d475f9043d7b991daf64d.zip",
+    "numComments": 4,
+    "numRatings": 0,
+    "numViews": 125,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 26384672,
+    "snippet": "Display a local basemap (TPK) and features from a local runtime geodatabase (GDB).",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "geodatabase",
+        "offline",
+        "local",
+        "tpk"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Local Runtime GDB and TPK",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

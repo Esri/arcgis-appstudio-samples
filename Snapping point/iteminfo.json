@@ -1,0 +1,55 @@
+{
+    "access": "org",
+    "accessInformation": "Yue Wu",
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1447204818000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This application will show you how to snap points from an existing map service when creating graphic polygons on a basemap. By using this function is it easy for users who need to draw graphics that interact with existing features to perform measurement calculations or analysis.</p>\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "a95f099f4a6b48569dcc5a00c6fd2c95",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1456446226000,
+    "name": "a95f099f4a6b48569dcc5a00c6fd2c95.zip",
+    "numComments": 17,
+    "numRatings": 0,
+    "numViews": 101,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 151050,
+    "snippet": "App",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Snapping point",
+    "type": "Native Application",
+    "typeKeywords": [
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

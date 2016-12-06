@@ -1,0 +1,68 @@
+{
+    "capabilities": {
+        "audio": false,
+        "bluetooth": false,
+        "camera": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": true
+    },
+    "deployment": {
+        "android": {
+            "packageName": "com.esri.trek2there"
+        },
+        "clientId": "com.esri.trek2there",
+        "ios": {
+            "bundleId": "com.esri.trek2there",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        }
+    },
+    "devicesTypes": [
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "fullScreen": false,
+            "minimumHeight": 0,
+            "minimumWidth": 0
+        },
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        }
+    },
+    "environment": {
+        "APPSTUDIO_POSITION_ACTIVITY_MODE": "NAVIGATION",
+        "APPSTUDIO_POSITION_DESIRED_ACCURACY": "HIGHEST"
+    },
+    "mainFile": "Trek2There.qml",
+    "projectFile": "Trek2There.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "appIconBackgroundColor": "#589514",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "appicon_hexagon.png"
+    },
+    "type": "app",
+    "urlScheme": "arcgis-trek2there",
+    "version": {
+        "major": 1,
+        "micro": 188,
+        "minor": 0
+    }
+}

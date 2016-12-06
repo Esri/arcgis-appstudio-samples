@@ -1,0 +1,57 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440729916000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Shows how to implement the user credentials and create a feature via the feature service table.</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "819a37e172ea44aba16b8ebdf50b5f40",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "listed": false,
+    "modified": 1456884131000,
+    "name": "819a37e172ea44aba16b8ebdf50b5f40.zip",
+    "numComments": 3,
+    "numRatings": 0,
+    "numViews": 168,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 3229,
+    "snippet": "User Credentials",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "qml",
+        "user credentials"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "User credentials",
+    "type": "Native Application",
+    "typeKeywords": [
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
