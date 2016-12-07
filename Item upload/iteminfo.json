@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1440727280000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The <span style=\" font-weight:600;\">NetworkRequest</span> can be used for many different online operations. This sample allows you to upload an item (file, zip etc) to your ArcGIS Online account.<br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>The <span style=' font-weight:600;'>NetworkRequest</span> can be used for many different online operations. This sample allows you to upload an item (file, zip etc) to your ArcGIS Online account.<br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,20 +20,21 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456896064000,
+    "modified": 1481071201000,
     "name": "39ce6d5911cf4512be1a293dbac1940b.zip",
-    "numComments": 5,
+    "numComments": 6,
     "numRatings": 0,
-    "numViews": 60,
+    "numViews": 61,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 43347,
+    "size": 43383,
     "snippet": "Shows how to upload items using the NetworkRequest component",
     "spatialReference": null,
     "tags": [
@@ -46,6 +47,7 @@
     "title": "Item upload",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
         "AppStudio",

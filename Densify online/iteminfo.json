@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1440725880000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Use the <span style=\" font-weight:600;\">densify()</span> and <span style=\" font-weight:600;\">geodesicDensify() </span>components, two of several methods available from the Geometry class. Draw a polygon or a polyline, and the sample draws a densified version of that polygon or polyline. The original polygon's vertices are shown in red, the planar-densified vertices are blue, and the geodesic-densified vertices are green.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Use the <span style=' font-weight:600;'>densify()</span> and <span style=' font-weight:600;'>geodesicDensify() </span>components, two of several methods available from the Geometry class. Draw a polygon or a polyline, and the sample draws a densified version of that polygon or polyline. The original polygon's vertices are shown in red, the planar-densified vertices are blue, and the geodesic-densified vertices are green.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -22,18 +22,19 @@
     "largeThumbnail": null,
     "licenseInfo": null,
     "listed": false,
-    "modified": 1456895572000,
+    "modified": 1481071016000,
     "name": "238d37d3ec2d44ea80c1de3c9002a115.zip",
-    "numComments": 4,
+    "numComments": 5,
     "numRatings": 0,
-    "numViews": 40,
+    "numViews": 41,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 2910,
+    "size": 3038,
     "snippet": "Demonstrates the densify methods.",
     "spatialReference": null,
     "tags": [
@@ -45,6 +46,7 @@
     "title": "Densify online",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
         "AppStudio",

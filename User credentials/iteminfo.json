@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -22,18 +22,19 @@
     "largeThumbnail": null,
     "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456884131000,
+    "modified": 1481071715000,
     "name": "819a37e172ea44aba16b8ebdf50b5f40.zip",
-    "numComments": 3,
+    "numComments": 4,
     "numRatings": 0,
-    "numViews": 168,
+    "numViews": 169,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 3229,
+    "size": 3228,
     "snippet": "User Credentials",
     "spatialReference": null,
     "tags": [
@@ -46,6 +47,7 @@
     "title": "User credentials",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
         "AppStudio",

@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1447947012000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This app generates a polygon by clicking on the display.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This app generates a polygon by clicking on the display.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,20 +20,21 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456878048000,
+    "modified": 1481071013000,
     "name": "2cfe11af672b485c85f8cdffe40040d6.zip",
-    "numComments": 19,
+    "numComments": 20,
     "numRatings": 0,
-    "numViews": 173,
+    "numViews": 174,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 26212,
+    "size": 26249,
     "snippet": "This creates a polygon by clicking on the display.",
     "spatialReference": null,
     "tags": [
@@ -45,6 +46,7 @@
     "title": "Create polygons by clicking",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
         "AppStudio",

@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1440729900000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This app lets you explore the time zones of the world. Local Time will display the current time. Switch to International time mode and double-tap on a time zone to reset the clock to the selected time zone. The clock face will indicate if the selected time zone is currently day or night.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This app lets you explore the time zones of the world. Local Time will display the current time. Switch to International time mode and double-tap on a time zone to reset the clock to the selected time zone. The clock face will indicate if the selected time zone is currently day or night.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,20 +20,21 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456977951000,
+    "modified": 1481071675000,
     "name": "b51ca34869d34526b7f67ba372d46278.zip",
-    "numComments": 4,
+    "numComments": 5,
     "numRatings": 0,
-    "numViews": 62,
+    "numViews": 63,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 44407,
+    "size": 44447,
     "snippet": "Time Zones of the World",
     "spatialReference": null,
     "tags": [

@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1451972222000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sign into a Portal using OAuth2. </p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Sign into a Portal using OAuth2. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,13 +20,14 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456879511000,
+    "modified": 1481071648000,
     "name": "fe6fbf5672534393a21c99aa4ea2bd54.zip",
-    "numComments": 4,
+    "numComments": 6,
     "numRatings": 0,
-    "numViews": 136,
+    "numViews": 137,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
@@ -46,10 +47,13 @@
     "title": "Sign in OAuth2",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
+        "AppStudio",
         "Configuration",
         "Native",
+        "qml",
         "Registered App"
     ],
     "url": null

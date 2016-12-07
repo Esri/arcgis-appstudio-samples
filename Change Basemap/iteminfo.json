@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -22,18 +22,19 @@
     "largeThumbnail": null,
     "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1463628028000,
+    "modified": 1481070857000,
     "name": "8e03ebf39706433e92597789ea7d2d49.zip",
-    "numComments": 1,
+    "numComments": 2,
     "numRatings": 0,
-    "numViews": 29,
+    "numViews": 30,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 608112,
+    "size": 608113,
     "snippet": "This sample shows how to allow the user to change the basemap in an app.",
     "spatialReference": null,
     "tags": [

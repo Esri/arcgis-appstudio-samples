@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1440727316000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Each tab in this app demonstrates a different way of how to use and consume the results from a <span style=\" font-weight:600;\">NetworkRequest</span> component. The four samples display the contents of an ArcGIS REST service in JSON, use the ArcGIS Geocoding service to display a location on a map, display the contents of an Open Data web service (data is courtesy of Public Transport Victoria), and download an image from the internet, store it locally and display it.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Each tab in this app demonstrates a different way of how to use and consume the results from a <span style=' font-weight:600;'>NetworkRequest</span> component. The four samples display the contents of an ArcGIS REST service in JSON, use the ArcGIS Geocoding service to display a location on a map, display the contents of an Open Data web service (data is courtesy of Public Transport Victoria), and download an image from the internet, store it locally and display it.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,20 +20,20 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1456896334000,
+    "modified": 1481071455000,
     "name": "bfb0dec97a254a0d9d609a3e3cc95598.zip",
-    "numComments": 7,
+    "numComments": 9,
     "numRatings": 0,
-    "numViews": 102,
+    "numViews": 103,
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 19122,
+    "size": 19160,
     "snippet": "Show how to use the NetworkRequest",
     "spatialReference": null,
     "tags": [
@@ -46,6 +46,7 @@
     "title": "Network request",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
         "AppStudio",

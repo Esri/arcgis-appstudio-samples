@@ -1,5 +1,5 @@
 {
-    "access": "shared",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -22,18 +22,19 @@
     "largeThumbnail": null,
     "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1478480526000,
+    "modified": 1481071671000,
     "name": "6b38c50d5fa84cd9951042de7f09508a.zip",
-    "numComments": 3,
+    "numComments": 4,
     "numRatings": 0,
-    "numViews": 19,
+    "numViews": 20,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 2646,
+    "size": 2647,
     "snippet": "Test_User_Levels",
     "spatialReference": null,
     "tags": [

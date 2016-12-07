@@ -1,8 +1,29 @@
 {
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
+        }
+    },
     "mainFile": "BufferOnline.qml",
     "projectFile": "BufferOnline.qmlproject",
     "type": "app",
+    "urlScheme": "",
     "version": {
-        "micro": 3
+        "micro": 4
     }
 }

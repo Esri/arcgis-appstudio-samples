@@ -1,5 +1,5 @@
 {
-    "access": "org",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -8,7 +8,7 @@
     "commentsEnabled": true,
     "created": 1452137020000,
     "culture": "en-au",
-    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Enter an address into the search field, and then click the search button. Using a locally saved locator file, the app will return the location entered in. For reverse geocoding, instead click on a location on the map and its address will be displayed below the search box. </p>\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This sample also demonstrates how to bundle local data with your app for ease of distribution, and how to copy it locally for use by the app.</p>\n<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Helvetica Neue'; color:#454545;\">Resource Level: </span><span style=\" font-family:'.Apple Color Emoji UI'; color:#454545;\">🍌🍌🍌</span> </p></body></html>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Enter an address into the search field, and then click the search button. Using a locally saved locator file, the app will return the location entered in. For reverse geocoding, instead click on a location on the map and its address will be displayed below the search box. </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample also demonstrates how to bundle local data with your app for ease of distribution, and how to copy it locally for use by the app.</p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
     "documentation": null,
     "extent": [
     ],
@@ -20,20 +20,21 @@
     "languages": [
     ],
     "largeThumbnail": null,
-    "licenseInfo": "",
+    "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
     "listed": false,
-    "modified": 1461042189000,
+    "modified": 1481071248000,
     "name": "b538e3458f7e463d9e2e11b0c74ac056.zip",
-    "numComments": 3,
+    "numComments": 4,
     "numRatings": 0,
-    "numViews": 88,
+    "numViews": 89,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "screenshots": [
     ],
-    "size": 20420707,
+    "size": 20420745,
     "snippet": "This sample demonstrates the use of a local locator and how to deploy local data with your app.",
     "spatialReference": null,
     "tags": [
@@ -46,10 +47,13 @@
     "title": "Local geocode",
     "type": "Native Application",
     "typeKeywords": [
+        "API_QML",
         "App",
         "Application",
+        "AppStudio",
         "Configuration",
-        "Native"
+        "Native",
+        "qml"
     ],
     "url": null
 }

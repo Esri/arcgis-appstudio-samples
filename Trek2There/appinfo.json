@@ -20,6 +20,13 @@
         "macos": {
             "bundleId": "",
             "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": "",
+            "packageName": "",
+            "productID": "",
+            "publisherDisplayName": "",
+            "publisherID": ""
         }
     },
     "devicesTypes": [
@@ -62,7 +69,7 @@
     "urlScheme": "arcgis-trek2there",
     "version": {
         "major": 1,
-        "micro": 188,
+        "micro": 190,
         "minor": 0
     }
 }
