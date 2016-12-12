@@ -1,7 +1,12 @@
 
-# arcgis-appstudio-samples
+# Add and edit features by clicking or tapping on the map
 
-Collection of sample apps organized into its own folders to be used with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
+This sample demonstrates the following:
+- Adding a point by clicking or tapping on a map.
+- Once the point is created, a dialogue is displayed to edit the feature's attributes.
+- Existing points can be clicked to display a dialogue to edit the feature's attributes.
+
+[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
 
 _Please note that samples provided here is "as-is" and is not supported by Esri's official tech support channels. If you find any issues either submit a issue in the repo or even better fix it and submit a pull request_
 
