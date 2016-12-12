@@ -1,0 +1,57 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440726553000,
+    "culture": "en-au",
+    "description": "<html><head><meta name=\"qrichtext\" content=\"1\" /></head><body style=\" font-family:'.SF NS Text'; font-size:14pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This sample demonstrates the following features:</p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- Drawing graphics directly onto a graphics layer.</p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">- Capture and export the map in a PNG file.</p>\n<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest\"><span style=\" text-decoration: underline; color:#0000ff;\">Resource Level:</span></a>🍌🍌🍌 </p></body></html>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "cf8d32fdfa1d45c08ecd3f42cc775b1e",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "",
+    "listed": false,
+    "modified": 1481071025000,
+    "name": "cf8d32fdfa1d45c08ecd3f42cc775b1e.zip",
+    "numComments": 3,
+    "numRatings": 0,
+    "numViews": 123,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 589380,
+    "snippet": "Draw a graphic in a graphics Layers and export the map as a PNG file",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "qml"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Draw graphics and export to file",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
