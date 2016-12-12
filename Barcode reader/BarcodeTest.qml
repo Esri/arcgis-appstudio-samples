@@ -227,7 +227,8 @@ App {
         imageCapture {
             onCapturedImagePathChanged: {
                 barcodeDecoder.clear();
-                barcodeDecoder.source = AppFramework.resolvedPathUrl(camera.imageCapture.capturedImagePath);
+                //barcodeDecoder.source = AppFramework.resolvedPathUrl(camera.imageCapture.capturedImagePath);
+                barcodeDecoder.decode(AppFramework.resolvedPathUrl(camera.imageCapture.capturedImagePath));
             }
         }
     }
@@ -248,7 +249,8 @@ App {
         onAccepted: {
             barcodeImage.source = fileUrl;
             barcodeDecoder.clear();
-            barcodeDecoder.source = fileUrl;
+            //barcodeDecoder.source = fileUrl;
+            barcodeDecoder.decode(fileUrl);
             videoOutput.visible = false;
         }
     }
