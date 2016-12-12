@@ -44,7 +44,7 @@
         "package"
     ],
     "thumbnail": "thumbnail/thumbnail.png",
-    "title": "Download package",
+    "title": "Download and display a tile package",
     "type": "Native Application",
     "typeKeywords": [
         "API_QML",
