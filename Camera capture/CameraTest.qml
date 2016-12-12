@@ -16,7 +16,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.1
-import QtMultimedia 5.0
+import QtMultimedia 5.6
 
 import ArcGIS.AppFramework 1.0
 
@@ -54,11 +54,11 @@ Rectangle {
         focus : visible
     }
 
-    CameraDeviceSelector {
-        id: cameraDeviceSelector
+//    CameraDeviceSelector {
+//        id: cameraDeviceSelector
 
-        camera: camera
-    }
+//        camera: camera
+//    }
 
     MouseArea {
         anchors.fill: parent;
@@ -95,31 +95,31 @@ Rectangle {
         }
     }
 
-    Column {
-        anchors {
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-            margins: 10
-        }
+//    Column {
+//        anchors {
+//            left: parent.left
+//            right: parent.right
+//            bottom: parent.bottom
+//            margins: 10
+//        }
 
-        spacing: 5
+//        spacing: 5
 
-        ComboBox {
-            width: parent.width
-            model: cameraDeviceSelector.deviceDescriptions
-            currentIndex: cameraDeviceSelector.selectedDevice
+//        ComboBox {
+//            width: parent.width
+//            model: cameraDeviceSelector.deviceDescriptions
+//            currentIndex: cameraDeviceSelector.selectedDevice
 
-            onActivated: {
-                cameraDeviceSelector.selectedDevice = index;
-                camera.start();
-            }
-        }
+//            onActivated: {
+//                cameraDeviceSelector.selectedDevice = index;
+//                camera.start();
+//            }
+//        }
 
-        Text {
-            text: cameraDeviceSelector.selectedDevice.toString() + " Name=" + cameraDeviceSelector.selectedDeviceName + " Description=" + cameraDeviceSelector.selectedDeviceDescription
-        }
-    }
+//        Text {
+//            text: cameraDeviceSelector.selectedDevice.toString() + " Name=" + cameraDeviceSelector.selectedDeviceName + " Description=" + cameraDeviceSelector.selectedDeviceDescription
+//        }
+//    }
 
     FileFolder {
         id: imagesFolder
