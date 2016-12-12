@@ -44,7 +44,7 @@
         "camera"
     ],
     "thumbnail": "thumbnail/thumbnail.png",
-    "title": "Camera test",
+    "title": "Camera capture”,
     "type": "Native Application",
     "typeKeywords": [
         "API_QML",
