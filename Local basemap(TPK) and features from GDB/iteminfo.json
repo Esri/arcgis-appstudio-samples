@@ -45,7 +45,7 @@
         "tpk"
     ],
     "thumbnail": "thumbnail/thumbnail.png",
-    "title": "Local Runtime GDB and TPK",
+    "title": "Local basemap(TPK) and features from GDB",
     "type": "Native Application",
     "typeKeywords": [
         "API_QML",
