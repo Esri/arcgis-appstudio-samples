@@ -43,7 +43,7 @@
         "qml"
     ],
     "thumbnail": "thumbnail/thumbnail.png",
-    "title": "File info",
+    "title": "Load data from file",
     "type": "Native Application",
     "typeKeywords": [
         "App",
