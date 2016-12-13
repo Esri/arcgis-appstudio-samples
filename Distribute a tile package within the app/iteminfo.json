@@ -43,7 +43,7 @@
         "tpk"
     ],
     "thumbnail": "thumbnail/thumbnail.png",
-    "title": "Internal TPK",
+    "title": "Distribute a tile package within the app",
     "type": "Native Application",
     "typeKeywords": [
         "App",
