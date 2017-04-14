@@ -3,7 +3,7 @@
 
 This sample shows you how to incorporate font based icons into your AppStudio for ArcGIS project using Font Awesome -- one of the most popular icon font libraries.
 
-image
+![](https://github.com/Esri/arcgis-appstudio-samples/raw/master/images/font-awesome-sample.JPG)
 
 blog url
 
