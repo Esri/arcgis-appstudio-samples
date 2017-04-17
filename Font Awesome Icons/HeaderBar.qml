@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
-import Esri.ArcGISRuntime 100.0
 
 //Add a rectangle item as header
 Rectangle{
