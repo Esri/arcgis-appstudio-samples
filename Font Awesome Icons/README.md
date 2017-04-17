@@ -5,7 +5,7 @@ This sample shows you how to incorporate font based icons into your AppStudio fo
 
 ![](https://github.com/Esri/arcgis-appstudio-samples/raw/master/images/font-awesome-sample.JPG)
 
-Read blog for more info(https://geonet.esri.com/groups/appstudio/blog/2017/04/17/using-font-awesome-with-appstudio-for-arcgis-apps)
+[Read Geonet blog for more info.](https://geonet.esri.com/groups/appstudio/blog/2017/04/17/using-font-awesome-with-appstudio-for-arcgis-apps)
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌
 
