@@ -1,0 +1,55 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1494439948000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Two feature collection samples were included. The first sample shows how to create a new feature collection with several feature collection tables. The second sample demonstrates how to create a feature collection layer to show a query result from a service feature table. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level: </span></a>🍌<a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'> </span></a>🍌 </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1494441080000,
+    "name": null,
+    "numComments": 3,
+    "numRatings": 0,
+    "numViews": 13,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": null,
+    "ownerFolder": null,
+    "properties": null,
+    "proxyFilter": null,
+    "screenshots": [
+    ],
+    "size": 40001,
+    "snippet": "This sample demonstrates how to create a new feature collection layer",
+    "spatialReference": null,
+    "tags": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Feature Collection Layer",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

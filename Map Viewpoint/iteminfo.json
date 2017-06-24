@@ -1,0 +1,55 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1494032811000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Set initial map location: This sample demonstrates how to create a map with a predefined initial extent. A <span style=' font-family:'Courier New';'>ViewpointExtent</span> is declared with an <span style=' font-family:'Courier New';'>Envelope</span>, and is applied to the map by setting this value to the map's <span style=' font-family:'Courier New';'>initialViewpoint</span> property. </p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'> </p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Set initial map area: This is one of the most basic samples for the ArcGIS Runtime SDK for Qt. It shows how to construct a map by passing in a basemap type, a latitude and longitude, and a scale. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Change viewpoint: The map view has several methods for setting its current viewpoint. Select a viewpoint from the UI to see the viewpoint changed using one of these methods.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Manage bookmarks: When the sample starts, the map contains a set of bookmarks. You can select a bookmark from the list, which changes the map's viewpoint. To create a new bookmark, pan and zoom to a new location and select the <span style=' font-family:'Courier New';'>+</span> button. A prompt appears to let you provide a name for the new bookmark. When you select <span style=' font-family:'Courier New';'>Done</span> the new bookmark is added to the bookmark list. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level: </span></a>🍌 </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1496722408000,
+    "name": null,
+    "numComments": 7,
+    "numRatings": 0,
+    "numViews": 20,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": null,
+    "ownerFolder": null,
+    "properties": null,
+    "proxyFilter": null,
+    "screenshots": [
+    ],
+    "size": 44787,
+    "snippet": "This sample demonstrates how to set initial map location, initial map area, change viewpoint, and manage bookmarks",
+    "spatialReference": null,
+    "tags": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Map Viewpoint",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

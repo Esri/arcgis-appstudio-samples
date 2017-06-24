@@ -1,0 +1,55 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1494358033000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Service Feature Table (Cache): This sample demonstrates how to use a feature table with the OnInteractionCache feature request mode. This mode will cache features locally from the remote feature service. This is the default mode, and will minimize the amount of requests sent to the server, thus lending itself to be the ideal choice for working in a partially connected environment. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Service Feature Table (Manual Cache): This sample demonstrates how to use a feature service in manual cache mode. In this mode, an app explicitly requests features as needed from the remote service. The sample creates a service feature table by supplying the URL to the REST endpoint of the feature service, and set the caching mode to manual. It creates a new feature layer that uses the service feature table, and adds the feature layer to the map. When the Populate button is pressed, the sample calls the populateFromService method on the feature layer to fetch new features from the service, which are automatically added to the map. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Service Feature Table (No Cache): This sample demonstrates how to use a feature table in on interaction no cache mode. In this mode, an app requests features from the remote service and does not cache them. This means that new features are requested from the service each time the viewpoint's visible extent changes. The sample creates an instance of ServiceFeatureTable by supplying the URL to the REST endpoint of the feature service. The FeatureRequestModeOnInteractionNoCache feature request mode is set on the ServiceFeatureTable as well. The feature layer is then supplied with the ServiceFeatureTable and added to the map. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level: </span></a>🍌 </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1495476482000,
+    "name": null,
+    "numComments": 7,
+    "numRatings": 0,
+    "numViews": 5,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": null,
+    "ownerFolder": null,
+    "properties": null,
+    "proxyFilter": null,
+    "screenshots": [
+    ],
+    "size": 39535,
+    "snippet": "This sample demonstrates how to use a feature table in three different cache mode",
+    "spatialReference": null,
+    "tags": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Feature Table",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
