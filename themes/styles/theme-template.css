@@ -1,0 +1,210 @@
+﻿.esriCTRatingStarIconColor
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTMapIcons, .esriCTGeolocationIcon
+{
+    background-color: ${HeaderBackgroundColor} !important;
+}
+
+.esriCTAutoSuggest
+{
+    border-left: 1px solid ${SelectedThemeColor} !important;
+    border-right: 1px solid ${SelectedThemeColor} !important;
+    border-bottom: 1px solid ${SelectedThemeColor} !important;
+}
+
+/* Left panel */
+
+.esriCTLeftPanelHeader, .esriCTLeftPanelHeaderMap
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTReviewHeader
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTListAppTitle
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTAppImage
+{
+    border: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTMenuTab
+{
+    background: none repeat scroll 0 0 ${SelectedThemeColor} !important;
+    border-bottom: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTMenuTabRightMap
+{
+    background: none repeat scroll 0 0 ${SelectedThemeColor} !important;
+    border-bottom: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTTagCloudHighlight
+{
+    background-color: ${SelectedThemeColor} !important;
+}
+
+.esriCTSharingTag
+{
+    background: ${SelectedThemeColor} !important;
+    color: #fff;
+}
+
+.esriCTComments, .esriCTComments
+{
+    color: #ccc;
+}
+
+/* Item details page styles */
+
+.esriCTDetailsMap img
+{
+    border: 1px solid ${SelectedThemeColor} !important;
+}
+
+.dijitDialogTitleBar
+{
+    background-color: ${HeaderBackgroundColor} !important;
+}
+
+.esriCTExpand, .esriCTMoreInfo
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTMoreResultsButton
+{
+    background: ${SelectedThemeColor} !important;
+    color: white;
+}
+
+.esriCTEyeIcon
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTLeftText div span a
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.dijitButton
+{
+    border: 1px solid ${HeaderBackgroundColor} !important;
+    color: ${HeaderTextColor} !important;
+    background-color: ${HeaderBackgroundColor} !important;
+}
+
+input
+{
+    border: 1px solid ${HeaderBackgroundColor} !important;
+}
+
+.HomeButton .home, .HomeButton .home:hover
+{
+    background-color: ${HeaderBackgroundColor} !important;
+}
+
+.esriSimpleSliderDecrementButton, .esriSimpleSliderIncrementButton
+{
+    background-color: ${HeaderBackgroundColor} !important;
+
+}
+
+.esriSimpleSlider, .home:before, .icon-gps:before{
+    color: ${HeaderTextColor} !important;
+}
+
+.dijitDialogUnderlay
+{
+    background: ${SelectedThemeColor} !important;
+    opacity: 0.55;
+}
+
+.esriCTSearchBtnMap
+{
+    border: 1px solid ${SelectedThemeColor};
+    border-left: none;
+}
+
+.esriCTLayerInfo
+{
+    color: ${SelectedThemeColor} !important;
+}
+
+.esriCTItemSnippet
+{
+   border: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTItemInfoIcon, .esriCTItemViewIcon, .esriCTItemDetailsIcon, .esriCTBackToGalleryBtn, .esriCTItemDownloadIcon
+{
+    background-color: ${SelectedThemeColor} !important;
+}
+
+.esriCTShiftRightPanel
+{
+    border-right: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTShiftRight
+{
+    border-left: 1px solid ${SelectedThemeColor} !important;
+}
+
+.esriCTTabList li a.select
+{
+    background-color: ${HeaderBackgroundColor} !important;
+    color: ${HeaderTextColor} !important;
+    cursor: default !important;
+}
+
+/** Issue list panel ends **/
+
+/** Org theming classes starts **/
+
+.esriCTBodyTextColor {
+    color: ${BodyTextColor} !important;
+}
+
+.esriCTHeaderBackgroundColor {
+    background-color: ${HeaderBackgroundColor} !important;
+}
+
+.esriCTHeaderTextColor {
+    color: ${HeaderTextColor} !important;
+}
+
+.esriCTHeaderTextColorAsBorder {
+    border-color: ${HeaderTextColor} !important;
+}
+
+.esriCTHeaderTextColorAsBackground {
+    background-color: ${HeaderTextColor} !important;
+}
+
+.esriCTHeaderBackgroundColorAsTextColor {
+    color: ${HeaderBackgroundColor} !important;
+}
+
+.esriCTHeaderBackgroundColorAsBorder {
+    border-color: ${HeaderBackgroundColor} !important;
+}
+
+.esriCTSortMenuListSelected, .esriCTListSelected
+{
+    border: 1px solid;
+    border-color: ${HeaderTextColor} !important;
+}
+
+/** Org theming classes ends **/

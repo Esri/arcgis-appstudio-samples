@@ -1,0 +1,106 @@
+﻿@media screen and (min-width: 321px) and (max-width: 640px)
+{
+    .esriCTMenuTabRight div span.esriCTMenulbl
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTMenuTabRightMap
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTMenuTabLeft
+    {
+	    color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTGalleryName
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTMenulbl
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTGalleryNameCategories, .esriCTGalleryNameSample
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTTopPanel
+    {
+        background: #efefef;
+    }
+
+    .esriCTListSelected
+    {
+        border: 2px solid ${SelectedThemeColor} !important;
+    }
+
+    .esriCTRightControlPanel
+    {
+        background: none repeat scroll 0 0 ${SelectedThemeColor} !important;
+        border-bottom: 1px solid ${SelectedThemeColor} !important;
+    }
+
+    .esriCTSortAscImgMbl, .esriCTSortDescImgMbl
+    {
+        background-color: ${SelectedThemeColor} !important;
+    }
+}
+
+@media screen and (max-width: 320px)
+{
+    .esriCTMenuTabRight div span.esriCTMenulbl
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTMenuTabLeft
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTGalleryName
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTMenulbl
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTGalleryNameCategories, .esriCTGalleryNameSample
+    {
+        color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTRightControlPanel
+    {
+        background: none repeat scroll 0 0 ${SelectedThemeColor} !important;
+        border-bottom: 1px solid ${SelectedThemeColor} !important;
+    }
+
+    .esriCTSortAscImgMbl, .esriCTSortDescImgMbl
+    {
+        background-color: ${SelectedThemeColor} !important;
+    }
+
+    .esriCTListSelected
+    {
+        border: 2px solid ${SelectedThemeColor} !important;
+    }
+}
+
+@media screen and (max-width: 240px)
+{
+    .esriCTRightControlPanel
+    {
+        background: none repeat scroll 0 0 ${SelectedThemeColor} !important;
+        border-bottom: 1px solid ${SelectedThemeColor} !important;
+    }
+}

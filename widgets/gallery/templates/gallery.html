@@ -1,0 +1,75 @@
+﻿<div data-dojo-attach-point="galleryView" class="esriCTRightPanel esriCTShiftRightPanel">
+    <div class="esriCTInnerRightPanel">
+        <div class="esriCTInnerRightPaneldiv">
+            <div data-dojo-attach-point="itemPodsList" class="esriCTListView">
+            </div>
+            <div class="esriCTShowMoreResults displayNoneAll">
+                <div data-dojo-attach-point="galleryNext" class="esriCTMoreResultsButton">
+                    <a>${nls.showMoreResultsGalleryText}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="esriCTInnerRightPanelDetails displayNoneAll">
+        <div class="esriCTInnerRightPaneldiv">
+            <div data-dojo-attach-point="detailsLeftPanel" class="esriCTDetailsLeftPanel">
+                <div class="esriCTDetailsMap">
+                    <div class="esriCTDetailsMapImage">
+                        <div data-dojo-attach-point="appThumbnail" class="esriCTAppImage esriCTHeaderBackgroundColorAsBorder esriCTCursorPointer">
+                        </div>
+                    </div>
+                </div>
+                <div class="esriCTDetailLeftInfo">
+                    <div class="esriCTDivClear">
+                        <div class="esriCTDetailsLeftPanelLabel">
+                            ${nls.appTypeText}</div>
+                        <div data-dojo-attach-point="applicationType" class="esriCTDetailsLeftPanelText esriCTBodyTextColor">
+                        </div>
+                    </div>
+                    <div class="esriCTDivClear">
+                        <div class="esriCTDetailsLeftPanelLabel">
+                            ${nls.appOwnerText}</div>
+                        <div data-dojo-attach-point="itemSubmittedBy" class="esriCTDetailsLeftPanelText esriCTBodyTextColor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-dojo-attach-point="detailsRightPanel" class="esriCTDetailsRightPanel">
+                <div class="esriCTDetailsInnerRightPanel">
+                    <div>
+                        <div>
+                            <div data-dojo-attach-point="backToGalleryBtn" title="${nls.title.backButtonTitle}" class="esriCTBackToGalleryBtn esriCTHeaderBackgroundColor">
+                            </div>
+                            <div data-dojo-attach-point="detailsListContent" class="esriCTDetailsListContent">
+                                <div class="esriCTAppListTitle">
+                                    <div class="esriCTAppListTitleRight">
+                                        <div class="esriCTDivClear">
+                                            <div data-dojo-attach-point="appTitle" class="esriCTListAppTitle esriCTHeaderBackgroundColorAsTextColor ">
+                                            </div>
+                                        </div>
+                                        <div class="esriCTComments">
+                                            <div data-dojo-attach-point="ratingsContainer" class="esriCTRatings">
+                                            </div>
+                                            <div data-dojo-attach-point="numOfCommentsViews">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="esriCTListAppContent">
+                                    <div data-dojo-attach-point="itemSnippet" class="esriCTAppHeadlineInner esriCTBodyTextColor">
+                                    </div>
+                                    <div class="esriCTTryItNowBtn" data-dojo-attach-point="btnTryItNowContainer">
+                                        <div data-dojo-attach-point="btnTryItNow" class="esriCTOpenItemBtn esriCTHeaderBackgroundColor ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-dojo-attach-point="detailsContent" class="esriCTDetailsListContent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

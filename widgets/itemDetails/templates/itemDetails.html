@@ -1,0 +1,72 @@
+﻿<div data-dojo-attach-point="itemDetailsLeftPanel" class="esriCTitemDetails">
+    <div data-dojo-attach-point="innerPanel" class="esriCTMapLeftPanel">
+        <div class="esriCTInnerLeftPanelTopMap">
+            <div data-dojo-attach-point="backToGalleryBtn" title="${nls.title.backButtonTitle}" class="esriCTBackToGalleryBtn esriCTHeaderBackgroundColor">
+            </div>
+            <div class="esriCTPadding">
+                <div class="esriCTLogo">
+                    <div class="esriCTLogoContainer" data-dojo-attach-point="itemIcon">
+                    </div>
+                </div>
+                <div class="esriCTLeftPanelHeaderMap esriCTBreakWord esriCTHeaderBackgroundColorAsTextColor">
+                    <span data-dojo-attach-point="itemTitle"></span>
+                </div>
+            </div>
+        </div>
+        <div class="esriCTLegendTab esriCTLegendTabMargin">
+            <div class="esriCTTabGroup esriCTIETest">
+                <ul class="esriCTTabList">
+                    <li><a data-dojo-attach-point="legendTab" class="labelLegendTab select">${nls.itemDetailsLegendTab}</a></li>
+                    <li><a data-dojo-attach-point="infoTab" class="">${nls.itemDetailsInfoTab}</a></li>
+                </ul>
+                <div class="esriCTLegendContainer esriCTTabContainer">
+                    <div class="esriCTTabBox displayBlockAll" data-dojo-attach-point="legendDetails">
+                        <div data-dojo-attach-point="legendDiv" class="esriCTlegend">
+                        </div>
+                    </div>
+                    <div data-dojo-attach-point="layerDescription" class="esriCTTabBox esriCTBreakWord displayNoneAll">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="esriCTRightPanelMap">
+        <div data-dojo-attach-point="itemMap" class="esriCTMap">
+        </div>
+    </div>
+    <div class="esriCTRightControlPanel esriRightControlPanelMap">
+        <div data-dojo-attach-point="divBackToMapContainer" class="esriCTBackToMapBtn">
+            <div data-dojo-attach-point="backToGallery" class="esriCTBackToGalleryIcon">
+                <span title="${nls.title.backButtonTitle}" class="icon-back-arrow esriCTBackBtnIcon"></span>
+            </div>
+            <div data-dojo-attach-point="divBackToMap" class="esriCTBackToMapPosition displayNoneAll">
+                <span class="icon-left-open-big esriCTBackBtnIcon"></span><span class="esriCTBackBtnText">
+                    ${nls.backToMapButtonText}</span>
+            </div>
+        </div>
+        <div class="esriCTMapInput">
+            <div class="esriCTSearchContainerDiv">
+                <div data-dojo-attach-point="divAddressContainer" class="esriCTSearch">
+                    <div class="esriCTSearchBtnMap esriCTHeaderBackgroundColorAsBorder ">
+                        <span class="esriCTClearInputMap icon-cancel" title="${nls.clearBtnTitle}" data-dojo-attach-point="hideMapText">
+                        </span><span data-dojo-attach-point="addressSearchIcon" title="${nls.addressSearchBtnTitle}"
+                            class="esriCTSearchIconMap icon-search esriCTCursorPointer"></span>
+                    </div>
+                    <div class="esriCTSearchLocatorMap">
+                        <div class="esriCTSearchLocatorInputMap">
+                            <input data-dojo-attach-point="txtAddressSearch" class="esriCTSearchItemInput esriCTHeaderBackgroundColorAsBorder" type="text"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="esriCTAutoSuggest esriCTAddressSearch displayNoneAll" data-dojo-attach-point="autocompleteResults">
+                </div>
+            </div>
+        </div>
+        <div data-dojo-attach-point="divItemTitle" class="esriCTItemTitle displayNoneAll">
+            <span class="esriCTItemTitleText" data-dojo-attach-point="spanItemTitleText"></span>
+        </div>
+        <div data-dojo-attach-point="divLegendLayer" class="esriCTMapInfoIcon esriMapGeoInfo icon-info-circled-alt">
+        </div>
+    </div>
+</div>

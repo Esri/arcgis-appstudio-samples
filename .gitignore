@@ -1,5 +1,9 @@
-#Git Ignore files
-*.psd
-*.bak
-*.user
-.info.json
+# Tools, notes, outputs
+__*.*
+__*
+
+# Snap backups
+*.7z
+
+# AGOL only
+readme.html
