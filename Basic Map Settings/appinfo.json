@@ -42,7 +42,7 @@
     "type": "app",
     "urlScheme": null,
     "version": {
-        "major": 1,
+        "major": 2,
         "micro": 1
     }
 }
