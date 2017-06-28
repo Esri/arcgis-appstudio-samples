@@ -582,6 +582,10 @@ font {
     display: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .esriCTGridItemType {
     clear: both;
     padding-bottom: 15px;
