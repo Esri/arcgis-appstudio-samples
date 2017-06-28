@@ -579,6 +579,7 @@ font {
     padding-bottom: 5px;
     color: #b6b6b6;
     font-size: 12px;
+    display: none;
 }
 
 .esriCTGridItemType {
