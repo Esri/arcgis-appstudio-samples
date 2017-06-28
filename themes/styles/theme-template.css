@@ -34,7 +34,7 @@
 
 .esriCTAppImage
 {
-    border: 1px solid ${SelectedThemeColor} !important;
+    border: 0px solid ${SelectedThemeColor} !important;
 }
 
 .esriCTMenuTab
