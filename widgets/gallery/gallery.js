@@ -1012,7 +1012,7 @@ define([
         itemSize, tagsContainer, sizeContainer;
 
       tagsContainer = domConstruct.create('div', {
-        "class": "esriCTReviewContainer esriCTBottomBorder"
+        "class": "esriCTReviewContainer esriCTBottomBorder hidden"
       }, detailsContent);
       domConstruct.create('div', {
         "innerHTML": nls.tagsText,
@@ -1027,11 +1027,11 @@ define([
         }
       }
       domConstruct.create('div', {
-        "class": "esriCTText esriCTBodyTextColor",
+        "class": "esriCTText esriCTBodyTextColor hidden",
         "innerHTML": itemTags
       }, tagsContent);
       sizeContainer = domConstruct.create('div', {
-        "class": "esriCTReviewContainer esriCTBottomBorder"
+        "class": "esriCTReviewContainer esriCTBottomBorder hidden"
       }, detailsContent);
       domConstruct.create('div', {
         "class": "esriCTReviewHeader esriCTHeaderBackgroundColorAsTextColor",
@@ -1046,7 +1046,7 @@ define([
         itemSize = Math.round(itemSizeValue) + " " + nls.sizeUnitKB;
       }
       domConstruct.create('div', {
-        "class": "esriCTText esriCTBodyTextColor",
+        "class": "esriCTText esriCTBodyTextColor hidden",
         "innerHTML": itemSize
       }, sizeContent);
       topic.publish("hideProgressIndicator");
