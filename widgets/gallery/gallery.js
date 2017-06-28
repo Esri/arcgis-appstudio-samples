@@ -1012,7 +1012,7 @@ define([
         itemSize, tagsContainer, sizeContainer;
 
       tagsContainer = domConstruct.create('div', {
-        "class": "esriCTReviewContainer esriCTBottomBorder hidden"
+        "class": "esriCTReviewContainer esriCTBottomBorder"
       }, detailsContent);
       domConstruct.create('div', {
         "innerHTML": nls.tagsText,
@@ -1027,7 +1027,7 @@ define([
         }
       }
       domConstruct.create('div', {
-        "class": "esriCTText esriCTBodyTextColor hidden",
+        "class": "esriCTText esriCTBodyTextColor",
         "innerHTML": itemTags
       }, tagsContent);
       sizeContainer = domConstruct.create('div', {
