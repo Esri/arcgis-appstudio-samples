@@ -57,7 +57,7 @@ textarea {
 
 font {
     font-family: 'Lato', sans-serif !important;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .esriCTFullHeightWidth {
@@ -350,7 +350,7 @@ font {
 
 .esriCTLeftPanelDesc {
     overflow: auto;
-    font-size: small;
+    font-size: 14px;
     word-wrap: break-word;
 }
 
@@ -597,7 +597,7 @@ font {
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 14px;
     width: 100%;
     float: left;
 }

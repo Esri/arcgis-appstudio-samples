@@ -177,31 +177,6 @@
 
 }
 
-@media screen and (min-device-width: 1281px)
-{
-    html, body
-    {
-        font-size: 12px !important;
-    }
-
-    input
-    {
-        font-size: 12px !important;
-    }
-
-    textarea
-    {
-        font-size: 12px !important;
-    }
-
-    font
-    {
-        font-family: 'Lato' ,sans-serif !important;
-        font-size: 12px !important;
-    }
-
-}
-
 @media screen and (min-width: 641px) and (max-width:767px)
 {
     html, body
