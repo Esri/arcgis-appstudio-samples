@@ -192,6 +192,7 @@ font {
 .esriCTSignIn {
     float: left;
     padding: 0 10px;
+    display: none;
 }
 
 .esriCTSettingInfo, .esriCTSettingInfoMenu {
