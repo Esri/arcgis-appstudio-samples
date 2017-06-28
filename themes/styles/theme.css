@@ -1565,6 +1565,7 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 
 .esriCTItemViewIcon {
     background-image: url('../images/item-view.png');
+    display: none;
 }
 
 .esriCTItemDownloadIcon {
