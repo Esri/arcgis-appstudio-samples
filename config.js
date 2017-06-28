@@ -1,4 +1,5 @@
-﻿{
+﻿
+{
 	"license": [
 		"| Copyright 2014 Esri",
 		"|",
@@ -28,7 +29,7 @@
 		"applicationIcon": "https://pbs.twimg.com/profile_images/572876856248913920/T6x_CbfG.png",
 		"applicationFavicon": "https://pbs.twimg.com/profile_images/572876856248913920/T6x_CbfG.png",
 		"theme": "#8400a8",
-		"defaultLayout": "list",
+		"defaultLayout": "grid",
 		"sortField": "numViews",
 		"sortOrder": "desc",
 		"showRatings": false,
@@ -191,11 +192,11 @@
 			"sharedThemeProperty": "header.text",
 			"fieldName": "headerTextColor"
 		}, {
-		    "label": "Header background color",
-		    "fieldName": "theme",
-		    "type": "color",
-		    "tooltip": "Color of header bar and widget windows",
-		    "sharedThemeProperty": "header.background"
+			"label": "Header background color",
+			"fieldName": "theme",
+			"type": "color",
+			"tooltip": "Color of header bar and widget windows",
+			"sharedThemeProperty": "header.background"
 		}, {
 			"label": "Body text color",
 			"tooltip": "Set body text color",
