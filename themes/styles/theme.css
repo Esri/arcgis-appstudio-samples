@@ -590,6 +590,7 @@ font {
     clear: both;
     padding-bottom: 15px;
     color: #b6b6b6;
+    display: none
 }
 
 .esriCTInnerGridItemType {
