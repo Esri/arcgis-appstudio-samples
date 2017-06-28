@@ -374,15 +374,15 @@ define([
       this.own(on(divItemTitleText, "click", lang.hitch(this,
         function() {
           dataType = itemResult.type.toLowerCase();
-          if (((dataType !== "map service") && (dataType !==
-                "web map") && (dataType !== "feature service") &&
-              (dataType !== "image service") && (dataType !==
-                "kml") && (dataType !== "wms") && (dataType !==
-                "vector tile service")) || (dataType ===
-              "operation view")) {
-            dojo.downloadWindow = window.open('', "_blank");
-          }
-          this.showInfoPage(itemResult, false);
+          // if (((dataType !== "map service") && (dataType !==
+          //       "web map") && (dataType !== "feature service") &&
+          //     (dataType !== "image service") && (dataType !==
+          //       "kml") && (dataType !== "wms") && (dataType !==
+          //       "vector tile service")) || (dataType ===
+          //     "operation view")) {
+          //   dojo.downloadWindow = window.open('', "_blank");
+          // }
+          this.showInfoPage(itemResult, true);
         })));
 
       // Handle item title click in grid layout
@@ -472,7 +472,7 @@ define([
           // if (((dataType !== "map service") && (dataType !== "web map") && (dataType !== "feature service") && (dataType !== "image service") && (dataType !== "kml") && (dataType !== "wms") && (dataType !== "vector tile service")) || (dataType === "operation view")) {
           //     dojo.downloadWindow = window.open('', "_blank");
           // }
-          this.showInfoPage(itemResult, false);
+          this.showInfoPage(itemResult, true);
         }));
       } else {
         if (divItemSnippet) {
@@ -497,7 +497,7 @@ define([
           //     "operation view")) {
           //   dojo.downloadWindow = window.open('', "_blank");
           // }
-          this.showInfoPage(itemResult, false);
+          this.showInfoPage(itemResult, true);
         }));
       }
     },
@@ -713,15 +713,15 @@ define([
       this.own(on(divItemTitleText, "click", lang.hitch(this,
         function() {
           dataType = itemResult.type.toLowerCase();
-          if (((dataType !== "map service") && (dataType !==
-                "web map") && (dataType !== "feature service") &&
-              (dataType !== "image service") && (dataType !==
-                "kml") && (dataType !== "wms") && (dataType !==
-                "vector tile service")) || (dataType ===
-              "operation view")) {
-            dojo.downloadWindow = window.open('', "_blank");
-          }
-          this.showInfoPage(itemResult, false);
+          // if (((dataType !== "map service") && (dataType !==
+          //       "web map") && (dataType !== "feature service") &&
+          //     (dataType !== "image service") && (dataType !==
+          //       "kml") && (dataType !== "wms") && (dataType !==
+          //       "vector tile service")) || (dataType ===
+          //     "operation view")) {
+          //   dojo.downloadWindow = window.open('', "_blank");
+          // }
+          this.showInfoPage(itemResult, true);
         })));
 
       //create container for open/view and info buttons
@@ -739,15 +739,15 @@ define([
       this.own(on(divItemViewIcon, "click", lang.hitch(this, function() {
         topic.publish("showProgressIndicator");
         dataType = itemResult.type.toLowerCase();
-        if (((dataType !== "map service") && (dataType !==
-              "web map") && (dataType !== "feature service") &&
-            (dataType !== "image service") && (dataType !==
-              "kml") && (dataType !== "wms") && (dataType !==
-              "vector tile service")) || (dataType ===
-            "operation view")) {
-          dojo.downloadWindow = window.open('', "_blank");
-        }
-        this.showInfoPage(itemResult, false);
+        // if (((dataType !== "map service") && (dataType !==
+        //       "web map") && (dataType !== "feature service") &&
+        //     (dataType !== "image service") && (dataType !==
+        //       "kml") && (dataType !== "wms") && (dataType !==
+        //       "vector tile service")) || (dataType ===
+        //     "operation view")) {
+        //   dojo.downloadWindow = window.open('', "_blank");
+        // }
+        this.showInfoPage(itemResult, true);
       })));
 
       //create info button
