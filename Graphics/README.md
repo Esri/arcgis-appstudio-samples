@@ -8,7 +8,7 @@ This item has following five samples:
 - Graphic Overlay: This sample demonstrates applying a dictionary renderer to graphics to display military symbology. This sample loads a number of point, line, and polygon military elements from an XML file and adds them as graphics to a GraphicsOverlay. A DictionaryRenderer is applied to the GraphicsOverlay in order to display the graphics with MIL-STD-2525D military symbology. When all graphics are created, the map's viewpoint is set to zoom to the full extent of all graphics.
 - Graphic Overlay 3D: This sample demonstrates applying a dictionary renderer to a graphics overlay in a 3D scene to display military symbology. The sample loads a number of point military elements from an XML file and adds them as graphics to a GraphicsOverlay. A DictionaryRenderer is applied to the GraphicsOverlay in order to display the graphics with MIL-STD-2525D military symbology.
 
-[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
+[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
 
 
 ## Instructions to run this sample in AppStudio Desktop
