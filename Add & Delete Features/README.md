@@ -1,8 +1,8 @@
 ## Add and delete a feature to the feature service on the map
 
-This sample demonstrates the following:
+There are two samples in this item:
 - Add Features: This sample demonstrates how to add features to a feature service. Click or tap on a location in the map view to add a feature at that location.
-- This sample demonstrates how to delete a feature from a feature service. Clicking or tapping on a feature displays a callout for it. To delete that feature from the feature service, select the delete button in the callout. This button will invoke the deleteFeature method on the feature table, deleting the feature from the local table. Then the applyEdits method is called to apply the edits to the service, deleting the feature from the service.
+- Delete Features: This sample demonstrates how to delete a feature from a feature service. Clicking or tapping on a feature displays a callout for it. To delete that feature from the feature service, select the delete button in the callout. This button will invoke the deleteFeature method on the feature table, deleting the feature from the local table. Then the applyEdits method is called to apply the edits to the service, deleting the feature from the service.
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
 
