@@ -1,17 +1,13 @@
 
-## Feature Layer
+## Consume an Esri mobile geodatabase
 
-This item has following five samples:
-- Feature Layer: This sample demonstrates how to add a feature layer using a feature service to the map.
+This sample demonstrates the following:
+- The sample creates an instance of GeodatabaseFeatureTable by supplying the path to the local mobile geodatabase. 
+- The FeatureLayer is then supplied with the GeodatabaseFeatureTable and added to the Map.
+- The mobile geodatabase can either be obtained through ArcMap, with the Create Runtime Content geoprocessing tool, or through a feature service with the GeodatabaseSyncTask.
 
-- Feature Layer Query: This sample demonstrates how to query a feature layer using a feature table.
 
-- Feature Layer Selection: This sample demonstrates how to select features in a feature layer.
-- Feature Layer Definition Expression: This sample demonstrates how to limit the features to display on the map using a definition expression. Press the Apply Expression button to select only features requested using a definition expression.
-
-- Feature Layer (Dictionary Renderer): This sample loads a number of point, line, and polygon feature tables from a Runtime geodatabase. For each feature table, a `FeatureLayer` is created, and a `DictionaryRenderer` object is created and applied to the layer. Note that each layer needs its own renderer, though all renderers can share the DictionarySymbolStyle, in which case all layers will use the same symbology specification (MIL-STD-2525D in the case of this sample). Each layer is added to the map, and when all layers are loaded, the map's viewpoint is set to zoom to the full extent of all feature layers.
-
-[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
+[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌
 
 
 ## Instructions to run this sample in AppStudio Desktop
