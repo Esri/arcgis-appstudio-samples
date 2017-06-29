@@ -6,7 +6,7 @@ This sample demonstrates the following:
 - Use the switch control for the sub-layers to change their visibility.
 
 
-[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
+[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
 
 
 ## Instructions to run this sample in AppStudio Desktop
