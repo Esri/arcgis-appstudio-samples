@@ -3,13 +3,13 @@
 
 Collection of sample apps organized into its own folders to be used with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
 
-_Please note that samples provided here is "as-is" and is not supported by Esri's official tech support channels. If you find any issues either submit a issue in the repo or even better fix it and submit a pull request_
+_If you find any issues either submit a post on geonet or log a support case or even better fix it and submit a pull request_
 
 ## Instructions to run in AppStudio Desktop
 
-1. Download the `.zip` file
-2. Unzip and copy the appropriate sample folder you are interested into AppStudio Apps folder (Windows: `C:\Users\<username>\ArcGIS\AppStudio\Apps` Mac or linux: `Home\ArcGIS\AppStudio\Apps`)
-3. The new app will now appear in the AppStudio Desktop. Run the application or open it in the bundled Qt-Creator IDE to look at the code and modify.
+All the samples provided in this repo is already available with the AppStudio v2.0 Desktop. Click on the "New App" -> "Samples" to see all the available samples to pick from. 
+
+_If you are looking for older version (pre AppStudio 2.0 i.e. 1.4) you can access them in the same repo under the v1.4 branch._
 
 ## References
 * [AppStudio Wiki & Cookbook](https://github.com/Esri/arcgis-appstudio-samples/wiki)
@@ -21,11 +21,12 @@ _Please note that samples provided here is "as-is" and is not supported by Esri'
 * [AppStudio for ArcGIS Developer Documentation](http://doc.arcgis.com/en/appstudio/extend-apps/useqtcreatorcreateapp.htm)
 * [AppStudio for ArcGIS Geonet Forums](https://geonet.esri.com/groups/appstudio/)
 * [AppStudio for ArcGIS Video Collection](http://video.arcgis.com/series/232/appstudio-for-arcgis)
+* [AppStudio for ArcGIS Youtube Channel](https://www.youtube.com/channel/UCaDpuQi3gcd5YD9KW-_jsQg)
 * [Qt and QML](http://www.qt.io/)
 
 ## Issues
 
-Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+Find a bug or want to request a new feature?  Please let us know by submitting a post on [Geonet](https://geonet.esri.com/groups/appstudio) or log a support case.
 
 ## Contributing
 
