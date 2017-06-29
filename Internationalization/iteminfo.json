@@ -1,0 +1,58 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440726659000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample demonstrates internationalization of a QML app. Using both translation files and system locale information, a given syntax will display in different languages according to your selection.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "c14937b9afdd47dfb88badf52e51f43b",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "listed": false,
+    "modified": 1481071194000,
+    "name": "c14937b9afdd47dfb88badf52e51f43b.zip",
+    "numComments": 4,
+    "numRatings": 0,
+    "numViews": 40,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 8010,
+    "snippet": "This sample demonstrates internationalization",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "internationalization",
+        "qml"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Internationalization",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

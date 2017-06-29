@@ -1,0 +1,60 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "commentsEnabled": true,
+    "created": 1440725365000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Shows how to implement a barcode reader in QML.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'Helvetica Neue'; color:#454545;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' target='_blank'>Resource Level:</a></span><span style=' font-family:'.Apple Color Emoji UI'; color:#454545;'>🍌🍌🍌</span> </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": "48c0fc12bfa049b4982727c3d5509621",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "listed": false,
+    "modified": 1481070841000,
+    "name": "48c0fc12bfa049b4982727c3d5509621.zip",
+    "numComments": 3,
+    "numRatings": 0,
+    "numViews": 107,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "screenshots": [
+    ],
+    "size": 108540,
+    "snippet": "Reads bar and QR codes",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "barcode",
+        "bar code",
+        "qml"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Barcode reader",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
