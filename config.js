@@ -1,4 +1,4 @@
-﻿
+
 {
 	"license": [
 		"| Copyright 2014 Esri",
@@ -26,8 +26,6 @@
 		"appid": "",
 		"oauthappid": "",
 		"applicationName": "AppStudio Apps Showcase Gallery",
-		"applicationIcon": "https://pbs.twimg.com/profile_images/572876856248913920/T6x_CbfG.png",
-		"applicationFavicon": "https://pbs.twimg.com/profile_images/572876856248913920/T6x_CbfG.png",
 		"theme": "#8400a8",
 		"defaultLayout": "grid",
 		"sortField": "numViews",
