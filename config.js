@@ -26,6 +26,8 @@
 		"appid": "",
 		"oauthappid": "",
 		"applicationName": "AppStudio Apps Showcase Gallery",
+		"applicationIcon": "/themes/images/logo.png",
+		"applicationFavicon": "/themes/images/logo.png",
 		"theme": "#8400a8",
 		"defaultLayout": "grid",
 		"sortField": "numViews",
