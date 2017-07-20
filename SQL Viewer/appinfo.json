@@ -1,0 +1,72 @@
+{
+    "arcgisRuntime": 1001,
+    "capabilities": {
+        "audio": false,
+        "backgroundLocation": false,
+        "bluetooth": false,
+        "camera": false,
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": false,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "winphone": {
+            "packageDisplayName": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 360,
+            "windowMode": "default"
+        },
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        }
+    },
+    "mainFile": "MyApp.qml",
+    "projectFile": "MyApp.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "default-app.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "major": 1,
+        "micro": 1
+    }
+}
