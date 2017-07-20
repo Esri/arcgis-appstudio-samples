@@ -10,6 +10,8 @@ This sample demonstrates how to:
 7. SqlQueryModel and SqlTableModel
 8. Including SQL Schema as an app resource
 
+Check this blog post to learn more about the sample.   https://geonet.esri.com/groups/appstudio/blog/2017/07/20/introducation-to-sql-beta-in-appstudio-20.
+
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
 
