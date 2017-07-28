@@ -2,7 +2,7 @@
 ## Geocoding
 
 The sample use the LocatorTask class to geocode an address. When typing an address, a list of suggestion will be displayed. GeocodeResult object based on how far they are from the user's location will be returned.
-Please check this blog post to learn more about this sample app.  
+Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017/07/28/introduction-to-geocoding-sample-app) to learn more about this sample app.  
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
 
