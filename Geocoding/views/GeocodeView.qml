@@ -15,6 +15,7 @@ import "../controls"
 Item {
     id: geocodeView
     property var currentPoint
+    property int compassDegree: 0
     property bool isShowBackground: false
     property bool isSuggestion: true
 
@@ -188,21 +189,24 @@ Item {
                             width: parent.height
                             height: parent.height
                             anchors.left: parent.left
+
                             Image{
-                                id: image
+                                id: icon
                                 width: parent.width*0.40
                                 height: width
                                 anchors.top: parent.top
                                 anchors.topMargin: parent.width*0.15
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                source: "../images/map-marker.png"
+                                source: "../images/navigation.png"
                                 mipmap: true
+                                rotation: degrees-compassDegree
                                 opacity: 0.4
                             }
+
                             Label{
                                 width: parent.width
                                 height: parent.height*0.30
-                                anchors.top: image.bottom
+                                anchors.top: icon.bottom
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 horizontalAlignment: Label.AlignHCenter
                                 text: !isSuggestion? distanceText:""
@@ -306,7 +310,32 @@ Item {
                         if(distanceInMile<1000)distanceText = distanceInFeet < 528 ? distanceInFeet+qsTr(" ft") : distanceInMile+qsTr(" mi");
                         var name = e.label;
                         var address = e.attributes.Place_addr;
-                        resultListModel.append({"name": name, "distanceText": distanceText, "address": address, "geometryJson": pointJson});
+
+                        var linearUnit  = ArcGISRuntimeEnvironment.createObject("LinearUnit", {linearUnitId: Enums.LinearUnitIdMillimeters});
+                        var angularUnit = ArcGISRuntimeEnvironment.createObject("AngularUnit", {angularUnitId: Enums.AngularUnitIdDegrees});
+                        var results = GeometryEngine.distanceGeodetic(currentPoint, point, linearUnit, angularUnit, Enums.GeodeticCurveTypeGeodesic)
+                        var degrees = results.azimuth1;
+                        var bearing = "";
+
+                        if (degrees > -22.5  && degrees <= 22.5){
+                            bearing = "N";
+                        }else if (degrees > 22.5 && degrees <= 67.5){
+                            bearing = "NE";
+                        }else if (degrees > 67.5 && degrees <= 112.5){
+                            bearing = "E";
+                        }else if (degrees > 112.5 && degrees <= 157.5){
+                            bearing = "SE";
+                        }else if( (degrees > 157.5 ) || (degrees <= -157.5)){
+                            bearing = "S";
+                        }else if (degrees > -157.5 && degrees <= -112.5){
+                            bearing = "SW";
+                        }else if (degrees > -112.5 && degrees <= -67.5){
+                            bearing = "W";
+                        }else if (degrees > -67.5 && degrees <= -22.5){
+                            bearing = "NW";
+                        }
+
+                        resultListModel.append({"name": name, "distanceText": distanceText, "address": address, "geometryJson": pointJson, "bearing": bearing, "degrees": degrees});
                     }
                 }
             }

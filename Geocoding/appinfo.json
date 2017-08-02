@@ -5,7 +5,7 @@
             "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
-        "arcgisRuntimeLicense": "runtimelite,1000,rud6166262739,none,S080TK8EL9E5003AD113",
+        "arcgisRuntimeLicense": "",
         "clientId": "",
         "ios": {
             "bundleId": "",
@@ -48,6 +48,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 1
+        "micro": 4
     }
 }

@@ -44,6 +44,7 @@ App {
         GeocodeView{
             anchors.fill: parent
             currentPoint: parent.currentViewpointCenter.center
+            compassDegree: parent.compass.reading.azimuth
             onResultSelected: {
                 mapArea.zoomToPoint(point);
                 mapArea.showPin(point);

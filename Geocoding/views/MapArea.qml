@@ -17,6 +17,7 @@ MapView{
     id: mapView
 
     property alias pointGraphicsOverlay: pointGraphicsOverlay
+    property alias compass: compass
 
     zoomByPinchingEnabled: true
     rotationByPinchingEnabled: true
