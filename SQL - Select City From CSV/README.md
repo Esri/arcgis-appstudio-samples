@@ -3,7 +3,7 @@ This app demonstrates, how to build a world city selector with comboboxes for co
 
 The user picks a country from 244 countries, then picks from subcountry from a filtered list of 2680 subcountries, and finally, picks a city from a filtered list of 23018 cities.
 
-Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017/07/28/introduction-to-geocoding-sample-app) to learn more about the sample
+Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017/08/07/using-csv-files-in-your-application) to learn more about the sample
 
 Resource Level:🍌🍌
 
