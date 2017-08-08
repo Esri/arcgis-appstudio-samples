@@ -1,4 +1,5 @@
-## SQL - Select City From CSV
+## SQL - Select City from CSV
+
 This app demonstrates, how to build a world city selector with comboboxes for country, subcountry and city.
 
 The user picks a country from 244 countries, then picks from subcountry from a filtered list of 2680 subcountries, and finally, picks a city from a filtered list of 23018 cities.
@@ -12,10 +13,6 @@ The data used in this app is licensed under the Creative Common Attribution Lice
 http://www.geonames.org/
 http://data.okfn.org/data/core/world-cities
 https://github.com/lexman
-
-
-
-
 
 
 ## Instructions to run this sample in AppStudio Desktop
