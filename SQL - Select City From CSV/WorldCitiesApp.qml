@@ -30,6 +30,10 @@ App {
     width: 414
     height: 736
 
+    property var countryModel
+    property var subcountryModel
+    property var cityModel
+
     Material.accent: "#8f499c"
     function units(value) {
         return AppFramework.displayScaleFactor * value
@@ -48,7 +52,7 @@ App {
             Material.background: "#8f499c"
             Controls.HeaderBar{}
         }
-        // sample starts here -----------------------------------------------------------------------------------------------------------------------------
+        // Sample Starts here -----------------------------------------------------------------------------------------------------------------------------
         Column {
             anchors.fill: parent
             anchors.margins: 10 * AppFramework.displayScaleFactor
@@ -104,7 +108,7 @@ App {
         }
 
         function refreshCountryComboBox() {
-            countryComboBox.model = db.queryModel(
+            countryComboBox.model = countryModel = db.queryModel(
                         "SELECT DISTINCT country "
                         + "FROM            world_cities "
                         + "ORDER BY        country "
@@ -112,7 +116,7 @@ App {
         }
 
         function refreshSubCountryComboBox() {
-            subcountryComboBox.model = db.queryModel(
+            subcountryComboBox.model = subcountryModel = db.queryModel(
                         "SELECT DISTINCT subcountry "
                         + "FROM            world_cities "
                         + "WHERE           country = :country "
@@ -122,7 +126,7 @@ App {
         }
 
         function refreshCityComboBox() {
-            cityComboBox.model = db.queryModel(
+            cityComboBox.model = cityModel = db.queryModel(
                         "SELECT    name "
                         + "FROM      world_cities "
                         + "WHERE     country = :country "
@@ -159,7 +163,10 @@ App {
         }
 
 
-    // sample ends here ---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+    // sample ends here ------------------------------------------------------------------------
     Controls.DescriptionPage{
         id:descPage
         visible: false
