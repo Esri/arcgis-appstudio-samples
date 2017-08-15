@@ -30,10 +30,6 @@ App {
     width: 414
     height: 736
 
-    property var countryModel
-    property var subcountryModel
-    property var cityModel
-
     Material.accent: "#8f499c"
     function units(value) {
         return AppFramework.displayScaleFactor * value
@@ -64,6 +60,7 @@ App {
 
             ComboBox {
                 id: countryComboBox
+                readonly property var _model: model
                 width: parent.width
                 textRole: "country"
                 onCurrentTextChanged: refreshSubCountryComboBox()
@@ -75,6 +72,7 @@ App {
 
             ComboBox {
                 id: subcountryComboBox
+                readonly property var _model: model
                 width: parent.width
                 textRole: "subcountry"
                 onCurrentTextChanged: refreshCityComboBox()
@@ -86,6 +84,7 @@ App {
 
             ComboBox {
                 id: cityComboBox
+                readonly property var _model: model
                 width: parent.width
                 textRole: "name"
             }
@@ -97,70 +96,70 @@ App {
         }
     }
 
-        SqlDatabase {
-            id: db
-            databaseName: ":memory:"
-        }
+    SqlDatabase {
+        id: db
+        databaseName: ":memory:"
+    }
 
-        FileFolder {
-            id: dataFolder
-            url: "data"
-        }
+    FileFolder {
+        id: dataFolder
+        url: "data"
+    }
 
-        function refreshCountryComboBox() {
-            countryComboBox.model = countryModel = db.queryModel(
-                        "SELECT DISTINCT country "
-                        + "FROM            world_cities "
-                        + "ORDER BY        country "
-                        );
-        }
+    function refreshCountryComboBox() {
+        countryComboBox.model = db.queryModel(
+                    "SELECT DISTINCT country "
+                    + "FROM            world_cities "
+                    + "ORDER BY        country "
+                    );
+    }
 
-        function refreshSubCountryComboBox() {
-            subcountryComboBox.model = subcountryModel = db.queryModel(
-                        "SELECT DISTINCT subcountry "
-                        + "FROM            world_cities "
-                        + "WHERE           country = :country "
-                        + "ORDER BY        subcountry",
-                        { country: countryComboBox.currentText }
-                        );
-        }
+    function refreshSubCountryComboBox() {
+        subcountryComboBox.model = db.queryModel(
+                    "SELECT DISTINCT subcountry "
+                    + "FROM            world_cities "
+                    + "WHERE           country = :country "
+                    + "ORDER BY        subcountry",
+                    { country: countryComboBox.currentText }
+                    );
+    }
 
-        function refreshCityComboBox() {
-            cityComboBox.model = cityModel = db.queryModel(
-                        "SELECT    name "
-                        + "FROM      world_cities "
-                        + "WHERE     country = :country "
-                        + "AND       subcountry = :subcountry "
-                        + "ORDER BY  name",
-                        {
-                            country: countryComboBox.currentText,
-                            subcountry: subcountryComboBox.currentText
-                        }
-                        );
-        }
+    function refreshCityComboBox() {
+        cityComboBox.model = db.queryModel(
+                    "SELECT    name "
+                    + "FROM      world_cities "
+                    + "WHERE     country = :country "
+                    + "AND       subcountry = :subcountry "
+                    + "ORDER BY  name",
+                    {
+                        country: countryComboBox.currentText,
+                        subcountry: subcountryComboBox.currentText
+                    }
+                    );
+    }
 
-        Component.onCompleted: {
-            var csvFilePath = dataFolder.filePath("world-cities.csv");
+    Component.onCompleted: {
+        var csvFilePath = dataFolder.filePath("world-cities.csv");
 
-            db.open();
+        db.open();
 
-            var statements = [
-                        "CREATE VIRTUAL TABLE world_cities_csv USING CSV ('" + csvFilePath + "')",
-                        "CREATE TABLE world_cities AS SELECT * FROM world_cities_csv",
-                        "CREATE INDEX IX_world_cities_001 ON world_cities (country, subcountry, name)"
-                    ];
+        var statements = [
+                    "CREATE VIRTUAL TABLE world_cities_csv USING CSV ('" + csvFilePath + "')",
+                    "CREATE TABLE world_cities AS SELECT * FROM world_cities_csv",
+                    "CREATE INDEX IX_world_cities_001 ON world_cities (country, subcountry, name)"
+                ];
 
-            statements.forEach(function (sql) {
-                console.log("sql: ", sql);
+        statements.forEach(function (sql) {
+            console.log("sql: ", sql);
 
-                var query = db.query(sql);
-                if (query.error) {
-                    throw new Error(query.error);
-                }
-            } );
+            var query = db.query(sql);
+            if (query.error) {
+                throw new Error(query.error);
+            }
+        } );
 
-            refreshCountryComboBox();
-        }
+        refreshCountryComboBox();
+    }
 
 
 
