@@ -6,11 +6,6 @@ Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017
 
 Resource Level:🍌🍌
 
-The data used in this app is licensed under the Creative Common Attribution License as is it was original sourced from GeoNames. The data was repackaged by Lexman and redistributed via the Open Knowledge Foundation.
-
-http://www.geonames.org/
-http://data.okfn.org/data/core/world-cities
-https://github.com/lexman
 
 
 ## Instructions to run this sample in AppStudio Desktop

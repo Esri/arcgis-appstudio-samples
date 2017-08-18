@@ -4,7 +4,7 @@
 SELECT 1 + 2 + 3 as total;
 
 -- Retrieve SQLite's version number
--- Expected output: 6
+-- Expected output: 3.16.2
 
 SELECT sqlite_version() as sqliteVersion;
 

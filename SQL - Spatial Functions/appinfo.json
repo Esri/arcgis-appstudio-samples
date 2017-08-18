@@ -14,17 +14,13 @@
     },
     "deployment": {
         "android": {
-            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
-        "clientId": "",
         "ios": {
-            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
-            "bundleId": "",
             "codeSignIdentity": ""
         },
         "winphone": {
@@ -64,9 +60,9 @@
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
-    "urlScheme": "",
+    "urlScheme": null,
     "version": {
         "major": 1,
-        "micro": 2
+        "micro": 1
     }
 }
