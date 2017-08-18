@@ -2,7 +2,7 @@
 This app demonstrates SQL Spatial Functions via SELECT statements. It uses SELECT statements with FROM clauses omitted to demonstrate a variety of scalar functions involving point geometry. Then, it proceeds to scalar and aggregate functions.
 
 
-Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017/08/07/using-csv-files-in-your-application) to learn more about the sample
+Please check this [blog post](https://geonet.esri.com/groups/appstudio/blog/2017/08/18/sql-spatial-functions-in-appstudio) to learn more about the sample
 
 Resource Level:🍌🍌
 
