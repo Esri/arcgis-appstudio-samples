@@ -1,0 +1,54 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1502837459000,
+    "culture": "en-au",
+    "description": null,
+    "documentation": null,
+    "extent": [
+    ],
+    "guid": null,
+    "id": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1502837462000,
+    "name": null,
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 1,
+    "owner": null,
+    "ownerFolder": null,
+    "properties": null,
+    "proxyFilter": null,
+    "screenshots": [
+    ],
+    "size": 31801,
+    "snippet": null,
+    "spatialReference": null,
+    "tags": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Chapter 5 Code Along 2 Navigation Pages",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
