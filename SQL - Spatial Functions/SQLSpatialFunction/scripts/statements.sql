@@ -24,7 +24,7 @@ SELECT length(ST_Point(144.965819, -37.830658, 4326)) as dataLength;
 SELECT hex(ST_Point(144.965819, -37.830658, 4326)) as shapeHex;
 
 -- Converts a GeoPackage Binary into Well Known Text representation for Geometry
--- Expected output: ST_POINT(144.965819 -37.830658)
+-- Expected output: "POINT(144.965819 -37.830658)"
 
 SELECT ST_AsText(X'47500003E6100000605B3FFDE71E6240605B3FFDE71E62409414580053EA42C09414580053EA42C00101000000605B3FFDE71E62409414580053EA42C0') as wkt;
 
@@ -34,7 +34,7 @@ SELECT ST_AsText(X'47500003E6100000605B3FFDE71E6240605B3FFDE71E62409414580053EA4
 SELECT ST_IsEmpty(ST_Point(144.965819, -37.830658, 4326)) as isEmpty;
 
 -- Demonstrates ST_GeometryType spatial function
--- Expected output: "ST_POINT"
+-- Expected output: "ST_Point"
 
 SELECT ST_GeometryType(ST_Point(144.965819, -37.830658, 4326)) as geometryType;
 

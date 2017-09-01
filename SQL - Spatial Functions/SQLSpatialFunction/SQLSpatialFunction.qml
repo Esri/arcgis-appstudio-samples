@@ -52,6 +52,10 @@ Item {
 
         }
 
+        Label {
+            text: qsTr("Results")
+        }
+
         TableView2 {
             id: tableView
             Layout.fillWidth: true
