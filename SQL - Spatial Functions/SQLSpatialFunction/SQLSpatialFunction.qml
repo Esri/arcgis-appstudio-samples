@@ -6,7 +6,15 @@ import QtQuick.Layouts 1.3
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Sql 1.0
 
-Item{
+Item {
+    ComboBox {
+        id: statements
+        visible: false
+        readonly property var _model: model
+        anchors.fill: parent
+        onCurrentTextChanged: queryTextArea.text = currentText
+    }
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -14,46 +22,40 @@ Item{
         spacing: 10
 
         Label {
-            text: qsTr("Select SQL");
-        }
-
-        ComboBox {
-            id: statements
-            readonly property var _model: model
-            Layout.fillWidth: true
-            onCurrentTextChanged: queryTextArea.text = currentText
-        }
-
-        Label {
             text: qsTr("SQL")
         }
 
-        TextArea {
-            id: queryTextArea
+        Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            selectByMouse: true
-            wrapMode: TextEdit.WrapAnywhere
-            onTextChanged: run()
 
+            border.color: queryTextArea.focus ? "#009688" : "#e0e0e0"
 
-            Rectangle {
+            TextArea {
+                id: queryTextArea
                 anchors.fill: parent
-                anchors.margins: -2
-                color: "transparent"
-                border.color: "black"
+                anchors.margins: 10
+                selectByMouse: true
+                wrapMode: TextArea.WrapAtWordBoundaryOrAnywhere
+                onTextChanged: run()
+
+                Button {
+                    id: moreButton
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.margins: 10
+                    text: "..."
+                    onClicked: statements.popup.visible = true
+                }
+
             }
+
         }
 
-        Label {
-            text: qsTr("Results")
-        }
-
-        TableView {
+        TableView2 {
             id: tableView
-            readonly property var _model: model
             Layout.fillWidth: true
-            Layout.preferredHeight: 100 * AppFramework.displayScaleFactor
+            Layout.preferredHeight: 130 * AppFramework.displayScaleFactor
         }
 
     }
