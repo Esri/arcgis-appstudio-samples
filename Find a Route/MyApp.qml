@@ -152,17 +152,17 @@ App {
 
                         // create the stop graphics' symbols
                         var stop1Symbol = ArcGISRuntimeEnvironment.createObject("PictureMarkerSymbol", {
-                                                                                    url: "./assets/pinA.png",
                                                                                     width: 32,
                                                                                     height: 32,
                                                                                     offsetY: 16
                                                                                 });
+                        stop1Symbol.url = "./assets/pinA.png";
                         var stop2Symbol = ArcGISRuntimeEnvironment.createObject("PictureMarkerSymbol", {
-                                                                                    url: "./assets/pinB.png",
                                                                                     width: 32,
                                                                                     height: 32,
                                                                                     offsetY: 16
                                                                                 });
+                        stop2Symbol.url = "./assets/pinB.png";
 
                         // create the stop graphics
                         var stop1Graphic = ArcGISRuntimeEnvironment.createObject("Graphic", {geometry: stop1Geometry, symbol: stop1Symbol});
