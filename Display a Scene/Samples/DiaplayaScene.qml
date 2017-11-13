@@ -54,7 +54,7 @@ Item {
         id: camera
         heading: 10.0
         pitch: 80.0
-        roll: 300.0
+        roll: 0
 
         Point {
             x: 83.9
