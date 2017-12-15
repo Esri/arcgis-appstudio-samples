@@ -40,8 +40,8 @@ App {
     property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < units(400)
 
-    property string insertSuccessMessage: qsTr ("Inserted into Keychain")
-    property string removeSuccessMessage: qsTr ("Removed from Keychain")
+    property string insertSuccessMessage: qsTr ("Inserted into Storage")
+    property string removeSuccessMessage: qsTr ("Removed from Storage")
 
     property string failMessage:qsTr("Something Went Wrong")
 
@@ -86,7 +86,7 @@ App {
                 //Click on the button to store key and value in the keychain
                 Button {
                     id: secureButton
-                    text: qsTr("Secure Data to Keychain")
+                    text: qsTr("Secure Data to Storage")
                     onClicked: {
                         toastMessageRec.visible = true
                         retrieveData.visible = false
@@ -109,7 +109,7 @@ App {
                 //Click on the button to retrive data
                 Button{
                     id: retrieveButton
-                    text: qsTr("Retrieve Data From Keychain")
+                    text: qsTr("Retrieve Data From Storage")
                     onClicked: {
                         // Retrive value
                         retrieveData.text = qsTr("Value: ") + SecureStorage.value(key.text);
@@ -121,7 +121,7 @@ App {
                 //Click on the button to remove data from the keychain
                 Button {
                     id: removeButton
-                    text: qsTr("Clear Entry From Keychain")
+                    text: qsTr("Clear Entry From Storage")
                     onClicked: {
                         retrieveData.visible = false
                         toastMessageRec.visible = true

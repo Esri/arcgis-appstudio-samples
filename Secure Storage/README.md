@@ -1,9 +1,9 @@
 
 ## Secure Storage
 
-This sample demonstrates how to insert, retrieve, and remove data from Keychain.
+This sample demonstrates how to insert, retrieve, and remove data from Storage.
 
-[Secure Storage API Reference](http://appstudio-apihelp.s3-website-us-east-1.amazonaws.com/AppFrameworkOutput/qml-arcgis-appframework-securestorage-securestorage.html) 
+[Secure Storage API Reference](http://appstudio-apihelp.s3-website-us-east-1.amazonaws.com/AppFrameworkOutput/qml-arcgis-appframework-securestorage-securestorage.html)
 
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌
