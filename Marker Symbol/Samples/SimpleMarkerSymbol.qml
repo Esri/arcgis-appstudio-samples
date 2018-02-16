@@ -6,7 +6,7 @@ import QtQuick.Controls.Styles 1.4
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
-import Esri.ArcGISRuntime 100.1
+import Esri.ArcGISRuntime 100.2
 
 Item {
     property real scaleFactor: AppFramework.displayScaleFactor

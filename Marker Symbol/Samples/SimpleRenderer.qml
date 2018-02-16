@@ -1,6 +1,6 @@
 import QtQuick 2.6
 
-import Esri.ArcGISRuntime 100.1
+import Esri.ArcGISRuntime 100.2
 
 Item {
     property real scaleFactor: AppFramework.displayScaleFactor
