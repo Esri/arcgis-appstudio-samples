@@ -26,7 +26,7 @@ import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Notifications 1.0
 import ArcGIS.AppFramework.Notifications.Local 1.0
 
-import Esri.ArcGISRuntime 100.1
+import Esri.ArcGISRuntime 100.2
 import QtSensors 5.0
 import QtMultimedia 5.8
 import QtQuick.Controls.Styles 1.4

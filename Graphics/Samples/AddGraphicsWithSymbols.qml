@@ -5,7 +5,7 @@ import QtQuick.XmlListModel 2.0
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
-import Esri.ArcGISRuntime 100.1
+import Esri.ArcGISRuntime 100.2
 Item {
 
     property var buoyLocArray: []
