@@ -23,8 +23,8 @@ import QtGraphicalEffects 1.0
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
-import Esri.ArcGISRuntime.Toolkit.Controls 100.1
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.1
+import Esri.ArcGISRuntime.Toolkit.Controls 100.2
+import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
 
 
 import "controls" as Controls
