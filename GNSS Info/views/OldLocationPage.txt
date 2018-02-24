@@ -1,0 +1,328 @@
+import QtQuick 2.7
+import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Material 2.1
+import Esri.ArcGISRuntime 100.1
+import QtGraphicalEffects 1.0
+
+import ArcGIS.AppFramework 1.0
+import ArcGIS.AppFramework.Devices 1.0
+import ArcGIS.AppFramework.Positioning 1.0
+import ArcGIS.AppFramework.Sql 1.0
+
+import "../controls" as Controls
+
+Item {
+    id: locationPage
+
+    property var coordinate: position.coordinate
+    property var coordinateInfo: Coordinate.convert(position.coordinate, "dd" , { precision: 8 } )
+    property var latitude: coordinate.isValid ? coordinateInfo.dd.latitudeText : null
+    property var longitude: coordinate.isValid ? coordinateInfo.dd.longitudeText : null
+    property var altitude: position.altitudeValid ? qsTr("%1 meters").arg(coordinate.altitude) : null
+    property var geoidsSeparation: position.geoidSeparationValid ? qsTr("%1 meters").arg(position.geoidSeparation) : null
+    property date timestamp: position.timestamp
+    property var locationAge
+    property var speed: position.speedValid ? qsTr("%1 mps").arg(position.speed.toFixed(2)): null
+    property string course: position.directionValid ? qsTr("%1 degrees").arg(position.direction) : null
+
+    property alias pointGraphicsOverlay: _pointGraphicsOverlay
+
+    property string clearBtnText: qsTr("Graphics Cleared")
+
+    property string dataPath:  AppFramework.userHomeFolder.filePath("ArcGIS/AppStudio/Data")
+    property string inputdata: "WorldMap_WM.mmpk"
+    property string outputdata: dataPath + "/" + inputdata
+
+    MapView {
+        id: mapView
+        anchors.fill: parent
+
+        property real initialMapRotation: 0
+
+        rotationByPinchingEnabled: true
+        zoomByPinchingEnabled: true
+        wrapAroundMode: Enums.WrapAroundModeEnabledWhenSupported
+
+        Rectangle {
+            id: infoBackground
+            width: parent.width
+            height: parent.height * 0.28
+            anchors.top: parent.top
+            opacity: 0.8
+
+            ListView {
+                id: list
+                anchors.fill: parent
+                clip: true
+                model: statusModel
+                interactive: false
+
+                delegate: Rectangle {
+                    width: ListView.view.width
+                    height: infoBackground.height / 7
+                    color: lightPrimaryColor
+
+                    Text {
+                        id: nameText
+                        text: name
+                        anchors.left: parent.left
+                        anchors.leftMargin: 5 * scaleFactor
+                        anchors.verticalCenter: parent.verticalCenter
+                        font.pixelSize: baseFontSize
+                        font.bold: true
+                        color: "white"
+                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    }
+
+                    Text {
+                        property bool valid: true
+
+                        anchors.left: nameText.right
+                        text: locationPage[attr] || qsTr("No Data")
+                        font.pixelSize: baseFontSize
+                        anchors.verticalCenter: parent.verticalCenter
+                        font.bold: true
+                        font.italic: !valid
+                        color: valid ? "white" : "darkred"
+                    }
+                }
+            }
+        }
+
+        Map {
+            id: onlineMap
+            BasemapTopographic{}
+
+            onLoadStatusChanged: {
+                if (loadStatus === Enums. LoadStatusLoaded) {
+
+                    if (!mapView.locationDisplay.started) {
+                        mapView.locationDisplay.start()
+                        mapView.locationDisplay.autoPanMode = Enums.LocationDisplayAutoPanModeRecenter
+                        timer.start()
+                    } else {
+                        mapView.locationDisplay.stop()
+                        timer.stop()
+                    }
+                }
+            }
+        }
+
+        GraphicsOverlay {
+            id: _pointGraphicsOverlay
+        }
+
+        Text {
+            id: warning
+            anchors {
+                top: infoBackground.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
+            color: app.primaryColor
+            font.bold: true
+            font.pointSize: baseFontSize
+            visible: locationAge > 30
+            text: Math.round(locationAge) + "s since last location received"
+        }
+
+        Column {
+            id: mapControls
+            spacing: 5
+
+            anchors{
+                right: parent.right
+                rightMargin: 16 * scaleFactor
+                verticalCenter: mapView.verticalCenter
+            }
+
+            RoundButton {
+                width: 50 * scaleFactor
+                height: this.width
+                Material.elevation: 6
+                Material.background:"white"
+                opacity: mapView.mapRotation ? 1 : 0
+                rotation: mapView.mapRotation
+                contentItem: Image{
+                    id:compassImage
+                    source: "../assets/compass.png"
+                    anchors.centerIn: parent
+                    mipmap: true
+                }
+
+                onClicked: {
+                    mapView.setViewpointRotation(mapView.initialMapRotation)
+                }
+            }
+
+            RoundButton {
+                width: 50 * scaleFactor
+                height: this.width
+                Material.elevation: 6
+                Material.background:"white"
+                contentItem: Image{
+                    id:locationImage
+                    source: "../assets/location.png"
+                    anchors.centerIn: parent
+                    mipmap: true
+                }
+                ColorOverlay{
+                    id: colorOverlay
+                    anchors.fill: locationImage
+                    source: locationImage
+                    color: "#4c4c4c"
+                }
+
+                onClicked: {
+                    mapView.locationDisplay.autoPanMode = Enums.LocationDisplayAutoPanModeRecenter
+                    colorOverlay.color = "steelblue"
+                }
+            }
+
+            RoundButton {
+                width: 50 * scaleFactor
+                height: this.width
+                Material.elevation: 6
+                Material.background:"white"
+                contentItem: Image{
+                    id:clearImage
+                    source: "../assets/clear.png"
+                    anchors.centerIn: parent
+                    mipmap: true
+                }
+                ColorOverlay{
+                    anchors.fill: clearImage
+                    source: clearImage
+                    color: "#4c4c4c"
+                }
+                onClicked: {
+                    if (clearToastMessage.visible === false){
+                        clearToastMessage.visible = true
+                        _pointGraphicsOverlay.graphics.clear()
+                    }
+                }
+            }
+        }
+
+        locationDisplay {
+            positionSource: positionSource
+        }
+
+        onMousePressed: {
+            colorOverlay.color = "#4c4c4c"
+        }
+
+        Rectangle {
+            id: clearToastMessage
+            anchors. bottom: parent.bottom
+            anchors.bottomMargin: 15* scaleFactor
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: 40 * scaleFactor
+            width:  clearBtnLabel.width + 50 * scaleFactor
+            radius: 20 * scaleFactor
+            color: app.primaryColor
+            opacity: 0.8
+            visible: false
+
+            Label {
+                id: clearBtnLabel
+                anchors.centerIn: parent
+                font.bold: true
+                font.pixelSize: baseFontSize * 1.1
+                color: "white"
+                text: clearBtnText
+            }
+        }
+
+        Timer {
+            interval: 5000 // triggers every 5000 ms
+            onTriggered: {
+                if (clearToastMessage.visible === true){
+                    clearToastMessage.visible = false
+                }
+            }
+            running: true
+            repeat: true
+        }
+
+        BusyIndicator {
+            anchors.centerIn: parent
+            height: 48 * scaleFactor
+            width: height
+            running: true
+            Material.accent:"#8f499c"
+            visible: !coordinate.isValid === true
+        }
+    }
+
+    property var wgs84: SpatialReference.createWgs84()
+
+    function addTrackPoint(y, x) {
+        console.log("Create Symbol");
+        var symbol = ArcGISRuntimeEnvironment.createObject("SimpleMarkerSymbol", {
+                                                               style: Enums.SimpleMarkerSymbolStyleCircle,
+                                                               size: 10,
+                                                               color: "red"
+                                                           } );
+        var point = ArcGISRuntimeEnvironment.createObject("Point", { x: x , y: y, spatialReference: wgs84} );
+        var projpoint = GeometryEngine.project(point,mapView.spatialReference);
+        var graphic = ArcGISRuntimeEnvironment.createObject("Graphic", { geometry: projpoint, symbol: symbol } );
+
+        //console.log(JSON.stringify(positionSource.position.coordinate, 2, undefined));
+        _pointGraphicsOverlay.graphics.append(graphic);
+    }
+
+    Timer {
+        id: timer
+        running: false
+        repeat: true
+        interval: 10000
+
+        onTriggered: {
+            addTrackPoint(position.coordinate.latitude, position.coordinate.longitude)
+            locationAge =  coordinate.isValid ? (((new Date().getTime()) - position.timestamp.getTime()))/1000 : null  // This will be in seconds
+        }
+    }
+
+    ListModel{
+        id: statusModel
+
+        ListElement {
+            name: qsTr("Latitude: ")
+            attr: "latitude"
+        }
+
+        ListElement {
+            name: qsTr("Longitude: ")
+            attr: "longitude"
+        }
+
+        ListElement {
+            name: qsTr("Altitude: ")
+            attr: "altitude"
+        }
+
+
+        ListElement {
+            name: qsTr("Geoid Separation: ")
+            attr: "geoidsSeparation"
+        }
+
+        ListElement {
+            name: "Timestamp: ";
+            attr: "timestamp"
+        }
+
+        ListElement {
+            name: qsTr("Speed Over Ground: ")
+            attr: "speed"
+        }
+
+        ListElement {
+            name: qsTr("True Course Over Ground: ")
+            attr: "course"
+        }
+    }
+}
+
+

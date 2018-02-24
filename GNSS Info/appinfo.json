@@ -1,0 +1,94 @@
+{
+    "arcgisRuntime": 0,
+    "capabilities": {
+        "audio": false,
+        "backgroundLocation": true,
+        "biometricAuthentication": false,
+        "bluetooth": true,
+        "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": true,
+        "ios": {
+            "backgroundExternalAccessory": true,
+            "externalAccessoryProtocolStrings": [
+                "com.bad-elf.gps",
+                "com.eos-gnss.positioningsource"
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": true,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": "com.esri.gnssinfo"
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "runtimelite,1000,rud5549078470,none,0JMFA0PL4SPB003AD104",
+        "clientId": "3ARIvaE7F7RxuX0b",
+        "ios": {
+            "bundleId": "com.esri.gnssinfo",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "uwp": {
+            "packageName": "Esri.gnssinfo",
+            "productID": "4588b401-6b11-4377-a304-f62d3ebc3a04",
+            "publisherID": ""
+        },
+        "winphone": {
+            "packageDisplayName": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 0,
+            "windowMode": "default"
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        }
+    },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
+    "mainFile": "GNSSInfo.qml",
+    "multipleInstances": false,
+    "projectFile": "GNSSInfo.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "major": 1,
+        "micro": 52
+    }
+}
