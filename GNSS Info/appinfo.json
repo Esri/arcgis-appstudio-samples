@@ -24,13 +24,13 @@
     },
     "deployment": {
         "android": {
-            "packageName": "com.esri.gnssinfo"
+            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
-        "arcgisRuntimeLicense": "runtimelite,1000,rud5549078470,none,0JMFA0PL4SPB003AD104",
-        "clientId": "3ARIvaE7F7RxuX0b",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
-            "bundleId": "com.esri.gnssinfo",
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
@@ -39,9 +39,8 @@
         },
         "publisherName": "",
         "uwp": {
-            "packageName": "Esri.gnssinfo",
-            "productID": "4588b401-6b11-4377-a304-f62d3ebc3a04",
-            "publisherID": ""
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -60,12 +59,12 @@
         },
         "enableHighDpi": true,
         "phone": {
-            "landscape": true,
+            "landscape": false,
             "portrait": true,
             "showStatusBar": true
         },
         "tablet": {
-            "landscape": true,
+            "landscape": false,
             "portrait": true,
             "showStatusBar": true
         }
@@ -89,6 +88,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 52
+        "micro": 3
     }
 }

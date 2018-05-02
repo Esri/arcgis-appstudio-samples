@@ -13,20 +13,19 @@
  * limitations under the License.
  *
  */
-
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
-import Esri.ArcGISRuntime 100.2
 
 import "controls" as Controls
 
-App {
+App{
     id: app
     width: 414
     height: 736
@@ -34,8 +33,12 @@ App {
         return AppFramework.displayScaleFactor * value
     }
     property real scaleFactor: AppFramework.displayScaleFactor
-    property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
+    property int  baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < units(400)
+
+    property url  qmlfile
+    property string sampleName
+    property string descriptionText
 
     property string dataPath:  AppFramework.userHomeFolder.filePath("ArcGIS/AppStudio/Data")
     property string inputdata: "Yellowstone.mmpk"
@@ -58,42 +61,36 @@ App {
             Controls.HeaderBar{}
         }
 
-        // sample starts here ------------------------------------------------------------------
+        // Add a Loader to load different samples.
+        // The sample Qml files can be found in the Samples folder
         contentItem: Rectangle{
+            id: loader
             anchors.top:header.bottom
-
-            // Create MapView
-            MapView {
-                id: mapView
-                anchors.fill: parent
+            Loader{
+                height: app.height - header.height
+                width: app.width
+                source: qmlfile
             }
-
-            // Create a Mobile Map Package and set the path
-            MobileMapPackage {
-                id: mmpk
-                path: AppFramework.resolvedPathUrl(copyLocalData(inputdata, outputdata))
-
-                // load the mobile map package
-                Component.onCompleted: {
-                    mmpk.load();
-                }
-
-                // wait for the mobile map package to load
-                onLoadStatusChanged: {
-                    if (loadStatus === Enums.LoadStatusLoaded) {
-                        // set the map view's map to the first map in the mobile map package
-                        mapView.map = mmpk.maps[0];
-                    }
-                }
-            }
-            //! [open mobile map package qml api snippet]
         }
     }
 
-    // sample ends here ------------------------------------------------------------------------
+    Controls.FloatActionButton{
+        id:switchBtn
+    }
+
+    Controls.PopUpPage{
+        id:popUp
+        visible:false
+    }
+
     Controls.DescriptionPage{
         id:descPage
         visible: false
     }
 }
+
+
+
+
+
 

@@ -1,9 +1,5 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
-
-import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 RowLayout {
     property alias headerText: headerText.text

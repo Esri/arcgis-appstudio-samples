@@ -1,9 +1,17 @@
 {
-    "arcgisRuntime": 1001,
+    "arcgisRuntime": 1002,
     "capabilities": {
         "audio": false,
+        "backgroundLocation": false,
+        "biometricAuthentication": false,
         "bluetooth": false,
         "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": false,
+        "ios": {
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
         "localnotification": false,
         "location": true,
         "microphone": false,
@@ -13,14 +21,23 @@
     },
     "deployment": {
         "android": {
+            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "",
             "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -33,20 +50,27 @@
     ],
     "display": {
         "desktop": {
-            "fullScreen": false,
             "minimumHeight": 0,
-            "minimumWidth": 0
+            "minimumWidth": 0,
+            "windowMode": "default"
         },
         "phone": {
             "landscape": true,
-            "portrait": true
+            "portrait": true,
+            "showStatusBar": true
         },
         "tablet": {
             "landscape": true,
-            "portrait": true
+            "portrait": true,
+            "showStatusBar": true
         }
     },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
     "mainFile": "MyApp.qml",
+    "multipleInstances": true,
     "projectFile": "MyApp.qmlproject",
     "properties": {
     },
@@ -57,9 +81,9 @@
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
-    "urlScheme": null,
+    "urlScheme": "",
     "version": {
         "major": 2,
-        "micro": 1
+        "micro": 2
     }
 }

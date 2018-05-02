@@ -44,8 +44,6 @@ MapCircle {
         target: positionSource
 
         onPositionChanged: {
-            //console.log("Indicator position changed:", JSON.stringify(positionSource.position))
-
             positionIndicator.center = positionSource.position.coordinate;
 
             if (positionSource.position.horizontalAccuracyValid) {

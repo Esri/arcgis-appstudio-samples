@@ -21,11 +21,8 @@ import QtQuick.Controls.Material 2.2
 import QtQml 2.2
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
-
-import ArcGIS.AppFramework.Positioning 1.0
 import ArcGIS.AppFramework.Devices 1.0
-import ArcGIS.AppFramework.Networking 1.0
+import ArcGIS.AppFramework.Speech 1.0
 
 import "controls" as Controls
 import "views"
@@ -36,20 +33,52 @@ App {
     width: 400 * scaleFactor
     height: 750 * scaleFactor
 
-    property alias positionSource: positionSource
-    property alias position: positionSource.position
+    property alias positionSource: sources.positionSource
+    property alias satelliteInfoSource: sources.satelliteInfoSource
+    property alias nmeaSource: sources.nmeaSource
+    property alias tcpSocket: sources.tcpSocket
+    property alias discoveryAgent: sources.discoveryAgent
+
+    property Device currentDevice: sources.currentDevice
+    property bool isConnecting: sources.isConnecting
+    property bool isConnected: sources.isConnected
 
     property real scaleFactor: AppFramework.displayScaleFactor
-    property int baseFontSize: !isSmallScreen ? 18 * scaleFactor : 14 * scaleFactor
+    property int baseFontSize: 14 * scaleFactor
 
     property color primaryColor: "#8f499c"
-    property color lightPrimaryColor: "#8f499c"
+    property color darkPrimaryColor: "#662472"
     property color backgroundColor: "#EEEEEE"
     property color navBarColor: "#FFFFFF"
     property color greyTextColor: "#555555"
 
-    property bool isSmallScreen: (width || height) < 410 * scaleFactor
-    property bool debug: false
+    readonly property string disconnectedText: qsTr("Device disconnected")
+    readonly property string connectedText: qsTr("Device connected")
+
+    signal showLocationPage()
+
+    //--------------------------------------------------------------------------
+
+    onIsConnectedChanged: {
+        if (isConnected) {
+            textToSpeech.say(connectedText);
+            showLocationPage();
+        } else {
+            textToSpeech.say(disconnectedText);
+        }
+    }
+
+    //--------------------------------------------------------------------------
+
+    onShowLocationPage: {
+        locationPage.clear();
+        skyplotPage.clear();
+        debugPage.clear();
+
+        if (footer.currentIndex === 0) {
+            footer.currentIndex = 1;
+        }
+    }
 
     //--------------------------------------------------------------------------
 
@@ -60,7 +89,7 @@ App {
             id: header
 
             width: parent.width
-            height: isSmallScreen ? 50 * scaleFactor : 56 * scaleFactor
+            height: 50 * scaleFactor
             Material.background: primaryColor
 
             Controls.HeaderBar {
@@ -68,7 +97,7 @@ App {
             }
         }
 
-        // sample starts here ------------------------------------------------------
+        //--------------------------------------------------------------------------
 
         contentItem: Rectangle {
             anchors.top: header.bottom
@@ -79,6 +108,11 @@ App {
 
                 anchors.fill: parent
                 visible: footer.currentIndex === 0
+
+                discoveryAgent: app.discoveryAgent
+                currentDevice: app.currentDevice
+                isConnecting: app.isConnecting
+                isConnected: app.isConnected
             }
 
             LocationPage {
@@ -86,22 +120,37 @@ App {
 
                 anchors.fill: parent
                 visible: footer.currentIndex === 1
+
+                positionSource: app.positionSource
+                isConnected: app.isConnected
+            }
+
+            SkyPlotPage {
+                id: skyplotPage
+
+                anchors.fill: parent
+                visible: footer.currentIndex === 2
+
+                positionSource: app.positionSource
+                satelliteInfoSource: app.satelliteInfoSource
             }
 
             QualityPage {
                 id: qualityPage
 
                 anchors.fill: parent
-                visible: footer.currentIndex === 2
+                visible: footer.currentIndex === 3
+
+                positionSource: app.positionSource
             }
 
             DebugPage {
                 id: debugPage
 
-                nmeaSource: nmeaSource
-
                 anchors.fill: parent
-                visible: footer.currentIndex === 3
+                visible: footer.currentIndex === 4
+
+                nmeaSource: app.nmeaSource
             }
         }
 
@@ -118,7 +167,7 @@ App {
             id: footer
 
             width: parent.width
-            height: isSmallScreen ? 50 * scaleFactor : 56 * scaleFactor
+            height: 52 * scaleFactor
             Material.accent: "#00000000"
 
             currentIndex: 0
@@ -147,6 +196,15 @@ App {
             }
 
             Controls.CustomizedTabButton {
+                id: skyplotIcon
+
+                height: footer.height
+                imageSource: "assets/skyplot.png"
+                imageColor: checked ? primaryColor : "grey"
+                imageText: qsTr("SkyPlot")
+            }
+
+            Controls.CustomizedTabButton {
                 id: qualityIcon
 
                 height: footer.height
@@ -166,9 +224,9 @@ App {
         }
     }
 
-    // sample ends here --------------------------------------------------------
+    //--------------------------------------------------------------------------
 
-    Controls.DescriptionPage {
+    DescriptionPage {
         id: descPage
 
         visible: false
@@ -176,38 +234,66 @@ App {
 
     //--------------------------------------------------------------------------
 
-    PositionSource {
-        id: positionSource
+    PositioningSources {
+        id: sources
+    }
 
-        active: true
-        nmeaSource: nmeaSource
+    //--------------------------------------------------------------------------
 
-        onPositionChanged: {
-            if (debug) {
-                console.log("Position change:", JSON.stringify(position));
+    Connections {
+        target: tcpSocket
+
+        onErrorChanged: {
+            console.log("Connection error:", tcpSocket.error, tcpSocket.errorString)
+
+            errorDialog.text = tcpSocket.errorString;
+            errorDialog.open();
+        }
+    }
+
+    // -------------------------------------------------------------------------
+
+    Connections {
+        target: currentDevice
+
+        onErrorChanged: {
+            if (currentDevice) {
+                console.log("Connection error:", currentDevice.error)
+
+                errorDialog.text = currentDevice.error;
+                errorDialog.open();
             }
         }
     }
 
-    //--------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-    NmeaSource {
-        id: nmeaSource
+    Dialog {
+        id: errorDialog
 
-        onSourceChanged: {
-            console.log("SOURCE CHANGED", JSON.stringify(source));
-            positionSource.update();
-        }
+        property alias text: label.text
 
-        onReceivedNmeaData: {
-            // sconsole.log("RECEIVED NMEA DATA", receivedSentence.trim());
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        modal: true
+
+        standardButtons: Dialog.Ok
+        title: qsTr("Unable to connect");
+        text: ""
+
+        Label {
+            id: label
+
+            Layout.fillWidth: true
+            font.pixelSize: baseFontSize
+            Material.accent: primaryColor
         }
     }
 
     //--------------------------------------------------------------------------
 
-    TcpSocket {
-        id: tcpSocket
+    TextToSpeech {
+        id: textToSpeech
     }
 
     //--------------------------------------------------------------------------

@@ -17,20 +17,18 @@
 import QtQuick 2.9
 import QtLocation 5.9
 
-import ArcGIS.AppFramework.Positioning 1.0
-
 MapCircle {
     property PositionIndicator positionIndicator
 
-    readonly property real s: 40075000 * Math.cos(center.latitude * Math.PI / 180 ) / Math.pow(2, parent.zoomLevel + 8)   // S=C*cos(y)/2^(z+8) Pixels per meter
-    readonly property real m: s * 10 * scaleFactor
+    readonly property var position: positionIndicator.positionSource.position
+    readonly property bool active: visible && position && position.latitudeValid && position.longitudeValid && position.horizontalAccuracyValid
 
     //--------------------------------------------------------------------------
 
     visible: positionIndicator.visible && positionIndicator.horizontalAccuracy > 0
 
     center: positionIndicator.center
-    radius: Math.max(positionIndicator.horizontalAccuracy, m)
+    radius: positionIndicator.horizontalAccuracy
 
     color: "transparent"
     border {
@@ -41,6 +39,7 @@ MapCircle {
     //--------------------------------------------------------------------------
 
     ScaleAnimator on scale {
+        running: active
         loops: Animation.Infinite
         from: 0.0
         to: 1.1

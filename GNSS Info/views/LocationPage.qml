@@ -18,12 +18,9 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
-import QtPositioning 5.8
 import QtLocation 5.9
 import QtGraphicalEffects 1.0
 
-import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Devices 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 import ArcGIS.AppFramework.Sql 1.0
 
@@ -31,6 +28,10 @@ import "../controls" as Controls
 
 Item {
     id: locationPage
+
+    property PositionSource positionSource
+    property Position position: positionSource.position
+    property bool isConnected
 
     property var coordinate: position.coordinate
     property var coordinateInfo: Coordinate.convert(coordinate, "dd" , { precision: 8 } ).dd
@@ -53,8 +54,6 @@ Item {
     onCoordinateChanged: {
         if (coordinate.isValid) {
             map.center = coordinate;
-//            positionMarker.coordinate = coordinate;
-//            positionCircle.radius = position.horizontalAccuracyValid ? position.horizontalAccuracy : 0;
         }
     }
 
@@ -89,7 +88,8 @@ Item {
         Controls.PositionIndicator {
             id: positionIndicator
 
-            positionSource: app.positionSource
+            visible: isConnected
+            positionSource: locationPage.positionSource
 
             z: 10001
         }
@@ -110,59 +110,11 @@ Item {
             id: mapControls
             spacing: 5
 
-            anchors{
+            anchors {
                 right: parent.right
                 rightMargin: 16 * scaleFactor
-                verticalCenter: map.verticalCenter
-            }
-
-            RoundButton {
-                width: 50 * scaleFactor
-                height: this.width
-
-                Material.elevation: 6
-                Material.background:"white"
-                opacity: map.mapRotation ? 1 : 0
-                rotation: map.mapRotation
-
-                contentItem: Image{
-                    id:compassImage
-
-                    source: "../assets/compass.png"
-                    anchors.centerIn: parent
-                    mipmap: true
-                }
-
-                onClicked: map.setViewpointRotation(map.initialMapRotation)
-            }
-
-            RoundButton {
-                width: 50 * scaleFactor
-                height: this.width
-
-                Material.elevation: 6
-                Material.background:"white"
-
-                contentItem: Image{
-                    id:locationImage
-
-                    source: "../assets/location.png"
-                    anchors.centerIn: parent
-                    mipmap: true
-                }
-
-                ColorOverlay{
-                    id: colorOverlay
-
-                    anchors.fill: locationImage
-                    source: locationImage
-                    color: "#4c4c4c"
-                }
-
-                onClicked: {
-                    //map.locationDisplay.autoPanMode = Enums.LocationDisplayAutoPanModeRecenter
-                    colorOverlay.color = "steelblue"
-                }
+                bottom: map.bottom
+                bottomMargin: 16 * scaleFactor
             }
 
             RoundButton {
@@ -188,7 +140,7 @@ Item {
 
                 onClicked: {
                     if (clearToastMessage.visible === false) {
-                        clearToastMessage.visible = true
+                        clearToastMessage.setVisible();
                         clear();
                     }
                 }
@@ -215,16 +167,20 @@ Item {
         id: infoBackground
 
         width: parent.width
-        height: parent.height * 0.30
+        height: infoColumn.height
         anchors.top: parent.top
 
-        color: lightPrimaryColor
+        color: primaryColor
         opacity: 0.8
 
         ColumnLayout {
-            anchors.fill: parent
-            anchors.topMargin: 3 * scaleFactor
-            anchors.bottomMargin: 3 * scaleFactor
+            id: infoColumn
+
+            Layout.fillHeight: true
+
+            Item {
+                height: 2 * scaleFactor
+            }
 
             Controls.LocationRow {
                 nameText: "Grid Reference: "
@@ -233,6 +189,7 @@ Item {
             }
 
             Controls.LocationRow {
+                // intentionally blank
                 visible: coordBox.currentText === "MGRS"
             }
 
@@ -272,11 +229,16 @@ Item {
                 nameText: "True Course Over Ground: "
                 valueText: course
             }
+
+            Item {
+                height: 2 * scaleFactor
+            }
         }
 
         ComboBox {
             id: coordBox
             anchors.top: parent.top
+            anchors.topMargin: 3 * scaleFactor
             anchors.right: parent.right
             anchors.rightMargin: 5 * scaleFactor
 
@@ -340,14 +302,14 @@ Item {
     Text {
         id: warning
 
-        visible: locationAge > 30 || !devicePage.isConnected
+        visible: locationAge > 30 || !isConnected
 
         anchors {
             top: infoBackground.bottom
             horizontalCenter: parent.horizontalCenter
         }
 
-        text: !devicePage.isConnected ? qsTr("Device disconnected") : qsTr("%1s since last location received").arg(Math.round(locationAge))
+        text: !isConnected ? qsTr("Device disconnected") : qsTr("%1s since last location received").arg(Math.round(locationAge))
         color: app.primaryColor
         font.bold: true
         font.pointSize: baseFontSize
@@ -358,7 +320,14 @@ Item {
     Rectangle {
         id: clearToastMessage
 
-        visible: false
+        signal setVisible()
+
+        onSetVisible: {
+            opacity = 0.8;
+            opacityAnimator.running = true;
+        }
+
+        visible: opacity !== 0
 
         height: 40 * scaleFactor
         width:  clearBtnLabel.width + 50 * scaleFactor
@@ -368,7 +337,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         radius: 20 * scaleFactor
         color: app.primaryColor
-        opacity: 0.8
+        opacity: 0
 
         Label {
             id: clearBtnLabel
@@ -378,17 +347,15 @@ Item {
             color: "white"
             text: clearBtnText
         }
-    }
 
-    Timer {
-        running: true
-        interval: 5000
-        repeat: true
+        OpacityAnimator {
+            id: opacityAnimator
 
-        onTriggered: {
-            if (clearToastMessage.visible) {
-                clearToastMessage.visible = false
-            }
+            target: clearToastMessage
+            duration: 5000
+            easing.type: Easing.InCubic
+            from: clearToastMessage.opacity
+            to: 0
         }
     }
 
@@ -404,6 +371,8 @@ Item {
         id: trackPointItem
 
         MapCircle {
+            visible: positionIndicator.visible
+
             center {
                 latitude: trackLatitude
                 longitude: trackLongitude
@@ -422,13 +391,13 @@ Item {
     //--------------------------------------------------------------------------
 
     Timer {
-        running: devicePage.isConnected && coordinate.isValid
+        running: isConnected && coordinate.isValid
         interval: 10000
         repeat: true
 
         onTriggered: {
             addTrackPoint(position.coordinate, position.horizontalAccuracyValid ? position.horizontalAccuracy : 10);
-            locationAge =  coordinate.isValid ? (((new Date().getTime()) - position.timestamp.getTime()))/1000 : 0
+            locationAge = coordinate.isValid ? (((new Date().getTime()) - position.timestamp.getTime()))/1000 : 0
         }
     }
 
@@ -450,6 +419,7 @@ Item {
 
     function clear() {
         trackPointsModel.clear();
+        locationAge = 0;
     }
 
     //--------------------------------------------------------------------------

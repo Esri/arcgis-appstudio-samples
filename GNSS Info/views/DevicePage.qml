@@ -20,93 +20,47 @@ import QtQuick.Controls 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.1
 
-import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
-import ArcGIS.AppFramework.Networking 1.0
-import ArcGIS.AppFramework.Speech 1.0
-
-import "../controls" as Controls
 
 Item {
     id: devicePage
 
+    property DeviceDiscoveryAgent discoveryAgent
     property Device currentDevice
+    property bool isConnecting
+    property bool isConnected
 
     property string hostname: hostnameTF.text
     property string port: portTF.text
 
     property bool showDevices: true
-    property bool isConnecting
-    property bool isConnected
+    property bool bluetoothOnly: Qt.platform.os === "ios" || Qt.platform.os === "android"
 
-    readonly property string disconnectedText: qsTr("Device disconnected")
-    readonly property string connectedText: qsTr("Device connected")
-    readonly property bool bluetoothOnly: Qt.platform.os === "ios" || Qt.platform.os === "android"
-
-    signal deviceSelected(string name, Device device)
     signal networkHostSelected(string hostname, int port)
+    signal deviceSelected(Device device)
     signal disconnect()
-    signal showLocationPage()
 
     //--------------------------------------------------------------------------
 
-    Component.onDestruction: {
-        disconnect();
+    onNetworkHostSelected: {
+        app.settings.setValue("hostname", hostname);
+        app.settings.setValue("port", port);
+
+        sources.networkHostSelected(hostname, port);
     }
 
     //--------------------------------------------------------------------------
 
     onDeviceSelected: {
-        console.log("Connecting to device:", name, device, device.name, "type:", device.deviceType, "address:", device.address);
+        app.settings.setValue("device", device.name);
 
-        disconnect();
-
-        currentDevice = device;
-        nmeaSource.source = currentDevice;
-
-        // allow for a short delay before connecting so that the listview has time to update
-        deviceConnectionTimer.interval = 1000;
-        deviceConnectionTimer.start();
-    }
-
-    //--------------------------------------------------------------------------
-
-    onNetworkHostSelected: {
-        console.log("Connecting to remote host:", hostname, "port:", port);
-
-        disconnect();
-
-        app.settings.setValue("hostname", hostname);
-        app.settings.setValue("port", port);
-
-        nmeaSource.source = tcpSocket;
-        tcpSocket.connectToHost(hostname, port);
+        sources.deviceSelected(device);
     }
 
     //--------------------------------------------------------------------------
 
     onDisconnect: {
-        if (tcpSocket.valid && tcpSocket.state === AbstractSocket.StateConnected) {
-            console.log("Disconnecting from remote host:", tcpSocket.remoteName);
-            tcpSocket.disconnectFromHost();
-        }
-
-        if (currentDevice && currentDevice.connected) {
-            console.log("Disconnecting device:", currentDevice.name);
-            currentDevice.connected = false;
-            currentDevice = null;
-        }
-
-        isConnected = false;
-        isConnecting = false;
-    }
-
-    //--------------------------------------------------------------------------
-
-    onShowLocationPage: {
-        locationPage.clear();
-        debugPage.clear();
-        footer.currentIndex = 1;
+        sources.disconnect();
     }
 
     //--------------------------------------------------------------------------
@@ -120,8 +74,6 @@ Item {
     //--------------------------------------------------------------------------
 
     ColumnLayout {
-        enabled: !isConnecting
-
         anchors.fill: parent
         Layout.fillHeight: true
         Layout.fillWidth: true
@@ -148,7 +100,7 @@ Item {
 
         Rectangle {
             Layout.fillWidth: true
-            height: 180 * scaleFactor
+            Layout.preferredHeight: 200 * scaleFactor
             color: navBarColor
 
             GridLayout {
@@ -157,8 +109,8 @@ Item {
                 rowSpacing: 0
 
                 anchors.fill: parent
-                anchors.leftMargin: 8 * scaleFactor
-                anchors.rightMargin: 8 * scaleFactor
+                anchors.leftMargin: 12 * scaleFactor
+                anchors.rightMargin: 12 * scaleFactor
                 Material.accent: primaryColor
 
                 //--------------------------------------------------------------------------
@@ -171,7 +123,7 @@ Item {
                     Layout.columnSpan: 4
                     Layout.fillWidth: true
 
-                    text: "TCP Connection"
+                    text: "TCP/UDP Connection"
                     font.pixelSize: baseFontSize
                     Material.accent: primaryColor
 
@@ -274,13 +226,9 @@ Item {
                     checked: true
 
                     onCheckedChanged: {
-                        showDevices = checked
                         disconnect();
-                        if (checked && discoverySwitch.checked) {
-                            discoveryAgent.start();
-                        } else {
-                            discoveryAgent.stop();
-                        }
+                        showDevices = checked
+                        discoverySwitch.checked = false;
                     }
                 }
 
@@ -297,7 +245,7 @@ Item {
                     Layout.columnSpan: 2
                     Layout.fillWidth: true
 
-                    text: "Discovery %1".arg(checked ? "active" : "off")
+                    text: "Discovery %1".arg(checked ? "on" : "off")
                     font.pixelSize: baseFontSize
                     Material.accent: primaryColor
 
@@ -307,10 +255,17 @@ Item {
 
                     onCheckedChanged: {
                         if (checked) {
+                            disconnect();
                             discoveryAgent.start();
                         } else {
                             discoveryAgent.stop();
                         }
+                    }
+
+                    Connections {
+                        target: discoveryAgent
+
+                        onRunningChanged: discoverySwitch.checked = discoveryAgent.running
                     }
                 }
 
@@ -318,7 +273,7 @@ Item {
                     id: bluetoothCheckBox
 
                     enabled: showDevices && !discoverySwitch.checked
-                    visible: showDevices
+                    visible: showDevices && !bluetoothOnly
 
                     Layout.row: 4
                     Layout.column: 2
@@ -328,6 +283,8 @@ Item {
                     Material.accent: primaryColor
 
                     checked: true
+
+                    onCheckedChanged: discoveryAgent.detectBluetooth = checked
                 }
 
                 CheckBox {
@@ -339,11 +296,13 @@ Item {
                     Layout.row: 4
                     Layout.column: 3
 
-                    text: "USB"
+                    text: "USB/COM"
                     font.pixelSize: baseFontSize
                     Material.accent: primaryColor
 
                     checked: false
+
+                    onCheckedChanged: discoveryAgent.detectSerialPort = checked
                 }
             }
         }
@@ -364,11 +323,6 @@ Item {
 
         RowLayout {
             id: deviceRowLayout
-
-            Layout.row: 3
-            Layout.column: 0
-            Layout.columnSpan: 4
-            Layout.fillWidth: true
 
             Label {
                 Layout.fillWidth: true
@@ -405,7 +359,7 @@ Item {
         ListView {
             id: deviceListView
 
-            enabled: showDevices && !isConnecting
+            enabled: showDevices
             visible: showDevices
 
             Layout.fillWidth: true
@@ -423,19 +377,6 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
-    }
-
-    //--------------------------------------------------------------------------
-
-    BusyIndicator {
-        running: isConnecting
-        visible: running
-
-        height: 48 * scaleFactor
-        width: height
-        anchors.centerIn: parent
-
-        Material.accent:"#8f499c"
     }
 
     //--------------------------------------------------------------------------
@@ -474,12 +415,12 @@ Item {
 
                         source:"../assets/deviceType-%1.png".arg(deviceType)
                         fillMode: Image.PreserveAspectFit
+                    }
 
-                        ColorOverlay {
-                            anchors.fill: deviceImage
-                            source: deviceImage
-                            color: currentDevice && (currentDevice.name === name) ? app.primaryColor : "black"
-                        }
+                    ColorOverlay {
+                        anchors.fill: deviceImage
+                        source: deviceImage
+                        color: currentDevice && (currentDevice.name === name) && (isConnecting || isConnected) ? app.primaryColor : "black"
                     }
 
                     Item {
@@ -489,10 +430,10 @@ Item {
                     Text {
                         Layout.fillWidth: true
 
-                        text: isConnecting && currentDevice && (currentDevice.name === name) ? "Connecting..." : name
+                        text: currentDevice && (currentDevice.name === name) ? isConnecting ? name + qsTr(" (Connecting...)") : isConnected ? name + qsTr(" (Connected)") : name : name
                         font.pixelSize: baseFontSize * 0.9
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                        color:  currentDevice && (currentDevice.name === name) ? app.primaryColor : "black"
+                        color: currentDevice && (currentDevice.name === name) && (isConnecting || isConnected) ? app.primaryColor : "black"
                     }
 
                     Image {
@@ -511,7 +452,7 @@ Item {
                     ColorOverlay {
                         anchors.fill: rightImage
                         source: rightImage
-                        color: currentDevice && (currentDevice.name === name) ? app.primaryColor : "black"
+                        color: currentDevice && (currentDevice.name === name) && (isConnecting || isConnected) ? app.primaryColor : "black"
                     }
                 }
 
@@ -526,218 +467,41 @@ Item {
                 anchors.fill: parent
 
                 onClicked: {
-                    if (index != deviceListView.currentIndex) {
+                    if (!isConnecting && !isConnected || currentDevice && currentDevice.name !== name) {
                         deviceListView.currentIndex = index;
-                        deviceSelected(name, discoveryAgent.devices.get(index));
+                        deviceSelected(discoveryAgent.devices.get(index));
                     } else {
+                        app.settings.remove("device");
+
                         deviceListView.currentIndex = -1;
                         disconnect();
                     }
                 }
-            }
-        }
-    }
 
-    //--------------------------------------------------------------------------
+                Component.onCompleted: {
+                    var stored = app.settings.value("device", "");
 
-    DeviceDiscoveryAgent {
-        id: discoveryAgent
-
-        deviceFilter: function(device) {
-            var types = [];
-
-            if (bluetoothCheckBox.checked) {
-                types.push(Device.DeviceTypeBluetooth);
-            }
-
-            if (usbCheckBox.checked) {
-                types.push(Device.DeviceTypeSerialPort);
-            }
-
-            for (var i in types) {
-                if (device.deviceType === types[i]) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        onDeviceDiscovered: {
-            console.log("Device discovered: ", device.name);
-        }
-
-        onDiscoverDevicesCompleted: {
-            console.log("Device discovery completed");
-        }
-    }
-
-    //--------------------------------------------------------------------------
-
-    Connections {
-        target: tcpSocket
-
-        onStateChanged: {
-            switch (tcpSocket.state) {
-            case AbstractSocket.StateUnconnected:
-                isConnected = false;
-                isConnecting = false;
-
-                // XXX workaround for https://devtopia.esri.com/Melbourne/appstudio-framework/issues/455
-                // tcpSocket.error does not fire changed events
-                // XXX https://devtopia.esri.com/Melbourne/appstudio-framework/issues/456
-                // tcpSocket.error should be cleared on reconnect
-                if (tcpSocket.error !== AbstractSocket.ErrorUnknown) {
-                    tcpSocket.errorChanged();
-                }
-                break;
-            case AbstractSocket.StateHostLookup:
-                isConnected = false;
-                isConnecting = true;
-                break;
-            case AbstractSocket.StateConnecting:
-                break;
-            case AbstractSocket.StateConnected:
-                console.log("Connected to", tcpSocket.remoteName, tcpSocket.remotePort)
-                isConnected = true;
-                isConnecting = false;
-                showLocationPage();
-                break;
-            case AbstractSocket.StateBound:
-                break;
-             case AbstractSocket.StateListening:
-                break;
-             case AbstractSocket.StateClosing:
-                 break;
-            }
-        }
-
-        onErrorChanged: {
-            if (tcpSocket.error !== tcpSocket.ErrorUnknown) {
-                console.log("Connection error", tcpSocket.error, tcpSocket.errorString)
-                errorDialog.text = tcpSocket.errorString;
-                errorDialog.open();
-            }
-        }
-    }
-
-    // -------------------------------------------------------------------------
-
-    Connections {
-        target: currentDevice
-
-        onConnectedChanged: {
-            if (currentDevice) {
-                console.log("Device connected changed:", currentDevice.name, currentDevice.connected);
-
-                if (!currentDevice.connected) {
-                    textToSpeech.say(disconnectedText)
-
-                    if (deviceListView.currentIndex != -1) {
-                        deviceConnectionTimer.interval = 5000;
-                        deviceConnectionTimer.start();
+                    if (showDevices && !isConnecting && !isConnected && stored > "" && stored === name) {
+                        deviceListView.currentIndex = index;
+                        deviceSelected(discoveryAgent.devices.get(index));
                     }
                 }
             }
         }
-
-        onErrorChanged: {
-            if (currentDevice) {
-                console.log("Connection error:", currentDevice.error)
-
-                deviceConnectionTimer.stop();
-                deviceConnectionCheckTimer.stop();
-
-                errorDialog.text = currentDevice.error;
-                errorDialog.open();
-
-                currentDevice = null;
-                isConnected = false;
-                isConnecting = false;
-            }
-        }
-    }
-
-    // -------------------------------------------------------------------------
-
-    Timer {
-        id: deviceConnectionTimer
-
-        interval: 5000
-        running: false
-        repeat: false
-
-        onRunningChanged: {
-            if (running) {
-                isConnected = false;
-                isConnecting = true;
-                discoveryAgent.stop();
-            }
-        }
-
-        onTriggered: {
-            // try to connect
-            if (currentDevice) {
-                currentDevice.connected = true;
-                deviceConnectionCheckTimer.running = true;
-            }
-        }
-    }
-
-    Timer {
-        id: deviceConnectionCheckTimer
-
-        interval: 10000
-        running: false
-        repeat: false
-
-        onTriggered: {
-            // check if connection attempt was successful
-            if (currentDevice && currentDevice.connected === true) {
-                textToSpeech.say(connectedText);
-
-                isConnected = true;
-                isConnecting = false;
-                discoveryAgent.stop();
-
-                if (footer.currentIndex === 0) {
-                    showLocationPage();
-                }
-            } else if (discoverySwitch.checked) {
-                isConnected = false;
-                isConnecting = false;
-                discoveryAgent.start();
-            }
-        }
-    }
-
-    TextToSpeech {
-        id: textToSpeech
-    }
-
-    // -------------------------------------------------------------------------
-
-    Dialog {
-        id: errorDialog
-
-        property alias text: label.text
-
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        modal: true
-
-        standardButtons: Dialog.Ok
-        title: qsTr("Unable to connect");
-        text: ""
-
-        Label {
-            id: label
-
-            Layout.fillWidth: true
-            font.pixelSize: baseFontSize
-            Material.accent: primaryColor
-        }
     }
 
     //--------------------------------------------------------------------------
+
+    BusyIndicator {
+        running: isConnecting
+        visible: running
+
+        height: 48 * scaleFactor
+        width: height
+        anchors.centerIn: parent
+
+        Material.accent:"#8f499c"
+    }
+
+    // -------------------------------------------------------------------------
 }
