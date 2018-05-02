@@ -1,0 +1,64 @@
+{
+    "access": "private",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1523903245000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>A Map is constructed by passing a URL to a web map stored in ArcGIS Online. A connection is made to the mouseClicked signal of the MapView, and when this signal emits, selectFeatures is executed on the FeatureLayer. Once this completes, a FeatureQueryResult is returned, giving access to the FeatureIterator. This FeatureIterator contains all of the Feature objects selected with the mouse click. These Feature objects are iterated over, and for each object, the queryRelatedFeatures method is called. Once this completes, the returned RelatedFeatureQueryResult gives access to all of the related features, and the UI is populated with this information. </p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "c6ac08a4f6e54eb3910fcf03516dedc6",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1523903247000,
+    "name": "c6ac08a4f6e54eb3910fcf03516dedc6.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 0,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 83,
+    "screenshots": [
+    ],
+    "size": 37689,
+    "snippet": "This sample demonstrates how to query a layer for features that are in a related table ",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Quartz",
+        "Runtime",
+        "Sample",
+        "Layer"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Listed Related Features",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

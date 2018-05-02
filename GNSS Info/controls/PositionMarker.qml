@@ -17,8 +17,6 @@
 import QtQuick 2.9
 import QtLocation 5.9
 
-import ArcGIS.AppFramework.Positioning 1.0
-
 MapQuickItem {
     id: positionMarker
 
@@ -26,7 +24,7 @@ MapQuickItem {
 
     //--------------------------------------------------------------------------
 
-    visible: positionIndicator.visible && positionIndicator.horizontalAccuracy > 0
+    visible: positionIndicator.visible
 
     anchorPoint.x: image.width/2
     anchorPoint.y: image.height

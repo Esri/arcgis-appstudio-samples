@@ -1,0 +1,66 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1519240779000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' color:#24292e; background-color:#ffffff;'>This sample takes a Mobile Map Package that was created in ArcGIS Pro, and displays a </span>Map<span style=' color:#24292e; background-color:#ffffff;'> from within the package in a </span>MapView<span style=' color:#24292e; background-color:#ffffff;'>. This is accomplished by calling </span>load<span style=' color:#24292e; background-color:#ffffff;'> on the </span>MobileMapPackage<span style=' color:#24292e; background-color:#ffffff;'>, and waiting for its load status to be Completed. Once the package is loaded, you can access its maps, and assign one of the maps to be viewed in the </span>MapView<span style=' color:#24292e; background-color:#ffffff;'>.</span> </p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "f0e1b363495442f4a63ea9edb6b62827",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1523906730000,
+    "name": "f0e1b363495442f4a63ea9edb6b62827.zip",
+    "numComments": 2,
+    "numRatings": 0,
+    "numViews": 19,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 81,
+    "screenshots": [
+    ],
+    "size": 28104579,
+    "snippet": "This sample demonstrates how to open and display a map from a Mobile Map Package that includes a Tile Package. ",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Quartz",
+        "Runtime",
+        "Sample",
+        "Offline",
+        "mmpk"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Open Mobile Map (mmpk)",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

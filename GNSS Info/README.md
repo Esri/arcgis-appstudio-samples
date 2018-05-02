@@ -1,7 +1,8 @@
-##  GNSS Info
+## GNSS Info
 
-Choose a connected GNSS receiver and see the returned position displayed on a map and its properties as a list of parameters. A read-only tracklog (for the current session) is also displayed on the map. For troubleshooting, the raw sentences coming from the receiver can also be displayed. 
+This sample demonstrates how to connect to a GNSS receiver and display position metadata.
 
+Choose a connected GNSS receiver and see the returned position displayed on a map and its properties as a list of parameters. A read-only tracklog (for the current session) is also displayed on the map. For troubleshooting, the raw sentences coming from the receiver can also be displayed.
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
 

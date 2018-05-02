@@ -1,0 +1,90 @@
+{
+    "arcgisRuntime": 0,
+    "capabilities": {
+        "audio": false,
+        "backgroundLocation": false,
+        "biometricAuthentication": false,
+        "bluetooth": false,
+        "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": false,
+        "ios": {
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": true,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "uwp": {
+            "packageName": "",
+            "productID": ""
+        },
+        "winphone": {
+            "packageDisplayName": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 0,
+            "windowMode": "default"
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        }
+    },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
+    "mainFile": "MyApp.qml",
+    "multipleInstances": true,
+    "projectFile": "MyApp.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "sd-card.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "version": {
+        "major": 1,
+        "micro": 3
+    }
+}

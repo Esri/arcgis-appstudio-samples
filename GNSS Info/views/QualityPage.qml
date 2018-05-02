@@ -17,11 +17,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
-import QtGraphicalEffects 1.0
-import QtQuick.Controls.Material 2.1
 
-import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Devices 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 
 import "../controls" as Controls
@@ -29,8 +25,13 @@ import "../controls" as Controls
 Page {
     id: qualityPage
 
+    property PositionSource positionSource
+    property Position position: positionSource.position
+
     property var fixType: position.fixType
-    property var gpsMode: gpsModeText (fixType)
+    property var gpsMode: gpsModeText(fixType)
+    property var accuracyType: position.accuracyType
+    property var accuracyMode: accuracyText(accuracyType)
 
     property var hdop: position.hdopValid ? position.hdop : null
     property var vdop: position.vdopValid ? position.vdop : null
@@ -39,7 +40,12 @@ Page {
     property var hpe: position.horizontalAccuracyValid ? app.convertValueToLengthString(position.horizontalAccuracy) : null
     property var vpe: position.verticalAccuracyValid   ? app.convertValueToLengthString(position.verticalAccuracy)   : null
     property var epe: position.positionAccuracyValid   ? app.convertValueToLengthString(position.positionAccuracy)   : null
-    property var diffAge: position.differentialAgeValid ? position.differentialAge : null
+
+    property var laterr: position.latitudeErrorValid  ? app.convertValueToLengthString(position.latitudeError)  : null
+    property var lonerr: position.longitudeErrorValid ? app.convertValueToLengthString(position.longitudeError) : null
+    property var alterr: position.altitudeErrorValid  ? app.convertValueToLengthString(position.altitudeError)  : null
+
+    property var diffAge: position.differentialAgeValid ? qsTr("%1 s").arg(Math.round(position.differentialAge)) : null
 
     property var satInUse: position.satellitesInUseValid ? position.satellitesInUse : null
     property var satVisible: position.satellitesVisibleValid ? position.satellitesVisible : null
@@ -73,11 +79,13 @@ Page {
                 }
             }
 
+            //--------------------------------------------------------------------------
+
             ListView {
                 id: gpsModeListView
 
                 Layout.preferredWidth: app.width
-                Layout.preferredHeight: 35 * scaleFactor
+                Layout.preferredHeight: 70 * scaleFactor
                 spacing: 0
                 clip: true
 
@@ -93,6 +101,11 @@ Page {
                     label: qsTr("GPS mode: ")
                     attr : "gpsMode"
                 }
+
+                ListElement {
+                    label: qsTr("Differential age: ")
+                    attr : "diffAge"
+                }
             }
 
             Rectangle {
@@ -102,8 +115,103 @@ Page {
             }
 
             Item {
-                height: !isSmallScreen ? 30 * scaleFactor : 20 * scaleFactor
+                height: 20 * scaleFactor
             }
+
+            //--------------------------------------------------------------------------
+
+            ListView {
+                id: positionAccuracyListView
+
+                Layout.preferredWidth: app.width
+                Layout.preferredHeight: 140 * scaleFactor
+                spacing: 0
+                clip: true
+
+                model: positionAccuracyModel
+                delegate: Controls.CustomizedDelegate {}
+                interactive: false
+            }
+
+            ListModel {
+                id: positionAccuracyModel
+
+                ListElement {
+                    label: qsTr("Accuracy mode: ")
+                    attr : "accuracyMode"
+                }
+
+                ListElement {
+                    label: qsTr("Horizontal accuracy: ")
+                    attr : "hpe"
+                }
+
+                ListElement {
+                    label: qsTr("Vertical accuracy: ")
+                    attr : "vpe"
+                }
+
+                ListElement {
+                    label: qsTr("Position accuracy: ")
+                    attr : "epe"
+                }
+            }
+
+            Rectangle {
+                Layout.preferredWidth: app.width
+                Layout.preferredHeight: 1 * scaleFactor
+                color: "lightgrey"
+            }
+
+            Item {
+                Layout.preferredHeight: 20 * scaleFactor
+            }
+
+            //--------------------------------------------------------------------------
+
+            ListView {
+                id: positionErrorListView
+
+                Layout.preferredWidth: app.width
+                Layout.preferredHeight: 105 * scaleFactor
+                spacing: 0
+                clip: true
+
+                model: positionErrorModel
+                delegate: Controls.CustomizedDelegate {}
+                interactive: false
+            }
+
+            ListModel {
+                id: positionErrorModel
+
+                ListElement {
+                    label: qsTr("Latitude error: ")
+                    attr : "laterr"
+                }
+
+                ListElement {
+                    label: qsTr("Longitude error: ")
+                    attr : "lonerr"
+                }
+
+                ListElement {
+                    label: qsTr("Altitude error: ")
+                    attr : "alterr"
+                }
+            }
+
+            Rectangle {
+                Layout.preferredWidth: app.width
+                Layout.preferredHeight: 1 * scaleFactor
+                color: "lightgrey"
+            }
+
+            Item {
+                Layout.preferredHeight: 20 * scaleFactor
+            }
+
+            //--------------------------------------------------------------------------
 
             ListView {
                 id: dopListView
@@ -144,55 +252,10 @@ Page {
             }
 
             Item {
-                Layout.preferredHeight: !isSmallScreen ? 30 * scaleFactor : 20 * scaleFactor
+                Layout.preferredHeight: 20 * scaleFactor
             }
 
-            ListView {
-                id: positionErrorListView
-
-                Layout.preferredWidth: app.width
-                Layout.preferredHeight: 140 * scaleFactor
-                spacing: 0
-                clip: true
-
-                model: positionErrorModel
-                delegate: Controls.CustomizedDelegate {}
-                interactive: false
-            }
-
-            ListModel {
-                id: positionErrorModel
-
-                ListElement {
-                    label: qsTr("Horizontal est. accuracy: ")
-                    attr : "hpe"
-                }
-
-                ListElement {
-                    label: qsTr("Vertical est. accuracy: ")
-                    attr : "vpe"
-                }
-
-                ListElement {
-                    label: qsTr("Position est. accuracy: ")
-                    attr : "epe"
-                }
-
-                ListElement {
-                    label: qsTr("Differential age: ")
-                    attr : "diffAge"
-                }
-            }
-
-            Rectangle {
-                Layout.preferredWidth: app.width
-                Layout.preferredHeight: 1 * scaleFactor
-                color: "lightgrey"
-            }
-
-            Item {
-                Layout.preferredHeight: !isSmallScreen ? 30 * scaleFactor : 20 * scaleFactor
-            }
+            //--------------------------------------------------------------------------
 
             Column {
                 topPadding: 0 * scaleFactor
@@ -207,6 +270,8 @@ Page {
                     color: "grey"
                 }
             }
+
+            //--------------------------------------------------------------------------
 
             ListView {
                 id: sateListView
@@ -225,13 +290,13 @@ Page {
                 id: sateListModel
 
                 ListElement {
-                    label: qsTr("Satellites in use: ")
-                    attr : "satInUse"
+                    label: qsTr("Satellites in view: ")
+                    attr : "satVisible"
                 }
 
                 ListElement {
-                    label: qsTr("Satellites in view: ")
-                    attr : "satVisible"
+                    label: qsTr("Satellites in use: ")
+                    attr : "satInUse"
                 }
             }
 
@@ -249,44 +314,66 @@ Page {
         var result = "" ;
 
         switch (fixType) {
-        case fixType = 0 :
+        case Position.NoFix:
             result = qsTr("No Fix");
             break;
 
-        case fixType = 1 :
+        case Position.GPS:
             result = qsTr("GPS");
             break;
 
-        case fixType = 2 :
+        case Position.DifferentialGPS:
             result = qsTr("Differential GPS");
             break;
 
-        case fixType = 3 :
+        case Position.PrecisePositioningService:
             result = qsTr("Precise Positioning Service");
             break;
 
-        case fixType = 4 :
+        case Position.RTKFixed:
             result = qsTr("RKT Fixed");
             break;
 
-        case fixType = 5 :
+        case Position.RTKFloat:
             result = qsTr("RKT Float");
             break;
 
-        case fixType = 6 :
+        case Position.Estimated:
             result = qsTr("Estimated");
             break;
 
-        case fixType = 7 :
+        case Position.Manual:
             result = qsTr("Manual");
             break;
 
-        case fixType = 8 :
+        case Position.Simulator:
             result = qsTr("Simulator");
             break;
 
-        case fixType = 9 :
+        case Position.Sbas:
             result = qsTr("Sbas");
+            break;
+        }
+
+        return result;
+    }
+
+    //--------------------------------------------------------------------------
+
+    function accuracyText (accuracyType) {
+        var result = "" ;
+
+        switch (accuracyType) {
+        case Position.RMS:
+            result = qsTr("Error RMS");
+            break;
+
+        case Position.DOP:
+            result = qsTr("DOP Based");
+            break;
+
+        default:
+            result = qsTr("Unknown");
             break;
         }
 

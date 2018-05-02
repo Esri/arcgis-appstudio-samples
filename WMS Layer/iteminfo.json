@@ -1,0 +1,65 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1523903483000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>A WmsLayer is declared inside a Map by setting its URL and LayerNames properties.  The URL must be the URL to the &quot;GetCapabilities&quot; endpoint of the WMS Service.  Alternatively, the layer could be construction by setting the layerInfo property.  </p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "7d7d6522170f478f8a560ef1dc8c80e2",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1523903491000,
+    "name": "7d7d6522170f478f8a560ef1dc8c80e2.zip",
+    "numComments": 2,
+    "numRatings": 0,
+    "numViews": 0,
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 80,
+    "screenshots": [
+    ],
+    "size": 36187,
+    "snippet": "This sample demonstrates how to display a WMS Layer from an online URL.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Quartz",
+        "Runtime",
+        "Sample",
+        "Layer",
+        "WMS"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "WMS Layer (URL)",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

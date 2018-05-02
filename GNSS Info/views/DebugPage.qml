@@ -26,6 +26,7 @@ Rectangle {
     id: debugRec
 
     property NmeaSource nmeaSource
+
     property bool isPaused
 
     signal clear();
