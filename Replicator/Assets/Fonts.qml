@@ -9,12 +9,10 @@ Item {
     // Regular
     FontLoader {
         id: fontFamily_Regular
-        source: app.folder.fileUrl("Assets/Fonts/AvenirNext-Regular.ttf")
     }
 
     // Medium
     FontLoader {
         id: fontFamily_Medium
-        source: app.folder.fileUrl("Assets/Fonts/AvenirNext-Medium.ttf")
     }
 }

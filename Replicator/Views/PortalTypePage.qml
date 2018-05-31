@@ -41,7 +41,7 @@ Page {
                 text: mode === 1 ? strings.source_account : strings.dest_account
 
                 font {
-                    family: fonts.fontFamily_Medium.name
+                    weight: Font.Medium
                     pixelSize: 20 * scaleFactor
                 }
                 color: colors.white_100
@@ -72,7 +72,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.select_account_type
                 font {
-                    family: fonts.fontFamily_Medium.name
+                    weight: Font.Medium
                     pixelSize: 14 * scaleFactor
                 }
                 color: colors.black_87
@@ -123,7 +123,7 @@ Page {
                             Label {
                                 text: strings.arcgis_online
                                 font {
-                                    family: fonts.fontFamily_Regular.name
+                                    weight: Font.Normal
                                     pixelSize: 14 * scaleFactor
                                 }
                                 color: colors.black_87
@@ -176,7 +176,7 @@ Page {
                             Label {
                                 text: strings.arcgis_enterprise
                                 font {
-                                    family: fonts.fontFamily_Regular.name
+                                    weight: Font.Normal
                                     pixelSize: 14 * scaleFactor
                                 }
                                 color: colors.black_87

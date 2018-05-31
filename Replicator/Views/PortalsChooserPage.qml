@@ -34,7 +34,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step_no.arg(1)
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 24 * scaleFactor
                 }
                 color: colors.primary_color
@@ -49,7 +49,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step1_description
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 14 * scaleFactor
                 }
                 color: colors.black_54

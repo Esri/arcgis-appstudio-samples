@@ -48,7 +48,7 @@ Item {
             horizontalAlignment: Label.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 16 * scaleFactor
             }
             color: colors.primary_color
@@ -68,7 +68,7 @@ Item {
             horizontalAlignment: Label.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 16 * scaleFactor
             }
             color: colors.primary_color
@@ -97,7 +97,7 @@ Item {
             horizontalAlignment: Label.AlignHCenter
             anchors.horizontalCenter: parent.horizontalCenter
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 24 * scaleFactor
             }
             color: resultState === 3 ? colors.primary_color: Material.Red
@@ -136,7 +136,7 @@ Item {
             Material.background: colors.primary_color
 
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 14 * scaleFactor
             }
 
@@ -166,7 +166,7 @@ Item {
             Material.background: colors.primary_color
 
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 14 * scaleFactor
             }
 

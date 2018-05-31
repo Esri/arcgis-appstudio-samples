@@ -37,7 +37,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step_no.arg(3)
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 24 * scaleFactor
                 }
                 color: colors.primary_color
@@ -52,7 +52,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step3_description
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 14 * scaleFactor
                 }
                 color: colors.black_54
@@ -89,7 +89,7 @@ Page {
                         Layout.fillWidth: true
                         text: strings.source_app
                         font {
-                            family: fonts.fontFamily_Medium.name
+                            weight: Font.Medium
                             pixelSize: 12 * scaleFactor
                         }
                         color: colors.black_54
@@ -137,7 +137,7 @@ Page {
                                         maximumLineCount: 2
                                         wrapMode: Label.Wrap
                                         font {
-                                            family: fonts.fontFamily_Regular.name
+                                            weight: Font.Normal
                                             pixelSize: 14 * scaleFactor
                                         }
                                         color: colors.black_87
@@ -156,7 +156,7 @@ Page {
                                         leftPadding: rightPadding
                                         rightPadding: 0
                                         font {
-                                            family: fonts.fontFamily_Regular.name
+                                            weight: Font.Normal
                                             pixelSize: 12 * scaleFactor
                                         }
                                         color: colors.black_54
@@ -170,7 +170,7 @@ Page {
                                         leftPadding: rightPadding
                                         rightPadding: 0
                                         font {
-                                            family: fonts.fontFamily_Regular.name
+                                            weight: Font.Normal
                                             pixelSize: 12 * scaleFactor
                                         }
                                         color: colors.black_54

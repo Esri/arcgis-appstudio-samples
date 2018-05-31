@@ -55,7 +55,7 @@ Page {
                 text: mode === 1 ? strings.source_account : strings.dest_account
 
                 font {
-                    family: fonts.fontFamily_Medium.name
+                    weight: Font.Medium
                     pixelSize: 20 * scaleFactor
                 }
                 color: colors.white_100

@@ -61,7 +61,7 @@ ToolBar {
                     id: label1
                     text: strings.back
                     font {
-                        family: fonts.fontFamily_Medium.name
+                        weight: Font.Medium
                         pixelSize: 14 * scaleFactor
                     }
                     color: navigatorFooter.isBackEnabled ? colors.white_100 : colors.white_54
@@ -103,7 +103,7 @@ ToolBar {
                     id: label2
                     text: strings.next
                     font {
-                        family: fonts.fontFamily_Medium.name
+                        weight: Font.Medium
                         pixelSize: 14 * scaleFactor
                     }
                     color: navigatorFooter.isNextEnabled ? colors.white_100 : colors.white_54

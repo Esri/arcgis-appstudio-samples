@@ -48,7 +48,7 @@ Rectangle {
             Layout.fillWidth: true
             text: mode == 1 ? strings.source_account : strings.dest_account
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 12 * scaleFactor
             }
             color: colors.black_54
@@ -95,7 +95,7 @@ Rectangle {
                             Layout.fillWidth: true
                             text: username
                             font {
-                                family: fonts.fontFamily_Regular.name
+                                weight: Font.Normal
                                 pixelSize: 14 * scaleFactor
                             }
                             color: colors.black_87
@@ -110,7 +110,7 @@ Rectangle {
                             Layout.fillWidth: true
                             text: portal_name
                             font {
-                                family: fonts.fontFamily_Regular.name
+                                weight: Font.Normal
                                 pixelSize: 12 * scaleFactor
                             }
                             color: colors.black_54
@@ -121,7 +121,7 @@ Rectangle {
                             Layout.fillWidth: true
                             text: extractHostname(portal_url+"")
                             font {
-                                family: fonts.fontFamily_Regular.name
+                                weight: Font.Normal
                                 pixelSize: 12 * scaleFactor
                             }
                             color: colors.black_54
@@ -182,7 +182,7 @@ Rectangle {
             Layout.fillWidth: true
             text: mode == 1 ? strings.source_account : strings.dest_account
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 16 * scaleFactor
             }
             color: colors.black_87
@@ -205,7 +205,7 @@ Rectangle {
             Material.background: colors.primary_color
 
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 14 * scaleFactor
             }
 

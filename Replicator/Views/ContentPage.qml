@@ -41,7 +41,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: strings.step_no.arg(2)
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 24 * scaleFactor
             }
             color: colors.primary_color
@@ -57,7 +57,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: strings.step2_description
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 14 * scaleFactor
             }
             color: colors.black_54
@@ -87,7 +87,7 @@ Page {
                     text: strings.step2_showing.arg(contentModel.count).arg(totalResultCount)
                     visible: totalResultCount > 0 && contentModel.count > 0
                     font {
-                        family: fonts.fontFamily_Regular.name
+                        weight: Font.Normal
                         pixelSize: 12 * scaleFactor
                     }
                     color: colors.black_54
@@ -120,7 +120,7 @@ Page {
                         Label {
                             text: isMyApps ? strings.step2_myapps : strings.step2_allapps
                             font {
-                                family: fonts.fontFamily_Medium.name
+                                weight: Font.Medium
                                 pixelSize: 14 * scaleFactor
                             }
                             color: colors.black_87
@@ -232,7 +232,7 @@ Page {
                                 leftPadding: rightPadding
                                 rightPadding: 0
                                 font {
-                                    family: fonts.fontFamily_Regular.name
+                                    weight: Font.Normal
                                     pixelSize: 14 * scaleFactor
                                 }
                                 color: colors.black_87
@@ -251,7 +251,7 @@ Page {
                                 leftPadding: rightPadding
                                 rightPadding: 0
                                 font {
-                                    family: fonts.fontFamily_Regular.name
+                                    weight: Font.Normal
                                     pixelSize: 12 * scaleFactor
                                 }
                                 color: colors.black_54
@@ -265,7 +265,7 @@ Page {
                                 leftPadding: rightPadding
                                 rightPadding: 0
                                 font {
-                                    family: fonts.fontFamily_Regular.name
+                                    weight: Font.Normal
                                     pixelSize: 12 * scaleFactor
                                 }
                                 color: colors.black_54
@@ -438,7 +438,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step2_myapps
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 16 * scaleFactor
                 }
                 color: colors.black_87
@@ -456,7 +456,7 @@ Page {
                 Layout.fillWidth: true
                 text: strings.step2_allapps
                 font {
-                    family: fonts.fontFamily_Regular.name
+                    weight: Font.Normal
                     pixelSize: 16 * scaleFactor
                 }
                 color: colors.black_87

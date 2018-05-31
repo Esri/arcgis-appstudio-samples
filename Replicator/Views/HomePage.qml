@@ -26,7 +26,7 @@ Item {
             Layout.fillWidth: true
             text: strings.homepage_welcome
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 24 * scaleFactor
             }
             color: colors.black_87
@@ -36,7 +36,7 @@ Item {
             Layout.fillWidth: true
             text: app.info.title
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 24 * scaleFactor
             }
             color: colors.primary_color
@@ -51,7 +51,7 @@ Item {
             Layout.fillWidth: true
             text: strings.homepage_app_description
             font {
-                family: fonts.fontFamily_Regular.name
+                weight: Font.Normal
                 pixelSize: 14 * scaleFactor
             }
             color: colors.black_54
@@ -88,7 +88,7 @@ Item {
             Material.background: colors.primary_color
 
             font {
-                family: fonts.fontFamily_Medium.name
+                weight: Font.Medium
                 pixelSize: 14 * scaleFactor
             }
 
