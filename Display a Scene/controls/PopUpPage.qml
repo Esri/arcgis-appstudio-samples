@@ -46,7 +46,7 @@ Rectangle {
             model:ListModel {
                 id:sampleItems
 
-                ListElement { name:"Diaplay a Scene"; url:"../Samples/DiaplayaScene.qml";description:"<p>This is the most basic sample for displaying a scene. It shows how to create a scene view, and add in a scene that contains a 3D surface.  <br><p></p><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌 </p>" }
+                ListElement { name:"Display a Scene"; url:"../Samples/DisplayaScene.qml";description:"<p>This is the most basic sample for displaying a scene. It shows how to create a scene view, and add in a scene that contains a 3D surface.  <br><p></p><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌 </p>" }
 
                 ListElement { name:"Display a Scene Layer"; url:"../Samples/DisplayaSceneLayer.qml"; description:"<p>This sample demonstrates how to display a scene service with a scene layer.  <br><p></p><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌 </p>"  }
 
