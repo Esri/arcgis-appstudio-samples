@@ -23,7 +23,7 @@ import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
-import Esri.ArcGISRuntime 100.2
+//import Esri.ArcGISRuntime 100.1
 
 import ArcGIS.AppFramework.SecureStorage 1.0
 
@@ -40,8 +40,8 @@ App {
     property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < units(400)
 
-    property string insertSuccessMessage: qsTr ("Inserted into Storage")
-    property string removeSuccessMessage: qsTr ("Removed from Storage")
+    property string insertSuccessMessage: qsTr ("Inserted into Keychain")
+    property string removeSuccessMessage: qsTr ("Removed from Keychain")
 
     property string failMessage:qsTr("Something Went Wrong")
 
@@ -86,7 +86,7 @@ App {
                 //Click on the button to store key and value in the keychain
                 Button {
                     id: secureButton
-                    text: qsTr("Secure Data to Storage")
+                    text: qsTr("Secure Data to Keychain")
                     onClicked: {
                         toastMessageRec.visible = true
                         retrieveData.visible = false
@@ -109,7 +109,7 @@ App {
                 //Click on the button to retrive data
                 Button{
                     id: retrieveButton
-                    text: qsTr("Retrieve Data From Storage")
+                    text: qsTr("Retrieve Data From Keychain")
                     onClicked: {
                         // Retrive value
                         retrieveData.text = qsTr("Value: ") + SecureStorage.value(key.text);
@@ -121,7 +121,7 @@ App {
                 //Click on the button to remove data from the keychain
                 Button {
                     id: removeButton
-                    text: qsTr("Clear Entry From Storage")
+                    text: qsTr("Clear Entry From Keychain")
                     onClicked: {
                         retrieveData.visible = false
                         toastMessageRec.visible = true
@@ -142,13 +142,33 @@ App {
                 }
 
                 //Display retrieved data
-                Text{
+                Text {
                     id: retrieveData
                     Layout.fillWidth: true
                     font.pointSize: 10
                     Layout.preferredWidth: parent.width
                     wrapMode: Text.Wrap
                     horizontalAlignment: Text.AlignLeft
+                }
+
+                Text {
+                    id: maximumKey
+                    Layout.fillWidth: true
+                    font.pointSize: 10
+                    Layout.preferredWidth: parent.width
+                    wrapMode: Text.Wrap
+                    horizontalAlignment: Text.AlignLeft
+                    text: qsTr("Maximum Key Size: ") + SecureStorage.maximumKeyLength
+                }
+
+                Text {
+                    id: maximumValue
+                    Layout.fillWidth: true
+                    font.pointSize: 10
+                    Layout.preferredWidth: parent.width
+                    wrapMode: Text.Wrap
+                    horizontalAlignment: Text.AlignLeft
+                    text: qsTr("Maximum Value Size: ") + SecureStorage.maximumValueLength
                 }
             }
         }

@@ -69,7 +69,17 @@ App {
 
                 TextField {
                     id: duration
-                    placeholderText: "Enter time as integer value"
+                    placeholderText: "Enter time (milliseconds)"
+                }
+
+                Text {
+                    id: note
+                    visible: Qt.platform.os === "ios" ? ture : false
+                    Layout.preferredWidth: 0.8 * parent.width
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight
+                    text: qsTr("Note: if you are running this app on iOS, please enter as least 1001 for this field")
+
                 }
 
                 Button {
@@ -99,24 +109,14 @@ App {
 
                 RowLayout {
 
-                    TextField {
-                        id: clearID
-                        placeholderText: "Enter notification ID to clear"
-                        width: 150
-                    }
-
                     Button {
-                        text: "clear"
+                        text: "clear notification"
                         onClicked: {
-                            console.log(notification.clear(clearID.text))
+                            console.log(notification.clearAll())
+                            title.text = ""
+                            message.text = ""
+                            duration.text = ""
                         }
-                    }
-                }
-
-                Button {
-                    text: "clearAll"
-                    onClicked: {
-                        notification.clearAll()
                     }
                 }
             }

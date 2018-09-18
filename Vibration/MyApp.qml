@@ -57,24 +57,36 @@ App {
                 spacing: 10
                 anchors.centerIn: parent
 
+
                 TextField {
                     id: title
-                    placeholderText: "Enter Title"
+                    placeholderText: "Enter title"
                 }
+
 
                 TextField {
                     id: message
-                    placeholderText: "Enter Message"
+                    placeholderText: "Enter message"
                 }
 
                 TextField {
                     id: duration
-                    placeholderText: "Enter time as integer value"
+                    placeholderText: "Enter time (milliseconds)"
+                }
+
+                Text {
+                    id: note
+                    visible: Qt.platform.os === "ios" ? ture : false
+                    Layout.preferredWidth: 0.8 * parent.width
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight
+                    text: qsTr("Note: if you are running this app on iOS, please enter as least 1001 for this field")
+
                 }
 
                 Button {
                     width: 250
-                    text: "Trigger Notification & Vibration"
+                    text: "Trigger Notification && Vibration"
                     onClicked: {
                         console.log(notification.schedule(title.text, message.text, duration.text))
                     }
@@ -103,7 +115,7 @@ App {
 
                 onTriggered: {
                     console.log("Triggered id: ", id)
-                     Vibration.vibrate();
+                    Vibration.vibrate();
                 }
             }
         }

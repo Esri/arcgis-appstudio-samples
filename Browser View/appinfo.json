@@ -1,12 +1,12 @@
 {
-    "arcgisRuntime": 0,
+    "arcgisRuntime": 1002,
     "capabilities": {
-        "audio": true,
+        "audio": false,
         "backgroundBluetoothCentral": false,
         "backgroundLocation": false,
         "biometricAuthentication": false,
-        "bluetooth": true,
-        "camera": true,
+        "bluetooth": false,
+        "camera": false,
         "fileSharing": false,
         "highAccuracyLocation": false,
         "ios": {
@@ -16,9 +16,9 @@
         },
         "localnotification": false,
         "location": true,
-        "microphone": true,
+        "microphone": false,
         "network": true,
-        "storage": true,
+        "storage": false,
         "vibration": false
     },
     "deployment": {
@@ -53,10 +53,11 @@
     ],
     "display": {
         "desktop": {
-            "minimumHeight": 400,
-            "minimumWidth": 200,
+            "minimumHeight": 0,
+            "minimumWidth": 0,
             "windowMode": "default"
         },
+        "enableHighDpi": true,
         "phone": {
             "landscape": true,
             "portrait": true,
@@ -77,7 +78,7 @@
     ],
     "mainFile": "MyApp.qml",
     "multipleInstances": true,
-    "projectFile": "i18n.qmlproject",
+    "projectFile": "MyApp.qmlproject",
     "properties": {
     },
     "resources": {
@@ -90,6 +91,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 3
+        "micro": 5
     }
 }

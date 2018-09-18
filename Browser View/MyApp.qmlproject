@@ -1,12 +1,9 @@
 //------------------------------------------------------------------------------
-// i18n
-// Created 2015-01-05 15:28:07
-//------------------------------------------------------------------------------
 
 import QmlProject 1.1
 
 Project {
-    mainFile: "i18n.qml"
+    mainFile: "MyApp.qml"
 
     QmlFiles {
         directory: "."
@@ -26,7 +23,7 @@ Project {
     Files {
         directory: "."
         recursive: true
-        filter: "*.json;*.html;*.txt;*.qm"
+        filter: "*.json;*.html;*.txt"
     }
 
     importPaths: [
