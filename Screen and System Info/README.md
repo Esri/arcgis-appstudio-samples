@@ -1,7 +1,7 @@
 
 ## Display hardware information
 
-Displays hardware information about the device's screen.
+This sample displays information about your device such as screen and system info. You can also share this information with other apps using the AppFramework Share Sheet
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
 

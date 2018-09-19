@@ -1,5 +1,5 @@
 {
-    "access": "private",
+    "access": "public",
     "accessInformation": null,
     "appCategories": [
     ],
@@ -10,7 +10,7 @@
     "commentsEnabled": true,
     "created": 1537298059000,
     "culture": "en-au",
-    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample displays information about the device's screen and system.  You can click on the Share button to open Share Sheet and share these information.  </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌 </p>",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample displays information about the device's screen and system. You can also share this information with other apps using the AppFramework Share Sheet.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌 </p>",
     "documentation": null,
     "extent": [
     ],
@@ -25,20 +25,21 @@
     "largeThumbnail": null,
     "licenseInfo": null,
     "listed": false,
-    "modified": 1537298062000,
+    "modified": 1537379034000,
     "name": "8886393d6fd34644a4fb966fac80525c.zip",
-    "numComments": 1,
+    "numComments": 4,
     "numRatings": 0,
-    "numViews": 0,
+    "numViews": 7,
+    "orgId": "2U3NfasNQ9o9LkLt",
     "owner": "appstudio_samples",
     "ownerFolder": null,
     "properties": null,
     "protected": false,
     "proxyFilter": null,
-    "scoreCompleteness": 81,
+    "scoreCompleteness": 80,
     "screenshots": [
     ],
-    "size": 36522,
+    "size": 36543,
     "snippet": "This sample displays information about the device's screen and system",
     "spatialReference": null,
     "tags": [

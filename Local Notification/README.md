@@ -1,6 +1,6 @@
 ## Local Notification
 
-This sample demonstrates how to create local notification for your app
+This sample demonstrates how to schedule local notification from your app using AppFramework LocalNotification component. This sample also provides the ability to check if your device supports the Notification. You can clear any current or pending notifications using the Clear Notification button.
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌
 

@@ -69,7 +69,7 @@ App {
 
                 TextField {
                     id: duration
-                    placeholderText: "Enter time (milliseconds)"
+                    placeholderText: "Enter time delay (milliseconds)"
                 }
 
                 Text {
@@ -78,7 +78,7 @@ App {
                     Layout.preferredWidth: 0.8 * parent.width
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
-                    text: qsTr("Note: if you are running this app on iOS, please enter as least 1001 for this field")
+                    text: qsTr("Note: If you are running this sample on iOS, time delay has to be greater than 1000 milliseconds")
 
                 }
 
