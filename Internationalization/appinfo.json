@@ -77,7 +77,7 @@
     ],
     "mainFile": "MyApp.qml",
     "multipleInstances": true,
-    "projectFile": "i18n.qmlproject",
+    "projectFile": "MyApp.qmlproject",
     "properties": {
     },
     "resources": {
@@ -86,10 +86,14 @@
         "launchImageBackgroundColor": "#ffffff",
         "launchImageOverlay": "launchimage-overlay.png"
     },
+    "translations": {
+        "fileName": "qmlInt",
+        "path": "languages"
+    },
     "type": "app",
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 3
+        "micro": 7
     }
 }

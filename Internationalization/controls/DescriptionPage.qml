@@ -44,7 +44,7 @@ Item {
 
                 Text {
                     id: aboutApp
-                    text:qsTr("About")
+                    text: "About"
                     color:"white"
                     font.pixelSize: app.baseFontSize * 1.1
                     font.bold: true
@@ -67,7 +67,7 @@ Item {
                     Text{
                         id: descText
                         y: 30 * scaleFactor
-                        text:app.info.description
+                        text: qsTr(app.info.description)
                         anchors.horizontalCenterOffset: 0
                         color:"white"
                         width: 0.85 * parent.width

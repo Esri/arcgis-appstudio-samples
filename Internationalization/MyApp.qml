@@ -54,14 +54,6 @@ App {
         contentItem: Rectangle {
             anchors.top:header.bottom
 
-            //            Text {
-            //                id: description
-            //                anchors.topMargin: 10
-            //                width: parent.width-10
-            //                text: qsTr("This sample demonstrates internationalization of a qml app. All instructional text is retrieved from translations files.")
-            //                wrapMode: Text.WordWrap
-            //            }
-
             Text {
                 id: title
                 anchors.top: parent.top
@@ -136,7 +128,7 @@ App {
             Text {
                 id: returnDescription
                 anchors.top: chooser.bottom
-                anchors.topMargin: 10 * scaleFactor
+                anchors.topMargin: 1 * scaleFactor
                 anchors.left: parent.left
                 anchors.leftMargin: 5 * scaleFactor
                 width: parent.width-10
@@ -155,7 +147,7 @@ App {
                 width: parent.width - 10
 
                 Column {
-                    anchors.fill: parent
+                    //   anchors.fill: parent
                     spacing: 5
                     Text {
                         property var date: new Date()
@@ -181,6 +173,7 @@ App {
             }
         }
     }
+
 
     // sample ends here ------------------------------------------------------------------------
     Controls.DescriptionPage{
