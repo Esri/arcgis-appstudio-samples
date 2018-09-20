@@ -23,7 +23,8 @@ import QtGraphicalEffects 1.0
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
+import Esri.ArcGISRuntime.Toolkit.Dialogs 100.1
+import QtWebView 1.1
 
 import "controls" as Controls
 
@@ -40,6 +41,11 @@ App {
     property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < units(400)
     property var user: portal.portalUser
+    property var detailNames: ["Full name", "Username", "Email", "Bio", "Who can see your profile?"]
+    property var detailValue: ["fullName", "username", "email", "userDescription", "access"]
+
+    property var infoLabels: ["Description", "Can Find External Content", "Can Share Items Externally"]
+    property var infoValues: ["organizationDescription", "canSearchPublic", "canSharePublic"]
 
     Page{
         anchors.fill: parent
@@ -60,9 +66,6 @@ App {
                 running: portal.loadStatus !== Enums.LoadStatusLoaded
             }
 
-            property var detailNames: ["Full name", "Username", "Email", "Bio", "Who can see your profile?"]
-            property var detailValue: ["fullName", "username", "email", "userDescription", "access"]
-
             Column {
                 id: userDetailsColumn
                 visible: portal.loadStatus === Enums.LoadStatusLoaded
@@ -78,6 +81,10 @@ App {
                     text: user ? user.fullName + " Profile" : ("????")
                     font.bold: true
                     font.pointSize: 15
+                    maximumLineCount: 3
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight
+                    width: parent.width * 0.9
                 }
 
                 Image {
@@ -102,9 +109,14 @@ App {
                 model: detailNames.length
 
                 delegate: Column {
+                    width: parent.width
                     Text {
                         text: detailNames[index]
                         font.bold: true
+                        maximumLineCount: 3
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        width: parent.width * 0.9
                     }
 
                     Text {
@@ -126,6 +138,10 @@ App {
                             return "????";
                         }
                         color: "grey"
+                        maximumLineCount: 3
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        width: parent.width * 0.9
                     }
                 }
             }
@@ -158,6 +174,10 @@ App {
                     text: portal.portalInfo ? portal.portalInfo.organizationName : ""
                     font.bold: true
                     font.pointSize: 15
+                    maximumLineCount: 3
+                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight
+                    width: parent.width * 0.9
                 }
 
                 Image {
@@ -166,9 +186,6 @@ App {
                     width: 32 * scaleFactor
                 }
             }
-
-            property var infoLabels: ["Description", "Can Find External Content", "Can Share Items Externally"]
-            property var infoValues: ["organizationDescription", "canSearchPublic", "canSharePublic"]
 
             ListView {
                 id: infoList
@@ -185,14 +202,23 @@ App {
                 model: infoValues.length
 
                 delegate: Column {
+                    width: parent.width
                     Text {
                         text: portal.portalInfo ? infoLabels[index] : ""
                         font.bold: true
+                        maximumLineCount: 3
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        width: parent.width * 0.9
                     }
 
                     Text {
                         text: portal.portalInfo ? portal.portalInfo[infoValues[index]] : ""
                         color: "grey"
+                        maximumLineCount: 3
+                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
+                        width: parent.width * 0.9
                     }
                 }
             }
@@ -203,7 +229,7 @@ App {
                 credential: Credential {
                     oAuthClientInfo: OAuthClientInfo {
                         oAuthMode: Enums.OAuthModeUser
-                        clientId: "W3hPKzPbeJ0tr8aj"
+                        clientId: "T3Gjh6a2d0MK14ke"
                     }
                 }
 
