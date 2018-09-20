@@ -35,6 +35,8 @@ App {
     property real scaleFactor: AppFramework.displayScaleFactor
     property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < units(400)
+    property bool isTablet: AppFramework.systemInformation.family === "tablet"
+    property bool isPhone: (AppFramework.systemInformation.family === "phone")
 
     Page{
         anchors.fill: parent
@@ -89,10 +91,9 @@ App {
                                 anchors.fill: parent
                                 spacing: 10 * scaleFactor
 
-
                                 Controls.CustomizedText {
                                     id: texttohash
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Text to hash: ")
                                 }
 
@@ -125,7 +126,7 @@ App {
                                 spacing: 10 * scaleFactor
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Key: ")
                                 }
 
@@ -157,7 +158,7 @@ App {
                                 spacing: 10 * scaleFactor
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Algorithm")
                                 }
 
@@ -185,7 +186,7 @@ App {
                                 spacing: 10 * scaleFactor
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Hex output")
                                 }
 
@@ -215,7 +216,7 @@ App {
                                 spacing: 10 * scaleFactor
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Key as bytes")
                                 }
 
@@ -262,7 +263,7 @@ App {
 
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText: qsTr("Hash: ")
                                 }
 
@@ -292,7 +293,7 @@ App {
 
 
                                 Controls.CustomizedText {
-                                    Layout.preferredWidth: Math.max(0.25 * parent.width, 10 * scaleFactor)
+                                    Layout.preferredWidth: isTablet ? Math.max(0.15 * parent.width, 10 * scaleFactor) : Math.max(0.25 * parent.width, 10 * scaleFactor)
                                     cusText:  qsTr("Mac: ")
                                 }
 
