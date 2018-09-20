@@ -23,9 +23,11 @@ import QtGraphicalEffects 1.0
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2 
+//import Esri.ArcGISRuntime.Toolkit.Dialogs 100.1
+import QtWebView 1.1
 
 import "controls" as Controls
+import "Dialogs"
 
 App {
     id: app
