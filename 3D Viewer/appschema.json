@@ -1,0 +1,48 @@
+{
+    "propertiesInfo": {
+        "title": "Scene Viewer Properties",
+        "categoryInfos": [
+            {
+                "title": "Start Screen",
+                "propertyInfos": [
+                    {
+                        "type": "string",
+                        "label": "Start button string",
+                        "hint": "Text to use for the start button.",
+                        "name": "startButtonText"
+                    },
+                    {
+                        "type": "color",
+                        "label": "Start button color",
+                        "hint": "Color to use for the start button.",
+                        "name": "startButtonColor"
+                    },
+                    {
+                        "type": "number",
+                        "label": "Base font size",
+                        "hint": "Sets the base font size used throughout the app.",
+                        "name": "baseFontSize"
+                    }
+                ]
+            },
+            {
+                "title": "Gallery",
+                "propertyInfos": [
+                    {
+                        "type": "string",
+                        "label": "Web Scene query",
+                        "hint": "Enter an ArcGIS query string or itemid(s) to get web scenes to display in the gallery. This can be done in three ways. For e.g. (1) id:5ae9e138a17842688b0b79283a4353f6 (2) (id:5ae9e138a17842688b0b79283a4353f6 OR id:b361c4467db248e7ad55b6e7661e5706) (3) USA. Note: Currently only public web scenes are supported.",
+                        "name": "galleryWebSceneQuery"
+                    },
+                    {
+                        "type": "string",
+                        "label": "Portal url",
+                        "hint": "URL of the ArcGIS Portal to query for web maps.",
+                        "name": "portalUrl",
+                        "placeholder": "Url"
+                    }
+                ]
+            }
+        ]
+    }
+}
