@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <restriction
+    android:key="portalUrl"
+    android:restrictionType="string"
+    android:title="portalUrl"
+    android:defaultValue="www.arcgis.com" />
+
+  <restriction
+    android:key="portalName"
+    android:restrictionType="string"
+    android:title="portalName"
+    android:defaultValue="ArcGIS" />
+
+</restrictions>

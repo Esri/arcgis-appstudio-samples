@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<managedAppConfiguration
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="/com.mobileiron.onetouch/appconfig/appconfig.xsd">
+	<version>1.0.0</version>
+	<bundleId>com.esri.appstudioapp</bundleId>
+	<dict>
+		<string keyName="portalUrl">
+			<defaultValue>
+				<value>www.arcgis.com</value>
+			</defaultValue>
+		</string>
+		<string keyName="portalName">
+			<defaultValue>
+				<value>ArcGIS</value>
+			</defaultValue>
+		</string>
+	</dict>
+	<presentation defaultLocale="en-US">
+		<field keyName="portalUrl" type="input">
+			<label>
+				<language value="en-US"></language>
+			</label>
+			<description>
+				<language value="en-US"></language>
+			</description>
+		</field>
+		<field keyName="portalName" type="input">
+			<label>
+				<language value="en-US"></language>
+			</label>
+			<description>
+				<language value="en-US"></language>
+			</description>
+		</field>
+	</presentation>
+</managedAppConfiguration>

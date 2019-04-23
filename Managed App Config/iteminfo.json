@@ -1,0 +1,54 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1551467725000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample app demonstrates how to use AppFramework.Management plugin -<span style=' font-weight:600; font-style:italic;'>ManagedAppConfiguration</span> QML type to allow Enterprise Mobility Management (EMM) software to overwrite certain provided default settings. Currently, managed app configuration is only supported on iOS and Android platforms.  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>In this sample app, the default portal URL is “<a href='http://www.arcgis.com'><span style=' text-decoration: underline; color:#000000;'>www.arcgis.com</span></a>” and the default portal name is “ArcGIS”. You can upload the app installation file into the EMM software and set the preferred portal URL and name values. The portal URL and name set in the EMM will be shown in the <span style=' font-weight:600;'>Settings portalURL</span> and <span style=' font-weight:600;'>Settings portalName</span> field in the sample app<span style=' font-size:12pt;'>.</span> You can see what happens when changing values in EMM software in <span style=' font-weight:600;'>Settings JSON</span> field.  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>To use this feature, you will need to: </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Step 1:  Include restriction .xml file for Android and configuration schema .xml file for iOS in your app project folder. In this sample app, the restriction file is <span style=' font-weight:600; font-style:italic;'>&quot;restrictions.xml&quot;</span> and the configuration schema<span style=' font-weight:600; font-style:italic;'> </span>file is <span style=' font-weight:600; font-style:italic;'>&quot;specfile.xml&quot;</span>. </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Step 2: Include the <span style=' font-weight:600; font-style:italic;'>management</span> property into the <span style=' font-weight:600; font-style:italic;'>appinfo.json</span> file. You can go to the <span style=' font-weight:600; font-style:italic;'>appinfo.json </span>file, line 82 to check how we add the <span style=' font-weight:600; font-style:italic;'>management</span> property.    </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Step 3: Use <span style=' font-weight:600; font-style:italic;'>ManagedAppConfiguration</span> QML type to read policy settings in AppStudio app. </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Step 4: Upload the app to your EMM software and follow the steps provided by your EMM software to setup managed app configuration using key-value pairs. </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>  </p>\n<p style=' margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1551469253000,
+    "numComments": 2,
+    "numRatings": 0,
+    "numViews": 3,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 83,
+    "screenshots": [
+    ],
+    "size": 37768,
+    "snippet": "This sample app demonstrates how to use AppFramework.Management plugin -ManagedAppConfiguration QML type to allow Enterprise Mobility Management (EMM) software to overwrite certain provided default settings",
+    "spatialReference": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Managed App Config",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
