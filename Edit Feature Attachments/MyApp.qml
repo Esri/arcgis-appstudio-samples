@@ -24,6 +24,7 @@ import QtQuick.Controls.Material 2.1
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
+import ArcGIS.AppFramework.Platform 1.0
 
 import "controls" as Controls
 
@@ -52,10 +53,16 @@ App {
             Controls.HeaderBar{}
         }
 
+        BusyIndicator{
+            id: busy
+            anchors.centerIn: parent
+            Material.accent: "#8f499c"
+            running: false
+        }
+
         // sample starts here ------------------------------------------------------------------
         contentItem: Rectangle{
             anchors.top:header.bottom
-
 
             MapView {
                 id: mapView
@@ -100,7 +107,13 @@ App {
 
                         // signal handler for selecting features
                         onSelectFeaturesStatusChanged: {
+                            if (selectFeaturesStatus === Enums.TaskStatusInProgress) {
+                                // busy.running = true
+                                console.log("######################TaskStatusInProgress")
+                            }
+
                             if (selectFeaturesStatus === Enums.TaskStatusCompleted) {
+                                busy.running = false
                                 if (!selectFeaturesResult.iterator.hasNext)
                                     return;
 
@@ -360,6 +373,9 @@ App {
                             height: width
                             fillMode: Image.PreserveAspectFit
                             source: attachmentUrl
+                            onSourceChanged: {
+                                console.log(source)
+                            }
                         }
 
                         MouseArea {
@@ -381,25 +397,29 @@ App {
 
             // file dialog for selecting a file to add as an attachment
             //! [EditFeatures add attachment from a file dialog]
-            FileDialog {
+            DocumentDialog {
                 id: fileDialog
 
                 function doAddAttachment(){
                     if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
                         selectedFeature.onLoadStatusChanged.disconnect(doAddAttachment);
-                        selectedFeature.attachments.addAttachment(fileDialog.fileUrl, "application/octet-stream", fileInfo.fileName);
+                        selectedFeature.attachments.addAttachment(fileDialog.filePath, "application/octet-stream", fileInfo.fileName);
+
+
                     }
                 }
 
                 onAccepted: {
                     // add the attachment to the feature table
-                    fileInfo.url = fileDialog.fileUrl;
+                    fileInfo.url = filePath
                     if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
-                        selectedFeature.attachments.addAttachment(fileDialog.fileUrl, "application/octet-stream", fileInfo.fileName);
+                        selectedFeature.attachments.addAttachment(filePath, "application/octet-stream", fileInfo.fileName);
                     } else {
                         selectedFeature.onLoadStatusChanged.connect(doAddAttachment);
                         selectedFeature.load();
                     }
+                    busy.running = true
+                    console.log(filePath)
                 }
             }
             //! [EditFeatures add attachment from a file dialog]
@@ -411,6 +431,17 @@ App {
             // file info used for obtaining the file name
             FileInfo {
                 id: fileInfo
+            }
+
+            //Show storage permission pop-up on Android
+
+            FileFolder {
+                id: fileFolder
+                path: AppFramework.userHomePath
+            }
+
+            Component.onCompleted: {
+                fileFolder.makeFolder()
             }
         }
     }
