@@ -114,33 +114,20 @@ Page {
                     color: colors.black
 
                     onClicked: {
-                        if (itemType !== "Web Scene") {
-                            dialog.display(strings.error,
-                                           strings.dialog_not_web_scene_item_description,
-                                           strings.okay,
-                                           "",
-                                           colors.white,
-                                           colors.white,
-                                           function() {
-                                               dialog.close();
-                                           },
-                                           function() {});
-                        } else {
-                            var infoPage = infoPageComponent.createObject(
-                                        null,
-                                        {
-                                            sceneTitle: itemTitle,
-                                            sceneUrl: appManager.schema.portalUrl + "/home/item.html?id=" + itemId
-                                        });
-                            infoPage.onClosed.connect(function() {
-                                locationManager.stop();
+                        var infoPage = infoPageComponent.createObject(
+                                    null,
+                                    {
+                                        sceneTitle: itemTitle,
+                                        sceneUrl: appManager.schema.portalUrl + "/home/item.html?id=" + itemId
+                                    });
+                        infoPage.onClosed.connect(function() {
+                            locationManager.stop();
 
-                                infoPage.resetSceneView();
+                            infoPage.resetSceneView();
 
-                                stackView.pop();
-                            })
-                            stackView.push(infoPage);
-                        }
+                            stackView.pop();
+                        })
+                        stackView.push(infoPage);
                     }
                 }
 

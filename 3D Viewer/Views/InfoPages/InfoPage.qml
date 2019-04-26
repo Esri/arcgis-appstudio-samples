@@ -148,7 +148,7 @@ Page {
                                 locationManager.start();
 
                                 if (!appManager.isWindows && !appManager.ismacOS && !appManager.isLinux && !appManager.hasLocationPermission())
-                                    displayDialog();
+                                    displayNoLocationDialog();
                                 else
                                     isLocationDisplayed = true;
                             }
@@ -663,6 +663,10 @@ Page {
             }
         });
 
+        _scene.onLoadErrorChanged.connect(function() {
+            displayErrorDialog(_scene.loadError.additionalMessage);
+        })
+
         sceneView.scene = _scene;
     }
 
@@ -843,7 +847,7 @@ Page {
             toastMessage.show(strings.clipboard_copy);
     }
 
-    function displayDialog() {
+    function displayNoLocationDialog() {
         dialog.display(strings.dialog_no_location_permission_title,
                        strings.dialog_no_location_permission_description,
                        strings.okay,
@@ -851,6 +855,21 @@ Page {
                        colors.white,
                        colors.white,
                        function() {
+                           dialog.close();
+                       },
+                       function() {});
+    }
+
+    function displayErrorDialog(message) {
+        dialog.display(strings.error,
+                       message,
+                       strings.okay,
+                       "",
+                       colors.white,
+                       colors.white,
+                       function() {
+                           stackView.pop();
+
                            dialog.close();
                        },
                        function() {});
