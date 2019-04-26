@@ -92,14 +92,14 @@
     "multipleInstances": true,
     "projectFile": "3DViewer.qmlproject",
     "properties": {
-        "galleryWebSceneQuery": "group:12f313ccf0094f49802167d001a3bb12",
+        "galleryWebSceneQuery": "",
         "portalUrl": "https://www.arcgis.com",
         "startBackground": "",
         "startButtonColor": "#007AC2",
         "startButtonText": "GET STARTED"
     },
     "resources": {
-        "appIcon": "default-app.png",
+        "appIcon": "appicon.png",
         "launchImageBackground": "launchimage-background.png",
         "launchImageBackgroundColor": "#000000",
         "launchImageOverlay": "transparentoverlay.png"
@@ -108,6 +108,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 4
+        "micro": 2
     }
 }
