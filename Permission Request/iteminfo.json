@@ -1,0 +1,64 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1560448489000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Permission sample demonstrates the usage of the newly introduced beta features Permission singleton, which provides the status of a system-wide capability such as Camera, Microphone, etc. accessible to the app and PermissionDialog component, which works complementary to the former and can be used to invoke the native permissions dialog in order to access these capabilities.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "632c4c600b0948438b9d47cb9acf0092",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1565992490000,
+    "name": "632c4c600b0948438b9d47cb9acf0092.zip",
+    "numComments": 11,
+    "numRatings": 0,
+    "numViews": 53,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 76,
+    "screenshots": [
+    ],
+    "size": 68298,
+    "snippet": "This sample demonstrates the functionality of PermissionDialog. ",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Sample",
+        "Plugins",
+        "Level-1"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Permission Request ",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

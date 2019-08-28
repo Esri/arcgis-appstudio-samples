@@ -1,0 +1,66 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1566004640000,
+    "culture": "en-au",
+    "description": "<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample uses the LocatorTask and RouteTask classes to find places of interests such as restaurants and hotels within a default radius of the device's current location and provides routing directions to a selected place.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Resources:</p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Icons by https://icons8.com</p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>Weather information by <a href='https://openweathermap.org/terms'><span style=' text-decoration: underline; color:#0000ff;'>https://openweathermap.org</span></a></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "2d0188eadb6a4e0aa12f41928ef130d0",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1566344522000,
+    "name": "2d0188eadb6a4e0aa12f41928ef130d0.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 8,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 66,
+    "screenshots": [
+    ],
+    "size": 95390,
+    "snippet": "This sample demonstrates how to find points of interest in your area. ",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Maps",
+        "Level-2",
+        "sample",
+        "Navigation",
+        "Search"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Nearby",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

@@ -1,0 +1,118 @@
+{
+    "arcgisRuntime": 0,
+    "capabilities": {
+        "audio": true,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": true
+                }
+            },
+            "location": {
+                "enabled": true
+            }
+        },
+        "beacon": false,
+        "biometricAuthentication": false,
+        "bluetooth": true,
+        "camera": true,
+        "fileSharing": true,
+        "highAccuracyLocation": false,
+        "ios": {
+            "backgroundExternalAccessory": false,
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": true,
+        "network": true,
+        "storage": true,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+            "packageName": ""
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
+        "ios": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "bundleId": "",
+            "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "shortcutName": "",
+        "uwp": {
+            "packageName": "",
+            "productID": ""
+        },
+        "winphone": {
+            "packageDisplayName": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 0,
+            "windowMode": "default"
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
+        }
+    },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
+    "mainFile": "MyApp.qml",
+    "multipleInstances": true,
+    "projectFile": "MyApp.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "default-app.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "urlScheme": "",
+    "usageDescriptionKeys": {
+        "bluetoothUsageDescription": "This app uses Bluetooth to scan and connect to devices. (iOS only)",
+        "cameraUsageDescription": "This app needs access to the camera to take a picture. (iOS only)",
+        "faceIDUsageDescription": "This app uses face ID to authenticate using facial recognition. (iOS only)",
+        "locationAlwaysAndWhenInUseUsageDescription": "This app needs access to device location when the app is running or in the background. (iOS and macOS)",
+        "locationAlwaysUsageDescription": "This app needs access to device location when the app is running or in the background. (iOS and macOS)",
+        "locationWhenInUseUsageDescription": "This app needs access to device location when the app is running. (iOS and macOS)",
+        "microphoneUsageDescription": "This app needs access to a microphone to record audio. (iOS only)",
+        "photoLibraryUsageDescription": "This app needs access to the photo library to select a photo. (iOS only)"
+    },
+    "version": {
+        "major": 1,
+        "micro": 11
+    }
+}

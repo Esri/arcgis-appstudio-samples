@@ -1,0 +1,65 @@
+{
+    "access": "public",
+    "accessInformation": "This app was built using AppStudio for ArcGIS. Mapping API provided by Esri.",
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1566331181000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>The sample uses the LocatorTask and RouteTask classes to geocode addresses using an offline mobile map package, and provides routing directions between two or more points on a map. It loads the mobile map package locally and allows the user to search for addresses or tap on a map to identify locations. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level: </span></a>🍌🍌🍌 </p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "0544f4ee5c564252a45cc6255274a5e1",
+    "industries": [
+    ],
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1566344473000,
+    "name": "0544f4ee5c564252a45cc6255274a5e1.zip",
+    "numComments": 2,
+    "numRatings": 0,
+    "numViews": 6,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 81,
+    "screenshots": [
+    ],
+    "size": 14539734,
+    "snippet": "This sample demonstrates how to do offline geocoding and routing using a mobile map package.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "sample",
+        "offline",
+        "search",
+        "Navigation"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Offline Geocoding & Routing",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
