@@ -7,9 +7,9 @@ _If you find any issues either submit a post on geonet or log a support case or 
 
 ## Instructions to run in AppStudio Desktop
 
-All the samples provided in this repo is already available with the AppStudio v2.0 Desktop. Click on the "New App" -> "Samples" to see all the available samples to pick from. 
+All the samples provided in this repo is already available with the AppStudio v4.0 Desktop. Click on the "New App" -> "Samples" to see all the available samples to pick from.
 
-_If you are looking for older version (pre AppStudio 2.0 i.e. 1.4) you can access them in the same repo under the v1.4 branch._
+_If you are looking for older version (pre AppStudio 4.0 i.e. 3.3) you can access them in the same repo under the v3.3 branch._
 
 ## References
 * [AppStudio Wiki & Cookbook](https://github.com/Esri/arcgis-appstudio-samples/wiki)
@@ -17,11 +17,10 @@ _If you are looking for older version (pre AppStudio 2.0 i.e. 1.4) you can acces
 
 ## Resources
 
-* [AppStudio for ArcGIS Website](https://appstudio.arcgis.com/)
+* [AppStudio for ArcGIS Website](https://www.esri.com/en-us/arcgis/products/appstudio-for-arcgis/overview)
 * [AppStudio for ArcGIS Developer Documentation](http://doc.arcgis.com/en/appstudio/extend-apps/useqtcreatorcreateapp.htm)
 * [AppStudio for ArcGIS Geonet Forums](https://geonet.esri.com/groups/appstudio/)
-* [AppStudio for ArcGIS Video Collection](http://video.arcgis.com/series/232/appstudio-for-arcgis)
-* [AppStudio for ArcGIS Youtube Channel](https://www.youtube.com/channel/UCaDpuQi3gcd5YD9KW-_jsQg)
+* [AppStudio for ArcGIS Video Collection](https://www.youtube.com/watch?v=aDy2frQ8ywI&list=PLGZUzt4E4O2Lkm7DlITW8MWKmNjBGcXJP)
 * [Qt and QML](http://www.qt.io/)
 
 ## Issues
@@ -33,7 +32,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
-Copyright 2018 Esri
+Copyright 2019 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
