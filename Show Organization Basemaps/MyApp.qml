@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2 
+import Esri.ArcGISRuntime.Toolkit.Dialogs 100.1
+import QtWebView 1.1
 
 import "controls" as Controls
 
@@ -127,11 +127,13 @@ App {
                 id: backButton
                 anchors {
                     top: mapView.top
-                    right: mapView.right
+                    left: mapView.left
                     margins: 16 * scaleFactor
                 }
                 visible: mapView.visible
                 width: 80 * scaleFactor
+                Material.background: "#8f499c"
+
                 Image{
                     anchors.verticalCenter: parent.verticalCenter
                     source: "./assets/back.png"
@@ -157,6 +159,7 @@ App {
                     left: parent.left;
                     right: parent.right
                 }
+
                 cellWidth: 128 * scaleFactor;
                 cellHeight: 128 * scaleFactor
                 opacity: 0
@@ -260,8 +263,11 @@ App {
                     top: title.bottom
                 }
                 text: "Anonymous"
-                width: 130 * scaleFactor
-                Image{
+                width: 200 * scaleFactor
+
+                Image {
+                    anchors.left: parent.left
+                    anchors.leftMargin: 15 * scaleFactor
                     anchors.verticalCenter: parent.verticalCenter
                     source: "./assets/help.png"
                     height: 24 * scaleFactor
