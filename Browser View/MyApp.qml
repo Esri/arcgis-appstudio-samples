@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,10 +63,12 @@ App {
             }
 
             BrowserView {
-                id: browserView
-                anchors.fill: parent
-                url: "https://www.esri.com/en-us/home"
-            }
+             id: browserView
+             anchors.fill: parent
+             primaryColor:"#8f499c"
+             foregroundColor: "#f7d4f4"
+             url: "https://www.esri.com/en-us/arcgis/products/appstudio-for-arcgis"
+              }
         }
     }
 
