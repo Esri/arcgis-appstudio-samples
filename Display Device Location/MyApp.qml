@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ import QtPositioning 5.3
 import QtSensors 5.3
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
 
 import "controls" as Controls
