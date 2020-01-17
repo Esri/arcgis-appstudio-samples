@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,10 +58,18 @@ App {
                 cc: ["example2@example.com", "example3@example.com"]
                 bcc: "example4@example.com"
                 subject: "Feedback for " + app.info.title
-                body:         "Device OS:" + Qt.platform.os + AppFramework.osVersion +  "\n"  +
-                              "Device Locale:" + Qt.locale().name + "\n" +
-                              "App Version:" + app.info.version +  "\n" +
-                              "AppStudio Version:" + AppFramework.version
+
+                // Known limitation: html property becomes false if an attachment property is defined on Windows.
+
+                body: AppFramework.osName !== "Windows" ? "<br> <br>" + " Device OS:" + Qt.platform.os + AppFramework.osVersion +
+                                                          "<br>"  + " Device Locale:" + Qt.locale().name +
+                                                          "<br>" + " App Version:" + app.info.version +
+                                                          "<br>" + " AppStudio Version:" + AppFramework.version :
+
+                                                          "\n\n" + "Device OS:" + Qt.platform.os + AppFramework.osVersion +  "\n" +
+                                                          "Device Locale:" + Qt.locale().name + "\n" +
+                                                          "App Version:" + app.info.version +  "\n" +
+                                                          "AppStudio Version:" + AppFramework.version
                 html: true
 
                 onComposeError: {
