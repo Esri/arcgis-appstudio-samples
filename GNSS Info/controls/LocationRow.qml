@@ -14,9 +14,8 @@ Item {
         Text {
             id: nameText
 
-            anchors.left: parent.left
-            anchors.leftMargin: 5 * scaleFactor
-            anchors.verticalCenter: parent.verticalCenter
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Layout.leftMargin: 5 * scaleFactor
 
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             font.pixelSize: baseFontSize
@@ -29,8 +28,7 @@ Item {
 
             property bool valid: true
 
-            anchors.left: nameText.right
-            anchors.verticalCenter: parent.verticalCenter
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
             font.pixelSize: baseFontSize
             font.bold: true

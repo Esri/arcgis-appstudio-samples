@@ -1,18 +1,17 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
-RowLayout {
+Rectangle {
     property alias headerText: headerText.text
 
     anchors.fill: parent
-    spacing: 0
     clip: true
+    color: primaryColor
 
     Text {
         id: headerText
 
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.fill: parent
 
         font.pixelSize: app.baseFontSize * 1.1
         font.bold: true
@@ -20,13 +19,17 @@ RowLayout {
         wrapMode: Text.Wrap
         elide: Text.ElideRight
         color: "white"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
     }
 
     Rectangle {
         id: infoImageRect
 
-        Layout.alignment: Qt.AlignRight
-        Layout.preferredWidth: 50 * scaleFactor
+        width: 50 * scaleFactor
+        height: parent.height
+        anchors.right: parent.right
+        color: primaryColor
 
         Image {
             id: infoImage

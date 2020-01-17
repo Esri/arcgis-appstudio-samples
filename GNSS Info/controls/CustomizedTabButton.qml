@@ -26,7 +26,7 @@ TabButton {
             Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 24 * scaleFactor
-                anchors.horizontalCenter: parent.horizontalCenter
+                Layout.alignment: Qt.AlignHCenter
 
                 Image {
                     id: tabButtonImage
@@ -56,8 +56,7 @@ TabButton {
                 id: iconText
 
                 Layout.preferredHeight: 12 * scaleFactor
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: spacer.bottom
+                Layout.alignment: Qt.AlignHCenter
 
                 font.pixelSize: 10.5 * scaleFactor
                 horizontalAlignment: Label.AlignHCenter

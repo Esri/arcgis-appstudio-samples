@@ -1,4 +1,4 @@
-/* Copyright 2018 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,9 @@ Page {
     property PositionSource positionSource
     property Position position: positionSource.position
 
-    property var fixType: position.fixType
-    property var gpsMode: gpsModeText(fixType)
-    property var accuracyType: position.accuracyType
-    property var accuracyMode: accuracyText(accuracyType)
+    property string gpsSource: controller.currentName
+    property string gpsMode: gpsModeText(position.fixType)
+    property string accuracyMode: accuracyText(position.accuracyType)
 
     property var hdop: position.hdopValid ? position.hdop : null
     property var vdop: position.vdopValid ? position.vdop : null
@@ -85,7 +84,7 @@ Page {
                 id: gpsModeListView
 
                 Layout.preferredWidth: app.width
-                Layout.preferredHeight: 70 * scaleFactor
+                Layout.preferredHeight: 105 * scaleFactor
                 spacing: 0
                 clip: true
 
@@ -96,6 +95,11 @@ Page {
 
             ListModel {
                 id: gpsModeListModel
+
+                ListElement {
+                    label: qsTr("GPS source: ")
+                    attr : "gpsSource"
+                }
 
                 ListElement {
                     label: qsTr("GPS mode: ")
@@ -115,7 +119,7 @@ Page {
             }
 
             Item {
-                height: 20 * scaleFactor
+                height: 10 * scaleFactor
             }
 
             //--------------------------------------------------------------------------
@@ -164,7 +168,7 @@ Page {
             }
 
             Item {
-                Layout.preferredHeight: 20 * scaleFactor
+                Layout.preferredHeight: 10 * scaleFactor
             }
 
             //--------------------------------------------------------------------------
@@ -208,7 +212,7 @@ Page {
             }
 
             Item {
-                Layout.preferredHeight: 20 * scaleFactor
+                Layout.preferredHeight: 10 * scaleFactor
             }
 
             //--------------------------------------------------------------------------
@@ -252,7 +256,7 @@ Page {
             }
 
             Item {
-                Layout.preferredHeight: 20 * scaleFactor
+                Layout.preferredHeight: 10 * scaleFactor
             }
 
             //--------------------------------------------------------------------------
@@ -310,49 +314,51 @@ Page {
 
     //--------------------------------------------------------------------------
 
-    function gpsModeText (fixType) {
+    function gpsModeText(fixType) {
         var result = "" ;
 
-        switch (fixType) {
-        case Position.NoFix:
-            result = qsTr("No Fix");
-            break;
+        if (controller.isConnected) {
+            switch (fixType) {
+            case Position.NoFix:
+                result = qsTr("No Fix");
+                break;
 
-        case Position.GPS:
-            result = qsTr("GPS");
-            break;
+            case Position.GPS:
+                result = qsTr("GPS");
+                break;
 
-        case Position.DifferentialGPS:
-            result = qsTr("Differential GPS");
-            break;
+            case Position.DifferentialGPS:
+                result = qsTr("Differential GPS");
+                break;
 
-        case Position.PrecisePositioningService:
-            result = qsTr("Precise Positioning Service");
-            break;
+            case Position.PrecisePositioningService:
+                result = qsTr("Precise Positioning Service");
+                break;
 
-        case Position.RTKFixed:
-            result = qsTr("RKT Fixed");
-            break;
+            case Position.RTKFixed:
+                result = qsTr("RTK Fixed");
+                break;
 
-        case Position.RTKFloat:
-            result = qsTr("RKT Float");
-            break;
+            case Position.RTKFloat:
+                result = qsTr("RTK Float");
+                break;
 
-        case Position.Estimated:
-            result = qsTr("Estimated");
-            break;
+            case Position.Estimated:
+                result = qsTr("Estimated");
+                break;
 
-        case Position.Manual:
-            result = qsTr("Manual");
-            break;
+            case Position.Manual:
+                result = qsTr("Manual");
+                break;
 
-        case Position.Simulator:
-            result = qsTr("Simulator");
-            break;
+            case Position.Simulator:
+                result = qsTr("Simulator");
+                break;
 
-        case Position.Sbas:
-            result = qsTr("Sbas");
-            break;
+            case Position.Sbas:
+                result = qsTr("Sbas");
+                break;
+            }
         }
 
         return result;
@@ -360,21 +366,20 @@ Page {
 
     //--------------------------------------------------------------------------
 
-    function accuracyText (accuracyType) {
+
+    function accuracyText(accuracyType) {
         var result = "" ;
 
-        switch (accuracyType) {
-        case Position.RMS:
-            result = qsTr("Error RMS");
-            break;
+        if (controller.isConnected) {
+            switch (accuracyType) {
+            case Position.RMS:
+                result = qsTr("Error RMS");
+                break;
 
-        case Position.DOP:
-            result = qsTr("DOP Based");
-            break;
-
-        default:
-            result = qsTr("Unknown");
-            break;
+            case Position.DOP:
+                result = qsTr("DOP Based");
+                break;
+            }
         }
 
         return result;

@@ -1,4 +1,4 @@
-/* Copyright 2018 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,9 @@ import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
 import ArcGIS.AppFramework.Speech 1.0
 
-import "controls" as Controls
 import "views"
+import "controls" as Controls
+import "GNSSPlugin"
 
 App {
     id: app
@@ -33,15 +34,8 @@ App {
     width: 400 * scaleFactor
     height: 750 * scaleFactor
 
-    property alias positionSource: sources.positionSource
-    property alias satelliteInfoSource: sources.satelliteInfoSource
-    property alias nmeaSource: sources.nmeaSource
-    property alias tcpSocket: sources.tcpSocket
-    property alias discoveryAgent: sources.discoveryAgent
-
-    property Device currentDevice: sources.currentDevice
-    property bool isConnecting: sources.isConnecting
-    property bool isConnected: sources.isConnected
+    property alias sources: sources
+    property alias controller: controller
 
     property real scaleFactor: AppFramework.displayScaleFactor
     property int baseFontSize: 14 * scaleFactor
@@ -50,31 +44,23 @@ App {
     property color darkPrimaryColor: "#662472"
     property color backgroundColor: "#EEEEEE"
     property color navBarColor: "#FFFFFF"
-    property color greyTextColor: "#555555"
+    property color greyTextColor: "#444444"
 
     readonly property string disconnectedText: qsTr("Device disconnected")
     readonly property string connectedText: qsTr("Device connected")
 
+    signal clear()
     signal showLocationPage()
 
     //--------------------------------------------------------------------------
 
-    onIsConnectedChanged: {
-        if (isConnected) {
-            textToSpeech.say(connectedText);
-            showLocationPage();
-        } else {
-            textToSpeech.say(disconnectedText);
-        }
-    }
-
-    //--------------------------------------------------------------------------
-
-    onShowLocationPage: {
+    onClear: {
         locationPage.clear();
         skyplotPage.clear();
         debugPage.clear();
+    }
 
+    onShowLocationPage: {
         if (footer.currentIndex === 0) {
             footer.currentIndex = 1;
         }
@@ -93,6 +79,7 @@ App {
             Material.background: primaryColor
 
             Controls.HeaderBar {
+                anchors.fill: parent
                 headerText: app.info.title
             }
         }
@@ -108,11 +95,6 @@ App {
 
                 anchors.fill: parent
                 visible: footer.currentIndex === 0
-
-                discoveryAgent: app.discoveryAgent
-                currentDevice: app.currentDevice
-                isConnecting: app.isConnecting
-                isConnected: app.isConnected
             }
 
             LocationPage {
@@ -121,8 +103,8 @@ App {
                 anchors.fill: parent
                 visible: footer.currentIndex === 1
 
-                positionSource: app.positionSource
-                isConnected: app.isConnected
+                positionSource: controller.positionSource
+                isConnected: controller.isConnected
             }
 
             SkyPlotPage {
@@ -131,8 +113,7 @@ App {
                 anchors.fill: parent
                 visible: footer.currentIndex === 2
 
-                positionSource: app.positionSource
-                satelliteInfoSource: app.satelliteInfoSource
+                satelliteInfoSource: controller.satelliteInfoSource
             }
 
             QualityPage {
@@ -141,7 +122,7 @@ App {
                 anchors.fill: parent
                 visible: footer.currentIndex === 3
 
-                positionSource: app.positionSource
+                positionSource: controller.positionSource
             }
 
             DebugPage {
@@ -150,7 +131,7 @@ App {
                 anchors.fill: parent
                 visible: footer.currentIndex === 4
 
-                nmeaSource: app.nmeaSource
+                nmeaSource: controller.nmeaSource
             }
         }
 
@@ -232,62 +213,23 @@ App {
         visible: false
     }
 
-    //--------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     PositioningSources {
         id: sources
+
+        connectionType: controller.connectionType
+        discoverBluetooth: controller.discoverBluetooth
+        discoverBluetoothLE: controller.discoverBluetoothLE
+        discoverSerialPort: controller.discoverSerialPort
     }
 
     //--------------------------------------------------------------------------
 
-    Connections {
-        target: tcpSocket
+    PositioningSourcesController {
+        id: controller
 
-        onErrorChanged: {
-            console.log("Connection error:", tcpSocket.error, tcpSocket.errorString)
-
-            errorDialog.text = tcpSocket.errorString;
-            errorDialog.open();
-        }
-    }
-
-    // -------------------------------------------------------------------------
-
-    Connections {
-        target: currentDevice
-
-        onErrorChanged: {
-            if (currentDevice) {
-                console.log("Connection error:", currentDevice.error)
-
-                errorDialog.text = currentDevice.error;
-                errorDialog.open();
-            }
-        }
-    }
-
-    // -------------------------------------------------------------------------
-
-    Dialog {
-        id: errorDialog
-
-        property alias text: label.text
-
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        modal: true
-
-        standardButtons: Dialog.Ok
-        title: qsTr("Unable to connect");
-        text: ""
-
-        Label {
-            id: label
-
-            Layout.fillWidth: true
-            font.pixelSize: baseFontSize
-            Material.accent: primaryColor
-        }
+        sources: sources
     }
 
     //--------------------------------------------------------------------------
@@ -299,6 +241,10 @@ App {
     //--------------------------------------------------------------------------
 
     function convertValueToLengthString(value) {
+        if (Math.abs(value) < 1e-9 || Math.abs(value) > 1e9) {
+            return null;
+        }
+
         switch (Qt.locale().measurementSystem) {
         case Locale.MetricSystem:
             return qsTr("%1 m").arg(round(value, 3));
@@ -310,6 +256,10 @@ App {
     }
 
     function convertValueToSpeedString(value) {
+        if (Math.abs(value) < 1e-9 || Math.abs(value) > 1e9) {
+            return null;
+        }
+
         switch (Qt.locale().measurementSystem) {
         case Locale.MetricSystem:
             return qsTr("%1 km/h").arg(round(value * 3.6, 2));

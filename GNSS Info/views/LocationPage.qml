@@ -1,4 +1,4 @@
-/* Copyright 2018 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ Item {
         Controls.PositionIndicator {
             id: positionIndicator
 
-            visible: isConnected
+            visible: coordinate.isValid
             positionSource: locationPage.positionSource
 
             z: 10001
@@ -158,7 +158,7 @@ Item {
         width: height
         anchors.centerIn: parent
 
-        Material.accent:"#8f499c"
+        Material.accent: primaryColor
     }
 
     //--------------------------------------------------------------------------
@@ -391,7 +391,7 @@ Item {
     //--------------------------------------------------------------------------
 
     Timer {
-        running: isConnected && coordinate.isValid
+        running: coordinate.isValid
         interval: 10000
         repeat: true
 

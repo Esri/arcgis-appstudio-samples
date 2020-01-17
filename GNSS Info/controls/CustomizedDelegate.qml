@@ -11,15 +11,15 @@ Item {
 
         Rectangle {
             Layout.fillWidth: true
-            anchors.top: parent.top
+            Layout.alignment: Qt.AlignTop
             height: 1 * scaleFactor
             color: "lightgrey"
         }
 
         Row {
-            anchors.fill: parent
-            anchors.topMargin: 1 * scaleFactor
             Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.topMargin: 1 * scaleFactor
 
             Rectangle {
                 width: parent.width * 0.5
