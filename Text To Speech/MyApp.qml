@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Speech 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 
 import "controls" as Controls
@@ -83,7 +82,7 @@ App {
                         padding: 5 * scaleFactor
                         selectByMouse: true
                         wrapMode: TextEdit.WrapAnywhere
-                        text: "AppStudio is awesome"
+                        text: "Welcome to Palm Springs"
                     }
                 }
 
@@ -129,9 +128,9 @@ App {
                 var name = availableLocales[i];
                 var localeInfo = AppFramework.localeInfo(name);
                 locales.push({
-                      name: name,
-                      label: "%1 (%2)".arg(localeInfo.countryName).arg(localeInfo.languageName)
-                });
+                                 name: name,
+                                 label: "%1 (%2)".arg(localeInfo.countryName).arg(localeInfo.languageName)
+                             });
             }
 
             textToSpeech.locales = locales;
