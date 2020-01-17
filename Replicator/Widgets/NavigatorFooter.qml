@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 import "../Widgets"
 
@@ -13,11 +12,11 @@ ToolBar {
 
     signal back()
     signal next()
-    
+
     height: 56 * scaleFactor
     Material.primary: colors.primary_color
     Material.elevation: 4
-    
+
     property bool isBackEnabled: true
     property bool isNextEnabled: false
 
@@ -25,24 +24,24 @@ ToolBar {
     property alias text2: label2.text
     property alias icon1: icon1
     property alias icon2: icon2
-    
+
     RowLayout {
         anchors.fill: parent
         spacing: 0
-        
+
         Item {
             Layout.fillHeight: true
             Layout.preferredWidth: parent.width*0.4
-            
+
             RowLayout {
                 anchors.fill: parent
                 spacing: 0
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: icon1.visible ? 16 * scaleFactor : 24 * scaleFactor
                 }
-                
+
                 IconImage {
                     id: icon1
                     Layout.preferredWidth: 36 * scaleFactor
@@ -50,13 +49,13 @@ ToolBar {
                     source: sources.arrow_left
                     color: navigatorFooter.isBackEnabled ? colors.white_100 : colors.white_54
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: 8 * scaleFactor
                     visible: icon1.visible
                 }
-                
+
                 Label {
                     id: label1
                     text: strings.back
@@ -66,13 +65,13 @@ ToolBar {
                     }
                     color: navigatorFooter.isBackEnabled ? colors.white_100 : colors.white_54
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
             }
-            
+
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
@@ -80,25 +79,25 @@ ToolBar {
                 }
             }
         }
-        
+
         Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
-        
+
         Item {
             Layout.fillHeight: true
             Layout.preferredWidth: parent.width*0.4
-            
+
             RowLayout {
                 anchors.fill: parent
                 spacing: 0
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                 }
-                
+
                 Label {
                     id: label2
                     text: strings.next
@@ -108,13 +107,13 @@ ToolBar {
                     }
                     color: navigatorFooter.isNextEnabled ? colors.white_100 : colors.white_54
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: 8 * scaleFactor
                     visible: icon2.visible
                 }
-                
+
                 IconImage {
                     id: icon2
                     Layout.preferredWidth: 36 * scaleFactor
@@ -123,7 +122,7 @@ ToolBar {
                     color: colors.white_100
                     opacity: navigatorFooter.isNextEnabled ? 1 : 0.48
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: icon2.visible ? 16 * scaleFactor : 24 * scaleFactor
@@ -137,7 +136,7 @@ ToolBar {
                     next();
                 }
             }
-            
+
         }
     }
 }

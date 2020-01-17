@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 import "../Widgets"
 
@@ -38,12 +37,12 @@ Rectangle {
         spacing: 0
 
         visible: isSignedIn
-        
+
         Item {
             Layout.fillWidth: true
             Layout.preferredHeight: 16 * scaleFactor
         }
-        
+
         Label {
             Layout.fillWidth: true
             text: mode == 1 ? strings.source_account : strings.dest_account
@@ -53,20 +52,20 @@ Rectangle {
             }
             color: colors.black_54
         }
-        
+
         Item {
             Layout.fillWidth: true
             Layout.preferredHeight: 16 * scaleFactor
         }
-        
+
         Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            
+
             RowLayout {
                 anchors.fill: parent
                 spacing: 0
-                
+
                 RoundedImage {
                     Layout.preferredHeight: 48 * scaleFactor
                     Layout.preferredWidth: 48 * scaleFactor
@@ -77,20 +76,20 @@ Rectangle {
                     radius: 24 * scaleFactor
                     clip: true
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: 16 * scaleFactor
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    
+
                     ColumnLayout {
                         anchors.fill: parent
                         spacing: 0
-                        
+
                         Label {
                             Layout.fillWidth: true
                             text: username
@@ -100,12 +99,12 @@ Rectangle {
                             }
                             color: colors.black_87
                         }
-                        
+
                         Item {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 4 * scaleFactor
                         }
-                        
+
                         Label {
                             Layout.fillWidth: true
                             text: portal_name
@@ -116,7 +115,7 @@ Rectangle {
                             color: colors.black_54
                             elide: Label.ElideRight
                         }
-                        
+
                         Label {
                             Layout.fillWidth: true
                             text: extractHostname(portal_url+"")
@@ -127,19 +126,19 @@ Rectangle {
                             color: colors.black_54
                             elide: Label.ElideRight
                         }
-                        
+
                         Item {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                         }
                     }
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: 16 * scaleFactor
                 }
-                
+
                 IconImage {
                     Layout.preferredHeight: 22 * scaleFactor
                     Layout.preferredWidth: 22 * scaleFactor
@@ -157,14 +156,14 @@ Rectangle {
                         }
                     }
                 }
-                
+
                 Item {
                     Layout.fillHeight: true
                     Layout.preferredWidth: 0 * scaleFactor
                 }
             }
         }
-        
+
         Item {
             Layout.fillWidth: true
             Layout.preferredHeight: 6 * scaleFactor

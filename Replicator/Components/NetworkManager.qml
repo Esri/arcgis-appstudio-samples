@@ -1,7 +1,6 @@
 import QtQuick 2.7
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 Item {
     property string rootUrl: portalA.url
