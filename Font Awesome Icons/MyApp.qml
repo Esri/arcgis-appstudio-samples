@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.SecureStorage 1.0
 
 import "controls" as Controls
@@ -151,7 +150,7 @@ App {
                     Text {
                         id: inboxIcon
                         font.family: fontAwesome.name
-                        text: fa.inbox
+                        text: qsTr("")
                         font.pixelSize: 35 * scaleFactor
                         color:iconColor
                     }
