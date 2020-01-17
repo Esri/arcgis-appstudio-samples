@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Management 1.0
 
 import "controls" as Controls
@@ -40,7 +39,7 @@ App {
     property bool isPhone: (AppFramework.systemInformation.family === "phone")
 
     property bool isSupported:ManagedAppConfiguration.supported
-    
+
     Page{
         anchors.fill: parent
         header: ToolBar{
