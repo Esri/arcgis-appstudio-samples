@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
 
 import "controls" as Controls
@@ -152,17 +151,18 @@ App {
 
                         // create the stop graphics' symbols
                         var stop1Symbol = ArcGISRuntimeEnvironment.createObject("PictureMarkerSymbol", {
-                                                                                    url: "./assets/pinA.png",
                                                                                     width: 32,
                                                                                     height: 32,
                                                                                     offsetY: 16
                                                                                 });
+                        stop1Symbol.url = "./assets/pinA.png"
                         var stop2Symbol = ArcGISRuntimeEnvironment.createObject("PictureMarkerSymbol", {
-                                                                                    url: "./assets/pinB.png",
+
                                                                                     width: 32,
                                                                                     height: 32,
                                                                                     offsetY: 16
                                                                                 });
+                        stop2Symbol.url = "./assets/pinB.png"
 
                         // create the stop graphics
                         var stop1Graphic = ArcGISRuntimeEnvironment.createObject("Graphic", {geometry: stop1Geometry, symbol: stop1Symbol});
