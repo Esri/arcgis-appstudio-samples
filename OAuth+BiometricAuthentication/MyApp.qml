@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ import QtQuick.Dialogs 1.2
 import Esri.ArcGISRuntime 100.2
 import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 import ArcGIS.AppFramework.SecureStorage 1.0
 import ArcGIS.AppFramework.Authentication 1.0
+import QtWebView 1.1
 
 import "./controls" as Controls
 import "./views" as Views
@@ -106,7 +106,7 @@ App {
     }
 
     function loadPortal() {
-        var oauthInfo = rtCreate("OAuthClientInfo", {oAuthMode: Enums.OAuthModeUser, clientId: "AJhw6AaHp2y0Bmx0"})
+        var oauthInfo = rtCreate("OAuthClientInfo", {oAuthMode: Enums.OAuthModeUser, clientId: "hDdoYVKttzPsYtAV"})
         var credential = rtCreate("Credential", {
                                       oAuthClientInfo: oauthInfo,
                                       oAuthRefreshToken: secureStorage.getContent("oAuthRefreshToken"),

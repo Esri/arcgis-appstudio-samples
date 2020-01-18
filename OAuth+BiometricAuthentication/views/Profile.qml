@@ -5,7 +5,6 @@ import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.WebView 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Authentication 1.0
 
 import Esri.ArcGISRuntime 100.2

@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.1
 
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 Page {
     id: descPage
@@ -69,12 +68,12 @@ Page {
             color:"white"
             Layout.fillWidth: true
             Layout.fillHeight: true
-            
+
             Flickable {
                 anchors.fill:parent
                 contentHeight: descText.height
                 clip:true
-                
+
                 Text{
                     id: descText
                     text: app.info.description
