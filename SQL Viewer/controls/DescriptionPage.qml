@@ -3,38 +3,40 @@ import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 Item {
     id: descPage
     width: parent.width
     height: parent.height
 
-    Rectangle{
-        anchors.fill:parent
+    Rectangle {
+        anchors.fill: parent
 
-        ColumnLayout{
-            anchors.fill:parent
+        ColumnLayout {
+            anchors.fill: parent
             spacing: 0
-            clip:true
+            clip: true
 
-            Rectangle{
-                id:descPageheader
-                color:"#8f499c"
+            Rectangle {
+                id: descPageheader
+                color: "#8f499c"
                 Layout.preferredWidth: parent.width
-                Layout.preferredHeight: 50 * scaleFactor
+                Layout.preferredHeight: 50 * AppFramework.displayScaleFactor
 
-                ImageButton {
-                    source: "../assets/clear.png"
-                    height: 30 * scaleFactor
-                    width: 30 * scaleFactor
-                    checkedColor : "transparent"
-                    pressedColor : "transparent"
-                    hoverColor : "transparent"
-                    glowColor : "transparent"
+                ToolButton {
+                    id:infoImage
+                    indicator: Image{
+                        width: 30 * scaleFactor
+                        height: 30 * scaleFactor
+                        anchors.centerIn: parent
+                        horizontalAlignment: Qt.AlignRight
+                        verticalAlignment: Qt.AlignVCenter
+                        source: "../assets/clear.png"
+                        fillMode: Image.PreserveAspectFit
+                        mipmap: true
+                    }
                     anchors {
                         right: parent.right
-                        rightMargin: 10 * scaleFactor
                         verticalCenter: parent.verticalCenter
                     }
                     onClicked: {
@@ -44,8 +46,8 @@ Item {
 
                 Text {
                     id: aboutApp
-                    text:qsTr("About")
-                    color:"white"
+                    text: qsTr("About")
+                    color: "white"
                     font.pixelSize: app.baseFontSize * 1.1
                     font.bold: true
                     anchors.centerIn: parent
@@ -54,22 +56,22 @@ Item {
                 }
             }
 
-            Rectangle{
-                color:"black"
+            Rectangle {
+                color: "black"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
                 Flickable {
-                    anchors.fill:parent
+                    anchors.fill: parent
                     contentHeight: descText.height
-                    clip:true
+                    clip: true
 
-                    Text{
+                    Text {
                         id: descText
-                        y: 30 * scaleFactor
-                        text:app.info.description
+                        y: 30 * AppFramework.displayScaleFactor
+                        text: app.info.description
                         anchors.horizontalCenterOffset: 0
-                        color:"white"
+                        color: "white"
                         width: 0.85 * parent.width
                         horizontalAlignment: Text.AlignLeft
                         linkColor: "#e5e6e7"
@@ -86,8 +88,3 @@ Item {
         }
     }
 }
-
-
-
-
-

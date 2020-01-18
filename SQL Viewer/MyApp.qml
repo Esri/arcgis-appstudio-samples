@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,13 @@
  *
  */
 
-import QtQuick 2.7
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1
+import QtQuick 2.9
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
 
 import "controls" as Controls
@@ -29,37 +28,36 @@ import "SQLViewer"
 
 App {
     id: app
-    width: 414
-    height: 736
-    
+
+    width: 480 * AppFramework.displayScaleFactor
+    height: 800 * AppFramework.displayScaleFactor
+
     Material.accent: "#8f499c"
-    function units(value) {
-        return AppFramework.displayScaleFactor * value
-    }
-    property real scaleFactor: AppFramework.displayScaleFactor
-    property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
-    property bool isSmallScreen: (width || height) < units(400)
+
+    property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * AppFramework.displayScaleFactor) + (isSmallScreen ? 0 : 3)
+    property real smallScreenSize: 400 * AppFramework.displayScaleFactor
+    property bool isSmallScreen: (width < smallScreenSize) || (height < smallScreenSize)
 
 
-    Page{
+    Page {
         anchors.fill: parent
-        header: ToolBar{
+        header: ToolBar {
             id:header
             width: parent.width
-            height: 50 * scaleFactor
+            height: 50 * AppFramework.displayScaleFactor
             Material.background: "#8f499c"
-            Controls.HeaderBar{}
+            Controls.HeaderBar {
+            }
         }
+
         // Find SQLViewer code from the SQLViewer folder. Click on MyApp folder on top left, click on SQLViewer folder
-        SQLViewer{
+        SQLViewer {
             anchors.fill: parent
         }
     }
 
-
-    // sample ends here ------------------------------------------------------------------------
-    Controls.DescriptionPage{
-        id:descPage
+    Controls.DescriptionPage {
+        id: descPage
         visible: false
     }
 }
