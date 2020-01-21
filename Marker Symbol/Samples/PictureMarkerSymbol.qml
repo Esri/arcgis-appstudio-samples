@@ -3,7 +3,6 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
 
 
