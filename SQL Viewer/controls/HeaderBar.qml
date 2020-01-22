@@ -31,8 +31,8 @@ RowLayout {
     ToolButton {
         id:infoImage
         indicator: Image{
-            width: 30 * scaleFactor
-            height: 30 * scaleFactor
+            width: 30 * AppFramework.displayScaleFactor
+            height: 30 * AppFramework.displayScaleFactor
             anchors.centerIn: parent
             source: "../assets/info.png"
             fillMode: Image.PreserveAspectFit
