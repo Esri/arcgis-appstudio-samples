@@ -1,4 +1,4 @@
-/* Copyright 2019 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,9 @@ import QtGraphicalEffects 1.0
 
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.2
-import Esri.ArcGISRuntime.Toolkit.Controls 100.2
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
+import Esri.ArcGISRuntime.Toolkit.Controls 100.1
+import Esri.ArcGISRuntime.Toolkit.Dialogs 100.1
 
 
 import "controls" as Controls
@@ -85,7 +84,7 @@ App {
                     title: "Location"
                     location: calloutLocation
                     detail: "x: " + xCoor + " y: " + yCoor
-                }      
+                }
 
                 Callout {
                     id: callout
