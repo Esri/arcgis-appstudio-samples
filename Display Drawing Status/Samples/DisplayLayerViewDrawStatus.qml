@@ -1,5 +1,5 @@
 import QtQuick 2.6
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.1
 import QtQuick.Controls.Styles 1.4
 
 import ArcGIS.AppFramework 1.0
@@ -93,8 +93,10 @@ Item {
     }
 
     // table to display layer names and statuses
-    TableView {
-        id: tableView
+    Rectangle{
+        id:tableViewRect
+        color:"white"
+        border.color: "black"
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
@@ -102,44 +104,21 @@ Item {
         }
         height: 120 * scaleFactor
         width: 230 * scaleFactor
-        model: layerViewModel
-        headerVisible: false
-        verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-        horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+        radius: 10
         opacity: 0.95
+        ListView {
+            id: tableView
+            anchors.fill:parent
+            anchors.margins: 10 * scaleFactor
+            model: layerViewModel
 
-        // set number of layers states to be displayed at once
-        rowDelegate: Row {
-            height: tableView.height / 3
-        }
-
-        // create rectangle to frame the TableView
-        style: TableViewStyle {
-            backgroundColor: "transparent"
-            frame: Rectangle {
-                border.color: "black"
-                radius: 10
-
-                // make sure mouse actions on table do not affect map behind it
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: mouse.accepted = true
-                    onWheel: wheel.accepted = true
-                }
-            }
-        }
-
-        // create List Model to store Layer View States and names
-        ListModel {
-            id: layerViewModel
-        }
-
-        TableViewColumn {
-            role: "name"
-            width: tableView.width * 0.75 - tableView.anchors.margins
-            delegate: Component {
+            delegate:
+                Row {
+                padding: 5*scaleFactor
+                height:tableView.height*1/3
                 Text {
-                    text: styleData.value
+                    width: tableView.width * 0.75 - tableViewRect.anchors.margins
+                    text: name
                     leftPadding: tableView.anchors.margins
                     renderType: Text.NativeRendering
                     horizontalAlignment: Text.AlignLeft
@@ -147,24 +126,23 @@ Item {
                     elide: Text.ElideRight
                     font {
                         weight: Font.Black
-                        pixelSize: tableView.height * 0.10
+                        pixelSize: tableView.height * 0.12
                     }
-                }
-            }
-        }
 
-        TableViewColumn {
-            role: "status"
-            width: tableView.width * 0.25
-            delegate: Component {
+                }
                 Text {
-                    text: styleData.value
+                    width: tableView.width * 0.25
+                    text: status
+                    leftPadding: tableView.anchors.margins + tableViewRect.anchors.margins
                     renderType: Text.NativeRendering
                     horizontalAlignment: Text.AlignRight
                     verticalAlignment: Text.AlignVCenter
-                    font.pixelSize: tableView.height * 0.10
+                    font.pixelSize: tableView.height * 0.12
                     color: "steelblue"
                 }
+            }
+            ListModel {
+                id: layerViewModel
             }
         }
     }
