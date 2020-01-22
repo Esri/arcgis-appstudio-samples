@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Platform 1.0
 
 Item {
@@ -26,22 +25,24 @@ Item {
                 Layout.preferredWidth: parent.width
                 Layout.preferredHeight: 50 * app.scaleFactor
 
-                ImageButton {
-                    source: "../assets/clear.png"
-                    height: 30 * app.scaleFactor
-                    width: 30 * app.scaleFactor
-                    checkedColor : "transparent"
-                    pressedColor : "transparent"
-                    hoverColor : "transparent"
-                    glowColor : "transparent"
+                ToolButton {
+                    id:infoImage
+                    indicator: Image{
+                        width: 30 * app.scaleFactor
+                        height: 30 * app.scaleFactor
+                        anchors.centerIn: parent
+                        horizontalAlignment: Qt.AlignRight
+                        verticalAlignment: Qt.AlignVCenter
+                        source: "../assets/clear.png"
+                        fillMode: Image.PreserveAspectFit
+                        mipmap: true
+                    }
                     anchors {
                         right: parent.right
-                        rightMargin: 10 * app.scaleFactor
                         verticalCenter: parent.verticalCenter
                     }
                     onClicked: {
                         stackView.pop()
-                        //                            descPage.visible = 0
                     }
                 }
 

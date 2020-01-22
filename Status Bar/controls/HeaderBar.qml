@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 
 RowLayout {
@@ -12,16 +11,14 @@ RowLayout {
     spacing:0
     clip:true
 
-    Item {
+    Rectangle {
         Layout.preferredWidth: 50 * app.scaleFactor
     }
 
-    Item {
-        Layout.fillWidth: true
-    }
 
     Text {
         text:app.info.title
+        font.family: "Tahoma"
         color:"white"
         font.pixelSize: app.baseFontSize
         font.bold: true
@@ -31,34 +28,28 @@ RowLayout {
         Layout.alignment: Qt.AlignHCenter
     }
 
-    Item {
-        Layout.fillWidth: true
-    }
-
-    Item {
+    Rectangle {
         id: infoIcon
         Layout.preferredWidth: 50 * app.scaleFactor
+        Layout.alignment: Qt.AlignRight
 
-        Rectangle {
-            id:infoImageRect
-            anchors.fill: parent
-
-            ImageButton {
-                id:infoImage
-                source: "../assets/info.png"
-                height: 30 * app.scaleFactor
+        ToolButton {
+            id:infoImage
+            indicator: Image{
                 width: 30 * app.scaleFactor
-                checkedColor : "transparent"
-                pressedColor : "transparent"
-                hoverColor : "transparent"
-                glowColor : "transparent"
-                anchors {
-                    centerIn: parent
-                }
-                onClicked: {
-                    stackView.push(descriptionPage)
-//                    descPage.visible = 1
-                }
+                height: 30 * app.scaleFactor
+                anchors.centerIn: parent
+                source: "../assets/info.png"
+                fillMode: Image.PreserveAspectFit
+                mipmap: true
+            }
+            anchors {
+                right: parent.right
+                verticalCenter: parent.verticalCenter
+            }
+            onClicked: {
+                stackView.push(descriptionPage)
+//                descPage.visible = 1
             }
         }
     }
