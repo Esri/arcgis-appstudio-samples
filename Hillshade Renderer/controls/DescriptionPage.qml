@@ -3,8 +3,6 @@ import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
-
 Item {
     id: descPage
     width: parent.width
@@ -24,17 +22,20 @@ Item {
                 Layout.preferredWidth: parent.width
                 Layout.preferredHeight: 50 * scaleFactor
 
-                ImageButton {
-                    source: "../assets/clear.png"
-                    height: 30 * scaleFactor
-                    width: 30 * scaleFactor
-                    checkedColor : "transparent"
-                    pressedColor : "transparent"
-                    hoverColor : "transparent"
-                    glowColor : "transparent"
+                ToolButton {
+                    id:infoImage
+                    indicator: Image{
+                        width: 30 * scaleFactor
+                        height: 30 * scaleFactor
+                        anchors.centerIn: parent
+                        horizontalAlignment: Qt.AlignRight
+                        verticalAlignment: Qt.AlignVCenter
+                        source: "../assets/clear.png"
+                        fillMode: Image.PreserveAspectFit
+                        mipmap: true
+                    }
                     anchors {
                         right: parent.right
-                        rightMargin: 10 * scaleFactor
                         verticalCenter: parent.verticalCenter
                     }
                     onClicked: {
