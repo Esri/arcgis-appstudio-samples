@@ -104,7 +104,7 @@ App {
 
         console.log("portal A auto sign in", isUserLoggedInPortalA)
 
-        if(AppFramework.network.isOnline){
+        if(Networking.isOnline){
             if(portalName === "portalA") {
                 if(isUserLoggedInPortalA) {
                     portalA.autoSignIn();

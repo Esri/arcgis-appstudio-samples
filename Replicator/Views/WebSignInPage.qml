@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
-import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 
@@ -80,7 +79,7 @@ Page {
         id: webSignInPageWebView
         anchors.fill: parent
         url: authorizationUrl
-        visible: AppFramework.network.isOnline
+        visible: Networking.isOnline
 
         onLoadingChanged: {
             if (title.indexOf("SUCCESS code=") > -1) {
