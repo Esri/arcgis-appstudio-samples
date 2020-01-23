@@ -6,7 +6,6 @@ import QtMultimedia 5.8
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Barcodes 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 
 
