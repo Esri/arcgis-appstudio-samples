@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.1
 
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 
 RowLayout {
     anchors.fill: parent
@@ -34,22 +33,23 @@ RowLayout {
         Layout.alignment: Qt.AlignRight
         Layout.preferredWidth: 50*scaleFactor
 
-        ImageButton {
-            id: infoImage
-            width: 30 * scaleFactor
-            height: 30 * scaleFactor
-
-            source: "../assets/info.png"
-            checkedColor : "transparent"
-            pressedColor : "transparent"
-            hoverColor : "transparent"
-            glowColor : "transparent"
-
-            anchors {
-                centerIn: parent
+        ToolButton {
+            id:infoImage
+            indicator: Image{
+                width: 30 * scaleFactor
+                height: 30 * scaleFactor
+                anchors.centerIn: parent
+                source: "../assets/info.png"
+                fillMode: Image.PreserveAspectFit
+                mipmap: true
             }
-
-            onClicked: descPage.visible = 1
+            anchors {
+                right: parent.right
+                verticalCenter: parent.verticalCenter
+            }
+            onClicked: {
+                descPage.visible = 1
+            }
         }
     }
 }
