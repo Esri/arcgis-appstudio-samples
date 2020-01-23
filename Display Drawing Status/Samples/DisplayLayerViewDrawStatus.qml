@@ -92,30 +92,35 @@ Item {
         }
     }
 
-    // table to display layer names and statuses
+    // listview to display layer names and statuses
     Rectangle{
         id:tableViewRect
-        color:"white"
-        border.color: "black"
+
+        height: 120 * scaleFactor
+        width: 230 * scaleFactor
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
             margins: 25 * scaleFactor
         }
-        height: 120 * scaleFactor
-        width: 230 * scaleFactor
+
+        color: "white"
+        border.color: "black"
         radius: 10
         opacity: 0.95
+
         ListView {
             id: tableView
-            anchors.fill:parent
+
+            anchors.fill: parent
             anchors.margins: 10 * scaleFactor
             model: layerViewModel
+            clip: true  //block components outside the rectangle when scroll up or down
 
             delegate:
                 Row {
-                padding: 5*scaleFactor
-                height:tableView.height*1/3
+                padding: 5 * scaleFactor
+                height: tableView.height* 1 / 3
                 Text {
                     width: tableView.width * 0.75 - tableViewRect.anchors.margins
                     text: name
