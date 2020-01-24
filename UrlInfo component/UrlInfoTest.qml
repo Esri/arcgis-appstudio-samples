@@ -245,7 +245,7 @@ App {
             }
 
             TextArea{
-                text: "#JSON.stringify(urlInfo.queryParameters, undefined, 2)#"
+                text: JSON.stringify(urlInfo.queryParameters, undefined, 2)
                 Layout.fillWidth: true
                 Layout.maximumWidth: cl.width
                 Layout.fillHeight: true
