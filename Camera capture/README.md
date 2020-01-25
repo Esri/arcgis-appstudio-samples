@@ -3,7 +3,7 @@
 
 This sample demonstrates how images can be captures and saved on the device using the device's camera. 
 
-[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌🍌
+[Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌
 
 
 ## Instructions to run this sample in AppStudio Desktop
