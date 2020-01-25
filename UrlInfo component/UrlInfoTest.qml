@@ -76,59 +76,18 @@ App {
                 }
             }
 
-            CheckBox {
-                id:isValidCheckBox
-                text: "<b>isValid</b>"
-                padding: 0
-                font.weight: Font.Thin
-                checked: urlInfo.isValid
-                enabled: false
-                indicator: Rectangle {
-                    implicitWidth: 20
-                    implicitHeight: 20
-                    x: isValidCheckBox.rightPadding
-                    y: isValidCheckBox.topPadding + isValidCheckBox.availableHeight / 2 - height / 2
-                    radius: 3
-                    color: "transparent"
-                    border.color: "#A9A9A9"
-
-                    Rectangle {
-                        width: 10
-                        height: 10
-                        x: 5
-                        y: 5
-                        radius: 2
-                        color: "#003300"
-                        visible: isValidCheckBox.checked
-                    }
-                }
+            CheckBoxSmall{
+                id: isValidCheckBox
+                textContent: "<b>isValid</b>"
+                isChecked: urlInfo.isValid
+                isEnabled: false
             }
 
-            CheckBox {
-                id:isEmptyCheckBox
-                text: "<b>isEmpty</b>"
-                padding: 0
-                checked: urlInfo.isEmpty
-                enabled: false
-                indicator: Rectangle {
-                    implicitWidth: 20
-                    implicitHeight: 20
-                    x: isEmptyCheckBox.rightPadding
-                    y: isEmptyCheckBox.topPadding + isEmptyCheckBox.availableHeight / 2 - height / 2
-                    radius: 3
-                    color: "transparent"
-                    border.color: "#A9A9A9"
-
-                    Rectangle {
-                        width: 10
-                        height: 10
-                        x: 5
-                        y: 5
-                        radius: 2
-                        color: "#003300"
-                        visible: isEmptyCheckBox.checked
-                    }
-                }
+            CheckBoxSmall{
+                id: isEmptyCheckBox
+                textContent: "<b>isEmpty</b>"
+                isChecked: urlInfo.isEmpty
+                isEnabled: false
             }
 
             Text {
@@ -178,63 +137,22 @@ App {
                 text: "<b>password</b>: " + urlInfo.password
             }
 
-            CheckBox {
+            CheckBoxSmall{
                 id: hasFragmentCheckBox
-                text: "<b>hasFragment</b>"
-                checked: urlInfo.hasFragment
-                enabled: false
-                padding: 0
-                indicator: Rectangle {
-                    implicitWidth: 20
-                    implicitHeight: 20
-                    x: hasFragmentCheckBox.rightPadding
-                    y: hasFragmentCheckBox.topPadding + hasFragmentCheckBox.availableHeight / 2 - height / 2
-                    radius: 3
-                    color: "transparent"
-                    border.color: "#A9A9A9"
-
-                    Rectangle {
-                        width: 10
-                        height: 10
-                        x: 5
-                        y: 5
-                        radius: 2
-                        color: "#003300"
-                        visible: hasFragmentCheckBox.checked
-                    }
-                }
+                textContent: "<b>hasFragment</b>"
+                isChecked: urlInfo.hasFragment
+                isEnabled: false
             }
 
             Text {
                 text: "<b>fragment</b>: " + urlInfo.fragment
             }
 
-            CheckBox {
-                id:hasQueryCheckBox
-                text: "<b>hasQuery</b>"
-                checked: urlInfo.hasQuery
-                enabled: false
-                padding: 0
-                indicator: Rectangle {
-                    implicitWidth: 20
-                    implicitHeight: 20
-                    x: hasQueryCheckBox.rightPadding
-                    y: hasQueryCheckBox.topPadding + hasQueryCheckBox.availableHeight / 2 - height / 2
-                    radius: 3
-                    color: "transparent"
-                    border.color: "#A9A9A9"
-
-                    Rectangle {
-                        width: 10
-                        height: 10
-                        x: 5
-                        y: 5
-                        radius: 2
-                        color: "#003300"
-                        visible: hasQueryCheckBox.checked
-                    }
-                }
-
+            CheckBoxSmall{
+                id: hasQueryCheckBox
+                textContent: "<b>hasQuery</b>"
+                isChecked: urlInfo.hasQuery
+                isEnabled: false
             }
 
             Text {
@@ -243,20 +161,29 @@ App {
                 wrapMode: Text.WrapAnywhere
 
             }
+            Flickable {
+                id: flickable
 
-            TextArea{
-                text: JSON.stringify(urlInfo.queryParameters, undefined, 2)
                 Layout.fillWidth: true
                 Layout.maximumWidth: cl.width
                 Layout.fillHeight: true
-                wrapMode: Text.WrapAnywhere
-                background: Rectangle {
-                    implicitWidth: 200
-                    implicitHeight: 40
-                    color:"white"
-                    border.color:"#A9A9A9"
+                clip: true
+
+                TextArea.flickable:TextArea{
+                    id: textArea
+
+                    text: JSON.stringify(urlInfo.queryParameters, undefined, 2)
+                    wrapMode: Text.WrapAnywhere
+                    background: Rectangle {
+                        id:bg
+                        implicitWidth: 200
+                        implicitHeight: 40
+                        color:"white"
+                        border.color:"#A9A9A9"
+                    }
+                    transformOrigin: Item.Center
                 }
-                transformOrigin: Item.Center
+                ScrollBar.vertical: ScrollBar {}
             }
         }
     }
