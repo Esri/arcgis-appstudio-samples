@@ -1,4 +1,4 @@
-/* Copyright 2015 Esri
+/* Copyright 2020 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 
 import QtQuick 2.3
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.2
 
 import ArcGIS.AppFramework 1.0
@@ -49,6 +49,7 @@ App {
         TextField {
             id: urlText
             Layout.fillWidth: true
+            implicitHeight: 25
             text: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/0/query"
             onTextChanged: urlConstruct.fromUserInput(text)
         }
@@ -61,6 +62,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["where"] = text.toString();
@@ -72,6 +74,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["objectIds"] = text.toString();
@@ -83,6 +86,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["time"] = text.toString();
@@ -94,6 +98,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["geometry"] = text.toString();
@@ -104,8 +109,9 @@ App {
                 text:"Geometry Type:"
             }
             ComboBox {
+                implicitHeight: 25
                 model:["Envelope","Point","Polyline","Polygon","Multipoint"]
-                onCurrentIndexChanged: {
+                onCurrentTextChanged: {
                     jsonQuery["geometryType"] = currentText.toString();
                     console.log(currentText)
                 }
@@ -118,6 +124,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["inSR"] = text.toString();
@@ -128,8 +135,9 @@ App {
                 text: "Spatial Relationship:"
             }
             ComboBox {
+                implicitHeight: 25
                 model: ["Intersects","Contains","Crosses","Envelope Intersects", "Index Intersects", "Overlaps", "Touches", "Within", "Relation"]
-                onCurrentIndexChanged: {
+                onCurrentTextChanged: {
                     console.log(currentText)
                     jsonQuery["spatialRel"] = currentText.toString();
                 }
@@ -140,6 +148,7 @@ App {
                 text:"Relation:"
             }
             TextField{
+                implicitHeight: 25
                 Layout.fillWidth: true
                 onTextChanged: {
                     console.log(text)
@@ -151,6 +160,7 @@ App {
                 text:"Out Fields:"
             }
             TextField{
+                implicitHeight: 25
                 Layout.fillWidth: true
                 onTextChanged: {
                     console.log(text)
@@ -163,26 +173,30 @@ App {
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                ButtonGroup {
                     id:returnGeometry
                 }
+                RadioButtonSmall {
+                    id: returnGeometryButton
 
-                RadioButton {
-                    text: "True"
-                    checked: true
-                    exclusiveGroup: returnGeometry
-                    onCheckedChanged: {
+                    textContent: "True"
+                    isChecked: true
+                    buttonGroupName: returnGeometry
+                    onCheckedChangedAct: {
                         jsonQuery["returnGeometry"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnGeometry"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
                 }
-                RadioButton {
-                    text: "False"
-                    exclusiveGroup: returnGeometry
+
+                RadioButtonSmall {
+                    id: returnGeometryButton2
+
+                    textContent: "False"
+                    buttonGroupName: returnGeometry
                 }
             }
 
@@ -191,6 +205,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["maxAllowableOffset"] = text.toString();
@@ -202,6 +217,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["where"] = text.toString();
@@ -214,6 +230,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["outSR"] = text.toString();
@@ -225,6 +242,7 @@ App {
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["gdbVersion"] = text.toString();
@@ -236,91 +254,101 @@ App {
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                ButtonGroup {
                     id:returnDistinct
                 }
+                RadioButtonSmall {
+                    id: returnDistinctButton
 
-                RadioButton {
-                    text: "True"
-                    exclusiveGroup: returnDistinct
-                    onCheckedChanged: {
+                    textContent: "True"
+                    buttonGroupName: returnDistinct
+                    onCheckedChangedAct: {
                         jsonQuery["returnDistinctValues"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnDistinctValues"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
                 }
-                RadioButton {
-                    text: "False"
-                    checked: true
-                    exclusiveGroup: returnDistinct
 
+                RadioButtonSmall {
+                    id: returnDistinctButton2
+
+                    isChecked: true
+                    textContent: "False"
+                    buttonGroupName: returnDistinct
                 }
             }
             Text {
-                text:"Return IDs Only::"
+                text:"Return IDs Only:"
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                height: 25
+                ButtonGroup {
                     id:returnIds
                 }
+                RadioButtonSmall {
+                    id: returnIdsButton
 
-                RadioButton {
-                    text: "True"
-                    exclusiveGroup: returnIds
-                    onCheckedChanged: {
+                    textContent: "True"
+                    buttonGroupName: returnIds
+                    onCheckedChangedAct: {
                         jsonQuery["returnIdsOnly"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnIdsOnly"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-
                 }
-                RadioButton {
-                    text: "False"
-                    checked: true
-                    exclusiveGroup: returnIds
 
+                RadioButtonSmall {
+                    id: returnIdsButton2
+
+                    isChecked: true
+                    textContent: "False"
+                    buttonGroupName: returnIds
                 }
             }
             Text {
-                text:"Return Count Only::"
+                text:"Return Count Only:"
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                ButtonGroup {
                     id:returnCount
                 }
+                RadioButtonSmall {
+                    id: returnCountButton
 
-                RadioButton {
-                    text: "True"
-                    exclusiveGroup: returnCount
-                    onCheckedChanged: {
+                    textContent: "True"
+                    buttonGroupName: returnCount
+                    onCheckedChangedAct: {
                         jsonQuery["returnCountOnly"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnCountOnly"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
                 }
-                RadioButton {
-                    text: "False"
-                    checked: true
-                    exclusiveGroup: returnCount
 
+                RadioButtonSmall {
+                    id: returnCountButton2
+
+                    isChecked: true
+                    textContent: "False"
+                    buttonGroupName: returnCount
                 }
             }
             Text {
-                text:"Order By Fields::"
+                text:"Order By Fields:"
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["orderByFields"] = text.toString();
@@ -328,10 +356,11 @@ App {
                 }
             }
             Text {
-                text:"Group By Fields (ForStatistics)::"
+                text:"Group By Fields (ForStatistics):"
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["groupByFieldsForStatistics"] = text.toString();
@@ -339,10 +368,11 @@ App {
                 }
             }
             Text {
-                text:"Output Statistics::"
+                text:"Output Statistics:"
             }
             TextField{
                 Layout.fillWidth: true
+                implicitHeight: 25
                 onTextChanged: {
                     console.log(text)
                     jsonQuery["outStatistics"] = text.toString();
@@ -354,27 +384,30 @@ App {
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                ButtonGroup {
                     id:returnZ
                 }
+                RadioButtonSmall {
+                    id: returnZButton
 
-                RadioButton {
-                    text: "True"
-                    exclusiveGroup: returnZ
-                    onCheckedChanged: {
+                    textContent: "True"
+                    buttonGroupName: returnZ
+                    onCheckedChangedAct: {
                         jsonQuery["returnZ"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnZ"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
                 }
-                RadioButton {
-                    text: "False"
-                    checked: true
-                    exclusiveGroup: returnZ
 
+                RadioButtonSmall {
+                    id: returnZButton2
+
+                    isChecked: true
+                    textContent: "False"
+                    buttonGroupName: returnZ
                 }
             }
             Text {
@@ -382,27 +415,30 @@ App {
             }
             Row {
                 spacing: 5
-                ExclusiveGroup {
+                ButtonGroup {
                     id:returnM
                 }
+                RadioButtonSmall {
+                    id: returnMButton
 
-                RadioButton {
-                    text: "True"
-                    exclusiveGroup: returnM
-                    onCheckedChanged: {
+                    textContent: "True"
+                    buttonGroupName: returnM
+                    onCheckedChangedAct: {
                         jsonQuery["returnM"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
-                    Component.onCompleted:{
+                    onCompletedAct:{
                         jsonQuery["returnM"] = checked.toString()
                         console.log(JSON.stringify(jsonQuery))
                     }
                 }
-                RadioButton {
-                    text: "False"
-                    checked: true
-                    exclusiveGroup: returnM
 
+                RadioButtonSmall {
+                    id: returnMButton2
+
+                    isChecked: true
+                    textContent: "False"
+                    buttonGroupName: returnM
                 }
             }
         }
@@ -448,6 +484,7 @@ App {
         id: resultPanel
         anchors.fill: parent
         color: "#E5E6E7"
+        anchors.topMargin: 0
         opacity: 0.9
         z: 10
         visible: false
