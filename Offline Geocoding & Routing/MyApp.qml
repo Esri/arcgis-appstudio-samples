@@ -397,6 +397,16 @@ App {
                             height: 50 * scaleFactor
                             color: "#8f499c"
 
+                            Text {
+                                anchors{
+                                    verticalCenter: parent.verticalCenter
+                                    horizontalCenter:parent.horizontalCenter
+                                }
+                                color: "white"
+                                font.pixelSize: baseFontSize * 1.1
+                                text: "Choose a Mobile Map Package"
+                            }
+
                             // forward navigation button. Visible after first map is selected
                             Image {
                                 anchors {
@@ -417,13 +427,6 @@ App {
                                 }
                             }
 
-                            Text {
-                                anchors.centerIn: parent
-                                color: "white"
-                                font.pixelSize: baseFontSize * 1.1
-                                text: "Choose a Mobile Map Package"
-                                renderType: Text.NativeRendering
-                            }
                         }
 
                         // ListModel to store names of Mobile Map Packages in data folder
@@ -440,23 +443,24 @@ App {
                             model: mobileMapPackages
 
                             delegate: Component {
-                                Rectangle {
-
+                                Button {
                                     width: 200 * scaleFactor
                                     height: 50 * scaleFactor
-                                    color: "#8f499c"
-                                    radius: 2
-                                    border.color: "darkgray"
 
-                                    Text {
-                                        anchors.centerIn: parent
-                                        horizontalAlignment: Text.AlignHCenter
-                                        color: "white"
-                                        width: 150 * scaleFactor
-                                        text: modelData
-                                        renderType: Text.NativeRendering
-                                        elide: Text.ElideMiddle
-                                        font.pixelSize: baseFontSize * 0.8
+                                    background: Rectangle {
+                                        opacity: enabled ? 1 : 0.3
+                                        color: "#8f499c"
+                                        border.color: "darkgray"
+                                        border.width: 1
+                                        radius: 2
+                                    }
+                                    text: modelData
+                                    contentItem: Text{
+                                    text: parent.text
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    font.pixelSize: baseFontSize * 0.8
+                                    color: "white"
                                     }
 
                                     MouseArea {
@@ -550,7 +554,6 @@ App {
                                 color: "white"
                                 font.pixelSize: baseFontSize * 1.1
                                 text: "Choose a Map"
-                                renderType: Text.NativeRendering
                             }
                         }
 
@@ -582,7 +585,6 @@ App {
                                         color: "white"
                                         width: 150 * scaleFactor
                                         text: name
-                                        renderType: Text.NativeRendering
                                         elide: Text.ElideMiddle
                                         font.pixelSize:baseFontSize * 0.8
                                     }

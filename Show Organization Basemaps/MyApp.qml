@@ -158,6 +158,7 @@ App {
                     bottom: parent.bottom;
                     left: parent.left;
                     right: parent.right
+                    leftMargin: (parent.width - Math.floor (parent.width / (cellWidth))*  (cellWidth)) / 2.0  //Make gridview appear in center of the screen
                 }
 
                 cellWidth: 128 * scaleFactor;
