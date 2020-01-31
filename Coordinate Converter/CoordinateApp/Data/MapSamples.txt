@@ -1,0 +1,42 @@
+[
+  {
+    "text": "40.68921,-74.04466",
+    "label": "Statue of Liberty"
+  },
+  {
+    "text": "33.8568° S, 151.2153° E",
+    "label": "Sydney Opera House"
+  },
+  {
+    "text": "36R 319994 3317945",
+    "label": "Pyramids of Giza"
+  },
+  {
+    "text": "51°10.7340'N 1°49.5720'W",
+    "label": "Stonehenge"
+  },
+  {
+    "text": "41°53'24.7200\"N 12°29'31.9200\"E",
+    "label": "Colloseum"
+  },
+  {
+    "text": "34.0572522,-117.1945814",
+    "label": "ESRI"
+  },
+  {
+    "text": "48.8584° N, 2.2945° E",
+    "label": "Eiffel Tower"
+  },
+  {
+    "text": "geo:37.8187,-122.3495",
+    "label": "Golden Gate Bridge"
+  },
+  {
+    "text": "50SMK47921871",
+    "label": "Forbidden City"
+  },
+  {
+    "text": "UTM 44R 206911 3009287",
+    "label": "Taj Mahal"
+  }
+]

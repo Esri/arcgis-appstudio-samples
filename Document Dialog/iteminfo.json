@@ -1,0 +1,65 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1573173197000,
+    "culture": "en-au",
+    "description": "<p style='margin-top: 0px; margin-bottom: 0px;'><span style=' font-size:10.5pt;'>The </span><a href='qml-arcgis-appframework-platform-documentdialog.html'><span style=' font-size:10.5pt; color:#007330;'>DocumentDialog</span></a><span style=' font-size:10.5pt;'> component is used to access documents external to your app, of any filetype. This component doesn't facilitate interaction with these files; this needs to be provided by other components.</span></p><p style='margin-top: 0px; margin-bottom: 0px;'><span style='font-size: 10.5pt;'><br /></span></p><p style='margin-top: 0px; margin-bottom: 0px;'><span style='font-size: 10.5pt;'>On Android devices, The External Storage capability must be enabled in the Capabilities tab of the Settings tool to use this component in an app. You also need to use a </span><a href='qml-arcgis-appframework-platform-permissiondialog.html'><span style=' font-size:10.5pt; color:#007330;'>PermissionDialog</span></a><span style='font-size: 10.5pt;'> pop-up before invoking the document dialog. The app will crash if this capability is not enabled.</span></p><p style='margin-top: 0px; margin-bottom: 0px;'><span style='font-size: 10.5pt;'><br /></span></p><p style='margin-top: 0px; margin-bottom: 0px;'><span style='font-size: 10.5pt;'>Only files available on the device's local storage can be accessed using </span><a href='qml-arcgis-appframework-platform-documentdialog.html'><span style=' font-size:10.5pt; color:#007330;'>DocumentDialog</span></a><span style='font-size: 10.5pt;'>. Files stored in a cloud service will first need to be downloaded before using </span><a href='qml-arcgis-appframework-platform-documentdialog.html'><span style=' font-size:10.5pt; color:#007330;'>DocumentDialog</span></a><span style='font-size: 10.5pt;'> to browse to and select them.</span></p>\n<p style='margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; text-indent:0px;'><br /></p>\n<p style='margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest'><span style=''>Resource Level:</span></a><span style=''>🍌 </span></p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "44091f3b62da4d1e8510cf66b3c562d4",
+    "industries": [
+    ],
+    "isOrgItem": true,
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1573848870000,
+    "name": "44091f3b62da4d1e8510cf66b3c562d4.zip",
+    "numComments": 1,
+    "numRatings": 0,
+    "numViews": 35,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 83,
+    "screenshots": [
+    ],
+    "size": 38433,
+    "snippet": "This sample app shows you how to use the DocumentDialog component to access documents external to your app, of any filetype.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Sample",
+        "Plugins",
+        "Level-1"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Document Dialog",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

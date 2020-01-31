@@ -1,0 +1,65 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1573172949000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample demonstrates how to convert text into coordinates using the Coordinate object.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' rel='nofollow ugc'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a> 🍌🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "f2c67e421be944cc8b18f5c0039f705e",
+    "industries": [
+    ],
+    "isOrgItem": true,
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1580435558000,
+    "name": "f2c67e421be944cc8b18f5c0039f705e.zip",
+    "numComments": 4,
+    "numRatings": 0,
+    "numViews": 62,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 78,
+    "screenshots": [
+    ],
+    "size": 296544,
+    "snippet": "This sample demonstrates how to convert text into coordinates.",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Maps",
+        "Level-2",
+        "sample"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Coordinate Converter",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
