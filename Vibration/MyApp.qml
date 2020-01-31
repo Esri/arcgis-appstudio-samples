@@ -21,7 +21,6 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Notifications 1.0
 import ArcGIS.AppFramework.Notifications.Local 1.0
 
@@ -71,17 +70,7 @@ App {
 
                 TextField {
                     id: duration
-                    placeholderText: "Enter time (milliseconds)"
-                }
-
-                Text {
-                    id: note
-                    visible: Qt.platform.os === "ios" ? ture : false
-                    Layout.preferredWidth: 0.8 * parent.width
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideRight
-                    text: qsTr("Note: if you are running this app on iOS, please enter as least 1001 for this field")
-
+                    placeholderText: "Enter time delay (milliseconds)"
                 }
 
                 Button {

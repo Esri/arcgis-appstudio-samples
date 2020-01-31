@@ -71,16 +71,6 @@ App {
                     placeholderText: "Enter time delay (milliseconds)"
                 }
 
-                Text {
-                    id: note
-                    visible: Qt.platform.os === "ios" ? ture : false
-                    Layout.preferredWidth: 0.8 * parent.width
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideRight
-                    text: qsTr("Note: If you are running this sample on iOS, time delay has to be greater than 1000 milliseconds")
-
-                }
-
                 Button {
                     width: 250
                     text: "schedule"
