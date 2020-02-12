@@ -1,0 +1,61 @@
+{
+    "access": "org",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1561940259000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This sample provides a collection of QML components to connect to and configure external GNSS devices.</p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' rel='nofollow ugc'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "947b4cf76ce84d0fb4a2a13d9820e8a3",
+    "industries": [
+    ],
+    "isOrgItem": true,
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1581293679000,
+    "name": "947b4cf76ce84d0fb4a2a13d9820e8a3.zip",
+    "numComments": 25,
+    "numRatings": 0,
+    "numViews": 86,
+    "owner": "dargast_melbournedev",
+    "ownerFolder": null,
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 63,
+    "screenshots": [
+    ],
+    "size": 248580,
+    "snippet": "Demonstrates how to connect to and configure external GNSS devices.",
+    "spatialReference": null,
+    "tags": [
+        "GNSS"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "GNSS Discover",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

@@ -1,0 +1,106 @@
+{
+    "arcgisRuntime": 1006,
+    "capabilities": {
+        "audio": true,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
+        "biometricAuthentication": false,
+        "bluetooth": true,
+        "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": true,
+        "ios": {
+            "backgroundExternalAccessory": true,
+            "externalAccessoryProtocolStrings": [
+                "com.bad-elf.gps",
+                "com.eos-gnss.positioningsource",
+                "com.leica-geosystems.zeno.gnss",
+                "com.trimble.correction",
+                "com.trimble.command",
+                "com.garmin.pvt"
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": true,
+        "vibration": true
+    },
+    "deployment": {
+        "android": {
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "ios": {
+            "codeSignIdentity": ""
+        },
+        "macos": {
+            "codeSignIdentity": ""
+        },
+        "shortcutName": "",
+        "uwp": {
+        },
+        "winphone": {
+            "packageDisplayName": ""
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 0,
+            "windowMode": "default"
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
+        }
+    },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
+    "mainFile": "PrintLocation.qml",
+    "multipleInstances": true,
+    "projectFile": "PrintLocation.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "default-app.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "type": "app",
+    "version": {
+        "major": 1,
+        "micro": 6
+    }
+}
