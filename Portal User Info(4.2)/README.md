@@ -1,6 +1,6 @@
 ## Portal User Info
 
-This sample demonstrates how to retrieve a user's details and portal info via a Portal.
+This sample demonstrates how to retrieve a user's details and portal info via a Portal. It can also use portal info to view the secured web maps 
 
 [Resource Level](https://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest): 🍌🍌
 
@@ -20,7 +20,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
-Copyright 2017 Esri
+Copyright 2020 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
