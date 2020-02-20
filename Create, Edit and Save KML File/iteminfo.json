@@ -1,0 +1,65 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1580952082000,
+    "culture": "en-au",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'>This is an app combining two samples related with KML file. The first one constructs a KML document and save it as a KMZ file to the Downloads folder. The Second one edits the value of a KML ground overlay. </p>\n<p style='-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><br /></p>\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><a href='http://geonet.esri.com/groups/appstudio/blog/2016/12/06/how-to-describe-our-resources-in-terms-of-difficulty-complexity-and-time-to-digest' rel='nofollow ugc'><span style=' text-decoration: underline; color:#0000ff;'>Resource Level:</span></a>🍌🍌</p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "id": "d63de56e09d34bf19fdb2e7b68a7056e",
+    "industries": [
+    ],
+    "isOrgItem": true,
+    "itemControl": "admin",
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": null,
+    "listed": false,
+    "modified": 1582232784000,
+    "name": "d63de56e09d34bf19fdb2e7b68a7056e.zip",
+    "numComments": 4,
+    "numRatings": 0,
+    "numViews": 15,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "owner": "appstudio_samples",
+    "ownerFolder": "f4a20283d02c41a1bba3642a7d6b42b5",
+    "properties": null,
+    "protected": false,
+    "proxyFilter": null,
+    "scoreCompleteness": 78,
+    "screenshots": [
+    ],
+    "size": 370916,
+    "snippet": "Hello World using the Runtime for QML API",
+    "spatialReference": null,
+    "tags": [
+        "AppStudio",
+        "Sample",
+        "Plugins",
+        "Level-2"
+    ],
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Create, Edit and Save KML File",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}
