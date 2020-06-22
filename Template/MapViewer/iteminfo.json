@@ -1,0 +1,52 @@
+{
+    "access": "public",
+    "accessInformation": null,
+    "appCategories": [
+    ],
+    "avgRating": 0,
+    "banner": null,
+    "categories": [
+    ],
+    "commentsEnabled": true,
+    "created": 1581443303000,
+    "culture": "en-us",
+    "description": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'>Configure the Map Viewer template to display your own maps in a native app that will run on your chosen device. Nominate either a single web map or a map gallery query to define which maps will display in your Map Viewer. Add your own branding – icons, colors and splash screen images – to make the Map Viewer app your own. Windows, Android, iOS, Mac and Linux apps can be generated from this template. For more information on configuring this app, see the </span><a href='https://doc.arcgis.com/en/appstudio/create-apps/templatemapviewer.htm' rel='nofollow ugc'><span style=' font-family:'>Map Viewer</span></a><span style=' font-family:'> documentation. </span></p>",
+    "documentation": null,
+    "extent": [
+    ],
+    "groupDesignations": null,
+    "guid": null,
+    "industries": [
+    ],
+    "languages": [
+    ],
+    "largeThumbnail": null,
+    "licenseInfo": "\n<p style=' margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;'><span style=' font-family:'>ArcGIS organizational account required.<br />See </span><a href='https://doc.arcgis.com/en/appstudio/#systemrequirements' rel='nofollow ugc'><span style=' font-family:'>AppStudio for ArcGIS system requirements</span></a><span style=' font-family:'>.</span></p>",
+    "listed": false,
+    "modified": 1582915340000,
+    "numComments": 6,
+    "numRatings": 0,
+    "numViews": 996,
+    "orgId": "2U3NfasNQ9o9LkLt",
+    "properties": null,
+    "proxyFilter": null,
+    "scoreCompleteness": 96,
+    "screenshots": [
+    ],
+    "size": 3345556,
+    "snippet": "Create a native app gallery of your maps.",
+    "spatialReference": null,
+    "thumbnail": "thumbnail/thumbnail.png",
+    "title": "Map Viewer (4.2)",
+    "type": "Native Application",
+    "typeKeywords": [
+        "API_QML",
+        "App",
+        "Application",
+        "AppStudio",
+        "Configuration",
+        "Native",
+        "qml"
+    ],
+    "url": null
+}

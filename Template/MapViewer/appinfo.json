@@ -1,0 +1,133 @@
+{
+    "appLink": "",
+    "arcgisRuntime": 1007,
+    "capabilities": {
+        "audio": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
+        "biometricAuthentication": true,
+        "bluetooth": false,
+        "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": false,
+        "ios": {
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": true,
+        "vibration": false
+    },
+    "deployment": {
+        "android": {
+        },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "ios": {
+        },
+        "macos": {
+            "codeSignIdentity": ""
+        },
+        "shortcutName": "",
+        "uwp": {
+        }
+    },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 400,
+            "minimumWidth": 600,
+            "windowMode": "default"
+        },
+        "enableHighDpi": true,
+        "phone": {
+            "landscape": false,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
+        }
+    },
+    "environment": {
+    },
+    "launchUrlSchemes": [
+    ],
+    "mainFile": "MapViewer.qml",
+    "make": {
+        "ignore": [
+            "MapViewer/languages/*.sh",
+            "MapViewer/languages/*.bat",
+            "MapViewer/languages/*.ts",
+            "*.bat"
+        ]
+    },
+    "multipleInstances": true,
+    "projectFile": "MapViewer.qmlproject",
+    "properties": {
+        "baseFontSize": 14,
+        "brandColor": "#61518C",
+        "enableAnonymousAccess": true,
+        "feedbackEmail": "",
+        "galleryMapsQuery": "",
+        "mapTypes": "showWebMapsOnly",
+        "maxNumberOfQueryResults": 25,
+        "mediumFontTTF": "assets/fonts/OpenSans-Regular.ttf",
+        "portalSortField": "modified",
+        "portalSortOrder": "desc",
+        "portalUrl": "https://www.arcgis.com",
+        "regularFontTTF": "assets/fonts/OpenSans-Regular.ttf",
+        "showDisclaimer": false,
+        "startBackground": "assets/background.png",
+        "supportSecuredMaps": false
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
+    "templateName": "mapviewer",
+    "translations": {
+        "fileName": "MapViewer",
+        "path": "MapViewer/languages"
+    },
+    "type": "app",
+    "universalLink": "",
+    "usageDescriptionKeys": {
+        "faceIDUsageDescription": "This app requires Face ID permission to authenticate using facial recognition.",
+        "locationWhenInUseUsageDescription": "This app uses your location when in use to capture your current position."
+    },
+    "version": {
+        "major": 1,
+        "micro": 1,
+        "minor": 0
+    }
+}
