@@ -1,6 +1,11 @@
 {
     "appLink": "",
-    "arcgisRuntime": 1006,
+    "arcgisRuntime": {
+        "version": {
+            "major": 100,
+            "minor": 6
+        }
+    },
     "capabilities": {
         "audio": false,
         "backgroundModes": {
@@ -38,24 +43,17 @@
     },
     "deployment": {
         "android": {
-            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
-        "clientId": "",
         "ios": {
-            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
-            "bundleId": "",
             "codeSignIdentity": ""
         },
-        "publisherName": "",
         "shortcutName": "",
         "uwp": {
-            "packageName": "",
-            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -104,9 +102,8 @@
     },
     "type": "app",
     "universalLink": "",
-    "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 2
+        "micro": 1
     }
 }

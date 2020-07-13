@@ -22,7 +22,6 @@ import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-//import Esri.ArcGISRuntime 100.1
 
 import ArcGIS.AppFramework.SecureStorage 1.0
 
@@ -42,7 +41,8 @@ App {
     property string insertSuccessMessage: qsTr ("Inserted into Keychain")
     property string removeSuccessMessage: qsTr ("Removed from Keychain")
 
-    property string failMessage:qsTr("Something Went Wrong")
+    property string failMessage:qsTr("Key cannot be empty")
+    property string valueEmptyMessage:qsTr("Value cannot be empty")
 
     property color successColor: Material.color(Material.Teal)
     property color errorColor: Material.color(Material.DeepOrange)
@@ -85,21 +85,24 @@ App {
                 //Click on the button to store key and value in the keychain
                 Button {
                     id: secureButton
-                    text: qsTr("Secure Data to Keychain")
+                    text: qsTr("Insert key-value to Keychain")
                     onClicked: {
                         toastMessageRec.visible = true
                         retrieveData.visible = false
 
                         // check if key and value is not null and not empty
-                        if (key.text.length > 0 && key.text !== null) {
+                        if (key.text.length > 0 && key.text !== null && value.text.length > 0 && value.text !== null) {
 
                             // store key and value into Keychain
                             SecureStorage.setValue(key.text,value.text)
                             toastMessage.text = insertSuccessMessage
                             toastMessageRec.color = successColor
                         }
-                        else {
+                        else if(key.text.length === 0 || key.text === null){
                             toastMessage.text = failMessage;
+                            toastMessageRec.color = errorColor;
+                        }else{
+                            toastMessage.text = valueEmptyMessage;
                             toastMessageRec.color = errorColor;
                         }
                     }
@@ -108,35 +111,31 @@ App {
                 //Click on the button to retrive data
                 Button{
                     id: retrieveButton
-                    text: qsTr("Retrieve Data From Keychain")
+                    text: qsTr("Get Value From Keychain")
                     onClicked: {
                         // Retrive value
-                        retrieveData.text = qsTr("Value: ") + SecureStorage.value(key.text);
                         toastMessageRec.visible = false
                         retrieveData.visible = true
+                        retrieveData.text = qsTr("Value: ") + SecureStorage.value(key.text);
                     }
                 }
 
                 //Click on the button to remove data from the keychain
                 Button {
                     id: removeButton
-                    text: qsTr("Clear Entry From Keychain")
+                    text: qsTr("Remove Key From Keychain")
                     onClicked: {
                         retrieveData.visible = false
                         toastMessageRec.visible = true
                         // check if key and value is not null and not empty
-                        if ( key.text.length > 0 && key.text !== null) {
                             // Remove key by setting vlaue as an empty string
-                            SecureStorage.setValue(key.text,"")
-                            toastMessage.text = removeSuccessMessage
-                            toastMessageRec.color = successColor
-                            key.text = ""
-                            value.text = ""
-                        }
-                        else {
-                            toastMessage.text = failMessage;
-                            toastMessageRec.color = errorColor;
-                        }
+                            if(typeof SecureStorage.value(key.text) !== "undefined"){
+                                SecureStorage.setValue(key.text,"")
+                                toastMessage.text = removeSuccessMessage
+                                toastMessageRec.color = successColor
+                                key.text = ""
+                                value.text = ""
+                            }
                     }
                 }
 
@@ -169,12 +168,23 @@ App {
                     horizontalAlignment: Text.AlignLeft
                     text: qsTr("Maximum Value Size: ") + SecureStorage.maximumValueLength
                 }
+
+                Text {
+                    id: connectedToBackend
+                    Layout.fillWidth: true
+                    font.pointSize: 10
+                    Layout.preferredWidth: parent.width
+                    wrapMode: Text.Wrap
+                    horizontalAlignment: Text.AlignLeft
+                    text: qsTr("Connected to Backend: ") + SecureStorage.connectedToBackend
+                }
             }
         }
 
         //Display toast message
         Rectangle {
             id: toastMessageRec
+
             height: 40 * scaleFactor
             width: toastMessage.text === "" ? 0 : toastMessage.width + 30 * scaleFactor
             anchors.bottom: parent.bottom
@@ -188,6 +198,17 @@ App {
                 font.bold: true
                 font.pointSize: 10
                 color: "white"
+            }
+        }
+
+        Connections{
+            target: SecureStorage
+
+            onError:{
+                toastMessage.text = errorMessage;
+                retrieveData.visible = false
+                toastMessageRec.color = errorColor;
+                toastMessageRec.visible = true
             }
         }
     }

@@ -52,22 +52,34 @@ App {
             anchors.fill: parent
             color: "#F5F5F5"
 
-            Pane {
+            Rectangle {
                 anchors.fill: parent
                 Material.elevation: 1
-                padding: 0
+                border.color: "lightgrey"
+                color: "#FAFAFA"
 
                 ColumnLayout {
                     anchors.fill: parent
-                    anchors.margins: 12 * scaleFactor
+                    anchors.margins: 20*scaleFactor
                     spacing: 0
+
+
+                    Label {
+                        text: "Permission Status"
+                        font.pointSize: baseFontSize *1.1
+                        Layout.alignment: Qt.AlignLeft
+                        font.bold: true
+                        Layout.fillWidth: true
+                    }
 
                     RowLayout {
                         spacing: 10
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
-                        CheckBox {
+                        Switch {
                             id: openSettings
-                            checkState: Qt.Unchecked
+                            checked: true
                             Layout.leftMargin: 10 * scaleFactor
                             Material.accent: "#8f499c"
                         }
@@ -81,7 +93,10 @@ App {
                     }
 
                     RowLayout {
+                        id:microphoneRow
                         spacing: 10 * scaleFactor
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
                         Controls.FloatActionButton {
                             id: microphoneButton
@@ -93,15 +108,61 @@ App {
                         }
 
                         Label {
-                            id: microphonePermissionStatusLabel
+                            id: microphonePermissionLabel
                             font.pointSize: baseFontSize * 0.9
-                            elide: Text.ElideMiddle
+                            elide: Text.ElideLeft
+                            text: "Microphone"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
                             Layout.fillWidth: true
+                        }
+
+                        Label {
+                            id: microphonePermissionStatusLabel
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            font.pointSize: baseFontSize * 0.9
                         }
                     }
 
                     RowLayout {
                         spacing: 10 * scaleFactor
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
+
+                        Controls.FloatActionButton {
+                            id: bluetoothButton
+
+                            onIconClicked: {
+                                permissionDialog.permission = PermissionDialog.PermissionDialogTypeBluetooth;
+                                permissionDialog.open()
+                            }
+                        }
+
+                        Label {
+                            id: bluetoothPermissionLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideLeft
+                            text: "Bluetooth"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
+                            id: bluetoothPermissionStatusLabel
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            font.pointSize: baseFontSize * 0.9
+                        }
+                    }
+
+                    RowLayout {
+                        spacing: 10 * scaleFactor
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
                         Controls.FloatActionButton {
                             id: cameraButton
@@ -113,16 +174,29 @@ App {
                         }
 
                         Label {
+                            id: cameraPermissionLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideLeft
+                            text: "Camera"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
                             id: cameraPermissionStatusLabel
                             font.pointSize: baseFontSize * 0.9
-                            elide: Text.ElideMiddle
-                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         }
                     }
 
                     RowLayout {
                         spacing: 10 * scaleFactor
                         visible: !isIOS || true
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
                         Controls.FloatActionButton {
                             id: storagePermissionButton
@@ -133,62 +207,150 @@ App {
                         }
 
                         Label {
+                            id: storagePermissionLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideLeft
+                            text: "Storage"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
                             id: storagePermissionStatusLabel
                             font.pointSize: baseFontSize * 0.9
-                            elide: Text.ElideMiddle
-                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         }
                     }
 
                     RowLayout {
                         spacing: 10 * scaleFactor
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
                         Controls.FloatActionButton {
                             id: locationWhenInUseButton
 
                             onIconClicked: {
+                                if (isIOS)
+                                    if(getServiceStatusToString(Permission.serviceStatus(Permission.LocationService)) === "PoweredOff")
+                                        locationServiceNotification.open();
+
                                 permissionDialog.permission = PermissionDialog.PermissionDialogTypeLocationWhenInUse;
                                 permissionDialog.open()
                             }
                         }
 
                         Label {
+                            id: locationWhenInUsePermissionLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideLeft
+                            text: isIOS?"Location When in Use":"Location"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
                             id: locationWhenInUsePermissionStatusLabel
                             font.pointSize: baseFontSize * 0.9
-                            elide: Text.ElideMiddle
-                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         }
                     }
 
                     RowLayout {
                         spacing: 10 * scaleFactor
                         visible: isIOS
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
                         Controls.FloatActionButton {
                             id: locationAlwaysInUseButton
 
                             onIconClicked: {
+                                if (isIOS)
+                                    if(getServiceStatusToString(Permission.serviceStatus(Permission.LocationService)) === "PoweredOff")
+                                        locationServiceNotification.open();
+
                                 permissionDialog.permission = PermissionDialog.PermissionDialogTypeLocationAlwaysInUse;
                                 permissionDialog.open()
                             }
                         }
 
                         Label {
+                            id: locationAlwaysInUsePermissionLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideLeft
+                            text: "Location Always In Use"
+                            Layout.alignment: Qt.AlignRight
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        Label {
                             id: locationAlwaysInUsePermissionStatusLabel
                             font.pointSize: baseFontSize * 0.9
-                            elide: Text.ElideMiddle
-                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         }
                     }
 
                     Label {
-                        text: "Note: this functionality is designed on iOS and Android"
-                        Layout.leftMargin: 15 * scaleFactor
-                        Layout.preferredWidth: parent.width - 15
-                        maximumLineCount: 2
-                        wrapMode: Label.WordWrap
-                        color: "#8f499c"
+                        text: "Service Status"
+                        font.pointSize: baseFontSize *1.1
+                        Layout.alignment: Qt.AlignLeft
                         font.bold: true
+                        Layout.fillWidth: true
+                    }
+
+                    RowLayout {
+                        spacing: 10 * scaleFactor
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
+
+                        Image {
+                            id: services
+
+                            Layout.preferredWidth: 56 * scaleFactor
+                            Layout.preferredHeight: Layout.preferredWidth
+                            Material.elevation: 6
+                            source: "./assets/service.svg"
+                            fillMode: Image.Pad
+                        }
+
+                        Label {
+                            id: servicesStatusLabel
+                            font.pointSize: baseFontSize * 0.9
+                            elide: Text.ElideMiddle
+                            Layout.fillWidth: true
+                            text: "Location Service: %1\nBluetooth Service: %2".arg(getServiceStatusToString(Permission.serviceStatus(Permission.LocationService)))
+                            .arg(getServiceStatusToString(Permission.serviceStatus(Permission.BluetoothService)))
+                        }
+
+                        Controls.FloatActionButton {
+                            id: serviceRefreshButton
+
+                            imageSource: "./assets/refresh-24px.png"
+                            onIconClicked: {
+                                servicesStatusLabel.text = "Location Service: %1\nBluetooth Service: %2".arg(getServiceStatusToString(Permission.serviceStatus(Permission.LocationService)))
+                                .arg(getServiceStatusToString(Permission.serviceStatus(Permission.BluetoothService)))
+                            }
+                        }
+                    }
+
+                    Label {
+                        id: notificationLabel
+                        Layout.alignment: Qt.AlignCenter
+                        font.pointSize: baseFontSize * 0.9
+                        elide: Text.ElideMiddle
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: "(You can manage the services via device settings)"
                     }
                 }
             }
@@ -212,6 +374,23 @@ App {
         }
     }
 
+    function getServiceStatusToString(status) {
+        switch (status) {
+        case Permission.ServiceStatusUnknown:
+            return "Unknown";
+        case Permission.ServiceStatusReset:
+            return "Reset";
+        case Permission.ServiceStatusUnsupported:
+            return "Unsupported";
+        case Permission.ServiceStatusUnauthorized:
+            return "Unauthorized";
+        case Permission.ServiceStatusPoweredOff:
+            return "PoweredOff";
+        case Permission.ServiceStatusPoweredOn:
+            return "PoweredOn";
+        }
+    }
+
     // sample ends here ------------------------------------------------------------------------
     Controls.DescriptionPage {
         id: descPage
@@ -220,7 +399,7 @@ App {
 
     PermissionDialog {
         id: permissionDialog
-        openSettingsWhenDenied: openSettings.checkState === Qt.Checked
+        openSettingsWhenDenied: openSettings.checked === true
 
         onRejected: {
             processPermissionResult(permission, false)
@@ -231,52 +410,76 @@ App {
         }
     }
 
+    Dialog{
+        id: locationServiceNotification
+        clip: true
+        anchors.centerIn: parent
+        modal: true
+        standardButtons: Dialog.Ok
+        width: Math.min(0.9 * app.width, 400*AppFramework.displayScaleFactor)
+        Material.accent: "#8f499c"
+        Text {
+            id:textLabel
+            anchors.fill: parent
+            anchors.centerIn: parent
+            text: qsTr( "The location service needs to be turned on in the device settings in order to make permission request." )
+            wrapMode: Text.WordWrap
+        }
+    }
+
     function processPermissionResult(perm, result) {
         switch(perm) {
         case PermissionDialog.PermissionDialogTypeMicrophone:
             microphoneButton.imageSource = result ? "./assets/microphone.png" : "./assets/microphone_off.png"
-            microphonePermissionStatusLabel.text = "Microphone Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            microphonePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeMicrophone))
             break;
 
         case PermissionDialog.PermissionDialogTypeLocationAlwaysInUse:
-            locationWhenInUseButton.imageSource = result ? "./assets/location.png" : "./assets/location_off.png"
-            locationWhenInUsePermissionStatusLabel.text = "Location Permission Status: %1".arg(result ?  "Granted" : "Denied")
             locationAlwaysInUseButton.imageSource = result ? "./assets/location.png" : "./assets/location_off.png"
-            locationAlwaysInUsePermissionStatusLabel.text = "Location Always In Use Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            locationAlwaysInUsePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeLocationAlwaysInUse))
+            refreshPermissions();
             break;
 
         case PermissionDialog.PermissionDialogTypeBluetooth:
             bluetoothButton.imageSource = result ? "./assets/bluetooth.png" : "./assets/bluetooth_off.png"
-            bluetoothPermissionStatusText.text = "Bluetooth Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            bluetoothPermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeBluetooth))
+            refreshPermissions();
             break;
 
         case PermissionDialog.PermissionDialogTypeCamera:
             cameraButton.imageSource = result ? "./assets/camera.png" : "./assets/camera_off.png"
-            cameraPermissionStatusLabel.text = "Camera Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            cameraPermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeCamera))
             break;
 
         case PermissionDialog.PermissionDialogTypeLocationWhenInUse:
             locationWhenInUseButton.imageSource =  result? "./assets/location.png" : "./assets/location_off.png"
-            locationWhenInUsePermissionStatusLabel.text = "Location Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            locationWhenInUsePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeLocationWhenInUse))
+            refreshPermissions();
             break;
 
         case PermissionDialog.PermissionDialogTypeStorage:
             storagePermissionButton.imageSource = result ? "./assets/storage.png" : "./assets/storage_off.png"
-            storagePermissionStatusLabel.text = "Storage Permission Status: %1".arg(result ?  "Granted" : "Denied")
+            storagePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeStorage))
             break;
         }
     }
 
-    Component.onCompleted: {
+    function refreshPermissions(){
         microphoneButton.imageSource = Permission.checkPermission(Permission.PermissionTypeMicrophone) === Permission.PermissionResultGranted ? "./assets/microphone.png" : "./assets/microphone_off.png"
-        microphonePermissionStatusLabel.text = "Microphone Permission Status: %1".arg(processPermission(Permission.PermissionTypeMicrophone))
+        microphonePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeMicrophone))
+        bluetoothButton.imageSource = Permission.checkPermission(Permission.PermissionTypeBluetooth) === Permission.PermissionResultGranted ? "./assets/bluetooth.png" : "./assets/bluetooth_off.png"
+        bluetoothPermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeBluetooth))
         cameraButton.imageSource = Permission.checkPermission(Permission.PermissionTypeCamera) === Permission.PermissionResultGranted ? "./assets/camera.png" : "./assets/camera_off.png"
-        cameraPermissionStatusLabel.text = "Camera Permission Status: %1".arg(processPermission(Permission.PermissionTypeCamera))
+        cameraPermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeCamera))
         storagePermissionButton.imageSource = Permission.checkPermission(Permission.PermissionTypeStorage) === Permission.PermissionResultGranted ? "./assets/storage.png" : "./assets/storage_off.png"
-        storagePermissionStatusLabel.text = "Storage Permission Status: %1".arg(processPermission(Permission.PermissionTypeStorage))
+        storagePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeStorage))
         locationWhenInUseButton.imageSource = Permission.checkPermission(Permission.PermissionTypeLocationWhenInUse) === Permission.PermissionResultGranted ? "./assets/location.png" : "./assets/location_off.png"
-        locationWhenInUsePermissionStatusLabel.text = "Location Permission Status: %1".arg(processPermission(Permission.PermissionTypeLocationWhenInUse))
+        locationWhenInUsePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeLocationWhenInUse))
         locationAlwaysInUseButton.imageSource = Permission.checkPermission(Permission.PermissionTypeLocationAlwaysInUse) === Permission.PermissionResultGranted ? "./assets/location.png" : "./assets/location_off.png"
-        locationAlwaysInUsePermissionStatusLabel.text = "Background Location Permission Status: %1".arg(processPermission(Permission.PermissionTypeLocationAlwaysInUse))
+        locationAlwaysInUsePermissionStatusLabel.text = "%1".arg(processPermission(Permission.PermissionTypeLocationAlwaysInUse))
+    }
+
+    Component.onCompleted: {
+        refreshPermissions();
     }
 }

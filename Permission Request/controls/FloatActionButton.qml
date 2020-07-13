@@ -10,7 +10,7 @@ RoundButton {
     signal iconClicked()
     property alias colorOverlay: colorOverlay
 
-    Layout.preferredWidth: 56 * scaleFactor
+    Layout.preferredWidth: 45 * scaleFactor
     Layout.preferredHeight: Layout.preferredWidth
     Material.elevation: 6
     Material.background:"#8f499c"

@@ -72,36 +72,29 @@ App {
                                                           "AppStudio Version:" + AppFramework.version
                 html: true
 
-                onComposeError: {
-                    messageDialog.open()
+                onErrorChanged: {
+                    var reason = error.errorCode
                     switch (reason) {
-                    case EmailComposer.InValidAttachment:
-                        message.text = qsTr("Invalid attachment.")
-                        break
-                    case EmailComposer.AttachmentFileNotFound:
-                        message.text = qsTr("Cannot find attachment.")
-                        break
-                    case EmailComposer.MailClientOpenFailed:
-                        message.text = qsTr("Cannot open mail client.")
-                        break
-                    case EmailComposer.MailServiceNotConfigured:
-                        message.text = qsTr("Mail service not configured.")
-                        break
-                    case EmailComposer.PlatformNotSupported:
-                        message.text = qsTr("Platform not supported.")
-                        break
-                    case EmailComposer.SendFailed:
-                        message.text = qsTr("Failed to send email.")
-                        break
-                    case EmailComposer.SaveFailed:
-                        message.text = qsTr("Failed to save email.")
+                    case EmailComposerError.ErrorInvalidRequest:
+                        message.text = qsTr("Invalid Request");
                         break;
-                    case EmailComposer.Cancelled:
-                        message.text = qsTr("Cancelled.")
-                        break
+                    case EmailComposerError.ErrorServiceMissing:
+                        message.text = qsTr("Mail service not configured.")
+                        break;
+                    case EmailComposerError.ErrorFileRead:
+                        message.text = qsTr("Invalid attachment.")
+                        break;
+                    case EmailComposerError.ErrorPermission:
+                        message.text = qsTr("Permission Error")
+                        break;
+                    case EmailComposerError.ErrorNotSupportedFeature:
+                        message.text = qsTr("Platform not supported.")
+                        break;
                     default:
                         message.text = qsTr("Unknown error.")
                     }
+
+                    messageDialog.open();
                 }
             }
 
@@ -133,7 +126,7 @@ App {
 
                     onClicked: {
                         console.log("all paths", internalStorage)
-                        console.log("cuurent storage", internalStorage[internalStorage.length-1] + "/images/test.png")
+                        console.log("current storage", internalStorage[internalStorage.length-1] + "/images/test.png")
 
                         if (AppFramework.osName === "Android") {
                             fileFolder.path = internalPath;
