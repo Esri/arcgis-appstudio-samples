@@ -2,9 +2,9 @@ import QtQuick 2.0
 
 Item {
     // Colors
-    readonly property color primaryColor: "#0069c0"
+    readonly property color primaryColor: "#8f499c"
     readonly property color secondaryColor: "#ffffff"
-    readonly property color toolbarColor: "#003f8f"
+    readonly property color toolbarColor: "#8f499c"
     readonly property color tertiaryColor:"#ba5000"
     readonly property color lighGreyBackgroundColor: "#ededed"
     readonly property color btnColor:"#808080"

@@ -41,8 +41,8 @@ import "./BluetoothPlugin/controls"
 App {
     id: app
 
-    width: 414
-    height: 736
+    width: 480
+    height: 640
 
     property var currentPosition: bluetoothSourceManager.controller.positionSource
     property var imageData

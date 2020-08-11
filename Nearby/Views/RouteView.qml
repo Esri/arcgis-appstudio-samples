@@ -289,8 +289,8 @@ Item {
     OAuthClientInfo {
         id: clientInfo
 
-        clientId: "<<YOU CLIENT ID GOES HERE>>"
-        clientSecret: "<<YOUR CLIENT SECRET GOES HERE>>"
+        clientId: app.clientId
+        clientSecret: app.clientSecret
         oAuthMode: Enums.OAuthModeApp
     }
 
@@ -417,9 +417,11 @@ Item {
     }
 
     function getRoute() {
-        /********** REMOVE SECTION AFTER ADDING CLIENTID AND CLIENTSECRET ON LINE 293 ***************/
-        messageDialog.open();
-        return;
+        /********** ****************************************************************** ***************/
+        if(app.clientId === null || app.clientSecret === null){
+            messageDialog.open();
+            return;
+        }
         /********************************************************************************************/
         if(deviceManager.isOnline) {
             directionsDrawer.close();

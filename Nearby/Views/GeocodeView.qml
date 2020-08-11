@@ -499,11 +499,18 @@ Item {
                 point = GeometryEngine.project(point, mapView.spatialReference);
                 var pointJson = JSON.stringify(point.json);
                 var distance = GeometryEngine.distance(point, currentPoint);
+                var distanceInMeters = distance.toFixed(0);
+                var distanceInKMeters = (distance/1000);
+                distanceInKMeters = distanceInKMeters<10?distanceInKMeters.toFixed(2):distanceInKMeters.toFixed(0);
                 var distanceInMile = (distance/1609.34);
                 distanceInMile = distanceInMile<10? distanceInMile.toFixed(2):distanceInMile.toFixed(0);
                 var distanceInFeet = (distance/0.3048).toFixed(0);
                 var distanceText = "";
-                if(distanceInMile<1000)distanceText = distanceInFeet < 528 ? distanceInFeet+qsTr(" ft") : distanceInMile+qsTr(" mi");
+                if(app.deviceManager.localeInfoNameIsEn_US){
+                    if(distanceInMile<1000)distanceText = distanceInFeet < 528 ? distanceInFeet+qsTr(" ft") : distanceInMile+qsTr(" mi");
+                }else{
+                    if(distanceInKMeters<1000)distanceText = distanceInMeters < 100 ? distanceInMeters+qsTr(" m") : distanceInKMeters+qsTr(" km");
+                }
                 var name = e.label;
                 var address = ((e.attributes.Place_addr).split(","))[0];
                 var phone = e.attributes.Phone;

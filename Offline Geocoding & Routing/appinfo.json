@@ -1,8 +1,25 @@
 {
+    "appLink": "",
     "arcgisRuntime": 1002,
     "capabilities": {
         "audio": false,
-        "backgroundLocation": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
         "biometricAuthentication": false,
         "bluetooth": false,
         "camera": false,
@@ -21,16 +38,24 @@
     },
     "deployment": {
         "android": {
+            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
+        "publisherName": "",
+        "shortcutName": "",
         "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -56,6 +81,9 @@
             "landscape": true,
             "portrait": true,
             "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
         }
     },
     "environment": {
@@ -74,6 +102,7 @@
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
+    "urlScheme": "",
     "version": {
         "major": 1,
         "micro": 1

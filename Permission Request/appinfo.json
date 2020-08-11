@@ -1,4 +1,5 @@
 {
+    "appLink": "",
     "arcgisRuntime": 0,
     "capabilities": {
         "audio": true,
@@ -11,6 +12,9 @@
                     "enabled": true
                 }
             },
+            "ios": {
+                "externalAccessory": false
+            },
             "location": {
                 "enabled": true
             }
@@ -22,7 +26,6 @@
         "fileSharing": true,
         "highAccuracyLocation": false,
         "ios": {
-            "backgroundExternalAccessory": false,
             "externalAccessoryProtocolStrings": [
             ]
         },

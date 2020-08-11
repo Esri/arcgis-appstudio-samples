@@ -1,4 +1,5 @@
 {
+    "appLink": "",
     "arcgisRuntime": 1006,
     "capabilities": {
         "audio": true,
@@ -11,6 +12,9 @@
                     "enabled": false
                 }
             },
+            "ios": {
+                "externalAccessory": true
+            },
             "location": {
                 "enabled": false
             }
@@ -22,7 +26,6 @@
         "fileSharing": false,
         "highAccuracyLocation": true,
         "ios": {
-            "backgroundExternalAccessory": true,
             "externalAccessoryProtocolStrings": [
                 "com.bad-elf.gps",
                 "com.eos-gnss.positioningsource",
@@ -41,17 +44,24 @@
     },
     "deployment": {
         "android": {
+            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
+        "publisherName": "",
         "shortcutName": "",
         "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -99,6 +109,7 @@
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
+    "urlScheme": "",
     "version": {
         "major": 1,
         "micro": 6

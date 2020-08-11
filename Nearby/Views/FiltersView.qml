@@ -85,7 +85,7 @@ Drawer {
             }
 
             CheckBox {
-                text: app.deviceManager.localeInfoNameIsEn_US? "10 miles": "20 km"
+                text: app.deviceManager.localeInfoNameIsEn_US? "10 miles": "10 km"
                 Material.accent: app.primaryColor
                 checked: selectedDistance === 2
                 onClicked: {

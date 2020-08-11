@@ -54,6 +54,11 @@ AppLayout {
         property alias deviceManager: deviceManager
         property bool isOnline: deviceManager.isOnline
 
+        
+        readonly property string clientId: app.info.propertyValue("clientId", null)
+        readonly property string clientSecret: app.info.propertyValue("clientSecret", null)
+
+
         MapView {
             id: mapView
 

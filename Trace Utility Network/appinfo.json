@@ -43,17 +43,24 @@
     },
     "deployment": {
         "android": {
+            "packageName": ""
         },
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
+        "publisherName": "",
         "shortcutName": "",
         "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -102,6 +109,7 @@
     },
     "type": "app",
     "universalLink": "",
+    "urlScheme": "",
     "version": {
         "major": 1,
         "micro": 1

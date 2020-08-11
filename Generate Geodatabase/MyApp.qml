@@ -353,18 +353,11 @@ App {
                     hideWindowTimer.restart();
                 }
             }
-
-            FileFolder {
-                url: dataPath
-
-                // create the data path if it does not yet exist
-                Component.onCompleted: {
-                    if (!exists) {
-                        makePath(dataPath);
-                    }
-                }
-            }
         }
+    }
+
+    Component.onCompleted: {
+        AppFramework.fileFolder(dataPath).makeFolder();
     }
 
     // sample ends here ------------------------------------------------------------------------

@@ -1,16 +1,31 @@
 {
+    "appLink": "",
     "arcgisRuntime": 0,
     "capabilities": {
         "audio": true,
-        "backgroundBluetoothCentral": false,
-        "backgroundLocation": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
         "biometricAuthentication": false,
         "bluetooth": true,
         "camera": true,
         "fileSharing": false,
         "highAccuracyLocation": false,
         "ios": {
-            "backgroundExternalAccessory": false,
             "externalAccessoryProtocolStrings": [
             ]
         },

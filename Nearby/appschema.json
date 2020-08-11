@@ -1,0 +1,27 @@
+{
+    "propertiesInfo": {
+        "title": "Nearby Properties",
+        "categoryInfos": [
+            {
+                "title": "Routing Service",
+                "propertyInfos": [
+
+                    {
+                        "type": "string",
+                        "label": "Client ID",
+                        "hint": "Client ID to access ArcGIS Online routing service (https://route.arcgis.com)",
+                        "name": "clientId",
+                        "placeholder": ""
+                    },
+                    {
+                        "type": "string",
+                        "label": "Client Secret",
+                        "hint": "Client Secret to access ArcGIS Online routing service (https://route.arcgis.com)",
+                        "name": "clientSecret",
+                        "placeholder": ""
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,8 +1,47 @@
 {
+    "appLink": "",
+    "capabilities": {
+        "audio": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
+        "biometricAuthentication": false,
+        "bluetooth": false,
+        "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": false,
+        "ios": {
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
+        "localnotification": false,
+        "location": true,
+        "microphone": false,
+        "network": true,
+        "storage": false,
+        "vibration": false
+    },
     "deployment": {
         "android": {
             "packageName": ""
         },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
             "bundleId": "",
             "codeSignIdentity": ""
@@ -10,6 +49,12 @@
         "macos": {
             "bundleId": "",
             "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "shortcutName": "",
+        "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": "",
@@ -22,8 +67,39 @@
     "devicesTypes": [
         "desktop"
     ],
+    "display": {
+        "desktop": {
+            "minimumHeight": 0,
+            "minimumWidth": 0,
+            "windowMode": "default"
+        },
+        "phone": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "tablet": {
+            "landscape": true,
+            "portrait": true,
+            "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
+        }
+    },
+    "launchUrlSchemes": [
+    ],
     "mainFile": "UrlInfoTest.qml",
+    "multipleInstances": true,
     "projectFile": "UrlInfoTest.qmlproject",
+    "properties": {
+    },
+    "resources": {
+        "appIcon": "appicon.png",
+        "launchImageBackground": "launchimage-background.png",
+        "launchImageBackgroundColor": "#ffffff",
+        "launchImageOverlay": "launchimage-overlay.png"
+    },
     "type": "app",
     "urlScheme": "",
     "version": {

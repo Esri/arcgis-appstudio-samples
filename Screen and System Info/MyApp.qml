@@ -22,6 +22,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Window 2.0
 
 import ArcGIS.AppFramework 1.0
+import ArcGIS.AppFramework.Platform 1.0
 import Esri.ArcGISRuntime 100.2
 
 import "controls" as Controls
@@ -54,6 +55,7 @@ App {
             Controls.HeaderBar{}
         }
 
+
         // sample starts here ------------------------------------------------------------------
         contentItem: Rectangle{
             anchors.top:header.bottom
@@ -65,9 +67,10 @@ App {
 
                 Column {
                     id:infoColumn
-                    width: app.width
+                    width: app.width - 20 * scaleFactor
                     anchors.left: parent.left
-                    anchors.leftMargin:  5 * scaleFactor
+                    anchors.leftMargin:  10 * scaleFactor
+                    anchors.rightMargin: 10 * scaleFactor
                     spacing: 3
 
                     Item {
@@ -144,12 +147,103 @@ App {
                     }
 
                     Text {
-                        id: systemInfo
-                        width: 0.95 * parent.width
-                        text: JSON.stringify(AppFramework.systemInformation, undefined, 2)
-                        wrapMode: Text.WordWrap
-                        elide: Text.ElideLeft
+                        id:familyText
+                        text: "family: " + AppFramework.systemInformation.family
                     }
+
+                    Text {
+                        id:manufacturerText
+                        text: "manufacturer: " + AppFramework.systemInformation.manufacturer
+                    }
+
+                    Text {
+                        id:modelText
+                        text: "model: " + AppFramework.systemInformation.model
+                    }
+
+                    Text {
+                        id:unixMachineText
+                        text: "unixMachine: " + AppFramework.systemInformation.unixMachine
+                    }
+
+                    Text {
+                        id:unixNodeNameText
+                        text: "unixNodeName: " + AppFramework.systemInformation.unixNodeName
+                    }
+
+                    Text {
+                        id:unixReleaseText
+                        text: "unixRelease: " + AppFramework.systemInformation.unixRelease
+                    }
+
+                    Text {
+                        id:unixSysNameText
+                        text: "unixSysName: " + AppFramework.systemInformation.unixSysName
+                    }
+
+                    Text {
+                        id:unixVersionText
+                        width:parent.width
+                        text: "unixVersion: " + AppFramework.systemInformation.unixVersion
+                        wrapMode: Text.Wrap
+                    }
+
+                    Text {
+                        id:batterylevel
+                        text: "Battery Level: %1%".arg(Battery.level)
+                    }
+
+                    Text {
+                        id:batteryState
+                        text:{
+                            switch (Battery.state){
+                                case Battery.BatteryStateUnknown:
+                                    return "Battery State: Unknown"
+                                case Battery.BatteryStateNotCharging:
+                                    return "Battery State: Not Charging"
+                                case Battery.BatteryStateDischarging:
+                                    return "Battery State: Discharging"
+                                case Battery.BatteryStateCharging:
+                                    return "Battery State: Charging"
+                                case Battery.BatteryStateFull:
+                                    return "Battery State: Full"
+                                default:
+                                    return Battery.state
+                            }
+
+                        }
+                    }
+
+                    Text {
+                        id:powerSource
+                        text: {
+                            switch (Battery.source) {
+                            case Battery.PowerSourceUnknown:
+                                return "Power Source: Unknown";
+                            case Battery.PowerSourceAC:
+                                return "Power Source: AC";
+                            case Battery.PowerSourceUSB:
+                                return "Power Source: USB​";
+                            case Battery.PowerSourceWireless:
+                                return "Power Source: Wireless";
+                            case Battery.PowerSourceBattery:
+                                return "Power Source: Battery";
+                            }}
+                    }
+
+                    Text {
+                        id: powerMode
+                        text: {
+                            switch (Battery.mode) {
+                            case Battery.PowerModeUnknown:
+                                return "Power Mode: Unknown";
+                            case Battery.PowerModeBalanced:
+                                return "Power Mode: Balanced";
+                            case Battery.PowerModeBatterySaver:
+                                return "Power Mode: BatterySaver​";
+                            }}
+                    }
+
 
                     Item {
                         height: 10 * scaleFactor
@@ -163,7 +257,11 @@ App {
                                                          "\n" + desktopAvailableHeight.text + "\n" + orientation.text + "\n" +
                                                          primaryOrientation.text + "\n" + pixelDensity.text + "\n" +
                                                          logicalPixelDensity.text + "\n" + referenceDPi.text + "\n" +
-                                                         displayScaleFactorT.text + "\n" + systemInfo.text )
+                                                         displayScaleFactorT.text + "\n"
+                                                         + familyText.text + "\n"+ manufacturerText.text + "\n"+ modelText.text + "\n"
+                                                         + unixMachineText.text + "\n"+ unixNodeNameText.text + "\n"+ unixReleaseText.text + "\n"
+                                                         + unixSysNameText.text + "\n"+ unixVersionText.text + "\n"+ batterylevel.text+ "\n"
+                                                         + batteryState.text + "\n" + powerSource.text + "\n" + powerMode.text)
                         }
                     }
                 }

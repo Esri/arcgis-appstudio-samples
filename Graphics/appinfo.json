@@ -1,9 +1,34 @@
 {
+    "appLink": "",
     "arcgisRuntime": 0,
     "capabilities": {
         "audio": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            },
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
+        "biometricAuthentication": false,
         "bluetooth": false,
         "camera": false,
+        "fileSharing": false,
+        "highAccuracyLocation": false,
+        "ios": {
+            "externalAccessoryProtocolStrings": [
+            ]
+        },
         "localnotification": false,
         "location": true,
         "microphone": false,
@@ -13,22 +38,39 @@
     },
     "deployment": {
         "android": {
+            "packageName": ""
         },
+        "arcgisRuntimeExtensionsLicense": "",
+        "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "",
             "codeSignIdentity": ""
+        },
+        "publisherName": "",
+        "shortcutName": "",
+        "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
         }
     },
+    "devicesTypes": [
+        "desktop",
+        "tablet",
+        "phone"
+    ],
     "display": {
         "desktop": {
-            "fullScreen": false,
             "minimumHeight": 0,
-            "minimumWidth": 0
+            "minimumWidth": 0,
+            "windowMode": "default"
         },
         "phone": {
             "landscape": true,
@@ -39,9 +81,15 @@
             "landscape": true,
             "portrait": true,
             "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
         }
     },
+    "launchUrlSchemes": [
+    ],
     "mainFile": "MyApp.qml",
+    "multipleInstances": true,
     "projectFile": "MyApp.qmlproject",
     "properties": {
     },
@@ -52,7 +100,7 @@
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
-    "urlScheme": null,
+    "urlScheme": "",
     "version": {
         "major": 2,
         "micro": 1

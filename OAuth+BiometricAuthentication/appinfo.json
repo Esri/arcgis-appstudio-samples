@@ -1,8 +1,24 @@
 {
+    "appLink": "",
     "arcgisRuntime": 1002,
     "capabilities": {
         "audio": false,
-        "backgroundLocation": false,
+        "backgroundModes": {
+            "audio": {
+                "enabled": false
+            "bluetooth": {
+                "central": {
+                    "enabled": false
+                }
+            },
+            "ios": {
+                "externalAccessory": false
+            },
+            "location": {
+                "enabled": false
+            }
+        },
+        "beacon": false,
         "biometricAuthentication": false,
         "bluetooth": false,
         "camera": false,
@@ -35,6 +51,7 @@
             "codeSignIdentity": ""
         },
         "publisherName": "",
+        "shortcutName": "",
         "uwp": {
             "packageName": "",
             "productID": ""
@@ -64,6 +81,9 @@
             "landscape": true,
             "portrait": true,
             "showStatusBar": true
+        },
+        "windows": {
+            "renderingEngine": "default"
         }
     },
     "environment": {
