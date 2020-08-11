@@ -36,6 +36,7 @@ App {
     property bool isSmallScreen: (width || height) < 400 * scaleFactor
     property bool isIOS: Qt.platform.os === "ios"
     property bool isWin: Qt.platform.os === "windows"
+    property bool isAndroid: Qt.platform.os === "android"
     property url shareURL
     property FileFolder destFolder: AppFramework.userHomeFolder.folder("ArcGIS/AppStudio/Data")
 
@@ -97,7 +98,7 @@ App {
 
                             TextField {
                                 id:inputText
-                                placeholderText: "Enter Text or Url"
+                                placeholderText: AppFramework.clipboard.supportsShare?"Enter Text or Url":qsTr("Sharing via Clipboard is not supported.")
                                 font.pixelSize: baseFontSize
                                 Material.accent: "#8f499c"
                                 Layout.fillWidth: true
@@ -122,6 +123,8 @@ App {
                                     Button {
                                         text: "Share as text"
 
+                                        enabled: AppFramework.clipboard.supportsShare === true
+
                                         onClicked: {
                                             if (inputText.text.length > 0) {
                                                 AppFramework.clipboard.share(inputText.text)
@@ -137,6 +140,8 @@ App {
 
                                     Button {
                                         text: "Share as Url"
+
+                                        enabled: AppFramework.clipboard.supportsShare === true
 
                                         onClicked: {
                                             if (inputText.text.length > 0) {
@@ -232,7 +237,25 @@ App {
 
                             Button {
                                 id: viewFile
-                                text: qsTr("View and share File")
+                                text: qsTr("View File")
+                                Layout.alignment: Qt.AlignLeft
+                                Layout.leftMargin: 16 * scaleFactor
+                                enabled: selectedFilePath.text.length > 0
+
+                                onClicked: {
+                                    AppFramework.openUrlExternally(shareURL)
+                                }
+                            }
+
+                            Item {
+                                Layout.preferredHeight: 8 * scaleFactor
+                                Layout.alignment: Qt.AlignLeft
+                                Layout.leftMargin: 16 * scaleFactor
+                            }
+
+                            Button {
+                                id: shareFile
+                                text: qsTr("Share File")
                                 Layout.alignment: Qt.AlignLeft
                                 Layout.leftMargin: 16 * scaleFactor
                                 enabled: selectedFilePath.text.length > 0
@@ -275,10 +298,18 @@ App {
         id: doc
 
         onAccepted: {
-            shareURL = AppFramework.resolvedPathUrl(filePath)
-            selectedFilePath.text = "Selected File Path: " + shareURL
+            shareURL = fileUrl
+
             selectedFilePath.visible = true
-            selectedFileName.text = "Selected File Name: " + filePath.replace(/^.*[\\\/]/, '')
+            var fileInfo = AppFramework.fileInfo(shareURL.toString().replace(Qt.platform.os == "windows"? "file:///": "file://",""));
+            var fileFolder = AppFramework.fileFolder(shareURL.toString().replace(Qt.platform.os == "windows"? "file:///": "file://",""))
+            selectedFileName.text = "Selected File Name: " + fileInfo.fileName
+
+            //in android system, document dialog returns the content uri of the file instead of file url
+            if(isAndroid)
+                selectedFilePath.text = "Selected Content Uri: " + fileInfo.filePath
+            else
+                selectedFilePath.text = "Selected File Path: " + fileInfo.filePath
             selectedFileName.visible = true
         }
 
