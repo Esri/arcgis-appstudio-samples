@@ -22,10 +22,7 @@ RowLayout{
         maximumLineCount: 2
         wrapMode: Text.Wrap
         elide: Text.ElideRight
-        anchors{
-            verticalCenter: parent.verticalCenter
-            horizontalCenter: parent.horizontalCenter
-        }
+        Layout.alignment: Qt.AlignCenter
     }
 
     Rectangle{
