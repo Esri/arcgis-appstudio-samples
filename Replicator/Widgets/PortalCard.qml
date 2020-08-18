@@ -72,7 +72,7 @@ Rectangle {
                     imageSource: thumbnail > "" ? thumbnail : sources.placeholder
                     fillMode: Image.PreserveAspectCrop
                     mipmap: true
-                    anchors.top: parent.top
+                    Layout.alignment:Qt.AlignTop
                     radius: 24 * scaleFactor
                     clip: true
                 }
@@ -142,8 +142,8 @@ Rectangle {
                 IconImage {
                     Layout.preferredHeight: 22 * scaleFactor
                     Layout.preferredWidth: 22 * scaleFactor
-                    anchors.top: parent.top
-                    anchors.topMargin: 15 * scaleFactor
+                    Layout.alignment: Qt.AlignTop
+                    Layout.topMargin: 15 * scaleFactor
                     source: sources.editImage
                     color: colors.primary_color
                     visible: editEnabled

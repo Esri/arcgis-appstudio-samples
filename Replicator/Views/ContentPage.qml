@@ -37,7 +37,7 @@ Page {
 
         Label {
             Layout.preferredWidth: parent.width - 32 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment:Qt.AlignHCenter
             text: strings.step_no.arg(2)
             font {
                 weight: Font.Normal
@@ -53,7 +53,7 @@ Page {
 
         Label {
             Layout.preferredWidth: parent.width - 32 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             text: strings.step2_description
             font {
                 weight: Font.Normal
@@ -282,7 +282,7 @@ Page {
                     IconImage {
                         Layout.preferredWidth: 21 * scaleFactor
                         Layout.preferredHeight: 21 * scaleFactor
-                        anchors.verticalCenter: parent.verticalCenter
+                        Layout.alignment: Qt.AlignVCenter
                         color: colors.primary_color
                         source: itemId === selectedItemId ? sources.radio_checked : sources.radio_unchecked
                     }

@@ -87,7 +87,6 @@ Page {
 
                 Layout.fillWidth: true
                 Material.accent: colors.primary_color
-                inputMethodHints: Qt.ImhUrlCharactersOnly
                 selectByMouse: true
 
                 font {

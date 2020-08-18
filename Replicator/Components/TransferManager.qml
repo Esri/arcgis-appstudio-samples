@@ -85,6 +85,7 @@ Item {
         if(path > "") networkRequest.responsePath = path;
         networkRequest.responseType = responseType;
         networkRequest.params = params;
+        networkRequest.method = method
         _action = getActionName(action);
         networkRequest.send(obj);
     }

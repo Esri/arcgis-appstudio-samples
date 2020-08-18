@@ -24,7 +24,7 @@ Item {
         Item {
             Layout.preferredWidth: 120 * scaleFactor
             Layout.preferredHeight: 120 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             AnimatedImage {
                 width: 100 * scaleFactor
                 height: width
@@ -45,7 +45,7 @@ Item {
             leftPadding: rightPadding
             rightPadding: 0
             horizontalAlignment: Label.AlignHCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment:Qt.AlignHCenter
             font {
                 weight: Font.Medium
                 pixelSize: 16 * scaleFactor
@@ -65,7 +65,7 @@ Item {
             leftPadding: rightPadding
             rightPadding: 0
             horizontalAlignment: Label.AlignHCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment:Qt.AlignHCenter
             font {
                 weight: Font.Medium
                 pixelSize: 16 * scaleFactor
@@ -94,7 +94,7 @@ Item {
         Label {
             text: resultState === 3 ? strings.step4_success : strings.step4_failed
             horizontalAlignment: Label.AlignHCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             font {
                 weight: Font.Normal
                 pixelSize: 24 * scaleFactor
@@ -112,8 +112,8 @@ Item {
             Layout.preferredWidth: Math.min(parent.width - 104 * scaleFactor, 256 * scaleFactor)
             Layout.preferredHeight: Math.min(parent.width - 104 * scaleFactor, 256 * scaleFactor)
             source: resultState === 3 ? sources.success_image : sources.failed_image
-            fillMode: Image.PreserveAspectFit
-            anchors.horizontalCenter: parent.horizontalCenter
+            fillMode: Image.PreserveAspectFit            
+            Layout.alignment: Qt.AlignHCenter
         }
 
         Item {
@@ -123,7 +123,7 @@ Item {
 
         Button {
             Layout.preferredWidth: 192 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment:Qt.AlignHCenter
             topPadding: 9 * scaleFactor
             bottomPadding: topPadding
             rightPadding: 24 * scaleFactor
@@ -154,7 +154,7 @@ Item {
 
         Button {
             Layout.preferredWidth: 192 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             topPadding: 9 * scaleFactor
             bottomPadding: topPadding
             rightPadding: 24 * scaleFactor
@@ -182,7 +182,38 @@ Item {
 
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: 79 * scaleFactor
+            Layout.preferredHeight: 8 * scaleFactor
+            visible: resultState !== 3
+        }
+
+        Button {
+            Layout.preferredWidth: 192 * scaleFactor
+            Layout.alignment: Qt.AlignHCenter
+            topPadding: 9 * scaleFactor
+            bottomPadding: topPadding
+            rightPadding: 24 * scaleFactor
+            leftPadding: rightPadding
+            visible: resultState !== 3
+
+            text:  strings.back
+            Material.foreground: colors.white_100
+            Material.background: colors.primary_color
+
+            font {
+                weight: Font.Medium
+                pixelSize: 14 * scaleFactor
+            }
+
+            onClicked: {
+                var item = stackView.get(1);
+                stackView.pop(item);
+            }
+
+        }
+
+        Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 79 * scaleFactor - (resultState !==3 ? 48 * scaleFactor : 0)
         }
     }
 

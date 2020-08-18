@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.2
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.WebView 1.0
+import ArcGIS.AppFramework.Networking 1.0
 
 import "../Widgets"
 

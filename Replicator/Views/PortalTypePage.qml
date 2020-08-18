@@ -87,8 +87,7 @@ Page {
                 Layout.preferredHeight: parent.width * 0.49
 
                 RowLayout {
-                    height: parent.height
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.fill: parent
                     spacing: 0
 
                     Rectangle {
@@ -111,7 +110,7 @@ Page {
                                 Layout.preferredHeight: parent.width * 0.31
                                 source: sources.ago_portal
                                 color: colors.primary_color
-                                anchors.horizontalCenter: parent.horizontalCenter
+                                Layout.alignment: Qt.AlignHCenter
                             }
 
                             Item {
@@ -126,7 +125,7 @@ Page {
                                     pixelSize: 14 * scaleFactor
                                 }
                                 color: colors.black_87
-                                anchors.horizontalCenter: parent.horizontalCenter
+                                Layout.alignment: Qt.AlignHCenter
                             }
                         }
 
@@ -140,7 +139,7 @@ Page {
                     }
 
                     Item {
-                        Layout.preferredWidth: parent.width * 0.02
+                        Layout.fillWidth: true
                         Layout.fillHeight: true
                     }
 
@@ -164,7 +163,7 @@ Page {
                                 Layout.preferredHeight: parent.width * 0.31
                                 source: sources.enterpise_portal
                                 color: colors.primary_color
-                                anchors.horizontalCenter: parent.horizontalCenter
+                                Layout.alignment: Qt.AlignHCenter
                             }
 
                             Item {
@@ -179,7 +178,7 @@ Page {
                                     pixelSize: 14 * scaleFactor
                                 }
                                 color: colors.black_87
-                                anchors.horizontalCenter: parent.horizontalCenter
+                                Layout.alignment: Qt.AlignHCenter
                             }
                         }
 

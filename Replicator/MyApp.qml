@@ -19,6 +19,10 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 
 import ArcGIS.AppFramework 1.0
+import ArcGIS.AppFramework.Networking 1.0
+
+import ArcGIS.AppFramework.Networking 1.0
+
 
 import "./Assets" as Assets
 import "./Components"
@@ -35,7 +39,7 @@ App {
 
     property bool isUserLoggedInPortalA: false
     property bool isUserLoggedInPortalB: false
-    readonly property string appClientId: app.info.json.deployment.clientId
+    readonly property string appClientId: app.info.json.deployment.clientId?app.info.json.deployment.clientId:""
     readonly property string appPortalUrl: "https://www.arcgis.com"
 
     property var tempStackViewItem
