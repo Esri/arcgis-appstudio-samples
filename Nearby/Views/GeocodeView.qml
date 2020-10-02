@@ -402,7 +402,7 @@ Item {
     LocatorTask {
         id: locatorTask
 
-        url: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+        url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
         suggestions.suggestParameters: SuggestParameters{
             maxResults: 10
         }
