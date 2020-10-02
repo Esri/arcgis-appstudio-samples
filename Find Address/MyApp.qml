@@ -111,7 +111,7 @@ App {
                 // Create a locator task using the World Geocoding Service
                 LocatorTask {
                     id: locatorTask
-                    url: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+                    url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
 
                     // handle the result once the geocode status is complete
                     onGeocodeStatusChanged: {
