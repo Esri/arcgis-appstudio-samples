@@ -304,7 +304,7 @@ Item {
     RouteTask {
         id: routeTask
 
-        url:"http://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World"
+        url:"https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World"
         credential: cred
 
         // Request default parameters once the task is loaded
