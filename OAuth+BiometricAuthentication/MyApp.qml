@@ -40,7 +40,7 @@ App {
 
     property real scaleFactor: AppFramework.displayScaleFactor
     property int baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isSmallScreen ? 0 : 3)
-    property bool isSmallScreen: (width || height) < units(400)
+    property bool isSmallScreen: (width || height) < 400 * scaleFactor
 
     property color primaryColor: "#7461A8"
     property alias stackView: stackView
@@ -129,7 +129,7 @@ App {
         }
 
         isAutoSignIn = app.settings.value("appAutoSignIn",true);
-        isBioAuth = app.settings.value("appBioAuth");
+        isBioAuth = app.settings.value("appBioAuth",true);
 
         if (isAutoSignIn) {
             if (isBioAuth && canUseBioAuth  ) {

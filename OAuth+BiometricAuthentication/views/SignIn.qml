@@ -52,7 +52,7 @@ Rectangle {
             mipmap: true
             width: 165 * scaleFactor
             height: width
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -64,7 +64,7 @@ Rectangle {
         Label {
             Layout.fillWidth: true
             wrapMode: Label.WrapAtWordBoundaryOrAnywhere
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             font.bold: true
             color: "white"
             elide: Label.ElideRight
@@ -82,7 +82,7 @@ Rectangle {
             id: signinButton
             Layout.preferredWidth: 150 * scaleFactor
             Layout.preferredHeight: 50 * scaleFactor
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             text: qsTr("Sign In")
             Material.background: "white"
             Material.foreground: primaryColor

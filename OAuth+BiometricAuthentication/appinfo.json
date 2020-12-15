@@ -6,6 +6,7 @@
         "backgroundModes": {
             "audio": {
                 "enabled": false
+            },
             "bluetooth": {
                 "central": {
                     "enabled": false

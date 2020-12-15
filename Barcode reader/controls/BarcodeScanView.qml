@@ -259,37 +259,38 @@ Rectangle {
 
             RowLayout {
                 Layout.fillWidth: true
+                Layout.preferredHeight: closeBtn.height
+                spacing: 0
 
-                Item {
+                TextField {
                     Layout.fillWidth: true
+
+                    text: qsTr("Scanned %1").arg(getElapsedString(currentTime - decodedTime))
+                    readOnly: true
+                    selectByMouse: true
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    horizontalAlignment: Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                    color: "grey"
                 }
 
                 Button {
+                    id:closeBtn
                     text: "X"
 
                     onClicked: resultPopup.close()
                 }
             }
 
-            TextField {
-                Layout.fillWidth: true
-
-                text: qsTr("Scanned %1").arg(getElapsedString(currentTime - decodedTime))
-                readOnly: true
-                selectByMouse: true
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                color: "grey"
-            }
-
             RowLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-
                 spacing: units(10)
 
                 ColumnLayout {
+                    Layout.fillHeight: true
                     Layout.preferredWidth: units(64)
-                    Layout.preferredHeight: units(80)
+                    spacing: units(10)
 
                     Rectangle {
                         Layout.preferredWidth: units(64)
@@ -298,23 +299,25 @@ Rectangle {
                         color: "white"
 
                         Image {
-                            width: units(64)
-                            height: units(64)
+                            visible: source > ""
+                            anchors.fill: parent
 
-                            source: "../assets/codes/%1.png".arg(decodedBarcodeTypeString)
+                            source: decodedBarcodeTypeString > ""? "../assets/codes/%1.png".arg(decodedBarcodeTypeString):""
                         }
                     }
 
-                    Text {
+                    Label {
                         Layout.preferredWidth: units(64)
                         text: decodedBarcodeTypeString
                         horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignTop
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         color: "yellow"
                     }
 
                     Item {
                         Layout.fillHeight: true
+                        Layout.preferredWidth: units(64)
                     }
                 }
 
@@ -323,6 +326,7 @@ Rectangle {
                     Layout.fillHeight: true
 
                     verticalAlignment: Text.AlignTop
+                    horizontalAlignment: Text.AlignLeft
                     text: decodedBarcode
                     selectByMouse: true
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere

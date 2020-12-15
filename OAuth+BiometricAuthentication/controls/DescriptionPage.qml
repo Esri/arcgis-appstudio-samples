@@ -52,9 +52,19 @@ Page {
                 color:"white"
                 font.pixelSize: app.baseFontSize * 1.1
                 font.bold: true
-                anchors.centerIn: parent
+                Layout.alignment: Qt.AlignCenter
                 maximumLineCount: 2
                 elide: Text.ElideRight
+            }
+
+            Item {
+                Layout.preferredWidth: 42 * app.scaleFactor
+                Layout.fillHeight: true
+            }
+
+            Item {
+                Layout.preferredWidth: 0.2 * app.scaleFactor
+                Layout.fillHeight: true
             }
         }
     }

@@ -18,7 +18,7 @@ import "../controls" as Controls
 Page {
     id: profilePage
 
-    property var user: securityPortal.portalUser
+    property var user: securityPortal ? securityPortal.portalUser : ""
     property Portal myportal: portal
     property LocaleInfo localeInfo: AppFramework.localeInfo(Qt.locale().uiLanguages[0])
 
@@ -66,7 +66,7 @@ Page {
     ColumnLayout {
         id: userDetailsColumn
         width: parent.width
-        visible: securityPortal.loadStatus === Enums.LoadStatusLoaded
+        visible: securityPortal && securityPortal.loadStatus === Enums.LoadStatusLoaded
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: 0
 
@@ -112,7 +112,7 @@ Page {
                         smooth: true
                         visible: false
                         sourceSize: Qt.size(parent.width, parent.height)
-                        source: user.thumbnailUrl
+                        source: user ? user.thumbnailUrl : ""
                     }
 
                     Rectangle {
@@ -129,11 +129,15 @@ Page {
                     }
                 }
 
+                Item {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                }
+
                 Label {
-                    text: user.fullName
+                    text: user ? user.fullName : ""
                     font.pixelSize: 16
-                    anchors.right: parent.right
-                    anchors.rightMargin: 25 * scaleFactor
+                    rightPadding: 25 * scaleFactor
                     color:"#444444"
                 }
             }
@@ -278,7 +282,7 @@ Page {
     BusyIndicator {
         anchors.centerIn: parent
         Material.accent: primaryColor
-        running: securityPortal.loadStatus === Enums.LoadStatusLoading
+        running: securityPortal && securityPortal.loadStatus === Enums.LoadStatusLoading
     }
 
     Controls.ToastMessage {
