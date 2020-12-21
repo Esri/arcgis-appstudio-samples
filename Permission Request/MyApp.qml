@@ -34,6 +34,7 @@ App {
     property int baseFontSize: app.info.propertyValue("baseFontSize", 12 * scaleFactor) + (isSmallScreen ? 0 : 3)
     property bool isSmallScreen: (width || height) < scaleFactor * 400
     property bool isIOS: Qt.platform.os === "ios"
+    property bool isAndroid: Qt.platform.os === "android"
     property bool isDesktop: Qt.platform.os === "windows" || Qt.platform.os === "macos" || Qt.platform.os === "linux"
 
     Page {
@@ -264,7 +265,7 @@ App {
 
                     RowLayout {
                         spacing: 10 * scaleFactor
-                        visible: isIOS
+                        visible: isIOS || isAndroid
                         Layout.alignment: Qt.AlignHCenter
                         Layout.fillWidth: true
 
