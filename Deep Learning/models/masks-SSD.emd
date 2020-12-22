@@ -1,0 +1,62 @@
+{
+    "Framework": "arcgis.learn.models._inferencing",
+    "InferenceFunction": "ArcGISObjectDetector.py",
+    "ModelConfiguration": "_DynamicSSD",
+    "ModelType": "ObjectDetection",
+    "ExtractBands": [
+        0,
+        1,
+        2
+    ],
+    "backbone": "wrapper",
+    "Grids": [
+        1
+    ],
+    "Zooms": [
+        1.0
+    ],
+    "Ratios": [
+        [
+            1.0,
+            1.0
+        ]
+    ],
+    "SSDVersion": 1,
+    "Classes": [
+        {
+            "Value": 2,
+            "Name": "mask",
+            "Color": [
+                114,
+                5,
+                195
+            ]
+        },
+        {
+            "Value": 1,
+            "Name": "nomask",
+            "Color": [
+                121,
+                130,
+                238
+            ]
+        }
+    ],
+    "ModelFile": "masks-detect.pth",
+    "ImageHeight": 300,
+    "ImageWidth": 300,
+    "ImageSpaceUsed": "PIXEL_SPACE",
+    "LearningRate": "2.0893e-05",
+    "ModelName": "SingleShotDetector",
+    "backend": "tensorflow",
+    "ModelParameters": {
+        "backbone": "MobileNetV2",
+        "backend": "tensorflow"
+    },
+    "average_precision_score": {
+        "mask": 0.7142857313156128,
+        "nomask": 0.2857142984867096
+    },
+    "resize_to": null,
+    "IsMultispectral": false
+}

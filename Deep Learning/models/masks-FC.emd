@@ -1,0 +1,45 @@
+{
+    "Framework": "PyTorch",
+    "ModelConfiguration": "FeatureClassifier",
+    "ModelType": "ObjectClassification",
+    "ExtractBands": [
+        0,
+        1,
+        2
+    ],
+    "CropSizeFixed": 1,
+    "BlackenAroundFeature": 0,
+    "ImageSpaceUsed": "PIXEL_SPACE",
+    "Classes": [
+        {
+            "Value": 1,
+            "Name": "mask",
+            "Color": [
+                8,
+                241,
+                38
+            ]
+        },
+        {
+            "Value": 2,
+            "Name": "nomask",
+            "Color": [
+                91,
+                48,
+                181
+            ]
+        }
+    ],
+    "ModelFile": "masks.pth",
+    "ImageHeight": 300,
+    "ImageWidth": 300,
+    "LearningRate": "2.0893e-03",
+    "ModelName": "FeatureClassifier",
+    "backend": "tensorflow",
+    "ModelParameters": {
+        "backbone": "MobileNetV2",
+        "backend": "tensorflow"
+    },
+    "resize_to": null,
+    "IsMultispectral": false
+}
