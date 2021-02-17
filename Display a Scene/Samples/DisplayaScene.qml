@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 Item {
 
@@ -59,7 +59,7 @@ Item {
             x: 83.9
             y: 28.4
             z: 10010.0
-            spatialReference: SpatialReference.createWgs84()
+            spatialReference: Factory.SpatialReference.createWgs84()
         }
     }
 }

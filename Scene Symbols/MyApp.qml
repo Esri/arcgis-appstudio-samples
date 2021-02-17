@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -93,7 +93,7 @@ App {
                         x: 45
                         y: 34
                         z: 6000
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                     }
                     heading: 0
                     pitch: 0
@@ -151,7 +151,7 @@ App {
                                                                               x: pointX + 0.01 * i,
                                                                               y: pointY,
                                                                               z: pointZ,
-                                                                              spatialReference: SpatialReference.createWgs84()
+                                                                              spatialReference: Factory.SpatialReference.createWgs84()
                                                                           });
 
                         // create a graphic using the point and the symbol

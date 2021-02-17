@@ -1,4 +1,4 @@
-/* Copyright 2020 Esri
+/* Copyright 2021 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,13 +57,13 @@ App {
             Connections {
                 target: ManagedAppConfiguration
 
-                onPolicyDefaultsChanged : {
+                function onPolicyDefaultsChanged() {
                     defaultPortalName.text = ManagedAppConfiguration.defaultValue("portalName");
                     defaultPortalUrl.text = ManagedAppConfiguration.defaultValue("portalUrl");
                     defaultJson.text = JSON.stringify(ManagedAppConfiguration.policyDefaults, null, 2);
                 }
 
-                onPolicySettingsChanged : {
+                function onPolicySettingsChanged() {
                     portalName.text = ManagedAppConfiguration.value("portalName", false, "ArcGIS");
                     portalUrl.text = ManagedAppConfiguration.value("portalUrl", false, "www.arcgis.com");
                     settingsJson.text = JSON.stringify(ManagedAppConfiguration.policySettings, null, 2);

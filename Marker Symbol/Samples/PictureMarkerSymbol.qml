@@ -3,7 +3,7 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 
 Item {
@@ -23,7 +23,7 @@ Item {
                 xMax: -223560
                 yMin: 6550763
                 yMax: 6552021
-                spatialReference: SpatialReference.createWebMercator()
+                spatialReference: Factory.SpatialReference.createWebMercator()
             }
 
             // set initial viewpoint using envelope with padding
@@ -41,7 +41,7 @@ Item {
                 Point {
                     x: -228835
                     y: 6550763
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
 
                 PictureMarkerSymbol {
@@ -57,7 +57,7 @@ Item {
                 Point {
                     x: -223560
                     y: 6552021
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
 
                 PictureMarkerSymbol {
@@ -73,7 +73,7 @@ Item {
                 Point {
                     x: -226773
                     y: 6550477
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
 
                 PictureMarkerSymbol {

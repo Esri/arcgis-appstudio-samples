@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.5 as NewControls
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.1
-import Esri.ArcGISRuntime 100.5
+import Esri.ArcGISRuntime 100.10
 import QtGraphicalEffects 1.0
 
 import "../Widgets"

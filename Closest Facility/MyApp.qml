@@ -22,7 +22,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -68,7 +68,7 @@ App {
                         Point {
                             x: -13041154
                             y: 3858170
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                         targetScale: 1e5
                     }
@@ -102,7 +102,7 @@ App {
                         geometry: Point {
                             x: -1.3042129900625112E7
                             y: 3860127.9479775648
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -110,7 +110,7 @@ App {
                         geometry: Point {
                             x: -1.3042129900625112E7
                             y: 3860127.9479775648
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -118,7 +118,7 @@ App {
                         geometry: Point {
                             x: -1.3042193400557665E7
                             y: 3862448.873041752
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -126,7 +126,7 @@ App {
                         geometry: Point {
                             x: -1.3046882875518233E7
                             y: 3862704.9896770366
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -134,7 +134,7 @@ App {
                         geometry: Point {
                             x: -1.3040539754780494E7
                             y: 3862924.5938606677
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -142,7 +142,7 @@ App {
                         geometry: Point {
                             x: -1.3042571225655518E7
                             y: 3858981.773018156
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -150,7 +150,7 @@ App {
                         geometry: Point {
                             x: -1.3039784633928463E7
                             y: 3856692.5980474586
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
 
@@ -158,7 +158,7 @@ App {
                         geometry: Point {
                             x: -1.3049023883956768E7
                             y: 3861993.789732541
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
                 }

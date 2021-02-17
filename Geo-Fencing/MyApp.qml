@@ -1,4 +1,4 @@
-/* Copyright 2020 Esri
+/* Copyright 2021 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,10 @@ import QtQuick.Layouts 1.3
 import QtPositioning 5.2
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import ArcGIS.AppFramework.Notifications 1.0
 import ArcGIS.AppFramework.Notifications.Local 1.0
 
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 import QtSensors 5.0
 import QtMultimedia 5.8
 import QtQuick.Controls.Styles 1.4
@@ -286,22 +285,29 @@ App {
                     ColumnLayout {
                         Layout.fillHeight: true
                         Layout.preferredWidth: 100*scaleFactor
-                        anchors.verticalCenter: parent.verticalCenter
+                        Layout.alignment: Qt.AlignVCenter
                         spacing: 0
                         Image {
                             id: speedSource
                             Layout.preferredHeight: 35*scaleFactor
                             Layout.preferredWidth:35*scaleFactor
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            Layout.alignment: Qt.AlignHCenter
                             source: "assets/stop.png"
                             opacity: 0.8
                             mipmap:true
                         }
+
+                        Item {
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: parent.width
+                        }
+
                         Text {
                             id: speed
                             Layout.preferredHeight: 20*scaleFactor
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.bottom: parent.bottom
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.bottomMargin: 8 * scaleFactor
+
                             text: "0.00 mi/h"
                             font.pixelSize: 18
                             MouseArea {
@@ -316,14 +322,18 @@ App {
                             }
                         }
                     }
+
+                    Item {
+                        Layout.preferredHeight: parent.height
+                        Layout.fillWidth: true
+                    }
+
                     ColumnLayout {
                         Layout.fillHeight: true
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
+                        Layout.alignment: Qt.AlignCenter
                         Rectangle {
                             Layout.preferredHeight: 65*scaleFactor
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
+                            Layout.alignment: Qt.AlignCenter
                             Material.background: "#ffffff"
 
                             Text {
@@ -336,16 +346,21 @@ App {
                             }
                         }
                     }
+
+                    Item {
+                        Layout.preferredHeight: parent.height
+                        Layout.fillWidth: true
+                    }
+
                     ColumnLayout {
                         Layout.fillHeight: true
                         Layout.preferredWidth: 100*scaleFactor
-                        anchors.right: parent.right
-                        anchors.verticalCenter: parent.verticalCenter
+                        Layout.alignment: Qt.AlignVCenter
                         spacing: 0
                         ToolButton {
                             Layout.preferredHeight: 35*scaleFactor
                             Layout.preferredWidth:35*scaleFactor
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            Layout.alignment: Qt.AlignHCenter
                             indicator: Image {
                                 height: parent.height
                                 anchors.centerIn: parent
@@ -366,10 +381,16 @@ App {
                                 }
                             }
                         }
+
+                        Item {
+                            Layout.fillHeight: true
+                            Layout.preferredWidth: parent.width
+                        }
+
                         Text {
                             id: voiceonoff
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.bottom: parent.bottom
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.bottomMargin: 8 * scaleFactor
                             text: "on"
                             font.pixelSize: 18
                         }
@@ -499,7 +520,7 @@ App {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: 5*scaleFactor
                     Text {
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                         text: "Select a geo-fence layer"
                         font.pixelSize: 18
                         color: "green"
@@ -507,7 +528,7 @@ App {
                     Button {
                         id: esribuildinglayer
                         width: parent.width
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.width
                         Layout.preferredHeight: 50*scaleFactor
                         Material.background: "darkred"
@@ -532,7 +553,7 @@ App {
                     Button {
                         id: nationalparklayer
                         width: parent.width
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.width
                         Layout.preferredHeight: 50*scaleFactor
                         Material.background: "green"
@@ -557,7 +578,7 @@ App {
                     Button {
                         id: starbuckslayer
                         width: parent.width
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.width
                         Layout.preferredHeight: 50*scaleFactor
                         Material.background: "orange"
@@ -681,7 +702,7 @@ App {
 
             Connections{
                 target: Qt.application
-                onStateChanged: {
+                function onStateChanged() {
                     if(state === Qt.ApplicationActive) {
                         activeDevice = true;
                     } else {
@@ -705,7 +726,7 @@ App {
     function zoomToCurrentLocation(scale){
         positionSource.update();
         loadingicon.visible=false;
-        var currentPositionPoint = ArcGISRuntimeEnvironment.createObject("Point", {x: positionSource.position.coordinate.longitude, y: positionSource.position.coordinate.latitude, spatialReference: SpatialReference.createWgs84()});
+        var currentPositionPoint = ArcGISRuntimeEnvironment.createObject("Point", {x: positionSource.position.coordinate.longitude, y: positionSource.position.coordinate.latitude, spatialReference: Factory.SpatialReference.createWgs84()});
         var centerPoint = GeometryEngine.project(currentPositionPoint, mapView.spatialReference);
         var viewPointCenter = ArcGISRuntimeEnvironment.createObject("ViewpointCenter",{center: centerPoint, targetScale: scale});
         mapView.setViewpointWithAnimationCurve(viewPointCenter, 2.0,  Enums.AnimationCurveEaseInOutCubic);

@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -101,7 +101,7 @@ App {
                             xMin: -122.50017717584528
                             yMax: 37.81638388695054
                             yMin: 37.745000054347535
-                            spatialReference: SpatialReference.createWgs84()
+                            spatialReference: Factory.SpatialReference.createWgs84()
                         }
                     }
                 }
@@ -215,7 +215,7 @@ App {
             GenerateGeodatabaseParameters {
                 id: generateParameters
                 extent: generateExtent
-                outSpatialReference: SpatialReference.createWebMercator()
+                outSpatialReference: Factory.SpatialReference.createWebMercator()
                 returnAttachments: false
             }
             //! [Features GenerateGeodatabase Create GeodatabaseSyncTask]
@@ -283,7 +283,7 @@ App {
                         var corner2 = mapView.screenToLocation((extentRectangle.x + extentRectangle.width), (extentRectangle.y + extentRectangle.height));
                         var envBuilder = ArcGISRuntimeEnvironment.createObject("EnvelopeBuilder");
                         envBuilder.setCorners(corner1, corner2);
-                        generateExtent = GeometryEngine.project(envBuilder.geometry, SpatialReference.createWebMercator());
+                        generateExtent = GeometryEngine.project(envBuilder.geometry, Factory.SpatialReference.createWebMercator());
                     }
                 }
             }

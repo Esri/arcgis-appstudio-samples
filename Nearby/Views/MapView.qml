@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.5
+import Esri.ArcGISRuntime 100.10
 
 import QtPositioning 5.8
 import QtSensors 5.3
@@ -213,7 +213,7 @@ MapView{
 
     // Function to zoom to current user location
     function zoomToCurrentLocation(){
-        var currentPositionPoint = ArcGISRuntimeEnvironment.createObject("Point", {x: lon, y: lat, spatialReference: SpatialReference.createWgs84()});
+        var currentPositionPoint = ArcGISRuntimeEnvironment.createObject("Point", {x: lon, y: lat, spatialReference: Factory.SpatialReference.createWgs84()});
         var centerPoint = GeometryEngine.project(currentPositionPoint, mapView.spatialReference);
         var viewPointCenter = ArcGISRuntimeEnvironment.createObject("ViewpointCenter",{center: centerPoint, targetScale: 10000});
         mapView.setViewpointWithAnimationCurve(viewPointCenter, 2.0,  Enums.AnimationCurveEaseInOutCubic);

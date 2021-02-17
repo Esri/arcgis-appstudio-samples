@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -47,6 +47,7 @@ App {
     function copyLocalData(input, output) {
         var resourceFolder = AppFramework.fileFolder(app.folder.folder("data").path);
         AppFramework.userHomeFolder.makePath(dataPath);
+        if(resourceFolder.fileExists(output)) resourceFolder.removeFile(output);
         resourceFolder.copyFile(input, output);
         console.log("output",output)
         return output
@@ -78,7 +79,7 @@ App {
                         Point {
                             x: -13214155
                             y: 4040194
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                         targetScale: 35e4
                     }
@@ -96,7 +97,7 @@ App {
                     // create a feature layer
                     FeatureLayer {
                         // obtain the feature table from the geodatabase by name
-                        featureTable: gdb.geodatabaseFeatureTablesByTableName["Trailheads"]
+                        featureTable: gdb.geodatabaseFeatureTablesByTableName["Trailheads"] ? gdb.geodatabaseFeatureTablesByTableName["Trailheads"] : null
 
                         // create the geodatabase
                         Geodatabase {

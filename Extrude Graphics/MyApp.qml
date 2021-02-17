@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -102,7 +102,7 @@ App {
                         x: 83.9
                         y: 28.4
                         z: 10010.0
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                     }
                     heading: 10.0
                     pitch: 80.0

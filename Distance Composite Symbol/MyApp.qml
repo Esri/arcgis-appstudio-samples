@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -113,7 +113,7 @@ App {
                 x: -2.708471
                 y: 56.096575
                 z: 5000
-                spatialReference: SpatialReference.createWgs84()
+                spatialReference: Factory.SpatialReference.createWgs84()
             }
 
             // create the camera to be used as the scene view's viewpoint

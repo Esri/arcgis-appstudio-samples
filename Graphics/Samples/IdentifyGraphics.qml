@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 Item {
 
@@ -63,7 +63,7 @@ Item {
 
     Component.onCompleted: {
         // create the polygon by assigning points
-        var polygonBuilder = ArcGISRuntimeEnvironment.createObject("PolygonBuilder", {spatialReference: SpatialReference.createWebMercator()});
+        var polygonBuilder = ArcGISRuntimeEnvironment.createObject("PolygonBuilder", {spatialReference: Factory.SpatialReference.createWebMercator()});
         polygonBuilder.addPointXY(-20e5, 20e5);
         polygonBuilder.addPointXY(20e5, 20e5);
         polygonBuilder.addPointXY(20e5, -20e5);

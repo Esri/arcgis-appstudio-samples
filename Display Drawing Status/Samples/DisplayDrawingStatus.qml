@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 Item {
 
@@ -32,7 +32,7 @@ Item {
                     yMin: 4537387
                     xMax: -13606734
                     yMax: 4558866
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
             }
         }

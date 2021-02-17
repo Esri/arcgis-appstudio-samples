@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -89,7 +89,7 @@ App {
                         Point {
                             x: -10336141.70018318
                             y: 5418213.05332071
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
                 }

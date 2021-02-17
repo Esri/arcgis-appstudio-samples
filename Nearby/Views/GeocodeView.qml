@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.1
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.WebView 1.0
-import Esri.ArcGISRuntime 100.5
+import Esri.ArcGISRuntime 100.10
 
 import "../Widgets"
 import "../Controls"
@@ -584,7 +584,7 @@ Item {
         let userPoint = ArcGISRuntimeEnvironment.createObject("Point", {
                                                                   x: mapView.lon,
                                                                   y: mapView.lat,
-                                                                  spatialReference: SpatialReference.createWgs84()});
+                                                                  spatialReference: Factory.SpatialReference.createWgs84()});
         if (mapView.spatialReference !== undefined) {
             currentPoint = GeometryEngine.project(userPoint, mapView.spatialReference);
             geocodeParameters.preferredSearchLocation = currentPoint;

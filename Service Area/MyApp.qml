@@ -22,7 +22,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -70,7 +70,7 @@ App {
                         Point {
                             x: -13041154
                             y: 3858170
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                         targetScale: 1e5
                     }
@@ -150,7 +150,7 @@ App {
 
                     busy = false;
                     facilityParams = createDefaultParametersResult;
-                    facilityParams.outputSpatialReference = SpatialReference.createWebMercator();
+                    facilityParams.outputSpatialReference = Factory.SpatialReference.createWebMercator();
                     facilityParams.returnPolygonBarriers = true;
                     facilityParams.polygonDetail = Enums.ServiceAreaPolygonDetailHigh;
                 }
@@ -288,7 +288,7 @@ App {
 
     function createBarrierBuilder() {
         barrierBuilder = ArcGISRuntimeEnvironment.createObject(
-                    "PolylineBuilder", {spatialReference: SpatialReference.createWebMercator()})
+                    "PolylineBuilder", {spatialReference: Factory.SpatialReference.createWebMercator()})
     }
 
     function handleBarrierPoint(mapPoint) {

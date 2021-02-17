@@ -22,7 +22,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -151,7 +151,7 @@ App {
                             yMin: 3573174.0
                             xMax: -12038972.0
                             yMax: 5309823.0
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                     }
                 }

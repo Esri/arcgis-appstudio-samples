@@ -21,7 +21,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -126,7 +126,7 @@ App {
                         Point {
                             x: -13041154
                             y: 3858170
-                            spatialReference: SpatialReference.createWebMercator()
+                            spatialReference: Factory.SpatialReference.createWebMercator()
                         }
                         targetScale: 1e5
                     }
@@ -141,12 +141,12 @@ App {
                         stop1Geometry = ArcGISRuntimeEnvironment.createObject("Point", {
                                                                                   x: -13041171,
                                                                                   y: 3860988,
-                                                                                  spatialReference: SpatialReference.createWebMercator()
+                                                                                  spatialReference: Factory.SpatialReference.createWebMercator()
                                                                               });
                         stop2Geometry = ArcGISRuntimeEnvironment.createObject("Point", {
                                                                                   x: -13041693,
                                                                                   y: 3856006,
-                                                                                  spatialReference: SpatialReference.createWebMercator()
+                                                                                  spatialReference: Factory.SpatialReference.createWebMercator()
                                                                               });
 
                         // create the stop graphics' symbols

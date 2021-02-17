@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 
 Item {
@@ -38,7 +38,7 @@ Item {
                     x: -4.49779155626782
                     y: 48.38282454039932
                     z: 62.013264927081764
-                    spatialReference: SpatialReference.createWgs84()
+                    spatialReference: Factory.SpatialReference.createWgs84()
                 }
                 targetScale: 62.013264927081764
 
@@ -48,7 +48,7 @@ Item {
                         x: -4.49779155626782
                         y: 48.38282454039932
                         z: 62.013264927081764
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                     }
                     heading: 41.64729875588979
                     pitch: 71.2017391571523

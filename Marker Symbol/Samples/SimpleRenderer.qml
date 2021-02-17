@@ -1,7 +1,7 @@
 import QtQuick 2.6
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 Item {
     property real scaleFactor: AppFramework.displayScaleFactor
@@ -20,7 +20,7 @@ Item {
                 yMin: 44.460458
                 xMax: -110.829381
                 yMax: 44.462735
-                spatialReference: SpatialReference.createWgs84()
+                spatialReference: Factory.SpatialReference.createWgs84()
             }
 
             // set initial Viewpoint
@@ -51,7 +51,7 @@ Item {
                 Point {
                     x: -110.828140
                     y: 44.460458
-                    spatialReference: SpatialReference.createWgs84()
+                    spatialReference: Factory.SpatialReference.createWgs84()
                 }
             }
 
@@ -61,7 +61,7 @@ Item {
                 Point {
                     x: -110.829004
                     y: 44.462438
-                    spatialReference: SpatialReference.createWgs84()
+                    spatialReference: Factory.SpatialReference.createWgs84()
                 }
             }
 
@@ -71,7 +71,7 @@ Item {
                 Point {
                     x: -110.829381
                     y: 44.462735
-                    spatialReference: SpatialReference.createWgs84()
+                    spatialReference: Factory.SpatialReference.createWgs84()
                 }
             }
         }

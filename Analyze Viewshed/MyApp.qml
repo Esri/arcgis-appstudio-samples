@@ -22,7 +22,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 
@@ -68,7 +68,7 @@ App {
                         Point {
                             x: 6.84905317262762
                             y: 45.3790902612337
-                            spatialReference: SpatialReference.createWgs84()
+                            spatialReference: Factory.SpatialReference.createWgs84()
                         }
                         targetScale: 100000
                     }
@@ -138,7 +138,7 @@ App {
                     // Create a new feature collection table based upon point geometries using the current map view spatial reference
                     var inputFeatures = ArcGISRuntimeEnvironment.createObject("FeatureCollectionTable", {
                                                                                   geometryType: Enums.GeometryTypePoint,
-                                                                                  spatialReference: SpatialReference.createWebMercator()
+                                                                                  spatialReference: Factory.SpatialReference.createWebMercator()
                                                                               });
 
                     // Create a new feature from the feature collection table. It will not have a coordinate location (x,y) yet
@@ -156,7 +156,7 @@ App {
                                                                                            });
 
                             // Request the output features to use the same SpatialReference as the map view
-                            viewshedParameters.outputSpatialReference = SpatialReference.createWebMercator();
+                            viewshedParameters.outputSpatialReference = Factory.SpatialReference.createWebMercator();
 
                             // Add an input location to the geoprocessing parameters
                             var inputs = {};

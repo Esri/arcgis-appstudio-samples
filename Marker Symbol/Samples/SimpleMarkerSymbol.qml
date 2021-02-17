@@ -5,7 +5,7 @@ import QtQuick.Controls.Private 1.0
 import QtQuick.Controls.Styles 1.4
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 Item {
     property real scaleFactor: AppFramework.displayScaleFactor
@@ -25,7 +25,7 @@ Item {
                 Point {
                     x: -226773
                     y: 6550477
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
             }
         }
@@ -40,7 +40,7 @@ Item {
                 Point {
                     x: -226773
                     y: 6550477
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
 
                 // set graphic to be rendered as a red circle symbol

@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 
 Item {
@@ -27,7 +27,7 @@ Item {
 
                         // define the schema of the table
                         geometryType: Enums.GeometryTypePoint
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                         Field {
                             id: placeField
                             alias: "Place Name"
@@ -49,7 +49,7 @@ Item {
                             // Create a new point feature, provide geometry and attribute values
                             var pointFeature = pointsTable.createFeature();
                             pointFeature.attributes.replaceAttribute("Place", "Current location");
-                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: SpatialReference.createWgs84()});
+                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: Factory.SpatialReference.createWgs84()});
                             pointFeature.geometry = point1;
 
                             // Add to the table
@@ -63,7 +63,7 @@ Item {
 
                         // define the schema of the table
                         geometryType: Enums.GeometryTypePolyline
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                         Field {
                             alias: "Boundary Name"
                             name: "Boundary"
@@ -84,9 +84,9 @@ Item {
                             // Create a new polyline feature, provide geometry and attribute values
                             var lineFeature = linesTable.createFeature();
                             lineFeature.attributes.replaceAttribute("Boundary", "AManAPlanACanalPanama");
-                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: SpatialReference.createWgs84()});
-                            var point2 = ArcGISRuntimeEnvironment.createObject("Point", {x: -80.035568, y: 9.432302, spatialReference: SpatialReference.createWgs84()});
-                            var lineBuilder = ArcGISRuntimeEnvironment.createObject("PolylineBuilder", {spatialReference: SpatialReference.createWgs84()});
+                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: Factory.SpatialReference.createWgs84()});
+                            var point2 = ArcGISRuntimeEnvironment.createObject("Point", {x: -80.035568, y: 9.432302, spatialReference: Factory.SpatialReference.createWgs84()});
+                            var lineBuilder = ArcGISRuntimeEnvironment.createObject("PolylineBuilder", {spatialReference: Factory.SpatialReference.createWgs84()});
                             lineBuilder.addPoint(point1);
                             lineBuilder.addPoint(point2);
                             lineFeature.geometry = lineBuilder.geometry;
@@ -102,7 +102,7 @@ Item {
 
                         // define the schema of the table
                         geometryType: Enums.GeometryTypePolygon
-                        spatialReference: SpatialReference.createWgs84()
+                        spatialReference: Factory.SpatialReference.createWgs84()
                         Field {
                             alias: "Area Name"
                             name: "Area"
@@ -130,10 +130,10 @@ Item {
                             // Create a new point feature, provide geometry and attribute values
                             var polygonFeature = linesTable.createFeature();
                             polygonFeature.attributes.replaceAttribute("Area", "Restricted area");
-                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: SpatialReference.createWgs84()});
-                            var point2 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.337936, y: 8.638903, spatialReference: SpatialReference.createWgs84()});
-                            var point3 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.11409, y: 8.895422, spatialReference: SpatialReference.createWgs84()});
-                            var polygonBuilder = ArcGISRuntimeEnvironment.createObject("PolygonBuilder", {spatialReference: SpatialReference.createWgs84()});
+                            var point1 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.497238, y: 8.849289, spatialReference: Factory.SpatialReference.createWgs84()});
+                            var point2 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.337936, y: 8.638903, spatialReference: Factory.SpatialReference.createWgs84()});
+                            var point3 = ArcGISRuntimeEnvironment.createObject("Point", {x: -79.11409, y: 8.895422, spatialReference: Factory.SpatialReference.createWgs84()});
+                            var polygonBuilder = ArcGISRuntimeEnvironment.createObject("PolygonBuilder", {spatialReference: Factory.SpatialReference.createWgs84()});
                             polygonBuilder.addPoint(point1);
                             polygonBuilder.addPoint(point2);
                             polygonBuilder.addPoint(point3);
@@ -152,7 +152,7 @@ Item {
                     xMin: -8917856.590171767
                     yMax: 1100327.8941287803
                     yMin: 903277.583136797
-                    spatialReference: SpatialReference.createWebMercator()
+                    spatialReference: Factory.SpatialReference.createWebMercator()
                 }
             }
         }
