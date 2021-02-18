@@ -23,7 +23,7 @@ import QtQuick.Dialogs 1.2
 
 
 import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
+import Esri.ArcGISRuntime.Toolkit.Dialogs 100.8
 import ArcGIS.AppFramework 1.0
 
 import ArcGIS.AppFramework.SecureStorage 1.0
