@@ -32,7 +32,7 @@ import Qt.labs.platform 1.1 as Dialogs
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Platform 1.0
-import Esri.ArcGISRuntime 100.7
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 

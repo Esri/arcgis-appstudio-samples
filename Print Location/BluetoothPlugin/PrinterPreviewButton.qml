@@ -19,7 +19,7 @@ import QtQuick.Controls 2.12
 import QtPositioning 5.8
 import QtLocation 5.9
 
-import Esri.ArcGISRuntime 100.6
+import Esri.ArcGISRuntime 100.10
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 

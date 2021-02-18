@@ -23,7 +23,7 @@ import QtQuick.Window 2.0
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Platform 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 

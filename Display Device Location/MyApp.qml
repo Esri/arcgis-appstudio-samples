@@ -23,7 +23,7 @@ import QtPositioning 5.3
 import QtSensors 5.3
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 
 import "controls" as Controls
 

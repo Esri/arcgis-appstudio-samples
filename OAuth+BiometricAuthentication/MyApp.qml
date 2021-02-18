@@ -22,7 +22,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
 
-import Esri.ArcGISRuntime 100.2
+import Esri.ArcGISRuntime 100.10
 import Esri.ArcGISRuntime.Toolkit.Dialogs 100.2
 import ArcGIS.AppFramework 1.0
 

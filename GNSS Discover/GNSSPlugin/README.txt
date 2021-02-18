@@ -92,7 +92,7 @@ If your app uses a StackView pass a reference to it to these methods.
 4) If you are using the MapView component of the Esri ArcGISRuntime you can
 directly set the GNSSManager as the position source to receive position updates:
 
-    import Esri.ArcGISRuntime 100.2
+    import Esri.ArcGISRuntime 100.10
 
     MapView {
         locationDisplay {
