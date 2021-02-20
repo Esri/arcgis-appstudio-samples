@@ -52,7 +52,6 @@ App {
     property string center: "Center"
     property string allSides: "All sides"
     property string currentLabelPosition: geographic
-    property real centerWindowY: (rootRectangle.height / 2) - (styleWindow.height / 2)
     property color currentGridColor: "red"
     property color currentGridLabelColor: "black"
     property string currentLabelFormat
@@ -130,7 +129,6 @@ App {
                     onClicked: {
                         background.visible = true;
                         styleWindow.visible = true;
-                        showAnimation.restart()
                     }
                 }
             }
@@ -162,16 +160,6 @@ App {
                 width: 270 * scaleFactor
                 height: 300 * scaleFactor
                 radius: 4 * scaleFactor
-
-                SequentialAnimation {
-                    id: showAnimation
-                    NumberAnimation { target: styleWindow; property: "y"; to: centerWindowY; duration: 200 }
-                }
-
-                SequentialAnimation {
-                    id: hideAnimation
-                    NumberAnimation { target: styleWindow; property: "y"; to: rootRectangle.height; duration: 200 }
-                }
 
                 GridLayout {
                     id: grid
@@ -213,11 +201,6 @@ App {
                             } else
                                 return;
 
-                            // apply any styling that has been set
-                            changeGridColor(currentGridColor);
-                            changeLabelColor(currentGridLabelColor);
-                            changeLabelFormat(currentLabelFormat);
-                            changeLabelPosition(currentLabelPosition);
                             mapView.grid.visible = gridVisible;
                             mapView.grid.labelsVisible = labelVisible;
                         }
@@ -461,7 +444,7 @@ App {
                     Rectangle {
                         id: hideButton
                         property bool pressed: false
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        Layout.alignment: Qt.AlignHCenter
                         Layout.columnSpan: 2
 
                         width: 150 * scaleFactor
@@ -487,7 +470,6 @@ App {
                             onClicked: {
                                 background.visible = false;
                                 styleWindow.visible = false;
-                                hideAnimation.restart()
                             }
                         }
                     }

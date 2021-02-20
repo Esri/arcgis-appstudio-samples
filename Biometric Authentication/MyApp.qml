@@ -1,4 +1,4 @@
-/* Copyright 20 Esri
+/* Copyright 2021 Esri
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -86,23 +86,49 @@ App {
                 height: 100 * scaleFactor
             }
 
-            ColumnLayout {
-                anchors.centerIn: parent
+            Item {
+                Layout.alignment: Qt.AlignCenter
+                width: fingerRect.width
+                height: fingerRect.height
 
-                Image {
-                    id: image
-                    horizontalAlignment: Image.AlignHCenter
-                    source: "ic_fingerprint.png"
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    smooth: true
-                }
+                ColumnLayout {
+                    id: fingerRect
+                    Image {
+                        id: image
+                        horizontalAlignment: Image.AlignHCenter
+                        source: "ic_fingerprint.png"
+                        Layout.alignment: Qt.AlignHCenter
+                        smooth: true
+                    }
 
-                Label {
-                    id: touchID
-                    text: isBiometricSupported ? qsTr("Touch ID Login") : ""
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    color: "white"
-                    font.bold: true
+                    Label {
+                        id: touchID
+                        text: isBiometricSupported ? qsTr("Touch ID Login") : ""
+                        Layout.alignment: Qt.AlignHCenter
+                        color: "white"
+                        font.bold: true
+                    }
+
+                    Component.onCompleted:  {
+
+                        if (errorMessageText !== "No Error") {
+
+                            if (errorMessageText === "Passcode not activated") {
+                                errorMessageDialogText = turnPasscodeonMessage;
+                            }
+
+                            if (errorMessageText === "Biometric not activated") {
+                                errorMessageDialogText = addFingerprintMessage;
+                            }
+
+                            else {
+                                messageDialog.visible = false
+                            }
+                        }
+                        else {
+                            messageDialog.visible = false
+                        }
+                    }
                 }
 
                 // Tab on fingerprint image to displays a native fingerprint authentication dialog box
@@ -117,28 +143,6 @@ App {
                         BiometricAuthenticator.authenticate()
                     }
                 }
-
-
-                Component.onCompleted:  {
-
-                    if (errorMessageText !== "No Error") {
-
-                        if (errorMessageText === "Passcode not activated") {
-                            errorMessageDialogText = turnPasscodeonMessage;
-                        }
-
-                        if (errorMessageText === "Biometric not activated") {
-                            errorMessageDialogText = addFingerprintMessage;
-                        }
-
-                        else {
-                            messageDialog.visible = false
-                        }
-                    }
-                    else {
-                        messageDialog.visible = false
-                    }
-                }
             }
 
             Item {
@@ -147,7 +151,7 @@ App {
             }
 
             Row {
-                anchors.horizontalCenter: parent.horizontalCenter
+                Layout.alignment: Qt.AlignHCenter
                 spacing: 10 * scaleFactor
 
                 Image {

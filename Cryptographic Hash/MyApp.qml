@@ -193,7 +193,7 @@ App {
                                     id: hexOutputCheckBox
                                     Material.accent: "#8f499c"
                                     width: 20 * scaleFactor
-                                    checked: macObj.hexOutput
+//                                    checked: macObj.hexOutput
                                     onCheckedChanged: {
                                         hashObj.hexOutput = checked;
                                         macObj.hexOutput = checked;
@@ -223,7 +223,7 @@ App {
                                     id: keyAsBytesCheckBox
                                     Material.accent: "#8f499c"
                                     width: 20 * scaleFactor
-                                    checked: macObj.keyAsBytes
+//                                    checked: macObj.keyAsBytes
                                     onCheckedChanged: {
                                         macObj.keyAsBytes = checked;
                                     }

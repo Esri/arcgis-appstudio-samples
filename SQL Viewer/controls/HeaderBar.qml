@@ -25,25 +25,30 @@ RowLayout {
         Layout.alignment: Qt.AlignCenter
     }
 
-    ToolButton {
-        id:infoImage
-        indicator: Image{
-            width: 30 * AppFramework.displayScaleFactor
-            height: 30 * AppFramework.displayScaleFactor
-            anchors.centerIn: parent
-            source: "../assets/info.png"
-            fillMode: Image.PreserveAspectFit
-            mipmap: true
-        }
-        anchors {
-            right: parent.right
-            verticalCenter: parent.verticalCenter
-        }
-        onClicked: {
-            descPage.visible = 1
+    Rectangle{
+        id:infoImageRect
+        Layout.alignment: Qt.AlignRight
+        Layout.preferredWidth: 50 * AppFramework.displayScaleFactor
+
+        ToolButton {
+            id:infoImage
+            indicator: Image{
+                width: 30 * AppFramework.displayScaleFactor
+                height: 30 * AppFramework.displayScaleFactor
+                anchors.centerIn: parent
+                source: "../assets/info.png"
+                fillMode: Image.PreserveAspectFit
+                mipmap: true
+            }
+            anchors {
+                right: parent.right
+                verticalCenter: parent.verticalCenter
+            }
+            onClicked: {
+                descPage.visible = 1
+            }
         }
     }
-
 }
 
 

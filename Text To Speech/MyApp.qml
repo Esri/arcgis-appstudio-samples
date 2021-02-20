@@ -72,8 +72,8 @@ App {
                 Rectangle{
                     Layout.fillWidth: true
                     Layout.preferredHeight: 200 * scaleFactor
-                    color: transparent
-                    border.color: black
+                    color: "transparent"
+                    border.color: "black"
                     border.width: 1 * scaleFactor
                     TextArea {
                         id: sayText

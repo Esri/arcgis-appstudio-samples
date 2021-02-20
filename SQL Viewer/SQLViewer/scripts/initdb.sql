@@ -12,8 +12,6 @@ INSERT INTO Roads (RoadName, RoadType) VALUES ('Coventry', 'St');
 INSERT INTO Roads (RoadName, RoadType) VALUES ('Sturt', 'St');
 INSERT INTO Roads (RoadName, RoadType) VALUES ('Kings', 'Way');
 
-CRAP;
-
 CREATE INDEX IX_Roads_001 ON Roads (RoadName);
 CREATE INDEX IX_Roads_002 ON Roads (RoadType);
 
