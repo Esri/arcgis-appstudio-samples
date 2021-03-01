@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Controls 1.0
 import Esri.ArcGISRuntime 100.10
 
 import QtPositioning 5.3
