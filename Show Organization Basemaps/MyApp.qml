@@ -22,7 +22,7 @@ import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
 import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.8
+import Esri.ArcGISRuntime.Toolkit 100.10
 import QtWebView 1.1
 
 import "controls" as Controls
@@ -309,7 +309,7 @@ App {
             }
 
             AuthenticationView {
-                authenticationManager: AuthenticationManager
+                anchors.fill: parent
             }
         }
     }

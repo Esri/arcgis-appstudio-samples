@@ -23,7 +23,7 @@ import QtQuick.Dialogs 1.2
 
 
 import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.8
+import Esri.ArcGISRuntime.Toolkit 100.10
 import ArcGIS.AppFramework 1.0
 
 import ArcGIS.AppFramework.SecureStorage 1.0
@@ -97,7 +97,7 @@ App {
     Connections {
         target: securityPortal
 
-        onLoadStatusChanged: {
+        function onLoadStatusChanged() {
             if (securityPortal.loadStatus === Enums.LoadStatusLoaded) {
                 secureStorage.setContent("oAuthRefreshToken", securityPortal.credential.oAuthRefreshToken );
                 secureStorage.setContent("tokenServiceUrl", securityPortal.credential.tokenServiceUrl);

@@ -22,8 +22,7 @@ import QtGraphicalEffects 1.0
 
 import ArcGIS.AppFramework 1.0
 import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit.Controls 100.8
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.8
+import Esri.ArcGISRuntime.Toolkit 100.10
 
 import "controls" as Controls
 
@@ -77,7 +76,7 @@ App {
                 // create a callout to display information
                 Callout {
                     id: callout
-                    calloutData: parent.callFoutData
+                    calloutData: parent.calloutData
                     screenOffsetY: -19 * scaleFactor
                     accessoryButtonHidden: true
                 }
@@ -298,7 +297,7 @@ App {
             Connections  {
                 target: currentLocatorTask
 
-                onGeocodeStatusChanged: {
+                function onGeocodeStatusChanged() {
                     if (currentLocatorTask.geocodeStatus === Enums.TaskStatusCompleted) {
                         busyIndicator.visible = false;
 
@@ -344,19 +343,19 @@ App {
                 target: currentRouteTask
 
                 // if RouteTask loads properly, create the default parameters
-                onLoadStatusChanged: {
+                function onLoadStatusChanged() {
                     if (currentRouteTask.loadStatus === Enums.LoadStatusLoaded) {
                         currentRouteTask.createDefaultParameters();
                     }
                 }
 
                 // obtain default parameters
-                onCreateDefaultParametersStatusChanged: {
+                function onCreateDefaultParametersStatusChanged() {
                     if (currentRouteTask.createDefaultParametersStatus === Enums.TaskStatusCompleted)
                         currentRouteParams = currentRouteTask.createDefaultParametersResult;
                 }
 
-                onSolveRouteStatusChanged: {
+                function onSolveRouteStatusChanged() {
                     // if route solve is successful, add a route graphic
                     if(currentRouteTask.solveRouteStatus === Enums.TaskStatusCompleted) {
                         var generatedRoute = currentRouteTask.solveRouteResult.routes[0];

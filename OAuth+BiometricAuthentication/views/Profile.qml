@@ -8,7 +8,7 @@ import ArcGIS.AppFramework.WebView 1.0
 import ArcGIS.AppFramework.Authentication 1.0
 
 import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit.Dialogs 100.8
+import Esri.ArcGISRuntime.Toolkit 100.10
 
 
 import QtGraphicalEffects 1.0
@@ -276,7 +276,7 @@ Page {
 
     AuthenticationView {
         id: authenticationView
-        authenticationManager: AuthenticationManager
+        anchors.fill: parent
     }
 
     BusyIndicator {
