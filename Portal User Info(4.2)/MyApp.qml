@@ -194,7 +194,7 @@ App {
 
                 Text {
                     id: webmapIdTitle
-                    text: "Please enter your public/private web map id"
+                    text: "Please enter a web map ID"
                     font.bold: true
                     maximumLineCount: 3
                     anchors{
@@ -220,7 +220,7 @@ App {
                     }
                     width: parent.width*0.7
                     selectByMouse: true
-                    placeholderText: "Enter webmap id"
+                    placeholderText: "Enter valid web map ID"
                     font{pointSize:baseFontSize *0.7}
                     opacity: 1
 
@@ -289,6 +289,7 @@ App {
                     oAuthClientInfo: OAuthClientInfo {
                         oAuthMode: Enums.OAuthModeUser
                         clientId: "T3Gjh6a2d0MK14ke"
+                        refreshTokenExpirationInterval:129600
                     }
                 }
 
