@@ -121,6 +121,9 @@ App {
                     right: parent.right
                 }
                 visible: false
+                Map {
+                    id: map
+                }
             }
 
             Button {
@@ -316,9 +319,7 @@ App {
     function chooseBasemap(selectedBasemap) {
         title.text = selectedBasemap.item.title;
         basemapsGrid.enabled = false;
-
-        var newMap = ArcGISRuntimeEnvironment.createObject("Map", {basemap: selectedBasemap});
-        mapView.map = newMap;
+        map.basemap = selectedBasemap;
         gridFadeOut.running = true;
         mapView.visible = true;
     }
