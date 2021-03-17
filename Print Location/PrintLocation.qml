@@ -20,8 +20,8 @@
 // AppStudio users frequently use the Ctrl+A and Ctrl+I commands to
 // automatically indent the entirety of the .qml file.
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 import QtPositioning 5.8

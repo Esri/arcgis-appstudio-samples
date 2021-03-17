@@ -14,7 +14,7 @@
  *
  */
 
-import QtQuick 2.12
+import QtQuick 2.15
 import QtPositioning 5.8
 
 import ArcGIS.AppFramework 1.0

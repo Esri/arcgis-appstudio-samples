@@ -14,10 +14,10 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.2
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.15
 
 import ArcGIS.AppFramework 1.0
 

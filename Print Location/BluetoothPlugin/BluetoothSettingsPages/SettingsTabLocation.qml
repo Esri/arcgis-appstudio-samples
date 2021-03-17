@@ -15,8 +15,8 @@
  */
 
 import QtQml 2.2
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
 import ArcGIS.AppFramework 1.0
@@ -84,7 +84,7 @@ SettingsTab {
         Connections {
             target: settingsTabLocation
 
-            onActivated: {
+            function onActivated() {
                 if (_dirty) {
                     _item.createListTabView(bluetoothSettings.knownDevices);
                     _dirty = false;
@@ -97,13 +97,13 @@ SettingsTab {
         Connections {
             target: bluetoothSettings
 
-            onReceiverAdded: {
+            function onReceiverAdded(name) {
                 _item.addDeviceListTab(name, bluetoothSettings.knownDevices)
                 sortedListTabView.sort();
                 _dirty = true;
             }
 
-            onReceiverRemoved: {
+            function onReceiverRemoved() {
                 _dirty = true;
             }
         }
@@ -656,7 +656,7 @@ SettingsTab {
                 Connections {
                     target: settingsTabLocation
 
-                    onSelectInternal: {
+                    function onSelectInternal() {
                         if (delegate.delegateDeviceType === kDeviceTypeInternal) {
                             _item.connectProvider(delegate);
                         }

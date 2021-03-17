@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
 import ArcGIS.AppFramework 1.0
@@ -93,7 +93,7 @@ SettingsTab {
         Connections {
             target: addDeviceTab
 
-            onActivated: {
+            function onActivated() {
                 // Activating this here ensures that any error message is displayed
                 // on this page (not it's ancestor)
                 discoverySwitch.checked = true;
@@ -151,7 +151,7 @@ SettingsTab {
                     Connections {
                         target: _item.discoveryAgent
 
-                        onRunningChanged: {
+                        function onRunningChanged() {
                             discoverySwitch.updating = true;
                             discoverySwitch.checked = _item.discoveryAgent.running;
                             discoverySwitch.updating = false;

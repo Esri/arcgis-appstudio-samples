@@ -1,5 +1,21 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+/* Copyright 2021 Esri
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework.Devices 1.0
 import ArcGIS.AppFramework.Networking 1.0
@@ -130,7 +146,7 @@ Item {
     Connections {
         target: currentDevice
 
-        onErrorChanged: {
+        function onErrorChanged() {
             console.log("Device connection error:", currentDevice.error)
         }
     }
@@ -140,11 +156,11 @@ Item {
     Connections {
         target: discoveryAgent
 
-        onDiscoverDevicesCompleted: {
+        function onDiscoverDevicesCompleted() {
             console.log("Device discovery completed");
         }
 
-        onRunningChanged: {
+        function onRunningChanged() {
             console.log("DeviceDiscoveryAgent running", discoveryAgent.running);
             if (useExternalGPS && !discoveryAgent.running && !isConnecting && !isConnected && stayConnected && !onSettingsPage) {
                 if (!discoveryAgent.devices || discoveryAgent.devices.count == 0) {
@@ -153,14 +169,14 @@ Item {
             }
         }
 
-        onErrorChanged: {
+        function onErrorChanged() {
             console.log("Device discovery agent error:", discoveryAgent.error)
             if (useExternalGPS || onSettingsPage) {
                 discoveryAgentError(discoveryAgent.error);
             }
         }
 
-        onDeviceDiscovered: {
+        function onDeviceDiscovered(device) {
             if (discoveryAgent.deviceFilter(device)) {
                 console.log("Device discovered - Name:", device.name, "Type:", device.deviceType);
                 deviceSelected(device);
