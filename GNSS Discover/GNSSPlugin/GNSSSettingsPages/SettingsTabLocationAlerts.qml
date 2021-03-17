@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Notifications 1.0
@@ -41,6 +41,7 @@ SettingsTab {
     //--------------------------------------------------------------------------
 
     readonly property bool isTheActiveSensor: deviceName === gnssSettings.kInternalPositionSourceName || controller.currentName === deviceName
+
     readonly property string kBanner: qsTr("Display")
     readonly property string kVoice: qsTr("Text to speech")
     readonly property string kVibrate: qsTr("Vibrate")
@@ -76,7 +77,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: alertsTab.listDelegateHeight
+                    Layout.preferredHeight: alertsTab.listDelegateHeightSingleLine
                     color: alertsTab.listBackgroundColor
 
                     visible: showAlertsVisual
@@ -90,7 +91,7 @@ SettingsTab {
 
                         checked: gnssSettings.knownDevices[deviceName].locationAlertsVisual
 
-                        text: qsTr("Display")
+                        text: kBanner
 
                         textColor: alertsTab.textColor
                         checkedColor: alertsTab.selectedForegroundColor
@@ -105,6 +106,7 @@ SettingsTab {
                                     gnssSettings.locationAlertsVisual = checked;
                                 }
                             }
+
                             changed();
                         }
                     }
@@ -112,7 +114,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: alertsTab.listDelegateHeight
+                    Layout.preferredHeight: alertsTab.listDelegateHeightSingleLine
                     color: alertsTab.listBackgroundColor
 
                     visible: showAlertsSpeech
@@ -126,7 +128,7 @@ SettingsTab {
 
                         checked: gnssSettings.knownDevices[deviceName].locationAlertsSpeech
 
-                        text: qsTr("Text to speech")
+                        text: kVoice
 
                         textColor: alertsTab.textColor
                         checkedColor: alertsTab.selectedForegroundColor
@@ -141,6 +143,7 @@ SettingsTab {
                                     gnssSettings.locationAlertsSpeech = checked;
                                 }
                             }
+
                             changed();
                         }
                     }
@@ -148,7 +151,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: alertsTab.listDelegateHeight
+                    Layout.preferredHeight: alertsTab.listDelegateHeightSingleLine
                     color: alertsTab.listBackgroundColor
 
                     visible: showAlertsVibrate
@@ -164,7 +167,7 @@ SettingsTab {
 
                         checked: gnssSettings.knownDevices[deviceName].locationAlertsVibrate
 
-                        text: qsTr("Vibrate")
+                        text: kVibrate
 
                         textColor: alertsTab.textColor
                         checkedColor: alertsTab.selectedForegroundColor
@@ -179,6 +182,7 @@ SettingsTab {
                                     gnssSettings.locationAlertsVibrate = checked;
                                 }
                             }
+
                             changed();
                         }
                     }
@@ -186,7 +190,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: alertsTab.listDelegateHeight
+                    Layout.preferredHeight: alertsTab.listDelegateHeightSingleLine
                     color: alertsTab.listBackgroundColor
 
                     visible: showAlertsTimeout
@@ -202,7 +206,7 @@ SettingsTab {
                         from: 5000
                         stepSize: 5000
 
-                        value: gnssSettings.locationMaximumPositionAge
+                        value: gnssSettings.knownDevices[deviceName].locationMaximumPositionAge
 
                         text: qsTr("Timeout")
                         toolTipText: qsTr("%1 s".arg(value / 1000))
@@ -224,6 +228,7 @@ SettingsTab {
                                     gnssSettings.locationMaximumDataAge = value;
                                 }
                             }
+
                             changed();
                         }
                     }

@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -38,7 +38,9 @@ Page {
     property color selectedBackgroundColor: listBackgroundColor
     property color hoverBackgroundColor: Qt.lighter(selectedForegroundColor)
 
-    property real listDelegateHeight: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightTextBox: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightMultiLine: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightSingleLine: 60 * AppFramework.displayScaleFactor
     property real listSpacing: 2 * AppFramework.displayScaleFactor
 
     // Button styling
@@ -59,8 +61,10 @@ Page {
 
     property bool showInfoIcons: true
 
-    contentItem: Loader {
+    Loader {
         id: loader
+
+        anchors.fill: parent
     }
 
     onTitlePressAndHold: {

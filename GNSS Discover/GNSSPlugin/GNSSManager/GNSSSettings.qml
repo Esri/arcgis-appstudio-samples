@@ -14,11 +14,16 @@
  *
  */
 
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 
 QtObject {
+    id: object
+
+    //--------------------------------------------------------------------------
+
     property Settings settings
 
     //--------------------------------------------------------------------------
@@ -361,8 +366,7 @@ QtObject {
 
     function createNmeaLogFileSettings(fileUrl) {
         if (knownDevices && fileUrl > "") {
-            var label = fileUrl.toString().replace(/%2F/g, "/")
-            label = label.substring(label.lastIndexOf("/") + 1)
+            var label = fileUrlToLabel(fileUrl);
 
             if (!knownDevices[fileUrl]) {
                 var receiverSettings = createDefaultSettingsObject(kConnectionTypeFile);
@@ -393,6 +397,38 @@ QtObject {
         catch(e){
             console.log(e);
         }
+    }
+
+    //--------------------------------------------------------------------------
+
+    function fileUrlToLabel(fileUrl) {
+        return AppFramework.fileInfo(fileUrl).displayName;
+    }
+
+    //--------------------------------------------------------------------------
+
+    function fileUrlToDisplayPath(fileUrl) {
+        var path = fileUrlToPath(fileUrl);
+
+        if (Qt.platform.os === "android") {
+            path = path.replace(/%3A/g, ":").replace(/%2F/g, "/").replace(/%20/g, ":");
+            var prefix = path.substring(0, path.lastIndexOf(":") + 1);
+            prefix = prefix.substring(prefix.lastIndexOf("/") + 1);
+            path = path.substring(path.lastIndexOf(":") + 1)
+            path = prefix + path.substring(path.lastIndexOf(":") + 1, path.lastIndexOf("/") + 1);
+            path = path + fileUrlToLabel(fileUrl);
+        }
+
+        return path;
+    }
+
+    //--------------------------------------------------------------------------
+
+    function fileUrlToPath(fileUrl) {
+        var fileInfo = AppFramework.fileInfo(fileUrl);
+        var path = Qt.platform.os === "ios" ? fileInfo.filePath.replace(AppFramework.userHomePath + "/", "") : fileInfo.filePath;
+
+        return path;
     }
 
     //--------------------------------------------------------------------------

@@ -14,7 +14,9 @@
  *
  */
 
-import QtQuick 2.12
+import QtQuick 2.15
+
+import ArcGIS.AppFramework 1.0
 
 Rectangle {
     property string title

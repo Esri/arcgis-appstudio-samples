@@ -16,43 +16,42 @@
 
 import QtQuick 2.15
 
-import ArcGIS.AppFramework 1.0
 
-Column {
-    property alias model: repeater.model
-
-    property Component sectionDelegate
-    property Component dataDelegate
-    property Component dividerDelegate: divider
+SequentialAnimation {
+    id: animation
 
     //--------------------------------------------------------------------------
 
-    spacing: 10 * AppFramework.displayScaleFactor
-    
+    property alias target: animator1.target
+    property alias from: animator1.from
+    property alias to: animator1.to
+    property int duration: 1000
+
     //--------------------------------------------------------------------------
 
-    Repeater {
-        id: repeater
+    loops: Animation.Infinite
 
-        delegate: Loader {
-            width: parent.width
-            
-            property int modelIndex: index
-            property var modelData: repeater.model[index]
-            
-            sourceComponent: modelData ? dataDelegate : dividerDelegate
-        }
+    onStopped: {
+        target.opacity = animator1.from;
     }
 
     //--------------------------------------------------------------------------
 
-    Component {
-        id: divider
+    OpacityAnimator {
+        id: animator1
 
-        Rectangle {
-            color: "#40808080"
-            implicitHeight: 1
-        }
+        from: 1
+        to: 0.15
+        easing.type: Easing.InQuad
+        duration: animation.duration / 2
+    }
+
+    OpacityAnimator {
+        target: animator1.target
+        from: animator1.to
+        to: animator1.from
+        easing.type: Easing.InQuad
+        duration: animator1.duration
     }
 
     //--------------------------------------------------------------------------

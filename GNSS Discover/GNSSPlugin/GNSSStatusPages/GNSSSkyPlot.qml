@@ -14,22 +14,29 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.12
-import QtCharts 2.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtCharts 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 
-import "../GNSSManager"
+import "../"
 import "../controls"
+import "../GNSSManager"
 
 SwipeTab {
     id: tab
 
-    property PositionSourceManager positionSourceManager
+    title: qsTr("Satellites")
+    icon: "../images/assessment-black-24dp.svg"
 
+    //--------------------------------------------------------------------------
+
+    property GNSSManager gnssManager
+
+    readonly property PositionSourceManager positionSourceManager: gnssManager.positionSourceManager
     readonly property PositioningSourcesController controller: positionSourceManager.controller
     readonly property SatelliteInfoSource satelliteInfoSource: positionSourceManager.satelliteInfoSource
 
@@ -63,15 +70,10 @@ SwipeTab {
 
     //--------------------------------------------------------------------------
 
-    title: qsTr("Sky Plot")
-    icon: "../images/skyplot.png"
-
-    //--------------------------------------------------------------------------
-
     Connections {
         target: satelliteInfoSource
 
-        onSatellitesInViewChanged : {
+        function onSatellitesInViewChanged() {
             clear();
 
             for (var i = 0; i < satelliteInfoSource.satellitesInView.count; i++) {
@@ -194,7 +196,7 @@ SwipeTab {
             max: 90
 
             labelsPosition: CategoryAxis.AxisLabelsPositionOnValue
-            labelsColor: "transparent" //tab.labelColor
+            labelsColor: "transparent"
             labelsFont {
                 pixelSize: 8 * AppFramework.displayScaleFactor
                 family: fontFamily
@@ -467,6 +469,8 @@ SwipeTab {
                 delegate: Rectangle {
                     height: view.height
                     width: view.singleWidth
+
+                    color: tab.backgroundColor
 
                     Rectangle {
                         id: bar

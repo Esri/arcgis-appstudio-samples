@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -36,6 +36,7 @@ SettingsTab {
     //--------------------------------------------------------------------------
 
     readonly property bool isTheActiveSensor: deviceName === gnssSettings.kInternalPositionSourceName || controller.currentName === deviceName
+
     readonly property string altitudeTypeMSLLabel: qsTr("Altitude above mean sea level")
     readonly property string altitudeTypeHAELabel: qsTr("Height above ellipsoid")
 
@@ -80,7 +81,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: altitudeTab.listDelegateHeight
+                    Layout.preferredHeight: altitudeTab.listDelegateHeightSingleLine
                     color: altitudeTab.listBackgroundColor
 
                     AppRadioButton {
@@ -115,7 +116,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: altitudeTab.listDelegateHeight
+                    Layout.preferredHeight: altitudeTab.listDelegateHeightSingleLine
                     color: altitudeTab.listBackgroundColor
 
                     AppRadioButton {
@@ -238,7 +239,9 @@ SettingsTab {
             SettingsTabDelegate {
                 listTabView: geoidTabView
 
-                listDelegateHeight: altitudeTab.listDelegateHeight
+                listDelegateHeightTextBox: altitudeTab.listDelegateHeightTextBox
+                listDelegateHeightMultiLine: altitudeTab.listDelegateHeightMultiLine
+                listDelegateHeightSingleLine: altitudeTab.listDelegateHeightSingleLine
                 textColor: altitudeTab.textColor
                 helpTextColor: altitudeTab.helpTextColor
                 backgroundColor: altitudeTab.backgroundColor

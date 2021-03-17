@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -25,12 +25,11 @@ import "../"
 Rectangle {
     id: page
 
-    property Item contentItem
-
     property alias title: titleText.text
 
+    default property alias content: content.data
+
     property GNSSManager gnssManager
-    property AppDialog gnssDialog
     property StackView stackView
 
     // Header bar styling
@@ -101,19 +100,6 @@ Rectangle {
     //--------------------------------------------------------------------------
 
     color: backgroundColor
-
-    //--------------------------------------------------------------------------
-
-    Component.onCompleted: {
-        if (contentItem) {
-            contentItem.parent = page;
-            contentItem.anchors.left = page.left;
-            contentItem.anchors.right = page.right;
-            contentItem.anchors.top = headerBar.bottom;
-            contentItem.anchors.bottom = bottomSpacing.top;
-            contentItem.anchors.margins = contentMargins;
-        }
-    }
 
     //-----------------------------------------------------------------------------------
     // backbutton handling
@@ -202,15 +188,17 @@ Rectangle {
 
                 fontFamily: page.fontFamily
                 pixelSize: page.headerBarTextSize
+                minimumPixelSize: pixelSize
                 letterSpacing: page.letterSpacing
                 bold: page.headerBarTextBold
+
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                maximumLineCount: 1
+                elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
 
                 fontSizeMode: Text.HorizontalFit
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                maximumLineCount: 2
-                elide: Text.ElideRight
 
                 MouseArea {
                     anchors.fill: parent
@@ -252,6 +240,18 @@ Rectangle {
                 Layout.preferredWidth: 15 * AppFramework.displayScaleFactor
                 Layout.fillHeight: true
             }
+        }
+    }
+
+    Item {
+        id: content
+
+        anchors {
+            left: page.left
+            right: page.right
+            top: headerBar.bottom
+            bottom: bottomSpacing.top
+            margins: contentMargins
         }
     }
 
@@ -349,7 +349,7 @@ Rectangle {
         if (app) {
             var appInfo = app.info.json;
 
-            if(appInfo.hasOwnProperty("display") && appInfo.display.hasOwnProperty("statusBar")) {
+            if (appInfo.hasOwnProperty("display") && appInfo.display.hasOwnProperty("statusBar")) {
                 statusBar = app.info.json.display.statusBar;
             }
         }

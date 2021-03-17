@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 import "../lib/CoordinateConversions.js" as CC
@@ -68,7 +68,7 @@ ColumnLayout {
             if (Qt.platform.os === "ios") {
                 inputMethodHints = Qt.ImhPreferNumbers;
             } else {
-                inputMethodHints = Qt.ImhFormattedNumbersOnly ;
+                inputMethodHints = Qt.ImhFormattedNumbersOnly;
             }
         }
 

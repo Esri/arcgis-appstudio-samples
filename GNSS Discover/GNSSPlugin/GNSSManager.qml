@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.1
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
@@ -100,9 +100,9 @@ Item {
     readonly property PositionSourceMonitor positionSourceMonitor: positionSourceMonitor
     readonly property GNSSSettings gnssSettings: gnssSettings
     readonly property GNSSAlerts gnssAlerts: gnssAlerts
-    readonly property AppDialog gnssDialog: gnssDialog
 
     // Location provider status
+    readonly property alias active: positionSourceManager.active
     readonly property bool isActive: positionSourceManager.active
     readonly property bool isConnecting: positionSourceManager.isConnecting
     readonly property bool isConnected: positionSourceManager.isConnected
@@ -117,11 +117,11 @@ Item {
     readonly property bool isSerialPort: positionSourceManager.isSerialPort
     readonly property bool isNetwork: positionSourceManager.isNetwork
 
+    // Location provider name
+    readonly property string name: positionSourceManager.name
+
     // Current position
     readonly property var position: positionSourceMonitor.currentPosition
-
-    // Name of current position provider
-    readonly property string name: gnssSettings.lastUsedDeviceLabel > "" ? gnssSettings.lastUsedDeviceLabel : gnssSettings.lastUsedDeviceName;
 
     //-------------------------------------------------------------------------
     // Internal error messages
@@ -129,12 +129,12 @@ Item {
     readonly property string kUnableToConnect: qsTr("Unable to connect")
     readonly property string kDiscoveryFailed: qsTr("Device discovery failed")
     readonly property string kProviderUnavailable: qsTr("Location provider inaccessible")
-    readonly property string kDiscoveryAgentError: qsTr("Please ensure:\n1. Bluetooth is turned on.\n2. The app has permissions to access Bluetooth.")
+    readonly property string kDiscoveryAgentError: qsTr("Please ensure:\n1. Bluetooth is turned on.\n2. The app has permission to access Bluetooth.")
     readonly property string kTcpConnectionError: qsTr("Please ensure:\n1. Your device is online.\n2. %1 is a valid network address.")
     readonly property string kSerialportConnectionError: qsTr("Please ensure:\n1. %1 is turned on.\n2. %1 is connected to your device.")
     readonly property string kBluetoothConnectionError: qsTr("Please ensure:\n1. Bluetooth is turned on.\n2. %1 is turned on.\n3. %1 is paired with your device.")
     readonly property string kNmeaLogFileError: qsTr("Please ensure:\n%1 exists and contains valid NMEA log data.")
-    readonly property string kInternalLocationProviderError: qsTr("Please ensure:\n1. Location services are turned on.\n2. The app has permissions to access your location.")
+    readonly property string kInternalLocationProviderError: qsTr("Please ensure:\n1. Location services are turned on.\n2. The app has permission to access your location.")
 
     //-------------------------------------------------------------------------
     // Internal signals
@@ -177,6 +177,8 @@ Item {
         updateInterval: gnssSettings.updateInterval
         repeat: gnssSettings.repeat
 
+        name: gnssSettings.lastUsedDeviceLabel > "" ? gnssSettings.lastUsedDeviceLabel : gnssSettings.lastUsedDeviceName;
+
         altitudeType: gnssSettings.locationAltitudeType
         confidenceLevelType: gnssSettings.locationConfidenceLevelType
         customGeoidSeparation: gnssSettings.locationGeoidSeparation
@@ -185,38 +187,38 @@ Item {
         onTcpError: {
             gnssManager.tcpError(errorString);
 
-            show(kUnableToConnect, kTcpConnectionError.arg(name));
+            show(kUnableToConnect, kTcpConnectionError.arg(name), startPositionSource);
         }
 
         onDeviceError: {
             gnssManager.deviceError(errorString);
 
             if (isSerialPort) {
-                show(kUnableToConnect, kSerialportConnectionError.arg(name));
+                show(kUnableToConnect, kSerialportConnectionError.arg(name), startPositionSource);
             } else {
-                show(kUnableToConnect, kBluetoothConnectionError.arg(name));
+                show(kUnableToConnect, kBluetoothConnectionError.arg(name), startPositionSource);
             }
         }
 
         onNmeaLogFileError: {
             gnssManager.nmeaLogFileError(errorString);
 
-            show(kUnableToConnect, kNmeaLogFileError.arg(name));
+            show(kUnableToConnect, kNmeaLogFileError.arg(name), startPositionSource);
         }
 
         onPositionSourceError: {
             gnssManager.positionSourceError(errorString);
 
-            show(kProviderUnavailable, kInternalLocationProviderError);
+            show(kProviderUnavailable, kInternalLocationProviderError, startPositionSource);
         }
 
         onDiscoveryAgentError: {
             gnssManager.discoveryAgentError(errorString);
 
-            show(kDiscoveryFailed, kDiscoveryAgentError);
+            show(kDiscoveryFailed, kDiscoveryAgentError, controller.startDiscoveryAgent);
         }
 
-        function show(title, errorString) {
+        function show(title, errorString, callback) {
             if (showErrors) {
                 gnssDialog.parent = gnssSettingsPages && gnssSettingsPages.stackView && gnssSettingsPages.stackView.currentItem
                         ? gnssSettingsPages.stackView.currentItem
@@ -224,8 +226,8 @@ Item {
 
                 gnssDialog.openDialogWithTitle(
                             title,
-                            errorString, "", qsTr("OK"),
-                            function() {}, function() {});
+                            errorString, qsTr("TRY AGAIN"), qsTr("OK"),
+                            callback, function() {});
             }
         }
     }
@@ -297,7 +299,7 @@ Item {
     Connections {
         target: Qt.application
 
-        onStateChanged: {
+        function onStateChanged() {
             switch (Qt.application.state) {
             case Qt.ApplicationActive:
                 if (isActive && isGNSS && !isConnecting) {

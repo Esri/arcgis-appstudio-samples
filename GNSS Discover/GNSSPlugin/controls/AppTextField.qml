@@ -14,10 +14,10 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -166,7 +166,7 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if(textField.text > "") {
+                        if (textField.text > "") {
                             textField.clear();
                             cleared();
                         }

@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -35,6 +35,7 @@ SettingsTab {
     //--------------------------------------------------------------------------
 
     readonly property bool isTheActiveSensor: deviceName === gnssSettings.kInternalPositionSourceName || controller.currentName === deviceName
+
     readonly property string confidenceLevelType68Label: qsTr("68%")
     readonly property string confidenceLevelType95Label: qsTr("95%")
 
@@ -78,7 +79,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: accuracyTab.listDelegateHeight
+                    Layout.preferredHeight: accuracyTab.listDelegateHeightSingleLine
                     color: accuracyTab.listBackgroundColor
 
                     AppRadioButton {
@@ -106,6 +107,7 @@ SettingsTab {
                                     gnssSettings.locationConfidenceLevelType = gnssSettings.kConfidenceLevelType68;
                                 }
                             }
+
                             changed();
                         }
                     }
@@ -113,7 +115,7 @@ SettingsTab {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: accuracyTab.listDelegateHeight
+                    Layout.preferredHeight: accuracyTab.listDelegateHeightSingleLine
                     color: accuracyTab.listBackgroundColor
 
                     AppRadioButton {
@@ -141,6 +143,7 @@ SettingsTab {
                                     gnssSettings.locationConfidenceLevelType = gnssSettings.kConfidenceLevelType95;
                                 }
                             }
+
                             changed();
                         }
                     }

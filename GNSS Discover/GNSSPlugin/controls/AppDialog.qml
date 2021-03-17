@@ -14,11 +14,11 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.2
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Authentication 1.0
@@ -204,15 +204,15 @@ Item {
                 font.bold: true
                 color: dialog.titleColor
                 lineHeight: 27 * scaleFactor
-                lineHeightMode: Label.FixedHeight
+                lineHeightMode: Text.FixedHeight
 
                 padding: 0
 
-                wrapMode: Label.Wrap
+                wrapMode: Text.Wrap
 
                 LayoutMirroring.enabled: false
 
-                horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
             }
 
             Image {
@@ -243,13 +243,13 @@ Item {
                 color: dialog.textColor
                 font.letterSpacing: 0
                 lineHeight: 24 * scaleFactor
-                lineHeightMode: Label.FixedHeight
+                lineHeightMode: Text.FixedHeight
 
                 padding: 0
 
-                wrapMode: Label.Wrap
+                wrapMode: Text.Wrap
 
-                horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
             }
 
             Item {
@@ -278,7 +278,7 @@ Item {
                     Label {
                         Layout.preferredWidth: Math.min(implicitWidth, parent.width / 2)
                         Layout.fillHeight: true
-                        verticalAlignment: Label.AlignVCenter
+                        verticalAlignment: Text.AlignVCenter
 
                         text: leftBtnString
                         visible: text > ""
@@ -290,9 +290,9 @@ Item {
                         font.letterSpacing: 0.75 * scaleFactor
                         font.bold: true
                         lineHeight: 19 * scaleFactor
-                        lineHeightMode: Label.FixedHeight
+                        lineHeightMode: Text.FixedHeight
                         color: buttonColor
-                        elide: isRightToLeft ? Label.ElideLeft : Label.ElideRight
+                        elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
 
                         MouseArea {
                             anchors.fill: parent
@@ -314,7 +314,7 @@ Item {
 
                         Layout.preferredWidth: Math.min(implicitWidth, parent.width / 2)
                         Layout.fillHeight: true
-                        verticalAlignment: Label.AlignVCenter
+                        verticalAlignment: Text.AlignVCenter
 
                         text: rightBtnString
                         visible: text > ""
@@ -326,9 +326,9 @@ Item {
                         font.letterSpacing: 0.75 * scaleFactor
                         font.bold: true
                         lineHeight: 19 * scaleFactor
-                        lineHeightMode: Label.FixedHeight
+                        lineHeightMode: Text.FixedHeight
                         color: buttonColor
-                        elide: isRightToLeft ? Label.ElideLeft : Label.ElideRight
+                        elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
 
                         MouseArea {
                             anchors.fill: parent
@@ -381,14 +381,14 @@ Item {
                                     font.family: dialog.fontFamily
                                     font.letterSpacing: 0.75 * scaleFactor
                                     color: buttonDisplays[index].color || buttonColor
-                                    verticalAlignment: Label.AlignVCenter
+                                    verticalAlignment: Text.AlignVCenter
                                     leftPadding: 12 * scaleFactor
                                     rightPadding: leftPadding
                                     text: buttonDisplays[index].title
-                                    elide: isRightToLeft ? Label.ElideLeft : Label.ElideRight
+                                    elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
 
                                     LayoutMirroring.enabled: false
-                                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                                     MouseArea {
                                         anchors.fill: parent

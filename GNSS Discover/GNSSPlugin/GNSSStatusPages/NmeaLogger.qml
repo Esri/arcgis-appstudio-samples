@@ -14,14 +14,13 @@
  *
  */
 
-import QtQml 2.12
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
+import ArcGIS.AppFramework.Sql 1.0
 
-import "../"
-import "../controls"
 import "../GNSSManager"
 
 Item {
@@ -29,40 +28,24 @@ Item {
 
     //--------------------------------------------------------------------------
 
-    property GNSSManager gnssManager
+    property PositionSourceManager positionSourceManager
 
-    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name
+    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name + "/Logs/"
 
     property bool allowLogging: true
     property bool isRecording: false
     property bool isPaused: false
-    property bool updating: false
-
-    property color infoTextColor: "white"
-    property color infoBackgroundColor: "blue"
-
-    property color errorTextColor: "white"
-    property color errorBackgroundColor: "#a80000"
-
-    readonly property url kIconSatellite: "../images/satellite.png"
-
-    property string fontFamily: Qt.application.font.family
-    property real letterSpacing: 0
-    property var locale: Qt.locale()
-    property bool isRightToLeft: AppFramework.localeInfo().esriName === "ar" || AppFramework.localeInfo().esriName === "he"
 
     //--------------------------------------------------------------------------
     // Internal properties
 
-    readonly property PositionSourceManager positionSourceManager: gnssManager.positionSourceManager
     readonly property NmeaSource nmeaSource: positionSourceManager.nmeaSource
 
     property var nmeaLogFile
+    property bool updating
 
-    //--------------------------------------------------------------------------
-
-    anchors.fill: parent
-    z: 99999
+    signal receivedNmeaData(var receivedSentence)
+    signal alert(int alertType)
 
     //--------------------------------------------------------------------------
 
@@ -85,25 +68,23 @@ Item {
     onIsRecordingChanged: {
         if (allowLogging && !updating) {
             updating = true;
-            var message = "";
 
             if (isRecording) {
                 nmeaLogFile = openLog();
 
                 if (nmeaLogFile) {
-                    message = qsTr("Recording started.");
-                    faderMessage.show(message, kIconSatellite, infoTextColor, infoBackgroundColor)
+                    alert(GNSSAlerts.AlertType.RecordingStarted);
                 } else {
-                    message = qsTr("Unable to open NMEA log file.");
-                    faderMessage.show(message, kIconSatellite, errorTextColor, errorBackgroundColor)
                     isRecording = false;
+
+                    alert(GNSSAlerts.AlertType.FileIOError);
                 }
             } else {
                 closeLog(nmeaLogFile);
 
-                message = qsTr("Recording finished.");
-                faderMessage.show(message, kIconSatellite, infoTextColor, infoBackgroundColor)
+                alert(GNSSAlerts.AlertType.RecordingStopped);
             }
+
             updating = false;
         }
     }
@@ -112,36 +93,21 @@ Item {
 
     Connections {
         target: nmeaSource
+        enabled: !positionSourceManager.isInternal
 
-        onReceivedNmeaData: {
-            if (allowLogging && isRecording && !isPaused) {
-                writeLog(nmeaLogFile, nmeaSource.receivedSentence.trim());
-            }
+        function onReceivedNmeaData() {
+            logSentence(nmeaSource.receivedSentence.trim())
         }
     }
 
     //--------------------------------------------------------------------------
 
-    FaderMessage {
-        id: faderMessage
+    Connections {
+        target: positionSourceManager
+        enabled: positionSourceManager.isInternal
 
-        z: 9999
-
-        fontFamily: nmeaLogger.fontFamily
-        letterSpacing: nmeaLogger.letterSpacing
-        pixelSize: 20 * AppFramework.displayScaleFactor
-        bold: false
-    }
-
-    //--------------------------------------------------------------------------
-
-    MouseArea {
-        anchors.fill: parent
-
-        enabled: faderMessage.visible
-
-        onClicked: {
-            faderMessage.hide();
+        function onNewPosition(position) {
+            logPosition(position);
         }
     }
 
@@ -150,7 +116,7 @@ Item {
     FileFolder {
         id: fileFolder
 
-        path: nmeaLogger.logFileLocation
+        path: logFileLocation
 
         onPathChanged: {
             if (allowLogging) {
@@ -179,9 +145,9 @@ Item {
             }
 
             if (file.open(File.OpenModeReadWrite | File.OpenModeTruncate | File.OpenModeText)) {
-                console.log("Writing to file" + file.path);
+                console.log("Writing to file " + file.path);
             } else {
-                console.log("Unable to open file" + file.path);
+                console.log("Unable to open file " + file.path);
                 file = undefined;
             }
         }
@@ -189,16 +155,137 @@ Item {
         return file;
     }
 
+    //--------------------------------------------------------------------------
+
     function closeLog(file) {
         if (file && file.openMode !== File.NotOpen) {
             file.close();
         }
+
+        isPaused = false;
     }
+
+    //--------------------------------------------------------------------------
 
     function writeLog(file, text) {
         if (file && file.openMode !== File.NotOpen) {
             file.writeLine(text);
         }
+    }
+
+    //--------------------------------------------------------------------------
+
+    function logSentence(sentence) {
+        if (allowLogging && isRecording && !isPaused) {
+            writeLog(nmeaLogFile, sentence);
+        }
+
+        receivedNmeaData(sentence);
+    }
+
+    //--------------------------------------------------------------------------
+
+    function logPosition(position) {
+        var timestamp = position.timestamp;
+        var coordinate = position.coordinate;
+        if (!coordinate.isValid) {
+            return;
+        }
+
+        var utcTime = "%1%2%3.%4"
+        .arg(timestamp.getUTCHours().toString().padStart(2, "0"))
+        .arg(timestamp.getUTCMinutes().toString().padStart(2, "0"))
+        .arg(timestamp.getUTCSeconds().toString().padStart(2, "0"))
+        .arg(Math.round(timestamp.getUTCMilliseconds()/10).toString().padStart(2, "0"));
+
+        var utcDate = "%1%2%3"
+        .arg(timestamp.getUTCDate().toString().padStart(2, "0"))
+        .arg((timestamp.getUTCMonth() + 1).toString().padStart(2, "0"))
+        .arg(timestamp.getUTCFullYear().toString().slice(-2));
+
+        var ddm = Coordinate.convert(coordinate, "ddm").ddm;
+
+        var ddmLatitude = ("%1%2"
+                           .arg(ddm.latitudeDegrees.toString().padStart(2, "0"))
+                           .arg("0".repeat(ddm.latitudeMinutes < 10 ? 1 : 0) + ddm.latitudeMinutes.toString())).padEnd(9, "0");
+
+        var ddmLongitude = ("%1%2"
+                            .arg(ddm.longitudeDegrees.toString().padStart(3, "0"))
+                            .arg("0".repeat(ddm.longitudeMinutes < 10 ? 1 : 0) + ddm.longitudeMinutes.toString())).padEnd(10, "0");
+
+        var sog = position.speedValid
+                ? (Math.round(position.speed * 19.4384) / 10).toString()
+                : "";
+
+        var cog = position.directionValid
+                ? (Math.round(position.direction * 10) / 10).toString()
+                : "";
+
+        var hdop = position.horizontalAccuracyValid
+                ? (Math.round(position.horizontalAccuracy / 0.47) / 10).toString()
+                : ""
+
+        var vdop = position.verticalAccuracyValid
+                ? (Math.round(position.verticalAccuracy / 0.47) / 10).toString()
+                : ""
+
+        var pdop = position.horizontalAccuracyValid && position.verticalAccuracyValid
+                ? (Math.round(Math.sqrt(position.horizontalAccuracy*position.horizontalAccuracy + position.verticalAccuracy*position.verticalAccuracy) / 0.47) / 10).toString()
+                : ""
+
+        var fixType = position.horizontalAccuracyValid && position.verticalAccuracyValid
+                ? 3 // 3D fix
+                : position.horizontalAccuracyValid
+                  ? 2 // 2D fix
+                  : 1 // no fix
+
+        var gsa = "GPGSA,A,%1,,,,,,,,,,,,,%2,%3,%4"
+        .arg(fixType)
+        .arg(pdop)
+        .arg(hdop)
+        .arg(vdop);
+
+        logSentence(addChecksum(gsa));
+
+        var gga = "GPGGA,%1,%2,%3,%4,%5,1,00,%6,%7,%8,,,,"
+        .arg(utcTime)
+        .arg(ddmLatitude)
+        .arg(ddm.latitudeHemisphere)
+        .arg(ddmLongitude)
+        .arg(ddm.longitudeHemisphere)
+        .arg(hdop)
+        .arg(position.altitudeValid ? coordinate.altitude : "")
+        .arg(position.altitudeValid ? "M" : "");
+
+        logSentence(addChecksum(gga));
+
+        var rmc = "GPRMC,%1,A,%2,%3,%4,%5,%6,%7,%8,%9,%10"
+        .arg(utcTime)
+        .arg(ddmLatitude)
+        .arg(ddm.latitudeHemisphere)
+        .arg(ddmLongitude)
+        .arg(ddm.longitudeHemisphere)
+        .arg(sog)
+        .arg(cog)
+        .arg(utcDate)
+        .arg(position.magneticVariationValid ? Math.abs(position.magneticVariation) : "")
+        .arg(position.magneticVariationValid ? position.magneticVariation < 0 ? "W" : "E" : "");
+
+        logSentence(addChecksum(rmc));
+    }
+
+    //--------------------------------------------------------------------------
+
+    function addChecksum(data) {
+        var checksum = 0;
+
+        for (var i = 0; i < data.length; i++) {
+            checksum = checksum ^ data.charCodeAt(i);
+        }
+
+        var hex = Number(checksum).toString(16).toUpperCase().padStart(2, "0");
+
+        return "$%1*%2".arg(data).arg(hex);
     }
 
     //--------------------------------------------------------------------------

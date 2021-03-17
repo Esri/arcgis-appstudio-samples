@@ -14,26 +14,26 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
-import QtQuick.Dialogs 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
+import ArcGIS.AppFramework.Platform 1.0
 
 import "../controls"
 
 SettingsTab {
-    id: addNemaLogTab
+    id: addNmeaLogTab
 
-    title: qsTr("File information")
+    title: qsTr("Select file")
 
-    property bool isAndroid: Qt.platform.os === "android"
-    property bool isIOS: Qt.platform.os === "ios"
-
-    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name
+    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name + "/Logs/"
     property string fileName
     property url fileUrl
+
+    readonly property bool isAndroid: Qt.platform.os === "android"
+    readonly property bool isIOS: Qt.platform.os === "ios"
 
     signal showReceiverSettingsPage(var deviceName)
     signal clear()
@@ -84,8 +84,8 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addNemaLogTab.listDelegateHeight
-                color: addNemaLogTab.listBackgroundColor
+                Layout.preferredHeight: addNmeaLogTab.listDelegateHeightTextBox
+                color: addNmeaLogTab.listBackgroundColor
 
                 AppTextField {
                     id: fileNameTextField
@@ -99,14 +99,14 @@ SettingsTab {
                     placeholderText: qsTr("NMEA log file")
 
                     text: fileName
-                    textColor: addNemaLogTab.textColor
-                    borderColor: addNemaLogTab.textColor
-                    selectedColor: addNemaLogTab.selectedForegroundColor
-                    backgroundColor: addNemaLogTab.listBackgroundColor
-                    fontFamily: addNemaLogTab.fontFamily
-                    letterSpacing: addNemaLogTab.letterSpacing
-                    locale: addNemaLogTab.locale
-                    isRightToLeft: addNemaLogTab.isRightToLeft
+                    textColor: addNmeaLogTab.textColor
+                    borderColor: addNmeaLogTab.textColor
+                    selectedColor: addNmeaLogTab.selectedForegroundColor
+                    backgroundColor: addNmeaLogTab.listBackgroundColor
+                    fontFamily: addNmeaLogTab.fontFamily
+                    letterSpacing: addNmeaLogTab.letterSpacing
+                    locale: addNmeaLogTab.locale
+                    isRightToLeft: addNmeaLogTab.isRightToLeft
 
                     readOnly: true
 
@@ -115,7 +115,7 @@ SettingsTab {
                         fileDialog.open()
                     }
 
-                    onCleared: addNemaLogTab.clear()
+                    onCleared: addNmeaLogTab.clear()
                 }
             }
 
@@ -123,8 +123,8 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addNemaLogTab.listDelegateHeight
-                color: addNemaLogTab.listBackgroundColor
+                Layout.preferredHeight: addNmeaLogTab.listDelegateHeightTextBox
+                color: addNmeaLogTab.listBackgroundColor
 
                 SimpleButton {
                     enabled: fileUrl > ""
@@ -139,21 +139,19 @@ SettingsTab {
 
                     text: qsTr("ADD")
 
-                    textColor: addNemaLogTab.listBackgroundColor
-                    backgroundColor: addNemaLogTab.selectedForegroundColor
-                    pressedTextColor: addNemaLogTab.textColor
-                    hoveredTextColor: addNemaLogTab.textColor
-                    pressedBackgroundColor: addNemaLogTab.selectedForegroundColor
-                    hoveredBackgroundColor: addNemaLogTab.hoverBackgroundColor
-                    fontFamily: addNemaLogTab.fontFamily
+                    textColor: addNmeaLogTab.listBackgroundColor
+                    backgroundColor: addNmeaLogTab.selectedForegroundColor
+                    pressedTextColor: addNmeaLogTab.textColor
+                    hoveredTextColor: addNmeaLogTab.textColor
+                    pressedBackgroundColor: addNmeaLogTab.selectedForegroundColor
+                    hoveredBackgroundColor: addNmeaLogTab.hoverBackgroundColor
+                    fontFamily: addNmeaLogTab.fontFamily
 
                     onClicked: {
-                        var file = isAndroid ? AppFramework.file("" + fileUrl) : AppFramework.file(fileUrl);
-                        var path = isIOS ? file.path.replace(AppFramework.userHomePath + "/", "") : file.path;
-
-                        var name = gnssSettings.createNmeaLogFileSettings(path);
+                        var path = gnssSettings.fileUrlToPath(fileUrl)
+                        gnssSettings.createNmeaLogFileSettings(path);
                         controller.nmeaLogFileSelected(path);
-                        showReceiverSettingsPage(name);
+                        showReceiverSettingsPage(path);
                     }
                 }
             }
@@ -168,11 +166,7 @@ SettingsTab {
 
         // ---------------------------------------------------------------------
 
-        // XXX This is a workaround for issue https://devtopia.esri.com/Melbourne/Player/issues/837
-        // XXX The app crashes after selecting a file if the FileDialog is instantiated more than once
-        // XXX See also GNSSPlugin/GNSSSettingsPages.qml
-        /*
-        FileDialog {
+        DocumentDialog {
             id: fileDialog
 
             title: qsTr("Select a GPS log file")
@@ -180,21 +174,34 @@ SettingsTab {
             folder: fileFolder.url
 
             onAccepted: {
-                addNetworkTab.fileUrl = fileUrl
+                var url = fileUrl;
 
-                var name = fileUrl.toString().replace(/%2F/g, "/")
-                fileName = name.substring(name.lastIndexOf("/") + 1)
-            }
-        }
-        */
-        Connections {
-            target: fileDialog
+                var src = AppFramework.fileInfo(fileUrl);
+                var dest = fileFolder.filePath(src.fileName);
 
-            onAccepted: {
-                addNemaLogTab.fileUrl = fileDialog.fileUrl
+                if (src.filePath !== dest) {
+                    if (!src.folder.copyFile(src.fileName, dest)) {
+                        dest = fileFolder.filePath("%1-%2.%3".arg(src.baseName).arg(_item.dateStamp()).arg(src.suffix));
 
-                var name = fileDialog.fileUrl.toString().replace(/%2F/g, "/")
-                fileName = name.substring(name.lastIndexOf("/") + 1)
+                        if (!src.folder.copyFile(src.fileName, dest)) {
+                            clear();
+
+                            gnssDialog.parent = stackView.currentItem;
+                            gnssDialog.openDialogWithTitle(
+                                        qsTr("Unable to add file"),
+                                        qsTr("Please select another NMEA log file."),
+                                        qsTr("OK"), qsTr(""),
+                                        function() {}, function() {});
+
+                            return;
+                        }
+                    }
+
+                    url = AppFramework.fileInfo(dest).url;
+                }
+
+                addNmeaLogTab.fileUrl = url;
+                addNmeaLogTab.fileName = gnssSettings.fileUrlToLabel(url);
             }
         }
 
@@ -204,6 +211,42 @@ SettingsTab {
             id: fileFolder
 
             path: logFileLocation
+
+            onPathChanged: {
+                makeFolder();
+            }
+
+            Component.onCompleted: {
+                makeFolder();
+            }
+        }
+
+        //-------------------------------------------------------------------------
+
+        AppDialog {
+            id: gnssDialog
+
+            backgroundColor: addNmeaLogTab.listBackgroundColor
+            buttonColor: addNmeaLogTab.selectedTextColor
+            titleColor: addNmeaLogTab.textColor
+            textColor: addNmeaLogTab.textColor
+            fontFamily: addNmeaLogTab.fontFamily
+        }
+
+        //--------------------------------------------------------------------------
+
+        function dateStamp(date) {
+            if (!date) {
+                date = new Date();
+            }
+
+            return "%1%2%3-%4%5%6"
+            .arg(date.getFullYear().toString())
+            .arg((date.getMonth() + 1).toString().padStart(2, "0"))
+            .arg(date.getDate().toString().padStart(2, "0"))
+            .arg(date.getHours().toString().padStart(2, "0"))
+            .arg(date.getMinutes().toString().padStart(2, "0"))
+            .arg(date.getSeconds().toString().padStart(2, "0"));
         }
 
         // ---------------------------------------------------------------------

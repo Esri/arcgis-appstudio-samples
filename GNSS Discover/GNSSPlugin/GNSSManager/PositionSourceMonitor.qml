@@ -14,14 +14,18 @@
  *
  */
 
-import QtQml 2.12
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 
 Item {
+    id: monitor
+
+    //--------------------------------------------------------------------------
+
     property PositionSourceManager positionSourceManager
     property bool monitorNmeaData: false
 
@@ -38,13 +42,6 @@ Item {
 
     property int maximumDataAge: 5000
     property int maximumPositionAge: 5000
-
-    //--------------------------------------------------------------------------
-
-    property int kAlertConnected: 1
-    property int kAlertDisconnected: 2
-    property int kAlertNoData: 3
-    property int kAlertNoPosition: 4
 
     //--------------------------------------------------------------------------
 
@@ -89,7 +86,7 @@ Item {
         target: nmeaSource
         enabled: active && positionSourceManager.isGNSS
 
-        onReceivedNmeaData: {
+        function onReceivedNmeaData() {
             dataReceivedTime = (new Date()).valueOf();
         }
     }
@@ -102,7 +99,7 @@ Item {
         target: positionSourceManager
         enabled: active
 
-        onNewPosition: {
+        function onNewPosition(position) {
             positionReceivedTime = positionSourceManager.positionTimestamp
 
             if (!positionSourceManager.isGNSS || position.fixTypeValid && position.fixType > 0) {
@@ -115,21 +112,22 @@ Item {
             newPosition(position);
         }
 
-        onIsConnectedChanged: {
+        function onIsConnectedChanged() {
             if (positionSourceManager.isGNSS) {
                 if (positionSourceManager.isConnected) {
-                    alert(kAlertConnected);
+                    alert(GNSSAlerts.AlertType.Connected);
                 } else {
                     positionIsCurrent = false;
-                    alert(kAlertDisconnected);
+                    alert(GNSSAlerts.AlertType.Disconnected);
                 }
             }
         }
 
-        onTcpError: positionIsCurrent = false
-        onDeviceError: positionIsCurrent = false
-        onDiscoveryAgentError: positionIsCurrent = false
-        onPositionSourceError: positionIsCurrent = false
+        function onTcpError(errorString) { positionIsCurrent = false; }
+        function onDeviceError(errorString) { positionIsCurrent = false; }
+        function onNmeaLogFileError(errorString) { positionIsCurrent = false; }
+        function onDiscoveryAgentError(errorString) { positionIsCurrent = false; }
+        function onPositionSourceError(errorString) { positionIsCurrent = false; }
     }
 
     //--------------------------------------------------------------------------
@@ -149,7 +147,7 @@ Item {
 
             if (dataAge > maximumDataAge) {
                 positionIsCurrent = false;
-                alert(kAlertNoData);
+                alert(GNSSAlerts.AlertType.NoData);
                 return;
             }
         }
@@ -159,7 +157,7 @@ Item {
 
             if (positionAge > maximumPositionAge || positionSourceManager.isGNSS && (!currentPosition.fixTypeValid || currentPosition.fixType === 0)) {
                 positionIsCurrent = false;
-                alert(kAlertNoPosition);
+                alert(GNSSAlerts.AlertType.NoPosition);
                 return;
             }
         }

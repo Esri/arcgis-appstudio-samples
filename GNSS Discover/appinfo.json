@@ -1,5 +1,5 @@
 {
-    "arcgisRuntime": 0,
+    "appLink": "",
     "capabilities": {
         "audio": true,
         "backgroundModes": {
@@ -24,6 +24,7 @@
         "camera": false,
         "fileSharing": true,
         "highAccuracyLocation": true,
+        "interAppFileSharing": true,
         "ios": {
             "externalAccessoryProtocolStrings": [
                 "com.bad-elf.gps",
@@ -111,6 +112,7 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 25
+        "micro": 2,
+        "minor": 1
     }
 }

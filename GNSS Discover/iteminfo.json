@@ -26,11 +26,11 @@
     "largeThumbnail": null,
     "licenseInfo": null,
     "listed": false,
-    "modified": 1581293679000,
+    "modified": 1614119217000,
     "name": "947b4cf76ce84d0fb4a2a13d9820e8a3.zip",
-    "numComments": 25,
+    "numComments": 47,
     "numRatings": 0,
-    "numViews": 86,
+    "numViews": 255,
     "owner": null,
     "ownerFolder": null,
     "properties": null,
@@ -39,9 +39,10 @@
     "scoreCompleteness": 63,
     "screenshots": [
     ],
-    "size": 248580,
+    "size": 254726,
     "snippet": "Demonstrates how to connect to and configure external GNSS devices.",
     "spatialReference": null,
+    "subInfo": 0,
     "tags": [
         "GNSS"
     ],

@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -35,7 +35,6 @@ Item {
 
     // Internal properties
     readonly property GNSSManager gnssManager: settingsTabContainer.gnssManager
-    readonly property AppDialog gnssDialog: settingsTabContainer.gnssDialog
     readonly property StackView stackView: settingsTabContainer.stackView
 
     readonly property color textColor: settingsTabContainer.textColor
@@ -48,7 +47,9 @@ Item {
     readonly property color selectedBackgroundColor: settingsTabContainer.selectedBackgroundColor
     readonly property color hoverBackgroundColor: settingsTabContainer.hoverBackgroundColor
 
-    readonly property real listDelegateHeight: settingsTabContainer.listDelegateHeight
+    readonly property real listDelegateHeightTextBox: settingsTabContainer.listDelegateHeightTextBox
+    readonly property real listDelegateHeightMultiLine: settingsTabContainer.listDelegateHeightMultiLine
+    readonly property real listDelegateHeightSingleLine: settingsTabContainer.listDelegateHeightSingleLine
     readonly property real listSpacing: settingsTabContainer.listSpacing
 
     readonly property color addProviderButtonTextColor: settingsTabContainer.addProviderButtonTextColor
@@ -93,6 +94,22 @@ Item {
     signal activated()
     signal deactivated()
     signal removed()
+
+    //--------------------------------------------------------------------------
+
+    function resolveDeviceName(deviceType, deviceName, showFullPath) {
+        switch (deviceType) {
+        case kDeviceTypeInternal:
+            return controller.integratedProviderName;
+        case kDeviceTypeFile:
+            if (showFullPath) {
+                return gnssSettings.fileUrlToDisplayPath(deviceName);
+            }
+            return gnssSettings.fileUrlToLabel(deviceName);
+        default:
+            return deviceName;
+        }
+    }
 
     //--------------------------------------------------------------------------
 

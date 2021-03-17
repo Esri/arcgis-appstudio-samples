@@ -14,7 +14,8 @@
  *
  */
 
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Speech 1.0
@@ -25,9 +26,21 @@ import "../controls"
 Item {
     id: alerts
 
-    property GNSSSettings gnssSettings
+    //--------------------------------------------------------------------------
 
-    property bool dimDisplay: false
+    enum AlertType {
+        Connected = 1,
+        Disconnected = 2,
+        NoData = 3,
+        NoPosition = 4,
+        RecordingStarted = 5,
+        RecordingStopped = 6,
+        FileIOError = 7
+    }
+
+    //--------------------------------------------------------------------------
+
+    property GNSSSettings gnssSettings
 
     property color infoTextColor: "white"
     property color infoBackgroundColor: "blue"
@@ -56,40 +69,74 @@ Item {
 
     readonly property var kPositionAlertInfos: [
         {
-            type: 1,
-            sayMessage: qsTr("The location sensor is connected"),
+            type: GNSSAlerts.AlertType.Connected,
             icon: kIconSatellite,
+            sayMessage: qsTr("The location sensor is connected"),
             displayMessage: qsTr("Location sensor connected"),
             textColor: infoTextColor,
             backgroundColor: infoBackgroundColor,
+            priority: true,
         },
 
         {
-            type: 2,
-            sayMessage: qsTr("The location sensor is disconnected"),
+            type: GNSSAlerts.AlertType.Disconnected,
             icon: kIconSatellite,
+            sayMessage: qsTr("The location sensor is disconnected"),
             displayMessage: qsTr("Location sensor disconnected"),
             textColor: errorTextColor,
             backgroundColor: errorBackgroundColor,
+            priority: true,
         },
 
         {
-            type: 3,
-            sayMessage: qsTr("No data is being received from the location sensor"),
+            type: GNSSAlerts.AlertType.NoData,
             icon: kIconSatellite,
+            sayMessage: qsTr("No data is being received from the location sensor"),
             displayMessage: qsTr("No data received"),
             textColor: warningTextColor,
             backgroundColor: warningBackgroundColor,
+            priority: false,
         },
 
         {
-            type: 4,
-            sayMessage: qsTr("No positions are being received from the location sensor"),
+            type: GNSSAlerts.AlertType.NoPosition,
             icon: kIconSatellite,
+            sayMessage: qsTr("No positions are being received from the location sensor"),
             displayMessage: qsTr("No position received"),
             textColor: warningTextColor,
             backgroundColor: warningBackgroundColor,
-        }
+            priority: false,
+        },
+
+        {
+            type: GNSSAlerts.AlertType.RecordingStarted,
+            icon: kIconSatellite,
+            sayMessage: qsTr("Recording started"),
+            displayMessage: qsTr("Recording started"),
+            textColor: infoTextColor,
+            backgroundColor: infoBackgroundColor,
+            priority: true,
+        },
+
+        {
+            type: GNSSAlerts.AlertType.RecordingStopped,
+            icon: kIconSatellite,
+            sayMessage: qsTr("Recording stopped"),
+            displayMessage: qsTr("Recording stopped"),
+            textColor: infoTextColor,
+            backgroundColor: infoBackgroundColor,
+            priority: true,
+        },
+
+        {
+            type: GNSSAlerts.AlertType.FileIOError,
+            icon: kIconSatellite,
+            sayMessage: qsTr("Log file could not be opened"),
+            displayMessage: qsTr("Unable to open log file"),
+            textColor: errorTextColor,
+            backgroundColor: errorBackgroundColor,
+            priority: true,
+        },
     ]
 
     //--------------------------------------------------------------------------
@@ -111,19 +158,22 @@ Item {
         var displayMessage;
         var textColor;
         var backgroundColor;
+        var priority;
 
         if (alertInfo) {
-            sayMessage = alertInfo.sayMessage;
             icon = alertInfo.icon;
+            sayMessage = alertInfo.sayMessage;
             displayMessage = alertInfo.displayMessage;
             textColor = alertInfo.textColor;
             backgroundColor = alertInfo.backgroundColor;
+            priority = alertInfo.priority;
         } else {
-            sayMessage = qsTr("Position source alert %1").arg(alertType);
             icon = kIconSatellite;
+            sayMessage = qsTr("Position source alert %1").arg(alertType);
             displayMessage = qsTr("Position source alert %1").arg(alertType);
             textColor = warningTextColor;
             backgroundColor = warningBackgroundColor;
+            priority = false;
         }
 
         if (gnssSettings.locationAlertsVibrate) {
@@ -131,11 +181,11 @@ Item {
         }
 
         if (gnssSettings.locationAlertsSpeech) {
-            say(sayMessage);
+            say(sayMessage, priority);
         }
 
         if (gnssSettings.locationAlertsVisual) {
-            show(displayMessage, icon, textColor, backgroundColor);
+            show(displayMessage, icon, textColor, backgroundColor, undefined, priority);
         }
     }
 
@@ -212,13 +262,6 @@ Item {
     }
 
     //--------------------------------------------------------------------------
-
-    Rectangle {
-        anchors.fill: parent
-
-        visible: faderMessage.visible && dimDisplay
-        color: "#30000000"
-    }
 
     FaderMessage {
         id: faderMessage

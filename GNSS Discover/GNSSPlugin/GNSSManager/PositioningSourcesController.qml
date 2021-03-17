@@ -14,15 +14,17 @@
  *
  */
 
-import QtQml 2.12
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.Positioning 1.0
-import ArcGIS.AppFramework.Networking 1.0
 import ArcGIS.AppFramework.Devices 1.0
+import ArcGIS.AppFramework.Networking 1.0
+import ArcGIS.AppFramework.Positioning 1.0
 
 Item {
+    id: controller
+
     // -------------------------------------------------------------------------
 
     // As of Qt 5.12.3, enums take a long time to resolve. This can have an impact
@@ -32,7 +34,7 @@ Item {
     //    Internal = 0,
     //    External = 1,
     //    Network = 2,
-    //    NmeaLog = 3
+    //    File = 3
     //}
 
     readonly property var eConnectionType: {
@@ -75,10 +77,13 @@ Item {
               ? nmeaLogFile
               : ""
 
+    property string currentLabel: currentName
+
     readonly property string noExternalReceiverError: qsTr("No external GNSS receiver configured.")
     readonly property string noNetworkProviderError: qsTr("No network location provider configured.")
     readonly property string noNmeaLogFileError: qsTr("No NMEA log file configured.")
     readonly property string nmeaLogFileOpenError: qsTr("Unable to open NMEA log file.")
+    readonly property string timeOutError: qsTr("Connection attempt timed out.")
 
     property int connectionType: eConnectionType.internal
     property string storedDeviceName: ""
@@ -157,6 +162,7 @@ Item {
                 }
             }
 
+            connectionErrorTimer.stop();
             errorWhileConnecting = false;
         }
     }
@@ -258,6 +264,8 @@ Item {
         discoveryAgent.stop();
         discoveryTimer.stop();
         reconnectTimer.stop();
+        connectionErrorTimer.stop();
+        errorWhileConnecting = false;
     }
 
     // -------------------------------------------------------------------------
@@ -265,17 +273,17 @@ Item {
     Connections {
         target: nmeaSource
 
-        onErrorChanged: {
+        function onErrorChanged() {
             if (useFile) {
                 console.log("NMEA log file error:", nmeaSource.error)
 
-                if (onSettingsPage) {
-                    nmeaLogFileError(nmeaLogFileOpenError);
-                }
-
                 if (stayConnected && !onSettingsPage) {
                     errorWhileConnecting = true;
+                    connectionErrorTimer.start();
                     reconnect();
+                } else {
+                    nmeaLogFileError(nmeaLogFileOpenError);
+                    connectionErrorTimer.stop();
                 }
             }
         }
@@ -286,17 +294,17 @@ Item {
     Connections {
         target: tcpSocket
 
-        onErrorChanged: {
+        function onErrorChanged() {
             if (useTCPConnection) {
                 console.log("TCP connection error:", tcpSocket.error, tcpSocket.errorString)
 
-                if (onSettingsPage) {
-                    tcpError(tcpSocket.errorString);
-                }
-
                 if (stayConnected && !onSettingsPage) {
                     errorWhileConnecting = true;
+                    connectionErrorTimer.start();
                     reconnect();
+                } else {
+                    tcpError(tcpSocket.errorString);
+                    connectionErrorTimer.stop();
                 }
             }
         }
@@ -307,7 +315,7 @@ Item {
     Connections {
         target: currentDevice
 
-        onConnectedChanged: {
+        function onConnectedChanged() {
             if (currentDevice && useExternalGPS) {
                 if (stayConnected && !onSettingsPage) {
                     reconnect();
@@ -315,17 +323,17 @@ Item {
             }
         }
 
-        onErrorChanged: {
+        function onErrorChanged() {
             if (currentDevice && useExternalGPS) {
                 console.log("Device connection error:", currentDevice.error)
 
-                if (onSettingsPage) {
-                    deviceError(currentDevice.error);
-                }
-
                 if (stayConnected && !onSettingsPage) {
                     errorWhileConnecting = true;
+                    connectionErrorTimer.start();
                     reconnect();
+                } else {
+                    deviceError(currentDevice.error);
+                    connectionErrorTimer.stop();
                 }
             }
         }
@@ -336,15 +344,15 @@ Item {
     Connections {
         target: discoveryAgent
 
-        onDiscoverDevicesCompleted: {
+        function onDiscoverDevicesCompleted() {
             console.log("Device discovery completed");
         }
 
-        onRunningChanged: {
+        function onRunningChanged() {
             console.log("DeviceDiscoveryAgent running", discoveryAgent.running);
         }
 
-        onErrorChanged: {
+        function onErrorChanged() {
             console.log("Device discovery agent error:", discoveryAgent.error)
 
             if (onSettingsPage) {
@@ -352,7 +360,7 @@ Item {
             }
         }
 
-        onDeviceDiscovered: {
+        function onDeviceDiscovered(device) {
             if (discoveryAgent.deviceFilter(device)) {
                 console.log("Device discovered - Name:", device.name, "Type:", device.deviceType);
             }
@@ -399,7 +407,37 @@ Item {
         onTriggered: {
             console.log("Connection attempt timed out");
             fullDisconnect();
-            reconnect();
+
+            if (useExternalGPS) {
+                deviceError(timeOutError);
+            } else if (useTCPConnection) {
+                tcpError(timeOutError);
+            } else if (useFile) {
+                nmeaLogFileError(timeOutError);
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------
+
+    Timer {
+        id: connectionErrorTimer
+
+        interval: 60000
+        running: false
+        repeat: false
+
+        onTriggered: {
+            console.log("Too many errors, giving up");
+            fullDisconnect();
+
+            if (useExternalGPS) {
+                deviceError(currentDevice.error);
+            } else if (useTCPConnection) {
+                tcpError(tcpSocket.errorString);
+            } else if (useFile) {
+                nmeaLogFileError(nmeaLogFileOpenError);
+            }
         }
     }
 

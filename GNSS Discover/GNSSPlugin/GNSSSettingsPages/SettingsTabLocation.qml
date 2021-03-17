@@ -14,11 +14,10 @@
  *
  */
 
-import QtQml 2.2
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
-import QtQml.Models 2.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtQml.Models 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
@@ -66,13 +65,15 @@ SettingsTab {
     readonly property bool isConnected: controller.isConnected
 
     readonly property bool showDetailedSettingsCog: showAboutDevice || showAlerts || showAntennaHeight || showAltitude || showAccuracy
+    readonly property bool showBluetoothOnly: !settingsTabLocation.showAddUSB && !settingsTabLocation.showAddNetworkProvider && !settingsTabLocation.showAddFileProvider
     readonly property bool showAddUSB: !(Qt.platform.os === "ios" || Qt.platform.os === "android") && showAddUSBProvider
 
-    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name
+    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name + "/Logs/"
 
     property var _addDeviceTab
     property var _addNetworkTab
     property var _addNMEALogTab
+
     property bool _dirty: true
 
     signal selectInternal()
@@ -108,7 +109,7 @@ SettingsTab {
         Connections {
             target: settingsTabLocation
 
-            onActivated: {
+            function onActivated() {
                 if (_dirty) {
                     _item.createListTabView(gnssSettings.knownDevices);
                     _dirty = false;
@@ -121,13 +122,13 @@ SettingsTab {
         Connections {
             target: gnssSettings
 
-            onReceiverAdded: {
+            function onReceiverAdded(name) {
                 _item.addDeviceListTab(name, gnssSettings.knownDevices)
                 sortedListTabView.sort();
                 _dirty = true;
             }
 
-            onReceiverRemoved: {
+            function onReceiverRemoved(name) {
                 _dirty = true;
             }
         }
@@ -142,6 +143,7 @@ SettingsTab {
 
         ScrollView {
             anchors.fill: parent
+
             clip: true
 
             ScrollBar.vertical.policy: ScrollBar.AlwaysOff
@@ -192,7 +194,7 @@ SettingsTab {
                 // -----------------------------------------------------------------
 
                 Item {
-                    visible: !settingsTabLocation.showAddUSB && !settingsTabLocation.showAddNetworkProvider && !settingsTabLocation.showAddFileProvider
+                    visible: showBluetoothOnly
 
                     Layout.fillWidth: true
                     Layout.preferredHeight: 20 * AppFramework.displayScaleFactor
@@ -200,53 +202,6 @@ SettingsTab {
 
                 // -----------------------------------------------------------------
 
-                // only support classic Bluetooth receivers on iOS and Android
-                PlainButton {
-                    visible: !settingsTabLocation.showAddUSB && !settingsTabLocation.showAddNetworkProvider && !settingsTabLocation.showAddFileProvider
-
-                    Layout.preferredWidth: settingsTabLocation.width
-                    Layout.preferredHeight: settingsTabLocation.listDelegateHeight
-
-                    text: qsTr("Add provider")
-
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
-
-                    textColor: settingsTabLocation.addProviderButtonTextColor
-                    pressedTextColor: settingsTabLocation.textColor
-                    hoveredTextColor: settingsTabLocation.textColor
-                    backgroundColor: settingsTabLocation.listBackgroundColor
-                    pressedBackgroundColor: settingsTabLocation.hoverBackgroundColor
-                    hoveredBackgroundColor: settingsTabLocation.hoverBackgroundColor
-
-                    nextIconColor: settingsTabLocation.nextIconColor
-                    nextIconSize: settingsTabLocation.nextIconSize
-                    nextIcon: settingsTabLocation.nextIcon
-                    showNextIcon: true
-
-                    infoIconColor: settingsTabLocation.nextIconColor
-                    infoIconSize: settingsTabLocation.infoIconSize
-                    showInfoIcon: settingsTabLocation.showInfoIcons
-
-                    fontFamily: settingsTabLocation.fontFamily
-                    letterSpacing: settingsTabLocation.letterSpacing
-                    isRightToLeft: settingsTabLocation.isRightToLeft
-
-                    onClicked: {
-                        positionSourceManager.discoverBluetooth = true;
-                        positionSourceManager.discoverBluetoothLE = false;
-                        positionSourceManager.discoverSerialPort = false;
-
-                        if (!_addDeviceTab) {
-                            _addDeviceTab = addDeviceTab.createObject(_item);
-                        }
-
-                        pushItem(_addDeviceTab);
-                    }
-                }
-
-                // -----------------------------------------------------------------
-
-                // section title on OSX and Windows
                 RowLayout {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 32 * AppFramework.displayScaleFactor
@@ -254,7 +209,7 @@ SettingsTab {
 
                     spacing: 0
 
-                    visible: settingsTabLocation.showAddUSB || settingsTabLocation.showAddNetworkProvider || settingsTabLocation.showAddFileProvider
+                    visible: !showBluetoothOnly
 
                     Item {
                         Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
@@ -267,6 +222,7 @@ SettingsTab {
                         Layout.alignment: Qt.AlignBottom
 
                         text: qsTr("ADD PROVIDER")
+
                         color: settingsTabLocation.textColor
 
                         fontFamily: settingsTabLocation.fontFamily
@@ -286,16 +242,13 @@ SettingsTab {
 
                 // -----------------------------------------------------------------
 
-                // classic Bluetooth receivers on OSX and Windows
                 PlainButton {
-                    visible: settingsTabLocation.showAddUSB || settingsTabLocation.showAddNetworkProvider || settingsTabLocation.showAddFileProvider
-
                     Layout.preferredWidth: settingsTabLocation.width
-                    Layout.preferredHeight: settingsTabLocation.listDelegateHeight
+                    Layout.preferredHeight: settingsTabLocation.listDelegateHeightSingleLine
 
-                    text: qsTr("Via Bluetooth")
+                    text: showBluetoothOnly ? qsTr("Add provider") : qsTr("Via Bluetooth")
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                     textColor: settingsTabLocation.addProviderButtonTextColor
                     pressedTextColor: settingsTabLocation.textColor
@@ -332,16 +285,15 @@ SettingsTab {
 
                 // -----------------------------------------------------------------
 
-                // classic USB/COM Port receivers on OSX and Windows
                 PlainButton {
                     visible: settingsTabLocation.showAddUSB
 
                     Layout.preferredWidth: settingsTabLocation.width
-                    Layout.preferredHeight: settingsTabLocation.listDelegateHeight
+                    Layout.preferredHeight: settingsTabLocation.listDelegateHeightSingleLine
 
                     text: qsTr("Via USB")
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                     textColor: settingsTabLocation.addProviderButtonTextColor
                     pressedTextColor: settingsTabLocation.textColor
@@ -378,16 +330,15 @@ SettingsTab {
 
                 // -----------------------------------------------------------------
 
-                // network receivers on OSX and Windows
                 PlainButton {
                     visible: settingsTabLocation.showAddNetworkProvider
 
                     Layout.preferredWidth: settingsTabLocation.width
-                    Layout.preferredHeight: settingsTabLocation.listDelegateHeight
+                    Layout.preferredHeight: settingsTabLocation.listDelegateHeightSingleLine
 
                     text: qsTr("Via Network")
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                     textColor: settingsTabLocation.addProviderButtonTextColor
                     pressedTextColor: settingsTabLocation.textColor
@@ -420,16 +371,15 @@ SettingsTab {
 
                 // -----------------------------------------------------------------
 
-                // NMEA data from file
                 PlainButton {
                     visible: settingsTabLocation.showAddFileProvider
 
                     Layout.preferredWidth: settingsTabLocation.width
-                    Layout.preferredHeight: settingsTabLocation.listDelegateHeight
+                    Layout.preferredHeight: settingsTabLocation.listDelegateHeightSingleLine
 
                     text: qsTr("Via File")
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                     textColor: settingsTabLocation.addProviderButtonTextColor
                     pressedTextColor: settingsTabLocation.textColor
@@ -488,6 +438,8 @@ SettingsTab {
                 showAlertsSpeech: settingsTabLocation.showAlertsSpeech
                 showAlertsVibrate: settingsTabLocation.showAlertsVibrate
                 showAlertsTimeout: settingsTabLocation.showAlertsTimeout
+
+                showProviderAlias: settingsTabLocation.showProviderAlias
             }
         }
 
@@ -580,8 +532,8 @@ SettingsTab {
 
                 Accessible.role: Accessible.Pane
 
-                width: parent.parent.width
-                height: settingsTabLocation.listDelegateHeight
+                width: ListView.view.width
+                height: settingsTabLocation.showProviderAlias ? settingsTabLocation.listDelegateHeightMultiLine : settingsTabLocation.listDelegateHeightSingleLine
 
                 color: delegate.pressed
                        ? settingsTabLocation.hoverBackgroundColor
@@ -625,8 +577,8 @@ SettingsTab {
                             }
 
                             Item {
-                                Layout.preferredWidth: settingsTabLocation.infoIconSize
                                 Layout.fillHeight: true
+                                Layout.preferredWidth: settingsTabLocation.infoIconSize
 
                                 visible: settingsTabLocation.showInfoIcons
                                 enabled: visible
@@ -662,8 +614,6 @@ SettingsTab {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                Accessible.role: Accessible.Pane
-
                                 ColumnLayout {
                                     id: textColumn
 
@@ -671,13 +621,16 @@ SettingsTab {
 
                                     spacing: 0
 
-                                    readonly property bool hasAlias: modelData.title !== delegate.delegateDeviceName && !delegate.isInternal
+                                    readonly property bool hasAlias: modelData.title !== settingsTabLocation.resolveDeviceName(delegate.delegateDeviceType, delegate.delegateDeviceName, false) && !delegate.isInternal
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                        Layout.preferredHeight: 14 * AppFramework.displayScaleFactor
+                                    }
 
                                     AppText {
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
-
-                                        verticalAlignment: Qt.AlignVCenter
 
                                         text: modelData.title
 
@@ -697,21 +650,28 @@ SettingsTab {
                                         LayoutMirroring.enabled: false
 
                                         horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
+                                        verticalAlignment: Text.AlignVCenter
 
                                         wrapMode: Text.NoWrap
+                                        maximumLineCount: 1
                                         elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
                                         clip: true
+                                    }
+
+                                    Item {
+                                        visible: settingsTabLocation.showProviderAlias && textColumn.hasAlias
+
+                                        Layout.fillWidth: true
+                                        Layout.preferredHeight: 4 * AppFramework.displayScaleFactor
                                     }
 
                                     AppText {
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
 
-                                        verticalAlignment: Qt.AlignVCenter
-
                                         visible: settingsTabLocation.showProviderAlias && textColumn.hasAlias
 
-                                        text: "<span style='font-size:%1pt'>%2</span>".arg(font.pixelSize*0.8).arg(delegate.delegateDeviceName)
+                                        text: "<span style='font-size:%1pt'>%2</span>".arg(font.pixelSize*0.8).arg(settingsTabLocation.resolveDeviceName(delegate.delegateDeviceType, delegate.delegateDeviceName, false))
 
                                         color: delegate.pressed
                                                ? settingsTabLocation.helpTextColor
@@ -723,16 +683,23 @@ SettingsTab {
 
                                         fontFamily: settingsTabLocation.fontFamily
                                         letterSpacing: settingsTabLocation.letterSpacing
-                                        pixelSize: 16 * AppFramework.displayScaleFactor
+                                        pixelSize: 14 * AppFramework.displayScaleFactor
                                         bold: false
 
                                         LayoutMirroring.enabled: false
 
                                         horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
+                                        verticalAlignment: Text.AlignVCenter
 
                                         wrapMode: Text.NoWrap
+                                        maximumLineCount: 1
                                         elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
                                         clip: true
+                                    }
+
+                                    Item {
+                                        Layout.fillWidth: true
+                                        Layout.preferredHeight: 14 * AppFramework.displayScaleFactor
                                     }
                                 }
                             }
@@ -809,6 +776,13 @@ SettingsTab {
                                 Accessible.role: Accessible.Separator
                                 Accessible.ignored: true
                             }
+
+                            Item {
+                                visible: !showDetailedSettingsCog
+
+                                Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
+                                Layout.fillHeight: true
+                            }
                         }
 
                         MouseArea {
@@ -826,35 +800,52 @@ SettingsTab {
                     }
 
                     Item {
-                        Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
                         Layout.fillHeight: true
-                        visible: showDetailedSettingsCog
-                    }
-
-                    Item {
-                        Layout.preferredWidth: settingsTabLocation.settingsIconSize
-                        Layout.fillHeight: true
+                        Layout.preferredWidth: settingsTabLocation.settingsIconSize + 32 * AppFramework.displayScaleFactor
 
                         visible: showDetailedSettingsCog
                         enabled: visible
 
-                        Accessible.role: Accessible.Pane
+                        RowLayout {
+                            anchors.fill: parent
 
-                        StyledImage {
-                            anchors.centerIn: parent
+                            spacing: 0
 
-                            width: parent.width
-                            height: width
+                            Accessible.role: Accessible.Pane
 
-                            source: settingsTabLocation.settingsIcon
+                            Item {
+                                Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
+                                Layout.fillHeight: true
+                            }
 
-                            color: delegate.pressed
-                                   ? settingsTabLocation.textColor
-                                   : delegate.hovered
-                                     ? settingsTabLocation.textColor
-                                     : delegate.isSelected
-                                       ? settingsTabLocation.selectedForegroundColor
-                                       : settingsTabLocation.settingsIconColor
+                            Item {
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: settingsTabLocation.settingsIconSize
+
+                                Accessible.role: Accessible.Pane
+
+                                StyledImage {
+                                    anchors.centerIn: parent
+
+                                    width: settingsTabLocation.settingsIconSize
+                                    height: width
+
+                                    source: settingsTabLocation.settingsIcon
+
+                                    color: delegate.pressed
+                                           ? settingsTabLocation.textColor
+                                           : delegate.hovered
+                                             ? settingsTabLocation.textColor
+                                             : delegate.isSelected
+                                               ? settingsTabLocation.selectedForegroundColor
+                                               : settingsTabLocation.settingsIconColor
+                                }
+                            }
+
+                            Item {
+                                Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
+                                Layout.fillHeight: true
+                            }
                         }
 
                         MouseArea {
@@ -870,19 +861,12 @@ SettingsTab {
                             }
                         }
                     }
-
-                    Item {
-                        Layout.preferredWidth: 16 * AppFramework.displayScaleFactor
-                        Layout.fillHeight: true
-                    }
                 }
-
-                //----------------------------------------------------------------------
 
                 Connections {
                     target: settingsTabLocation
 
-                    onSelectInternal: {
+                    function onSelectInternal() {
                         if (delegate.delegateDeviceType === kDeviceTypeInternal) {
                             _item.connectProvider(delegate);
                         }
@@ -1009,13 +993,20 @@ SettingsTab {
 
             var item = null;
             for (var i=0; i<listModel.length; i++) {
-                if (listModel[i].title === name) {
+                if (listModel[i].deviceType === kDeviceTypeFile && listModel[i].deviceProperties.filename === name) {
+                    item = listModel[i];
+                    break;
+                } else if (listModel[i].title === name) {
                     item = listModel[i];
                     break;
                 }
             }
 
-            replaceItem(item);
+            if (item) {
+                replaceItem(item);
+            } else {
+                stackView.pop();
+            }
         }
 
         //----------------------------------------------------------------------

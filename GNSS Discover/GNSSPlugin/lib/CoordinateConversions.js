@@ -16,7 +16,7 @@
 
 .pragma library
 
-.import QtQml 2.11 as QML
+.import QtQml 2.15 as QML
 .import ArcGIS.AppFramework.Sql 1.0 as Sql
 
 //------------------------------------------------------------------------------
@@ -84,6 +84,7 @@ function isLatLonFormat(coordinateFormat) {
     case "dd":
     case "d":
     case "dmss":
+    case "dms":
     case "ddm":
     case "dmm":
     case "dm":
@@ -230,39 +231,31 @@ function formatUniversalCoordinate(coordinate) {
     .arg(Math.floor(universalGrid.northing).toString());
 }
 
+//------------------------------------------------------------------------------
+
+function isNullOrUndefined(value) {
+    return value === null || value === undefined;
+}
+
+//------------------------------------------------------------------------------
+// Round number to nearest decimal places specified by precision
+
+function round(number, precision) {
+    if (!isFinite(number) && number !== null) {
+        return number;
+    }
+
+    var factor = Math.pow(10, precision);
+
+    return Math.round(number * factor) / factor;
+}
+
 //--------------------------------------------------------------------------
 
 function getNumberLocale(locale) {
     return locale.zeroDigit !== "0"
             ? kDefaultNumberLocale
             : locale;
-}
-
-//--------------------------------------------------------------------------
-
-function numberFromLocaleString(locale, text) {
-    var value;
-
-    try {
-        value = Number.fromLocaleString(getNumberLocale(locale), replaceAll(text, getNumberLocale(locale).groupSeparator, ""));
-    } catch (e) {
-        value = Number.NaN;
-    }
-
-    return value;
-}
-
-//--------------------------------------------------------------------------
-
-function numberToLocaleString(locale, value) {
-    var text = value.toString();
-    var precision = 0;
-    var decimalPointIndex = text.indexOf(".");
-    if (decimalPointIndex >= 0) {
-        precision = text.length - decimalPointIndex - 1;
-    }
-
-    return value.toLocaleString(getNumberLocale(locale), "", precision);
 }
 
 //--------------------------------------------------------------------------
@@ -392,23 +385,42 @@ function toLocaleSpeedString(metresPerSecond, locale, precision, invalidText) {
     }
 }
 
-//------------------------------------------------------------------------------
-// Round number to nearest decimal places specified by precision
+//--------------------------------------------------------------------------
 
-function round(number, precision) {
-    if (!isFinite(number) && number !== null) {
-        return number;
+function numberFromLocaleString(locale, text) {
+    var value;
+
+    try {
+        value = Number.fromLocaleString(getNumberLocale(locale), replaceAll(text, getNumberLocale(locale).groupSeparator, ""));
+    } catch (e) {
+        value = Number.NaN;
     }
 
-    var factor = Math.pow(10, precision);
-
-    return Math.round(number * factor) / factor;
+    return value;
 }
 
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 
-function isNullOrUndefined(value) {
-    return value === null || value === undefined;
+function numberToLocaleString(locale, value, precision, groupSeparators) {
+    var text;
+
+    if (!isFinite(precision)) {
+        text = value.toString();
+
+        precision = 0;
+        var decimalPointIndex = text.indexOf(".");
+        if (decimalPointIndex >= 0) {
+            precision = text.length - decimalPointIndex - 1;
+        }
+    }
+
+    text = value.toLocaleString(getNumberLocale(locale), "", precision);
+
+    if (!groupSeparators) {
+        text = replaceAll(text, locale.groupSeparator, "");
+    }
+
+    return text;
 }
 
 //------------------------------------------------------------------------------

@@ -28,11 +28,11 @@
 //------------------------------------------------------------------------------
 
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
-import QtPositioning 5.12
-import QtLocation 5.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtPositioning 5.15
+import QtLocation 5.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
@@ -60,7 +60,7 @@ App {
     Connections {
         target: gnssManager
 
-        onNewPosition: {
+        function onNewPosition(position) {
             currentPosition = position;
         }
     }

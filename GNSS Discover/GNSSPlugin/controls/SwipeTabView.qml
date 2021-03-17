@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -29,11 +29,17 @@ Rectangle {
     property alias showText: tabIndicator.showText
     property alias showImages: tabIndicator.showImages
 
-    property string fontFamily: Qt.application.font.family
+    property alias backgroundColor: tabView.color
 
-    property color tabBarBackgroundColor: "black"
-    property alias selectedTextColor: tabIndicator.tabsSelectedTextColor
-    property alias textColor: tabIndicator.tabsTextColor
+    property alias tabBarBackgroundColor: background.color
+    property alias tabBarTabBorderColor: tabIndicator.tabBarTabBorderColor
+    property alias tabBarTabForegroundColor: tabIndicator.tabBarTabForegroundColor
+    property alias tabBarTabBackgroundColor: tabIndicator.tabBarTabBackgroundColor
+    property alias tabBarSelectedTabForegroundColor: tabIndicator.tabBarSelectedTabForegroundColor
+    property alias tabBarSelectedTabBackgroundColor: tabIndicator.tabBarSelectedTabBackgroundColor
+    property alias tabBarDisabledTabColor: tabIndicator.tabBarDisabledTabColor
+
+    property string fontFamily: Qt.application.font.family
 
     property alias resizeTabs: tabIndicator.resize
 
@@ -49,11 +55,25 @@ Rectangle {
             bottom: parent.bottom
             bottomMargin: tabIndicator.height
         }
+
+        interactive: false
+
+        Component.onCompleted: {
+            // remove hidden items
+            for (var i=swipeView.count-1; i>=0; i--) {
+                let item = swipeView.itemAt(i);
+                if (!item.visible) {
+                    swipeView.removeItem(item)
+                }
+            }
+        }
     }
-    
+
     //--------------------------------------------------------------------------
 
     Rectangle {
+        id: background
+
         anchors {
             left: parent.left
             right: parent.right
@@ -61,17 +81,17 @@ Rectangle {
             bottom: tabIndicator.bottom
         }
 
-        color: tabBarBackgroundColor
+        color: "#8f499c"
     }
 
     SwipeTabIndicator {
         id: tabIndicator
-        
+
         anchors {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
         }
-        
+
         swipeView: swipeView
         interactive: true
 

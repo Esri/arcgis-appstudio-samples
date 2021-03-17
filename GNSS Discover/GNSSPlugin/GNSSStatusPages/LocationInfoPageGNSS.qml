@@ -14,76 +14,64 @@
  *
  */
 
-import QtQuick 2.12
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 
-import "../controls"
-import "../GNSSManager"
-
-Page {
+LocationInfoPage {
     id: gnssStatus
 
     title: qsTr("GNSS Location Status")
 
-    property color debugButtonColor: headerBarBackgroundColor
-
-    bottomSpacingBackgroundColor: headerBarBackgroundColor
-
     //--------------------------------------------------------------------------
 
-    property NmeaLogger nmeaLogger
-
-    property color labelColor: "grey"
-
-    //--------------------------------------------------------------------------
-
-    readonly property PositionSourceManager positionSourceManager: gnssManager.positionSourceManager
-
-    //--------------------------------------------------------------------------
-
-    contentItem: SwipeTabView {
+    GNSSData {
+        gnssManager: gnssStatus.gnssManager
+        labelColor: gnssStatus.labelColor
+        textColor: gnssStatus.textColor
+        backgroundColor: gnssStatus.listBackgroundColor
         fontFamily: gnssStatus.fontFamily
-        tabBarBackgroundColor: gnssStatus.headerBarBackgroundColor
-        selectedTextColor: gnssStatus.headerBarTextColor
-        color: gnssStatus.backgroundColor
+        letterSpacing: gnssStatus.letterSpacing
+        locale: gnssStatus.locale
+        isRightToLeft: gnssStatus.isRightToLeft
 
-        clip: true
+        visible: gnssStatus.showData
+    }
 
-        GNSSData {
-            positionSourceManager: gnssStatus.positionSourceManager
-            gnssSettings: gnssStatus.gnssManager.gnssSettings
-            labelColor: gnssStatus.labelColor
-            textColor: gnssStatus.textColor
-            backgroundColor: gnssStatus.listBackgroundColor
-            fontFamily: gnssStatus.fontFamily
-            letterSpacing: gnssStatus.letterSpacing
-            locale: gnssStatus.locale
-            isRightToLeft: gnssStatus.isRightToLeft
-        }
+    GNSSMap {
+        gnssManager: gnssStatus.gnssManager
 
-        GNSSSkyPlot {
-            positionSourceManager: gnssStatus.positionSourceManager
-            labelColor: gnssStatus.labelColor
-            textColor: gnssStatus.textColor
-            backgroundColor: gnssStatus.listBackgroundColor
-            fontFamily: gnssStatus.fontFamily
-            letterSpacing: gnssStatus.letterSpacing
-            locale: gnssStatus.locale
-            isRightToLeft: gnssStatus.isRightToLeft
-        }
+        visible: gnssStatus.showMap
+    }
 
-        GNSSDebug {
-            positionSourceManager: gnssStatus.positionSourceManager
-            nmeaLogger: gnssStatus.nmeaLogger
-            textColor: gnssStatus.textColor
-            buttonColor: gnssStatus.debugButtonColor
-            backgroundColor: gnssStatus.listBackgroundColor
-            fontFamily: gnssStatus.fontFamily
-            letterSpacing: gnssStatus.letterSpacing
-            locale: gnssStatus.locale
-            isRightToLeft: gnssStatus.isRightToLeft
-        }
+    GNSSSkyPlot {
+        gnssManager: gnssStatus.gnssManager
+        labelColor: gnssStatus.labelColor
+        textColor: gnssStatus.textColor
+        backgroundColor: gnssStatus.listBackgroundColor
+        fontFamily: gnssStatus.fontFamily
+        letterSpacing: gnssStatus.letterSpacing
+        locale: gnssStatus.locale
+        isRightToLeft: gnssStatus.isRightToLeft
+
+        visible: gnssStatus.showSkyPlot
+    }
+
+    GNSSDebug {
+        gnssManager: gnssStatus.gnssManager
+        nmeaLogger: gnssStatus.nmeaLogger
+        textColor: gnssStatus.textColor
+        backgroundColor: gnssStatus.listBackgroundColor
+        buttonBarBorderColor: gnssStatus.buttonBarBorderColor
+        buttonBarButtonColor: gnssStatus.buttonBarButtonColor
+        buttonBarRecordingColor: gnssStatus.buttonBarRecordingColor
+        buttonBarBackgroundColor: gnssStatus.buttonBarBackgroundColor
+        fontFamily: gnssStatus.fontFamily
+        letterSpacing: gnssStatus.letterSpacing
+        locale: gnssStatus.locale
+        isRightToLeft: gnssStatus.isRightToLeft
+
+        visible: gnssStatus.showDebug
     }
 
     //--------------------------------------------------------------------------

@@ -14,9 +14,9 @@
  *
  */
 
-import QtQml 2.12
-import QtQuick 2.12
-import QtPositioning 5.12
+import QtQml 2.15
+import QtQuick 2.15
+import QtPositioning 5.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
@@ -24,6 +24,8 @@ import ArcGIS.AppFramework.Positioning 1.0
 
 Item {
     id: positionSourceManager
+
+    //--------------------------------------------------------------------------
 
     property alias controller: controller
     property alias positionSource: controller.positionSource
@@ -48,6 +50,8 @@ Item {
     property alias nmeaLogFile: controller.nmeaLogFile
     property alias updateInterval: controller.updateInterval
     property alias repeat: controller.repeat
+
+    property alias name: controller.currentLabel
 
     //--------------------------------------------------------------------------
 
@@ -99,7 +103,6 @@ Item {
 
     property date activatedTimestamp    // Time when activated
     property double positionTimestamp   // Time when current position was received
-    property double timeOffset          // correction for system clock running fast/late
 
     property int positionCount: 0
 
@@ -187,6 +190,12 @@ Item {
         AppFramework.environment.setValue("APPSTUDIO_POSITION_GPS_WAIT_TIME", 5000)
         AppFramework.environment.setValue("APPSTUDIO_POSITION_PRIORITY_MODE", "HIGH_ACCURACY")
         AppFramework.environment.setValue("APPSTUDIO_POSITION_FUSED_PROVIDER", useGooglePlayLocationAPI ? "ON" : "OFF")
+        AppFramework.environment.setValue("APPSTUDIO_POSITION_FUSED_PROVIDER_FILTER", "MOCKONLY")
+
+        if (isInternal && active) {
+            stopPositionSource();
+            startPositionSource();
+        }
     }
 
     //-------------------------------------------------------------------------
@@ -268,7 +277,7 @@ Item {
     Connections {
         target: positionSource
 
-        onActiveChanged: {
+        function onActiveChanged() {
             console.log("positionSource.active:", positionSource.active);
 
             // require warm-up after activation
@@ -278,10 +287,15 @@ Item {
             }
         }
 
-        onPositionChanged: {
+        function onPositionChanged() {
             var newposition = positionSource.position;
+
+            // replace position time-stamp with current time if we're parsing a log file
+            if (isFile) {
+                newposition.timestamp = new Date();
+            }
+
             positionTimestamp = (new Date()).valueOf();
-            timeOffset = (positionTimestamp - newposition.timestamp.valueOf()) / 1000;
 
             // TODO - comparison with activatedTimestamp will delay position updates if the system clock is running fast
             if (newposition.latitudeValid && newposition.longitudeValid /*&& newposition.timestamp >= activatedTimestamp*/) {
@@ -305,7 +319,7 @@ Item {
             }
         }
 
-        onSourceErrorChanged: {
+        function onSourceErrorChanged() {
             console.error("Positioning Source Error:", positionSource.sourceError);
 
             var errorString = "";
@@ -438,6 +452,8 @@ Item {
 
         position.coordinate.altitude = altitude;
     }
+
+    //--------------------------------------------------------------------------
 
     // Report horizontal, vertical, and position accuracy with 68% or 95% confidence level,
     // assuming that the errors in all directions are approximately equal, see

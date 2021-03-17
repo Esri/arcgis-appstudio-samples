@@ -14,9 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Dialogs 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -70,7 +69,9 @@ Item {
     property color selectedBackgroundColor: listBackgroundColor
     property color hoverBackgroundColor: Qt.lighter(Qt.lighter(selectedForegroundColor))
 
-    property real listDelegateHeight: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightTextBox: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightMultiLine: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightSingleLine: 60 * AppFramework.displayScaleFactor
     property real listSpacing: 2 * AppFramework.displayScaleFactor
 
     // Button styling
@@ -123,8 +124,7 @@ Item {
     //--------------------------------------------------------------------------
     // Internal properties
 
-    readonly property AppDialog gnssDialog: gnssManager.gnssDialog
-    readonly property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name
+    property string logFileLocation: AppFramework.userHomePath + "/ArcGIS/" + Qt.application.name + "/Logs/"
 
     property var settingsTabLocation
     property var settingsTabContainer
@@ -156,8 +156,8 @@ Item {
         }
 
         if (!settingsTabLocation) {
-            settingsTabContainer = settingsTabContainerComponent.createObject(gnssSettingsPages);
-            settingsTabLocation = settingsTabLocationComponent.createObject(gnssSettingsPages, {
+            settingsTabContainer = settingsTabContainerComponent.createObject(stackView);
+            settingsTabLocation = settingsTabLocationComponent.createObject(stackView, {
                                            settingsTabContainer: settingsTabContainer,
                                            settingsTabContainerComponent: settingsTabContainerComponent
                                          });
@@ -230,7 +230,6 @@ Item {
             settingsUI: gnssSettingsPages
             stackView: gnssSettingsPages.stackView
             gnssManager: gnssSettingsPages.gnssManager
-            gnssDialog: gnssSettingsPages.gnssDialog
 
             headerBarHeight: gnssSettingsPages.headerBarHeight
             headerBarTextSize: gnssSettingsPages.headerBarTextSize
@@ -259,7 +258,9 @@ Item {
             selectedBackgroundColor: gnssSettingsPages.selectedBackgroundColor
             hoverBackgroundColor: gnssSettingsPages.hoverBackgroundColor
 
-            listDelegateHeight: gnssSettingsPages.listDelegateHeight
+            listDelegateHeightTextBox: gnssSettingsPages.listDelegateHeightTextBox
+            listDelegateHeightMultiLine: gnssSettingsPages.listDelegateHeightMultiLine
+            listDelegateHeightSingleLine: gnssSettingsPages.listDelegateHeightSingleLine
             listSpacing: gnssSettingsPages.listSpacing
 
             addProviderButtonTextColor: gnssSettingsPages.addProviderButtonTextColor
@@ -294,18 +295,6 @@ Item {
         StackView {
             anchors.fill: parent
         }
-    }
-
-    //--------------------------------------------------------------------------
-
-    // XXX This is a workaround for issue https://devtopia.esri.com/Melbourne/Player/issues/837
-    // XXX The app crashes after selecting a file if the FileDialog is instantiated more than once
-    // XXX See also GNSSPlugin/GNSSSettingsPages/SettingsTabLocationAddNmeaLog.qml
-    FileDialog {
-        id: fileDialog
-
-        title: qsTr("Select a GPS log file")
-        nameFilters: ["GPS log files (*.txt *.log *.nmea)"]
     }
 
     //--------------------------------------------------------------------------

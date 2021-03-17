@@ -14,23 +14,25 @@
  *
  */
 
-import QtQml 2.2
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.12
+import QtQml 2.15
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
 
-import "../GNSSManager"
+import "../"
 import "../controls"
+import "../GNSSManager"
+
 import "../lib/CoordinateConversions.js" as CC
 
 SwipeTab {
     id: gnssData
 
     title: qsTr("Data")
-    icon: "../images/quality.png"
+    icon: "../images/article-black-24dp.svg"
 
     //--------------------------------------------------------------------------
 
@@ -40,21 +42,20 @@ SwipeTab {
 
     //--------------------------------------------------------------------------
 
-    property PositionSourceManager positionSourceManager
-    property GNSSSettings gnssSettings
-    property var position: ({})
+    property GNSSManager gnssManager
+    readonly property PositionSourceManager positionSourceManager: gnssManager.positionSourceManager
 
-    readonly property string deviceName: positionSourceManager.controller.currentName
-    readonly property string deviceLabel: gnssSettings.knownDevices[deviceName].label > "" ? gnssSettings.knownDevices[deviceName].label : deviceName
+    property var position: gnssManager.position
 
     readonly property double positionTimestamp: positionSourceManager.positionTimestamp
-    readonly property double timeOffset: positionSourceManager.timeOffset
+
+    readonly property string deviceName: positionSourceManager.name
 
     //--------------------------------------------------------------------------
 
     readonly property var kReceiver: [
         {
-            name: "deviceLabel",
+            name: "deviceName",
             label: qsTr("Source"),
             source: this,
         },
@@ -215,7 +216,7 @@ SwipeTab {
     Connections {
         target: positionSourceManager
 
-        onNewPosition: {
+        function onNewPosition(position) {
             gnssData.position = position;
         }
     }
@@ -235,17 +236,17 @@ SwipeTab {
             }
 
             clip: true
-            ScrollBar.vertical.policy: availableHeight < contentHeight
-                                       ? ScrollBar.AlwaysOn
-                                       : ScrollBar.AlwaysOff
 
-            Column {
-                anchors.fill: parent
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            ScrollBar.vertical.policy: ScrollBar.AsNeeded
+
+            ColumnLayout {
+                width: container.width
 
                 spacing: 10 * AppFramework.displayScaleFactor
 
                 InfoView {
-                    width: parent.width
+                    Layout.fillWidth: true
 
                     model: kReceiver
 
@@ -253,11 +254,10 @@ SwipeTab {
                 }
 
                 InfoCoordinatesText {
-                    width: parent.width
+                    Layout.fillWidth: true
 
-                    positionTimestamp: gnssData.positionTimestamp
-                    timeOffset: gnssData.timeOffset
                     position: gnssData.position
+                    positionTimestamp: gnssData.positionTimestamp
 
                     labelColor: gnssData.labelColor
                     textColor: gnssData.textColor
@@ -268,11 +268,16 @@ SwipeTab {
                 }
 
                 InfoView {
-                    width: parent.width
+                    Layout.fillWidth: true
 
                     model: kProperties
 
                     dataDelegate: propertiesText
+                }
+
+                Item {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
                 }
             }
         }

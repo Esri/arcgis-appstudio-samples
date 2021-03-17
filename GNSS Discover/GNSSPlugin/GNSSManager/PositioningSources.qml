@@ -14,8 +14,8 @@
  *
  */
 
-import QtQml 2.12
-import QtQuick 2.12
+import QtQml 2.15
+import QtQuick 2.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Positioning 1.0
@@ -24,6 +24,8 @@ import ArcGIS.AppFramework.Devices 1.0
 
 Item {
     id: positioningSources
+
+    // -------------------------------------------------------------------------
 
     property alias positionSource: positionSource
     property alias satelliteInfoSource: satelliteInfoSource
@@ -46,6 +48,8 @@ Item {
 
     property int updateInterval: 1000
     property bool repeat: true
+
+    // -------------------------------------------------------------------------
 
     signal nmeaLogFileSelected(string fileName)
     signal networkHostSelected(string hostname, int port)
@@ -112,14 +116,16 @@ Item {
     Connections {
         target: currentDevice
 
-        onConnectedChanged: {
+        function onConnectedChanged() {
             // cleanup in case the connection to the device is lost
             if (currentDevice && !currentDevice.connected) {
                 disconnect();
             }
         }
 
-        onErrorChanged: disconnect()
+        function onErrorChanged() {
+            disconnect();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -253,7 +259,7 @@ Item {
 
     onDisconnect: {
         if (tcpSocket.valid && tcpSocket.state !== AbstractSocket.StateUnConnected) {
-            tcpSocket.disconnectFromHost();
+            tcpSocket.abort();
         }
 
         if (currentDevice && currentDevice.connected) {

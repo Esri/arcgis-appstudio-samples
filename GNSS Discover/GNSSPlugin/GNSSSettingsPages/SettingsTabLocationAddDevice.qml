@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Devices 1.0
@@ -27,7 +27,7 @@ import "../controls"
 SettingsTab {
     id: addDeviceTab
 
-    title: qsTr("Add provider")
+    title: qsTr("Select provider")
 
     property var receiverListModel
 
@@ -95,7 +95,7 @@ SettingsTab {
         Connections {
             target: addDeviceTab
 
-            onActivated: {
+            function onActivated() {
                 // Activating this here ensures that any error message is displayed
                 // on this page (not it's ancestor)
                 discoverySwitch.checked = true;
@@ -114,7 +114,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addDeviceTab.listDelegateHeight
+                Layout.preferredHeight: addDeviceTab.listDelegateHeightSingleLine
                 color: addDeviceTab.listBackgroundColor
 
                 AppSwitch {
@@ -153,7 +153,7 @@ SettingsTab {
                     Connections {
                         target: _item.discoveryAgent
 
-                        onRunningChanged: {
+                        function onRunningChanged() {
                             discoverySwitch.updating = true;
                             discoverySwitch.checked = _item.discoveryAgent.running;
                             discoverySwitch.updating = false;
@@ -184,7 +184,7 @@ SettingsTab {
 
                     LayoutMirroring.enabled: false
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
                 }
 
                 AppBusyIndicator {
@@ -203,7 +203,7 @@ SettingsTab {
                 id: devicesListView
 
                 Layout.fillWidth: true
-                Layout.preferredHeight: count * (addDeviceTab.listDelegateHeight + spacing)
+                Layout.preferredHeight: count * (addDeviceTab.listDelegateHeightSingleLine + spacing)
                 Layout.maximumHeight: _item.height / 2
 
                 visible: count > 0
@@ -220,7 +220,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addDeviceTab.listDelegateHeight
+                Layout.preferredHeight: addDeviceTab.listDelegateHeightSingleLine
 
                 visible: !devicesListView.visible
 
@@ -241,7 +241,7 @@ SettingsTab {
 
                         LayoutMirroring.enabled: false
 
-                        horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                        horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
                         verticalAlignment: Text.AlignVCenter
 
                         fontFamily: addDeviceTab.fontFamily
@@ -284,7 +284,7 @@ SettingsTab {
 
                     LayoutMirroring.enabled: false
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
                 }
             }
 
@@ -305,13 +305,14 @@ SettingsTab {
                 id: delegate
 
                 width: ListView.view.width
-                height: listDelegateHeight
+                height: addDeviceTab.listDelegateHeightSingleLine
 
                 color: mouseArea.containsMouse ? hoverBackgroundColor : listBackgroundColor
-                opacity: parent.enabled ? 1 : 0.5
+                opacity: ListView.view.enabled ? 1 : 0.5
 
                 RowLayout {
                     anchors.fill: parent
+
                     spacing: 0
 
                     Item {
@@ -335,21 +336,20 @@ SettingsTab {
                     AppText {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        Layout.leftMargin: !isRightToLeft && !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
-                        Layout.rightMargin: isRightToLeft && !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
+                        Layout.leftMargin: !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
 
                         text: name
                         color: addDeviceTab.textColor
-
-                        LayoutMirroring.enabled: false
-
-                        horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
-                        verticalAlignment: Text.AlignVCenter
 
                         fontFamily: addDeviceTab.fontFamily
                         letterSpacing: addDeviceTab.letterSpacing
                         pixelSize: 16 * AppFramework.displayScaleFactor
                         bold: false
+
+                        LayoutMirroring.enabled: false
+
+                        horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
+                        verticalAlignment: Text.AlignVCenter
                     }
 
                     Item {

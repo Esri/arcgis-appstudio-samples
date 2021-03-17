@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -62,7 +62,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: geoidTab.listDelegateHeight
+                Layout.preferredHeight: geoidTab.listDelegateHeightTextBox
                 color: geoidTab.listBackgroundColor
 
                 AppNumberField {
@@ -96,6 +96,7 @@ SettingsTab {
                                 gnssSettings.locationGeoidSeparation = val;
                             }
                         }
+
                         changed();
                     }
                 }

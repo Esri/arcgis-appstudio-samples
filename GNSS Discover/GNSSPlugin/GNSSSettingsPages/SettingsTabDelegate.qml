@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -27,7 +27,9 @@ Rectangle {
 
     property var listTabView
 
-    property real listDelegateHeight: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightTextBox: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightMultiLine: 60 * AppFramework.displayScaleFactor
+    property real listDelegateHeightSingleLine: 60 * AppFramework.displayScaleFactor
 
     property color textColor: "#000000"
     property color helpTextColor: "#000000"
@@ -51,7 +53,7 @@ Rectangle {
     property bool showInfoIcons: true
 
     width: ListView.view.width
-    height: listDelegateHeight
+    height: description.visible ? listDelegateHeightMultiLine : listDelegateHeightSingleLine
 
     color: mouseArea.containsMouse ? hoverBackgroundColor : listBackgroundColor
     visible: modelData.enabled
@@ -59,7 +61,10 @@ Rectangle {
 
     RowLayout {
         anchors.fill: parent
+
         spacing: 0
+
+        Accessible.role: Accessible.Pane
 
         Item {
             Layout.fillHeight: true
@@ -82,46 +87,72 @@ Rectangle {
         Item {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.leftMargin: !isRightToLeft && !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
-            Layout.rightMargin: isRightToLeft && !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
+            Layout.leftMargin: !showInfoIcons ? 20 * AppFramework.displayScaleFactor : 0
 
             ColumnLayout {
                 anchors.fill: parent
 
                 spacing: 0
 
+                Item {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 14 * AppFramework.displayScaleFactor
+                }
+
                 AppText {
                     Layout.fillWidth: true
+                    Layout.fillHeight: true
 
                     text: modelData.title
-                    color: textColor
+                    color: delegate.textColor
 
                     fontFamily: delegate.fontFamily
                     letterSpacing: delegate.letterSpacing
                     pixelSize: 16 * AppFramework.displayScaleFactor
                     bold: true
 
+                    lineHeight: 24 * AppFramework.displayScaleFactor
+                    lineHeightMode: Text.FixedHeight
+
                     LayoutMirroring.enabled: false
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 4 * AppFramework.displayScaleFactor
                 }
 
                 AppText {
+                    id: description
+
                     Layout.fillWidth: true
+                    Layout.fillHeight: true
+
                     visible: text > ""
 
                     text: modelData.description
                     color: delegate.helpTextColor
 
-                    LayoutMirroring.enabled: false
-
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
-                    verticalAlignment: Text.AlignVCenter
-
                     fontFamily: delegate.fontFamily
                     letterSpacing: delegate.helpTextLetterSpacing
-                    pixelSize: 12 * AppFramework.displayScaleFactor
+                    pixelSize: 14 * AppFramework.displayScaleFactor
                     bold: false
+
+                    maximumLineCount: 1
+                    elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
+
+                    LayoutMirroring.enabled: false
+
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 14 * AppFramework.displayScaleFactor
                 }
             }
         }

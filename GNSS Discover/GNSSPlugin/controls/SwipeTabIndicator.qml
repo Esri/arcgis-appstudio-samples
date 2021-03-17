@@ -14,41 +14,38 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
+import QtGraphicalEffects 1.15
 
 import ArcGIS.AppFramework 1.0
 
 PageIndicator {
-
     property SwipeView swipeView
 
     property bool showImages: true
     property bool showText: true
-    property color tabsBorder: "red"
-    property color tabsSelectedBackgroundColor: "transparent"
-    property color tabsBackgroundColor: "transparent"
-    property color tabsBorderColor: "transparent"
-    property color tabsSelectedTextColor: "#00b2ff"
-    property color tabsTextColor: Qt.darker(tabsSelectedTextColor, 1.25)//"#b0b0b0"
-    property color disabledColor: "grey"
-    property real tabsPadding: 0//1 * AppFramework.displayScaleFactor
+
+    property color tabBarTabBorderColor: "transparent"
+    property color tabBarTabForegroundColor: "#8f499c"
+    property color tabBarTabBackgroundColor: "transparent"
+    property color tabBarSelectedTabForegroundColor: Qt.lighter(tabBarTabForegroundColor, 1.25)
+    property color tabBarSelectedTabBackgroundColor: "transparent"
+    property color tabBarDisabledTabColor: "grey"
+
+    property real tabBarPadding: 1 * AppFramework.displayScaleFactor
     property real imageSize: 25 * AppFramework.displayScaleFactor
-    property string fontFamily: Qt.application.font.family
     property real textSize: showImages ? 9 * AppFramework.displayScaleFactor : 13 * AppFramework.displayScaleFactor
+
+    property string fontFamily: Qt.application.font.family
+
     property bool resize: true
 
     //--------------------------------------------------------------------------
 
-    visible: interactive
-
-    // height: 50 * AppFramework.displayScaleFactor
-
     count: swipeView.count
     currentIndex: swipeView.currentIndex
-    interactive: swipeView.interactive
 
     onCurrentIndexChanged: {
         swipeView.currentIndex = currentIndex;
@@ -57,7 +54,7 @@ PageIndicator {
     Connections {
         target: swipeView
 
-        onCurrentIndexChanged: {
+        function onCurrentIndexChanged() {
             currentIndex = swipeView.currentIndex;
         }
     }
@@ -75,22 +72,21 @@ PageIndicator {
         Rectangle {
             anchors {
                 fill: parent
-                margins: tabsPadding
+                margins: tabBarPadding
             }
 
-            color: currentIndex == index ? tabsSelectedBackgroundColor : tabsBackgroundColor
+            color: currentIndex == index ? tabBarSelectedTabBackgroundColor : tabBarTabBackgroundColor
 
             border {
-                color:  tabsBorderColor
-                width: 1
+                color: tabBarTabBorderColor
+                width: 1 * AppFramework.displayScaleFactor
             }
             radius: showImages ? 5 * AppFramework.displayScaleFactor : height / 2
 
             ColumnLayout {
                 anchors {
                     fill: parent
-                    leftMargin: tabsPadding
-                    rightMargin: tabsPadding
+                    margins: tabBarPadding
                 }
 
                 spacing: 0
@@ -130,27 +126,25 @@ PageIndicator {
                     elide: Text.ElideRight
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    color: swipeView.itemAt(index).enabled ? (currentIndex == index) ? tabsSelectedTextColor : tabsTextColor : disabledColor
+                    color: swipeView.itemAt(index).enabled ? (currentIndex == index) ? tabBarSelectedTabForegroundColor : tabBarTabForegroundColor : tabBarDisabledTabColor
                     font {
-                        bold: false//true//styleData.selected
+                        bold: index == currentIndex
                         pixelSize: textSize
                         family: fontFamily
                     }
                 }
-            }
 
-            Rectangle {
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    top: parent.bottom
-                    //bottomMargin: -tabsPadding - 1 * AppFramework.displayScaleFactor
+                Rectangle {
+                    Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
+
+                    visible: showImages && currentIndex == index
+
+                    height: (showText ? 2 : 3) * AppFramework.displayScaleFactor
+                    width: tabText.paintedWidth
+
+                    color: tabBarSelectedTabForegroundColor
+                    radius: height / 2
                 }
-
-                visible: showImages && currentIndex == index
-                height: (showText ? 2 : 3) * AppFramework.displayScaleFactor
-                width: tabText.paintedWidth
-                color: tabsSelectedTextColor
-                radius: height / 2
             }
         }
 

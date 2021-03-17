@@ -92,14 +92,19 @@ If your app uses a StackView pass a reference to it to these methods.
 4) If you are using the MapView component of the Esri ArcGISRuntime you can
 directly set the GNSSManager as the position source to receive position updates:
 
-    import Esri.ArcGISRuntime 100.10
+    import Esri.ArcGISRuntime 100.8
 
     MapView {
         locationDisplay {
-            positionSource: gnssManager
+            dataSource: DefaultLocationDataSource {
+                positionInfoSource: gnssManager
+            }
         }
 
-        //... set the MapView properties ...
+        // ... set the Map and MapView properties ...
+
+        // start the location display
+        Component.onCompleted: locationDisplay.start()
     }
 
 5) If you use the QtLocation Map QML component or if you need to know the current
@@ -116,7 +121,7 @@ of the GNSSManager:
     Connections {
         target: gnssManager
 
-        onNewPosition: {
+        function onNewPosition(position) {
             // ... do something, e.g. update Map centre ...
             // the 'position' parameter contains the current position
         }

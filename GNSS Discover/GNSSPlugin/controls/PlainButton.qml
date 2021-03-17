@@ -14,10 +14,10 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -116,7 +116,7 @@ Button {
             letterSpacing: button.letterSpacing
             bold: button.bold
             fontSizeMode: Text.Fit
-            elide: isRightToLeft ? Label.AlignLeft : Label.AlignRight
+            elide: isRightToLeft ? Text.ElideLeft : Text.ElideRight
             wrapMode: button.wrapMode
         }
 

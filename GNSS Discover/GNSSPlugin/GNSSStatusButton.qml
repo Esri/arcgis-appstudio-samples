@@ -14,8 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQml 2.15
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -23,7 +24,7 @@ import "./GNSSManager"
 import "./controls"
 
 Item {
-    id: item
+    id: control
 
     //--------------------------------------------------------------------------
     // Public properties
@@ -72,16 +73,18 @@ Item {
         visible: positionSourceManager && !positionSourceManager.onDetailedSettingsPage && (positionSourceManager.active || isConnecting)
         enabled: visible && source > ""
 
-        color: item.color
+        color: control.color
 
         onClicked: {
-            gnssStatusPages.showGNSSStatus(stackView);
+            if (gnssStatusPages) {
+                gnssStatusPages.showGNSSStatus(stackView);
+            }
 
-            item.clicked(mouse)
+            control.clicked(mouse)
         }
 
         onPressAndHold: {
-            item.pressAndHold(mouse);
+            control.pressAndHold(mouse);
         }
     }
 
@@ -105,7 +108,7 @@ Item {
     Connections {
         target: positionSourceManager
 
-        onNewPosition: {
+        function onNewPosition(position) {
             Qt.callLater(activity);
         }
     }

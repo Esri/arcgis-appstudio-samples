@@ -14,8 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtPositioning 5.8
+import QtQuick 2.15
+import QtPositioning 5.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -37,7 +37,6 @@ InfoView {
     readonly property string prjLabel: kPrjFormats[prjFormatIndex].label
 
     property double positionTimestamp
-    property double timeOffset: 0
     property real ageSeconds: Number.NaN
     property string ageText
 
@@ -146,8 +145,7 @@ InfoView {
         altitude = CC.toLocaleLengthString(coordinate.altitude, locale, 2);
         prjText = kPrjFormats[prjFormatIndex].format(coordinate);
 
-        // timeOffset corrects for system clock running fast (or late)
-        ageSeconds = (positionTimestamp - position.timestamp.valueOf()) / 1000 - timeOffset;
+        ageSeconds = ((new Date()).valueOf() - positionTimestamp) / 1000;
 
         if (showAgeTimer) {
             ageTimer.restart();

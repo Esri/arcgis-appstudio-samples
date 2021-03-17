@@ -14,9 +14,9 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -38,8 +38,8 @@ SettingsTab {
 
         // Internal properties -------------------------------------------------
 
-        readonly property alias hostname: hostnameTextField.text
-        readonly property alias port: portTextField.value
+        property alias hostname: hostnameTextField.text
+        property alias port: portTextField.value
 
         property bool initialized
 
@@ -70,7 +70,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addNetworkTab.listDelegateHeight
+                Layout.preferredHeight: addNetworkTab.listDelegateHeightTextBox
                 color: addNetworkTab.listBackgroundColor
 
                 AppTextField {
@@ -99,7 +99,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addNetworkTab.listDelegateHeight
+                Layout.preferredHeight: addNetworkTab.listDelegateHeightTextBox
                 color: addNetworkTab.listBackgroundColor
 
                 AppNumberField {
@@ -128,7 +128,7 @@ SettingsTab {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: addNetworkTab.listDelegateHeight
+                Layout.preferredHeight: addNetworkTab.listDelegateHeightTextBox
                 color: addNetworkTab.listBackgroundColor
 
                 SimpleButton {

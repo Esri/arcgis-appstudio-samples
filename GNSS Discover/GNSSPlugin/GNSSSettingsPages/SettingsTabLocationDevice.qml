@@ -14,9 +14,8 @@
  *
  */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import ArcGIS.AppFramework 1.0
 
@@ -29,6 +28,9 @@ SettingsTab {
     property string deviceType: ""
     property string deviceName: ""
     property string deviceLabel: ""
+
+    //--------------------------------------------------------------------------
+
     property var deviceProperties: null
 
     property bool showAboutDevice: true
@@ -41,6 +43,8 @@ SettingsTab {
     property bool showAlertsSpeech: true
     property bool showAlertsVibrate: true
     property bool showAlertsTimeout: false
+
+    property bool showProviderAlias: true
 
     signal selectInternal()
     signal updateViewAndDelegate()
@@ -102,6 +106,8 @@ SettingsTab {
                     deviceType: deviceTab.deviceType
                     deviceName: deviceTab.deviceName
                     deviceLabel: deviceTab.deviceLabel
+
+                    showProviderAlias: deviceTab.showProviderAlias
 
                     onChanged: {
                         updateViewAndDelegate();
@@ -196,7 +202,7 @@ SettingsTab {
 
             Item {
                 Layout.fillWidth: true
-                Layout.preferredHeight: deviceTab.listDelegateHeight
+                Layout.preferredHeight: deviceTab.listDelegateHeightSingleLine
                 visible: deviceType !== kDeviceTypeInternal
 
                 Accessible.role: Accessible.Pane
@@ -210,7 +216,7 @@ SettingsTab {
 
                     text: qsTr("Remove this provider")
 
-                    horizontalAlignment: isRightToLeft ? Label.AlignRight : Label.AlignLeft
+                    horizontalAlignment: isRightToLeft ? Text.AlignRight : Text.AlignLeft
 
                     textColor: deviceTab.forgetProviderButtonTextColor
                     pressedTextColor: deviceTab.textColor
@@ -265,7 +271,9 @@ SettingsTab {
             SettingsTabDelegate {
                 listTabView: settingsTabView
 
-                listDelegateHeight: deviceTab.listDelegateHeight
+                listDelegateHeightTextBox: deviceTab.listDelegateHeightTextBox
+                listDelegateHeightMultiLine: deviceTab.listDelegateHeightMultiLine
+                listDelegateHeightSingleLine: deviceTab.listDelegateHeightSingleLine
                 textColor: deviceTab.textColor
                 helpTextColor: deviceTab.helpTextColor
                 backgroundColor: deviceTab.backgroundColor
@@ -289,6 +297,18 @@ SettingsTab {
             }
         }
 
+        //-------------------------------------------------------------------------
+
+        AppDialog {
+            id: gnssDialog
+
+            backgroundColor: deviceTab.listBackgroundColor
+            buttonColor: deviceTab.selectedTextColor
+            titleColor: deviceTab.textColor
+            textColor: deviceTab.textColor
+            fontFamily: deviceTab.fontFamily
+        }
+
         //--------------------------------------------------------------------------
 
         function updateDescriptions(){
@@ -300,7 +320,13 @@ SettingsTab {
             }
 
             // about
-            sensorAbout.description = deviceType !== kDeviceTypeInternal ? deviceName : controller.integratedProviderName
+            var aboutDescString = deviceTab.resolveDeviceName(deviceType, deviceName, false);
+
+            if (props.receiver && props.receiver.deviceType !== undefined && props.receiver.deviceType === kDeviceTypeSerialPort) {
+                aboutDescString += qsTr(", %1 Bd").arg(props.receiver.address.deviceBaudRate)
+            }
+
+            sensorAbout.description = aboutDescString;
 
             // alert styles
             var alertStylesDescString = "";
