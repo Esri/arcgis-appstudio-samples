@@ -42,6 +42,7 @@ App {
     property bool isSmallScreen: (width || height) < units(400)
     property var defaultMargin: 10 *scaleFactor
     property url clipBoardUrl: ""
+    property bool isWindows: Qt.platform.os === "windows"
 
 
     Page {
@@ -72,7 +73,7 @@ App {
                 Button {
                     id: openCameraButton
 
-                    width: Math.min(parent.width/2,200)
+                    width: parent.width/3
                     anchors.bottom: parent.verticalCenter
                     anchors.bottomMargin: 5*defaultMargin
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -88,17 +89,35 @@ App {
                 Button {
                     id: openVideoButton
 
-                    width: Math.min(parent.width/2,200)
+                    width: parent.width/3
                     anchors.top: openCameraButton.bottom
                     anchors.topMargin: 2*defaultMargin
                     anchors.horizontalCenter: parent.horizontalCenter
+                    enabled: !isWindows
                     Material.background: "#4A4A4A"
                     Material.foreground: "#FFFFFF"
                     text: qsTr("Record Video")
                     onClicked: {
-                        cameraDialog.captureMode = CameraDialog.CameraCaptureModeVideo;
-                        cameraDialog.open();
+                        if(!isWindows) {
+                            cameraDialog.captureMode = CameraDialog.CameraCaptureModeVideo;
+                            cameraDialog.open();
+                        }
                     }
+                }
+
+                Text {
+                    id: winNotSupportedLabel
+
+                    visible: isWindows
+                    width: parent.width - 4 * defaultMargin
+                    anchors.top: openVideoButton.bottom
+                    anchors.topMargin:2 * defaultMargin
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: "#FFFFFF"
+                    font.bold: true
+                    wrapMode: Text.WordWrap
+                    horizontalAlignment: Text.AlignHCenter
+                    text: qsTr("Currently, it is not supported to record a video on Windows using Camera Dialog.")
                 }
             }
 
@@ -127,9 +146,7 @@ App {
                     emailComposer.show();
                 }
             }
-
         }
-
     }
 
     FileInfo{
@@ -147,7 +164,7 @@ App {
             if (captureMode === CameraDialog.CameraCaptureModeStillImage) {
                 detailPage.imgOrVid = true;
                 detailPage.imgSource = fileUrl.toString().toString();
-                emailComposer.attachments = AppFramework.urlInfo(fileUrl).localFile;
+                emailComposer.attachments = fileUrl;
                 imageObject.load(fileUrl.toString().replace(Qt.platform.os == "windows"? "file:///": "file://",""));
                 var imgFileInfo = AppFramework.fileInfo(fileUrl.toString().replace(Qt.platform.os == "windows"? "file:///": "file://",""));
                 setImgMetaData(imgFileInfo,imageObject);
@@ -156,7 +173,7 @@ App {
                 if(app.width<app.height &&  Qt.platform.os === "ios") detailPage.vidRotation = true;
                 detailPage.imgOrVid = false;
                 detailPage.vidSource = fileUrl;
-                emailComposer.attachments = AppFramework.urlInfo(fileUrl).localFile;
+                emailComposer.attachments = fileUrl;
                 var vidFileInfo = AppFramework.fileInfo(fileUrl.toString().replace(Qt.platform.os == "windows"? "file:///": "file://",""));
                 setVidMetaData(vidFileInfo);
                 clipBoardUrl = fileUrl;
