@@ -10,7 +10,7 @@ import ArcGIS.AppFramework.SecureStorage 1.0
 import ArcGIS.AppFramework.Authentication 1.0
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.10
+import Esri.ArcGISRuntime 100.11
 
 import "../controls" as Controls
 
