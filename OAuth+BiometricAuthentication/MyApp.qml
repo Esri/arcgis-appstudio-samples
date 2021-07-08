@@ -22,8 +22,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 
 
-import Esri.ArcGISRuntime 100.10
-import Esri.ArcGISRuntime.Toolkit 100.10
+import Esri.ArcGISRuntime 100.11
+import Esri.ArcGISRuntime.Toolkit 100.11
 import ArcGIS.AppFramework 1.0
 
 import ArcGIS.AppFramework.SecureStorage 1.0
