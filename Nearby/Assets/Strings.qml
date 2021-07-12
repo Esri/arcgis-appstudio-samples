@@ -61,7 +61,7 @@ Item {
     readonly property string call: qsTr("Call")
     readonly property string website: qsTr("Website")
     readonly property string missingCredentials: qsTr("Missing Route Service Credentials")
-    readonly property string credits: qsTr("This app was built using AppStudio for ArcGIS. Mapping API provided by Esri.")
+    readonly property string credits: qsTr("This app was built using ArcGIS AppStudio. Mapping API provided by Esri.")
     readonly property string about: qsTr("About")
     readonly property string description: qsTr("Description")
     readonly property string accessConstraints: qsTr("Access and Use Constraints")

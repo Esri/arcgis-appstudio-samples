@@ -1,7 +1,7 @@
 
 # arcgis-appstudio-samples
 
-Collection of sample apps organized into its own folders to be used with AppStudio for ArcGIS Desktop. Explore each folder to learn more about the sample app.
+Collection of sample apps organized into its own folders to be used with ArcGIS AppStudio Desktop. Explore each folder to learn more about the sample app.
 
 _If you find any issues either submit a post on geonet or log a support case or even better fix it and submit a pull request_
 
@@ -17,10 +17,10 @@ _If you are looking for older version (pre AppStudio 4.0 i.e. 3.3) you can acces
 
 ## Resources
 
-* [AppStudio for ArcGIS Website](https://www.esri.com/en-us/arcgis/products/appstudio-for-arcgis/overview)
-* [AppStudio for ArcGIS Developer Documentation](http://doc.arcgis.com/en/appstudio/extend-apps/useqtcreatorcreateapp.htm)
-* [AppStudio for ArcGIS Geonet Forums](https://geonet.esri.com/groups/appstudio/)
-* [AppStudio for ArcGIS Video Collection](https://www.youtube.com/watch?v=aDy2frQ8ywI&list=PLGZUzt4E4O2Lkm7DlITW8MWKmNjBGcXJP)
+* [ArcGIS AppStudio Website](https://www.esri.com/en-us/arcgis/products/appstudio-for-arcgis/overview)
+* [ArcGIS AppStudio Developer Documentation](http://doc.arcgis.com/en/appstudio/extend-apps/useqtcreatorcreateapp.htm)
+* [ArcGIS AppStudio Geonet Forums](https://geonet.esri.com/groups/appstudio/)
+* [ArcGIS AppStudio Video Collection](https://www.youtube.com/watch?v=aDy2frQ8ywI&list=PLGZUzt4E4O2Lkm7DlITW8MWKmNjBGcXJP)
 * [Qt and QML](http://www.qt.io/)
 
 ## Issues

@@ -1,7 +1,7 @@
 
 ## Font Awesome Icons
 
-This sample demonstrates how to use Font Awesome icon in AppStudio for ArcGIS apps.
+This sample demonstrates how to use Font Awesome icon in ArcGIS AppStudio apps.
 
 Check this [blog post](https://community.esri.com/groups/appstudio/blog/2017/04/17/using-font-awesome-with-appstudio-for-arcgis-apps) to learn more 
 

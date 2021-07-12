@@ -2,7 +2,7 @@ import QtQuick 2.7
 
 Item {
     readonly property string homepage_welcome: qsTr("Hello, welcome to")
-    readonly property string homepage_app_description: qsTr("Copy your AppStudio for ArcGIS apps from one organization to the other in just 3 easy steps!")
+    readonly property string homepage_app_description: qsTr("Copy your ArcGIS AppStudio apps from one organization to the other in just 3 easy steps!")
     readonly property string homepage_get_start: qsTr("GET STARTED")
 
     readonly property string step1_description: qsTr("Sign in to both organization accounts.")
