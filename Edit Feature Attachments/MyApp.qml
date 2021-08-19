@@ -15,14 +15,15 @@
  */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.2
+import Qt.labs.platform 1.0
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.10
+import Esri.ArcGISRuntime 100.11
 import ArcGIS.AppFramework.Platform 1.0
 
 import "controls" as Controls
@@ -72,15 +73,14 @@ App {
                     // Set the initial basemap to Streets
                     BasemapStreets { }
 
-                    ViewpointCenter {
-                        Point {
-                            x: -10800000
-                            y: 4500000
-                            spatialReference: SpatialReference {
-                                wkid: 102100
-                            }
+                    ViewpointExtent {
+                        Envelope {
+                            xMin: -9812147.35557238
+                            yMin: 5127070.36635111
+                            xMax: -9811785.0602376
+                            yMax: 5127305.41254146
+                            spatialReference: Factory.SpatialReference.createWebMercator();
                         }
-                        targetScale: 3e7
                     }
 
                     FeatureLayer {
@@ -92,7 +92,11 @@ App {
                         // declare as child of feature layer, as featureTable is the default property
                         ServiceFeatureTable {
                             id: featureTable
-                            url: "http://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0"
+                            url: "https://sampleserver7.arcgisonline.com/server/rest/services/DamageAssessment/FeatureServer/0"
+                            Credential {
+                                username: "viewer01"
+                                password: "I68VGU^nMurF"
+                            }
 
                             onApplyEditsStatusChanged: {
                                 if (applyEditsStatus === Enums.TaskStatusCompleted) {
@@ -373,6 +377,7 @@ App {
                             fillMode: Image.PreserveAspectFit
                             source: attachmentUrl
                             onSourceChanged: {
+                                busy.running = false
                                 console.log(source)
                             }
                         }
@@ -388,8 +393,15 @@ App {
 
                     highlightFollowsCurrentItem: true
                     highlight: Rectangle {
-                        height: attachmentsList.currentItem.height
+                        height: 0
                         color: "lightsteelblue"
+
+                        Component.onCompleted: {
+                            busy.running = false
+                            if (typeof attachmentsList.currentItem.height !== "undefined") {
+                                 attachmentsList.height = attachmentsList.currentItem.height
+                            }
+                        }
                     }
                 }
             }
@@ -398,27 +410,44 @@ App {
             //! [EditFeatures add attachment from a file dialog]
             DocumentDialog {
                 id: fileDialog
+                folder: {
+                    const locs = StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+                    return locs.length > 0 ? locs[locs.length - 1] : "";
+                }
 
                 function doAddAttachment(){
                     if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
                         selectedFeature.onLoadStatusChanged.disconnect(doAddAttachment);
-                        selectedFeature.attachments.addAttachment(fileDialog.filePath, "application/octet-stream", fileInfo.fileName);
-
-
+                        selectedFeature.attachments.addAttachment(fileDialog.fileUrl, "application/octet-stream", fileInfo.fileName);
                     }
                 }
 
                 onAccepted: {
                     // add the attachment to the feature table
-                    fileInfo.url = filePath
-                    if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
-                        selectedFeature.attachments.addAttachment(filePath, "application/octet-stream", fileInfo.fileName);
-                    } else {
-                        selectedFeature.onLoadStatusChanged.connect(doAddAttachment);
-                        selectedFeature.load();
-                    }
                     busy.running = true
-                    console.log(filePath)
+                    fileInfo.url = fileDialog.fileUrl;
+
+                    if(!(Qt.platform.os == "android")) {
+                        if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
+                            selectedFeature.attachments.addAttachment(fileDialog.fileUrl, "application/octet-stream", fileInfo.fileName);
+                        } else {
+                            selectedFeature.onLoadStatusChanged.connect(doAddAttachment);
+                            selectedFeature.load();
+                        }
+                        console.log(fileDialog.fileUrl)
+
+                    } else {
+                        fileFolder.makeFolder();
+
+                        fileFolder.copyFile(fileDialog.fileUrl, fileFolder.filePath(fileInfo.fileName));
+                        if (selectedFeature.loadStatus === Enums.LoadStatusLoaded) {
+                            selectedFeature.attachments.addAttachment(fileFolder.filePath(fileInfo.fileName), "application/octet-stream", fileInfo.fileName);
+                        } else {
+                            selectedFeature.onLoadStatusChanged.connect(doAddAttachment);
+                            selectedFeature.load();
+                        }
+                        console.log(fileFolder.filePath(fileInfo.fileName))
+                    }
                 }
             }
             //! [EditFeatures add attachment from a file dialog]
@@ -436,7 +465,7 @@ App {
 
             FileFolder {
                 id: fileFolder
-                path: AppFramework.userHomePath
+                path: "~/attachments"
             }
 
             Component.onCompleted: {
