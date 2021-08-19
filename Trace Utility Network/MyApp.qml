@@ -21,13 +21,13 @@
 // automatically indent the entirety of the .qml file.
 
 
-import QtQuick 2.13
+import QtQuick 2.6
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.1
 
 import ArcGIS.AppFramework 1.0
-import Esri.ArcGISRuntime 100.10
+import Esri.ArcGISRuntime 100.11
 
 import "controls" as Controls
 
@@ -58,7 +58,7 @@ App {
     property var terminal
     property var terminals: []
     property var utilityNetworkSource
-    readonly property url featureLayerUrl: "https://sampleserver7.arcgisonline.com/arcgis/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer"
+    readonly property url featureLayerUrl: "https://sampleserver7.arcgisonline.com/server/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer"
 
     Page{
         anchors.fill: parent
@@ -96,7 +96,11 @@ App {
                         id: lineLayer
 
                         ServiceFeatureTable {
-                            url: featureLayerUrl + "/115"
+                            url: featureLayerUrl + "/3"
+                            Credential {
+                                username: "viewer01"
+                                password: "I68VGU^nMurF"
+                            }
                         }
 
                         UniqueValueRenderer {
@@ -132,7 +136,11 @@ App {
                         id: deviceLayer
 
                         ServiceFeatureTable {
-                            url: featureLayerUrl + "/100"
+                            url: featureLayerUrl + "/0"
+                            Credential {
+                                username: "viewer01"
+                                password: "I68VGU^nMurF"
+                            }
                         }
 
                         onSelectFeaturesStatusChanged: checkSelectionStatus();
@@ -225,7 +233,7 @@ App {
             SimpleMarkerSymbol {
                 id: startingPointSymbol
                 style: Enums.SimpleMarkerSymbolStyleCross
-                color: "Green"
+                color: "lime"
                 size: 20
             }
 
@@ -239,6 +247,11 @@ App {
             UtilityNetwork {
                 id: utilityNetwork
                 url: featureLayerUrl
+
+                Credential {
+                    username: "viewer01"
+                    password: "I68VGU^nMurF"
+                }
 
                 onTraceStatusChanged: {
                     if (traceStatus !== Enums.TaskStatusCompleted)
