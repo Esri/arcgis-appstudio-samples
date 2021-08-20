@@ -73,14 +73,15 @@ App {
                     // Set the initial basemap to Streets
                     BasemapStreets { }
 
-                    ViewpointExtent {
-                        Envelope {
-                            xMin: -9812147.35557238
-                            yMin: 5127070.36635111
-                            xMax: -9811785.0602376
-                            yMax: 5127305.41254146
-                            spatialReference: Factory.SpatialReference.createWebMercator();
+                    ViewpointCenter {
+                        Point {
+                            x: -10800000
+                            y: 4500000
+                            spatialReference: SpatialReference {
+                                wkid: 102100
+                            }
                         }
+                        targetScale: 3e7
                     }
 
                     FeatureLayer {
@@ -92,11 +93,7 @@ App {
                         // declare as child of feature layer, as featureTable is the default property
                         ServiceFeatureTable {
                             id: featureTable
-                            url: "https://sampleserver7.arcgisonline.com/server/rest/services/DamageAssessment/FeatureServer/0"
-                            Credential {
-                                username: "viewer01"
-                                password: "I68VGU^nMurF"
-                            }
+                            url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0"
 
                             onApplyEditsStatusChanged: {
                                 if (applyEditsStatus === Enums.TaskStatusCompleted) {
