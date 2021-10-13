@@ -21,7 +21,7 @@ import QtMultimedia 5.12
 
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Multimedia 1.0
-import ArcGIS.AppFramework.Labs.TensorFlow 1.0
+import ArcGIS.AppFramework.DeepLearning 1.0
 
 VideoOutput {
     id: videoOutput

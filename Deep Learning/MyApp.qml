@@ -25,7 +25,7 @@ import QtMultimedia 5.6
 import ArcGIS.AppFramework 1.0
 import ArcGIS.AppFramework.Multimedia 1.0
 import ArcGIS.AppFramework.InterAppCommunication 1.0
-import ArcGIS.AppFramework.Labs.TensorFlow 1.0
+import ArcGIS.AppFramework.DeepLearning 1.0
 
 
 import "controls" as Controls
