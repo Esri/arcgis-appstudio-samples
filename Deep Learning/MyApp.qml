@@ -161,7 +161,7 @@ App {
         externalModels.makeFolder();
         for (let fileName of internalModels.fileNames()) {
             externalModels.removeFile(externalModels.filePath(fileName));
-            internalModels.copyFile(fileName, externalModels.filePath(fileName));
+            internalModels.copyFile(internalModels.filePath(fileName), externalModels.filePath(fileName));
         }
     }
 
