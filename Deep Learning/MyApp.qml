@@ -101,14 +101,14 @@ App {
                     Material.background: "#4A4A4A"
                     Material.foreground: "white"
                     text: qsTr("FACE MASK DETECTION")
-
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     onClicked: {
                         stackView.push(analysisPage,
                                        {
-                                           modelSource: modelsFolder.fileUrl("masks-FC.tflite"),
-                                           headerTitle: "Face mask detection"
+                                           modelFileInfo: externalModels.fileInfo("masks-FC.tflite"),
+                                           emdFileInfo: externalModels.fileInfo("masks-FC.emd"),
+                                           headerTitle: qsTr("Face mask detection")
                                        });
                     }
                 }
@@ -128,8 +128,9 @@ App {
                     onClicked: {
                         stackView.push(analysisPage,
                                        {
-                                           modelSource: modelsFolder.fileUrl("COCO-SSD.tflite"),
-                                           headerTitle: "Object detection"
+                                           modelFileInfo: externalModels.fileInfo("COCO-SSD.tflite"),
+                                           txtFileInfo: externalModels.fileInfo("COCO-SSD.txt"),
+                                           headerTitle: qsTr("Object detection")
                                        });
                     }
                 }
@@ -142,10 +143,26 @@ App {
         }
     }
 
-    FileFolder {
-        id: modelsFolder
+    Component.onCompleted: {
+        copyModels()
+    }
 
-        path: app.folder.filePath("models")
+    FileFolder {
+        id: internalModels
+        url: "models"
+    }
+
+    FileFolder {
+        id: externalModels
+        path: "~/ArcGIS/Data/models"
+    }
+
+    function copyModels() {
+        externalModels.makeFolder();
+        for (let fileName of internalModels.fileNames()) {
+            externalModels.removeFile(externalModels.filePath(fileName));
+            internalModels.copyFile(fileName, externalModels.filePath(fileName));
+        }
     }
 
     // sample ends here ------------------------------------------------------------------------

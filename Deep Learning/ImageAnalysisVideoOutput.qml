@@ -57,7 +57,7 @@ VideoOutput {
         debug: videoOutput.debug
 
         analyzer {
-            modelSource: imageAnalysisModel.source
+            modelSource: imageAnalysisModel.tfliteFileInfo.url
             classNames: imageAnalysisModel.labels
             minimumScore: videoOutput.minimumScore
         }
