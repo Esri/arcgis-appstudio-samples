@@ -24,8 +24,10 @@ Item {
 
     //--------------------------------------------------------------------------
 
-    property url source
+    property FileInfo tfliteFileInfo
     property string modelType
+    property FileInfo emdFileInfo
+    property FileInfo txtFileInfo
     property var labels: []
     property var colors: ({})
 
@@ -44,27 +46,27 @@ Item {
 
     //--------------------------------------------------------------------------
 
-    onSourceChanged: {
+    onTfliteFileInfoChanged: {
         Qt.callLater(update);
     }
 
     //--------------------------------------------------------------------------
 
     function update() {
-        var fileInfo = AppFramework.fileInfo(source);
+        var fileInfo = tfliteFileInfo;
 
         if (debug) {
-            console.log(logCategory, arguments.callee.name, "source:", fileInfo.baseName, source);
+            console.log(logCategory, arguments.callee.name, "source:", fileInfo.fileName, tfliteFileInfo);
         }
 
-        if (fileInfo.folder.fileExists(fileInfo.baseName + ".emd")) {
-            readEMD(fileInfo);
+        if (emdFileInfo) {
+            readEMD(emdFileInfo);
         } else {
             modelType = "";
         }
 
-        if (fileInfo.folder.fileExists(fileInfo.baseName + ".txt")) {
-            readLabels(fileInfo);
+        if (txtFileInfo) {
+            readLabels(txtFileInfo);
         }
 
         if (debug) {
@@ -83,7 +85,8 @@ Item {
         var labels = [];
         var colors = {};
 
-        var emd = fileInfo.folder.readJsonFile(fileInfo.baseName + ".emd");
+        var emd = fileInfo.folder.readJsonFile(fileInfo.fileName);
+
         modelType = emd.ModelType || "";
 
         if (Array.isArray(emd.Classes)) {
@@ -112,7 +115,7 @@ Item {
             console.log(logCategory, arguments.callee.name, "Reading txt labels");
         }
 
-        var text = fileInfo.folder.readTextFile(fileInfo.baseName + ".txt");
+        var text = fileInfo.folder.readTextFile(fileInfo.fileName);
         labels = text.split("\n").map(label => label.trim()).filter(label => label > "");
 
         modelInfo.labels = labels;

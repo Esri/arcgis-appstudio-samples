@@ -31,8 +31,10 @@ Page {
     id: page
 
     //--------------------------------------------------------------------------
-    
-    property url modelSource
+
+    property FileInfo modelFileInfo
+    property FileInfo emdFileInfo
+    property FileInfo txtFileInfo
 
     property alias analysisModel: imageAnalysisVideoOutput.model
     property alias analysisFilter: imageAnalysisVideoOutput.filter
@@ -149,7 +151,7 @@ Page {
     Connections {
         target: analysisFilter
 
-        onDetected: {
+        function onDetected(result) {
             if (analysisModel.modelType === "ObjectClassification") {
                 activeName = result.name;
                 activeScore = result.score;
@@ -161,7 +163,7 @@ Page {
     Connections {
         target: analysisFilter.resultsModel
 
-        onCountChanged: {
+        function onCountChanged() {
             if (analysisFilter.resultsModel.count < 1) {
                 timer.restart();
             }
@@ -193,7 +195,9 @@ Page {
             anchors.fill: parent
 
             source: camera
-            model.source: modelSource
+            model.tfliteFileInfo: modelFileInfo
+            model.emdFileInfo: emdFileInfo
+            model.txtFileInfo: txtFileInfo
             debug: debugCheckBox.checked
             minimumScore: minimumScoreSlider.value
 
