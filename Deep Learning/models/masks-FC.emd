@@ -31,6 +31,7 @@
         }
     ],
     "ModelFile": "masks.pth",
+	"ModelFormat": "NHWC",
     "ImageHeight": 300,
     "ImageWidth": 300,
     "LearningRate": "2.0893e-03",
