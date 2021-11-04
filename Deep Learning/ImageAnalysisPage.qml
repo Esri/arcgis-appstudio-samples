@@ -200,36 +200,6 @@ Page {
             model.txtFileInfo: txtFileInfo
             debug: debugCheckBox.checked
             minimumScore: minimumScoreSlider.value
-
-            Component.onCompleted: fixOrientation();
-
-            function fixOrientation() {
-                if (Qt.platform.os === "ios") {
-                    autoOrientation = false;
-                    orientation = Qt.binding(function() {
-                        var orientationRotation = 0;
-                        switch (Screen.orientation) {
-                        case 1:
-                            orientationRotation = 0;
-                            break;
-
-                        case 2:
-                            orientationRotation = 90;
-                            break;
-
-                        case 4:
-                            orientationRotation = 180;
-                            break;
-
-                        case 8:
-                            orientationRotation = -90;
-                            break;
-                        }
-
-                        return (camera.position === Camera.FrontFace) ? ((camera.orientation + orientationRotation) % 360) : camera.orientation;
-                    } );
-                }
-            }
         }
 
         Text {
