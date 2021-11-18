@@ -15,15 +15,10 @@
  */
 
 import QtQuick 2.9
-import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
-import QtGraphicalEffects 1.0
-import QtQuick.Dialogs 1.2
 
 import ArcGIS.AppFramework 1.0
-import ArcGIS.AppFramework.InterAppCommunication 1.0
-import Esri.ArcGISRuntime 100.10
 import ArcGIS.AppFramework.WebView 1.0
 import "controls" as Controls
 

@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.1
 import ArcGIS.AppFramework 1.0
 import Esri.ArcGISRuntime 100.10
 
+import "../controls" as Controls
 
 Item {
     property real scaleFactor: AppFramework.displayScaleFactor
@@ -69,7 +70,7 @@ Item {
             if(!ready) return;
             var tolerance = 10;
             var returnPopupsOnly = true;
-            var maximumResults = 2;           
+            var maximumResults = 2;
             mapView.identifyLayersWithMaxResults(mouse.x, mouse.y, tolerance, returnPopupsOnly, maximumResults);
 
         }
@@ -83,7 +84,7 @@ Item {
                 // No results found
                 if(identifyLayersResults.length === 0) return;
                 // Going through individual Layer results list
-                // individual layer result can be from a FeatureLayer or MapServiceLayer                
+                // individual layer result can be from a FeatureLayer or MapServiceLayer
 
                 for(var k = 0; k < identifyLayersResults.length ; k++){
                     var identifyLayerResult = identifyLayersResults[k];
@@ -95,8 +96,8 @@ Item {
                             for(var j = 0; j < subLayerResult.popups.length; j++){
                                 var popup = subLayerResult.popups[j];
                                 selectedFeature = popup.geoElement;
-                                popupDef = popup.popupDefinition;                               
-                                // Appending the result to the model                               
+                                popupDef = popup.popupDefinition;
+                                // Appending the result to the model
                                 var newPopup = ArcGISRuntimeEnvironment.createObject("Popup", {
                                                                                          initGeoElement: selectedFeature,
                                                                                          initPopupDefinition: popupDef
@@ -113,7 +114,7 @@ Item {
                             popup = identifyLayerResult.popups[f];
                             selectedFeature = popup.geoElement;
                             popupDef = popup.popupDefinition;
-                            // Appending the result to the model                            
+                            // Appending the result to the model
                             newPopup = ArcGISRuntimeEnvironment.createObject("Popup", {
                                                                                  initGeoElement: selectedFeature,
                                                                                  initPopupDefinition: popupDef
@@ -185,15 +186,17 @@ Item {
     Pane {
         id: popupAsDialog
         Material.primary: "white"
-        Material.elevation:2
+        Material.elevation: 2
         padding: 5 * scaleFactor
         visible: popupListModel.count > 0
+        contentWidth: swipeView.implicitWidth
+        contentHeight: swipeView.implicitHeight
 
         x: 10 * scaleFactor
-        y: 10 * scaleFactor       
+        y: 10 * scaleFactor
         SwipeView{
             id:swipeView
-            implicitHeight: 150 * scaleFactor
+            implicitHeight: 165 * scaleFactor
             implicitWidth: 175 * scaleFactor
             clip: true
             Repeater {
@@ -217,7 +220,7 @@ Item {
                             Text {
                                 Layout.preferredWidth:  parent.width
                                 id:itemDesc
-                                text: popupListModel.count> 1? popupManager.popup.title + "\n(" + curIndx + " of " + popupListModel.count + ")":popupManager.popup.title
+                                text: popupManager.popup.title
                                 elide: Text.ElideRight
                                 color: "red"
                                 font {
@@ -265,7 +268,7 @@ Item {
                 }
             }
 
-            onCurrentIndexChanged: {              
+            onCurrentIndexChanged: {
                 //console.log("currentIndex",currentIndex, popupListModel.count)
                 if(currentIndex < 0)return;
 
@@ -289,6 +292,55 @@ Item {
                 }
 
             }
+        }
+
+        //Displays page # of page count and buttons to change
+        Rectangle{
+            width: parent.width * 0.75
+            color:"transparent"
+            anchors  {
+                horizontalCenter : parent.horizontalCenter
+                bottom: parent.bottom
+                bottomMargin: 8 * scaleFactor
+            }
+            Controls.Icon {
+                id: previousPage
+                Material.elevation: 0
+                maskColor: "#4c4c4c"
+                enabled: swipeView.currentIndex >= 1
+                rotation: app.isLeftToRight ? 90 : -90
+                imageSource: "../assets/chevron-up.png"
+                anchors.left : parent.left
+                anchors.verticalCenter: countText.verticalCenter
+                onClicked: {
+                    swipeView.currentIndex--
+                }
+            }
+
+            Controls.BaseText {
+                id: countText
+                text: qsTr("%1 of %2").arg(swipeView.currentIndex + 1).arg(swipeView.count)
+                elide: Text.ElideRight
+                maximumLineCount: 1
+                verticalAlignment: Text.AlignVCenter
+                anchors.centerIn: parent
+                anchors.bottom: parent.bottom
+            }
+
+            Controls.Icon {
+                id: nextPage
+                Material.elevation: 0
+                maskColor: "#4c4c4c"
+                enabled: swipeView.currentIndex + 1 < swipeView.count
+                rotation: app.isLeftToRight ? -90 : 90
+                imageSource: "../assets/chevron-up.png"
+                anchors.right:parent.right
+                anchors.verticalCenter: countText.verticalCenter
+                onClicked: {
+                    swipeView.currentIndex++
+                }
+            }
+
         }
 
     }
@@ -318,5 +370,6 @@ Item {
         }
     }
 }
+
 
 
