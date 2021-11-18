@@ -18,12 +18,11 @@ Item {
         anchors.fill: parent
         // make Drawing Window visible if map is drawing. Not visible if drawing completed
         Map{
-            initUrl: "http://arcgis.com/sharing/rest/content/items/de4a605afa3540f7835e659c23d90e8e"
+            initUrl: "http://arcgis.com/sharing/rest/content/items/f503dd82450e4fe8824b3416f701df71"
             onLoadStatusChanged: {
                 if(mapView.map.loadStatus === Enums.LoadStatusLoaded){
                     legendInfoListModel = mapView.map.legendInfos
                     legendInfoListModel.fetchLegendInfos(true)
-
                 }
             }
         }
@@ -79,12 +78,15 @@ Item {
         Column {
             anchors {
                 fill: parent
-                margins: 10 * scaleFactor
+                topMargin: 10 * scaleFactor
+                bottomMargin: 10 * scaleFactor
             }
-            spacing: 2 * scaleFactor
+            spacing: 8 * scaleFactor
 
             Row {
-                spacing: 55 * scaleFactor
+                id: legendHeader
+                x: 10 * scaleFactor
+                spacing: 70 * scaleFactor
 
                 Text {
                     text: qsTr("Legend")
@@ -96,15 +98,14 @@ Item {
 
                 // Legend icon to allow expanding and collapsing
                 Image {
-                    source: legendRect.expanded ? "../assets/ic_menu_legendpopover_light_d.png" : "../assets/ic_menu_legendpopover_light.png"
+                    source: legendRect.expanded ? "../assets/chevron-up.png" : "../assets/chevron-down.png"
                     width: 28 * scaleFactor
                     height: width
-
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
                             if (legendRect.expanded) {
-                                legendRect.height = 40 * scaleFactor;
+                                legendRect.height = 45 * scaleFactor;
                                 legendRect.expanded = false;
                             } else {
                                 legendRect.height = 300 * scaleFactor;
@@ -118,15 +119,18 @@ Item {
             // Create a list view to display the legend
             ListView {
                 id: legendListView
-                anchors.margins: 10 * scaleFactor
-                width: 165 * scaleFactor
+                anchors{
+                    margins: 10 * scaleFactor
+                }
+                width: legendRect.width
                 height: 240 * scaleFactor
                 clip: true
                 model: legendInfoListModel
 
                 // Create delegate to display the name with an image
                 delegate: Item {
-                    width: parent.width
+                    x: 10 * scaleFactor
+                    width: legendRect.width
                     height: 35 * scaleFactor
                     clip: true
 
@@ -134,7 +138,6 @@ Item {
                         spacing: 5
                         anchors.verticalCenter: parent.verticalCenter
                         Image {
-
                             width: symbolWidth
                             height: symbolHeight
                             source: symbolUrl
@@ -155,12 +158,14 @@ Item {
                     criteria: ViewSection.FullString
                     labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
                     delegate: Rectangle {
-                        width: 180 * scaleFactor
+                        width: legendRect.width
                         height: childrenRect.height
                         color: "lightsteelblue"
-
                         Text {
+                            x: 10 * scaleFactor
+                            width: legendRect.width - (20 * scaleFactor)
                             text: section
+                            wrapMode: Text.WordWrap
                             font.bold: true
                             font.pixelSize: 13 * scaleFactor
                         }
