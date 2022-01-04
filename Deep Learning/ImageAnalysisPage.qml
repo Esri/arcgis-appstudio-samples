@@ -61,13 +61,20 @@ Page {
     Camera {
         id: camera
         position: headerTitle === "Face mask detection" ? Camera.FrontFace : Camera.UnspecifiedPosition
-//        deviceId: QtMultimedia.defaultCamera.deviceId
+        deviceId: QtMultimedia.defaultCamera.deviceId
         imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
+
+        focus {
+            focusMode: Camera.FocusContinuous
+            focusPointMode: Camera.FocusPointAuto
+        }
         
         exposure {
-            exposureCompensation: -1.0
+            exposureCompensation: Camera.ExposureAuto
             exposureMode: Camera.ExposurePortrait
         }
+
+        flash.mode: Camera.FlashRedEyeReduction
     }
     
     //--------------------------------------------------------------------------
