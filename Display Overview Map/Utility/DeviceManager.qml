@@ -18,7 +18,7 @@ Item {
     // OS-specific, device-specific constants
     readonly property bool isiPhoneXSeries: isiOS && checkIfNotchAvailable()
     readonly property bool isDesktop: false
-    readonly property bool isTablet: ( Math.max(app.width, app.height) > 1000 *deviceManager.scaleFactor ) || ( AppFramework.systemInformation.family === "tablet" )
+    readonly property bool isTablet: ( Math.max(app.width, app.height) > 1000 * scaleFactor ) || ( AppFramework.systemInformation.family === "tablet" )
     readonly property bool isAndroid: Qt.platform.os === "android"
     readonly property bool isiOS: Qt.platform.os === "ios"
     readonly property bool isOnline: Networking.isOnline
@@ -29,19 +29,22 @@ Item {
     readonly property bool isLarge: !isCompact && !isMidsized
     readonly property bool isLandscape: app.width > app.height
     readonly property bool isMobile: ( Qt.platform.os === "ios") || ( Qt.platform.os === "android")
-    readonly property bool isSmallScreen: (width || height) < 400 *deviceManager.scaleFactor
+    readonly property bool isSmallScreen: (width || height) < 400 * scaleFactor
 
     // Sizing constants - margins, padding, offsets
     readonly property real scaleFactor: AppFramework.displayScaleFactor
     readonly property int  baseFontSize : app.info.propertyValue("baseFontSize", 15 * scaleFactor) + (isCompact ? 0 : 3)
-    readonly property real baseUnit: 8 *deviceManager.scaleFactor
+    readonly property real baseUnit: 8 * scaleFactor
     readonly property real defaultMargin: 2 * baseUnit
-    readonly property real maximumScreenWidth: app.width > 1000 *deviceManager.scaleFactor ? 800 *deviceManager.scaleFactor : 568 *deviceManager.scaleFactor
-    readonly property real compactThreshold: 496 *deviceManager.scaleFactor
-    readonly property int headerHeight: 56 *deviceManager.scaleFactor
-    readonly property int footerHeight: 20 *deviceManager.scaleFactor
-    readonly property real topNotchHeightOffset: isiOS ? (isPortrait ? getHeightPortrait() : getHeightLandscape()) : 0
-    readonly property real bottomIndicatorHeightOffset: checkIfHomeIndicatorAvailable() ? 16 *deviceManager.scaleFactor : 0
+    readonly property real maximumScreenWidth: app.width > 1000 * scaleFactor ? 800 * scaleFactor : 568 * scaleFactor
+    readonly property real compactThreshold: 496 * scaleFactor
+    readonly property int headerHeight: 56 * scaleFactor
+    readonly property int footerHeight: 20 * scaleFactor
+    readonly property real portraitHeightOffset: checkIfNotchAvailable() ? 40 * scaleFactor : 20 * scaleFactor
+    readonly property real landscapeWidthOffset: checkIfNotchAvailable() ? 40 * scaleFactor : 0
+    readonly property real bottomIndicatorHeightOffset: checkIfHomeIndicatorAvailable() ? 16 * scaleFactor : 0
+    readonly property real iOSWidthOffset: isiOS ? ( deviceManager.isPortrait ? 0 : landscapeWidthOffset ) : 0
+    readonly property real iOSHeightOffset: isiOS ? ( deviceManager.isPortrait ? portraitHeightOffset : 20 * deviceManager.scaleFactor ) : 0
 
     readonly property string primaryColor: "#8f499c"
 
@@ -49,14 +52,14 @@ Item {
     * @desc => Return the height offset for device in landscape mode based on whether notch is present or not
     */
     function getHeightLandscape() {
-        return checkIfNotchAvailable() ? 0 : 20 *deviceManager.scaleFactor
+        return checkIfNotchAvailable() ? 20 : 20 * scaleFactor
     }
 
     /*
     * @desc => Return the height offset for device in portrait mode based on whether notch is present or not
     */
     function getHeightPortrait() {
-        return checkIfNotchAvailable() ? 40 *deviceManager.scaleFactor : 20 *deviceManager.scaleFactor
+        return checkIfNotchAvailable() ? 40 * scaleFactor : 20 * scaleFactor
     }
 
     /*

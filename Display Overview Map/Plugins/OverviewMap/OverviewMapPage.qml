@@ -9,20 +9,18 @@ import Esri.ArcGISRuntime 100.14
 
 import "../../UIControls" as Controls
 
-
 Rectangle {
     id: overviewMapBorder
 
     //Adjusts the dimensions based on screen size and orientation
-    width: deviceManager.isLandscape && deviceManager.isCompact ? mapView.width * 0.25 : Math.min(mapView.width * 0.45, 400)
+    width: deviceManager.isLandscape && deviceManager.isCompact ? geoView.width * 0.25 : Math.min(geoView.width * 0.45, 400)
     height: width * (3/4)
+
     //Positioning is based on relative position of main mapview
-    x: currentOverviewMapRelativeX * rootRectangle.width
-    y: currentOverviewMapRelativeY * rootRectangle.height
     radius: 4
     clip: true
     border.color: "black"
-    border.width: 3
+    border.width: 2
 
     //Drag attributes for allowing overview map to be moved
     Drag.active: dragArea.drag.active
@@ -32,12 +30,14 @@ Rectangle {
     property alias overviewMap: overviewMap
     property alias overviewMapGraphicsOverlay: overviewMapGraphicsOverlay
     property alias reticle: reticle
+    property alias popUp: popUp
     property alias map: map
 
     property real currentOverviewMapRelativeX: 0
     property real currentOverviewMapRelativeY: 0
 
     property int overviewMapMultiplier: 10
+
 
     property var geoView: null
     property bool intiViewpointCenter: false
@@ -51,16 +51,19 @@ Rectangle {
      *          update property overview map relative x position
      */
     onXChanged: {
-        currentOverviewMapRelativeX = overviewMapBorder.x / rootRectangle.width
+        if ( geoView && geoView.width > 0 ){
+            currentOverviewMapRelativeX = overviewMapBorder.x / geoView.width
+        }
     }
     /*
      *  @desc:  When overview map y position changes,
      *          update property overview map relative y position
      */
     onYChanged: {
-        currentOverviewMapRelativeY = overviewMapBorder.y / rootRectangle.height
+        if ( geoView && geoView.height > 0 ){
+            currentOverviewMapRelativeY = overviewMapBorder.y / geoView.height
+        }
     }
-
 
     //Mapview for Overview Map
     MapView {
@@ -70,7 +73,7 @@ Rectangle {
             margins: 3
         }
         attributionTextVisible: false
-        interactionEnabled: !popUp.overviewMapUnlocked
+        interactionEnabled: !popUpContent.overviewMapUnlocked
 
 
         property bool updateViewpointTaskInProgress: false
@@ -102,7 +105,7 @@ Rectangle {
                     geoViewUpdateViewpointTaskInProgress = true
                     isLoading = true
                     const taskID = geoView.setViewpointAndSeconds(updateViewPointCenter, 0)
-                    reticle.geometry = mapView.visibleArea
+                    reticle.geometry = geoView.visibleArea
                     overviewMapGraphicsOverlay.graphics.append(reticle)
                 }
             }
@@ -239,7 +242,6 @@ Rectangle {
          *  @desc:  On button click, display popup
          */
         onClicked: {
-            //popUp.visible = true
             uiStackView.push(popUp)
         }
 
@@ -284,36 +286,52 @@ Rectangle {
      */
     Connections {
 
-        target: app //TODO: Update if root id is different
+        target: parent
 
         /*
-         *  @desc:  On App width change, adjust the horizontal position of the overview map
+         *  @desc:  On App width change call adjustOverviewPosition()
          */
         function onWidthChanged() {
-            var relativePosition  = currentOverviewMapRelativeX * rootRectangle.width
-            var endPosition = relativePosition + overviewMapBorder.width
-            if(endPosition >= rootRectangle.width){
-                overviewMapBorder.x = rootRectangle.width - overviewMapBorder.width
-            } else {
-                overviewMapBorder.x = relativePosition
-            }
+            adjustOverviewPosition()
         }
 
         /*
-         *  @desc:  On App height change, adjust the vertical position of the overview map
+         *  @desc:  On App height change call adjustOverviewPosition()
          */
         function onHeightChanged() {
-            var relativePosition  = currentOverviewMapRelativeY * rootRectangle.height
-            var endPosition = relativePosition + overviewMapBorder.height
-            if(endPosition >= rootRectangle.height){
-                overviewMapBorder.y = rootRectangle.height - overviewMapBorder.height
+            adjustOverviewPosition()
+        }
+
+        /*
+         *  @desc:  Adjust the vertical and horizontal position of the overview map
+         *          Offsets position based on if device has a notch, status bar, and/or
+         *          page contains a header
+         */
+        function adjustOverviewPosition() {
+            var relativeXPosition  = currentOverviewMapRelativeX * geoView.width
+            var endXPosition = relativeXPosition + overviewMapBorder.width
+            if(endXPosition >= geoView.width){
+                overviewMapBorder.x = geoView.width - overviewMapBorder.width
             } else {
-                overviewMapBorder.y = relativePosition
+                overviewMapBorder.x = Math.max(relativeXPosition, deviceManager.iOSWidthOffset)
+            }
+
+            var relativeYPosition  = currentOverviewMapRelativeY * geoView.height
+            var endYPosition = relativeYPosition + overviewMapBorder.height
+            if(endYPosition >= geoView.height){
+                overviewMapBorder.y = geoView.height - overviewMapBorder.height
+            } else {
+                if(parent.parent.parent.header && parent.parent.parent.header.height > 0){
+                    overviewMapBorder.y = Math.max(relativeYPosition, 0)
+                } else {
+
+                    overviewMapBorder.y = Math.max(relativeYPosition, deviceManager.iOSHeightOffset)
+                }
             }
         }
     }
 
-    Controls.PageLayout {
+    Controls.BasePageControl {
         id: popUp
         visible: false
         pageContentItem: OverviewMapSettingsPage {

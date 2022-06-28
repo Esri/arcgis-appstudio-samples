@@ -18,16 +18,16 @@ Item {
                 id:descPageheader
                 color:"#8f499c"
                 Layout.preferredWidth: parent.width
-                Layout.preferredHeight: 50 * deviceManager.scaleFactor
+                Layout.preferredHeight: 50 * scaleFactor
                 ToolButton {
                     id:infoImage
                     indicator: Image{
-                        width: 30 * deviceManager.scaleFactor
-                        height: 30 * deviceManager.scaleFactor
+                        width: 30 * scaleFactor
+                        height: 30 * scaleFactor
                         anchors.centerIn: parent
                         horizontalAlignment: Qt.AlignRight
                         verticalAlignment: Qt.AlignVCenter
-                        source: "../Assets/Images/clear.png"
+                        source: "../assets/clear.png"
                         fillMode: Image.PreserveAspectFit
                         mipmap: true
                     }
@@ -43,7 +43,7 @@ Item {
                     id: aboutApp
                     text:qsTr("About")
                     color:"white"
-                    font.pixelSize: deviceManager.baseFontSize * 1.1
+                    font.pixelSize: app.baseFontSize * 1.1
                     font.bold: true
                     anchors.centerIn: parent
                     maximumLineCount: 2
@@ -60,7 +60,7 @@ Item {
                     clip:true
                     Text{
                         id: descText
-                        y: 30 * deviceManager.scaleFactor
+                        y: 30 * scaleFactor
                         text:app.info.description
                         anchors.horizontalCenterOffset: 0
                         color:"white"
@@ -71,7 +71,7 @@ Item {
                         elide: Text.ElideRight
                         anchors.horizontalCenter: parent.horizontalCenter
                         font {
-                            pixelSize: deviceManager.baseFontSize
+                            pixelSize: app.baseFontSize
                         }
                         onLinkActivated: Qt.openUrlExternally(link)
                     }

@@ -106,7 +106,7 @@ App {
                             verticalCenter: parent.verticalCenter
                         }
                         onClicked: {
-                            descPage.visible = 1
+                            uiStackView.push(descPage)
                         }
                     }
                 }
@@ -157,7 +157,6 @@ App {
             }
         }
     }
-
 
     Pages.DescriptionPage {
         id:descPage
