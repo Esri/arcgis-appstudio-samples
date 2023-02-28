@@ -19,7 +19,7 @@ Item {
             Basemap {
                 // Nest an ArcGISVectorTiledLayer Layer in the Basemap
                 ArcGISVectorTiledLayer {
-                    url: "http://www.arcgis.com/home/item.html?id=dcbbba0edf094eaa81af19298b9c6247"
+                    url: "https://www.arcgis.com/home/item.html?id=63c47b7177f946b49902c24129b87252"
                 }
             }
             initialViewpoint: ViewpointCenter {
@@ -61,16 +61,16 @@ Item {
             switch (comboBoxBasemap.currentText) {
             case "Navigation":
             default:
-                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"http://www.arcgis.com/home/item.html?id=dcbbba0edf094eaa81af19298b9c6247"});
+                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"https://www.arcgis.com/home/item.html?id=63c47b7177f946b49902c24129b87252"});
                 break;
             case "Streets":
-                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"http://www.arcgis.com/home/item.html?id=4e1133c28ac04cca97693cf336cd49ad"});
+                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"https://www.arcgis.com/home/item.html?id=de26a3cf4cc9451298ea173c4b324736"});
                 break;
             case "Night":
-                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"http://www.arcgis.com/home/item.html?id=bf79e422e9454565ae0cbe9553cf6471"});
+                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"https://www.arcgis.com/home/item.html?id=86f556a2d1fd468181855a35e344567f"});
                 break;
             case "Dark Gray":
-                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"http://www.arcgis.com/home/item.html?id=850db44b9eb845d3bd42b19e8aa7a024"});
+                layer = ArcGISRuntimeEnvironment.createObject("ArcGISVectorTiledLayer", {url:"https://www.arcgis.com/home/item.html?id=c11ce4f7801740b2905eb03ddc963ac8"});
                 break;
             }
             var newBasemap = ArcGISRuntimeEnvironment.createObject("Basemap");
